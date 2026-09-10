@@ -26,6 +26,7 @@ const loader = new THREE.TextureLoader();
 const texCache = new Map();
 let maxAniso = 1;
 function loadTex(url, srgb, repeat) {
+  url = import.meta.env.BASE_URL + url.replace(/^\//, "");
   if (!url) return null;
   const key = url;
   if (texCache.has(key)) return texCache.get(key);
@@ -88,7 +89,7 @@ export default function KitchenLive() {
   const [specOpen, setSpecOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/decors.json")
+    fetch(import.meta.env.BASE_URL + "decors.json")
       .then((r) => r.json())
       .then((list) => {
         setDecors(list);
@@ -504,7 +505,7 @@ export default function KitchenLive() {
             {filtered.map((d) => (
               <button key={d.code} title={d.name} onClick={() => setChoice((c) => ({ ...c, [active]: d.code }))}
                 className={`aspect-square rounded-md border-2 bg-cover bg-center ${choice[active] === d.code ? "border-[#4a4540] scale-95" : "border-transparent"}`}
-                style={{ backgroundImage: d.photo?.card ? `url(${d.photo.card})` : "none", backgroundColor: d.photo?.card ? undefined : "#ccc" }} />
+                style={{ backgroundImage: d.photo?.card ? `url(${import.meta.env.BASE_URL + d.photo.card.slice(1)})` : "none", backgroundColor: d.photo?.card ? undefined : "#ccc" }} />
             ))}
           </div>
           <div className="flex items-center justify-between mt-3">
