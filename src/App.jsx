@@ -26,8 +26,8 @@ const loader = new THREE.TextureLoader();
 const texCache = new Map();
 let maxAniso = 1;
 function loadTex(url, srgb, repeat) {
-  url = import.meta.env.BASE_URL + url.replace(/^\//, "");
   if (!url) return null;
+    url = import.meta.env.BASE_URL + url.replace(/^\//, "");
   const key = url;
   if (texCache.has(key)) return texCache.get(key);
   const t = loader.load(url);
