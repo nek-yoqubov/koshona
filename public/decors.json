@@ -1,0 +1,2589 @@
+[
+  {
+    "code": "W908_2",
+    "name": "A Белый базовый W908 ST2",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "W908_SM",
+    "name": "A Белый гладкий W908 SM",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "F685_10",
+    "name": "Акапулько F685 ST10",
+    "photo": {
+      "card": "/decors/F685_10/card.webp",
+      "detail": "/decors/F685_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F685_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F685_10/normal.png",
+      "roughness": "/decors/F685_10/roughness.jpg",
+      "roughnessValue": 0.62,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1277_9",
+    "name": "Акация лайкленд светлая H1277 ST9",
+    "photo": {
+      "card": "/decors/H1277_9/card.webp",
+      "detail": "/decors/H1277_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1277_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1277_9/normal.png",
+      "roughness": "/decors/H1277_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1242",
+    "name": "Акация Шеффилд натуральный Н1242",
+    "photo": {
+      "card": "/decors/H1242/card.webp",
+      "detail": "/decors/H1242/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1242/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1242/normal.png",
+      "roughness": "/decors/H1242/roughness.jpg",
+      "roughnessValue": 0.54,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "U705_9",
+    "name": "Ангора серая U705 ST9",
+    "photo": {
+      "card": "/decors/U705_9/card.webp",
+      "detail": "/decors/U705_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U705_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U705_9/normal.png",
+      "roughness": "/decors/U705_9/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U788_9",
+    "name": "Арктика серый U788 ST9",
+    "photo": {
+      "card": "/decors/U788_9/card.webp",
+      "detail": "/decors/U788_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U788_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U788_9/normal.png",
+      "roughness": "/decors/U788_9/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U220_9",
+    "name": "Бежевый нежный U220 ST9",
+    "photo": {
+      "card": "/decors/U220_9/card.jpg",
+      "detail": "/decors/U220_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U220_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U220_9/normal.png",
+      "roughness": "/decors/U220_9/roughness.jpg",
+      "roughnessValue": 0.54,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U156_9",
+    "name": "Бежевый песок U156 ST9",
+    "photo": {
+      "card": "/decors/U156_9/card.webp",
+      "detail": "/decors/U156_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U156_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U156_9/normal.png",
+      "roughness": "/decors/U156_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U775_9",
+    "name": "Бело-серый U775 ST9",
+    "photo": {
+      "card": "/decors/U775_9/card.webp",
+      "detail": "/decors/U775_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U775_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U775_9/normal.png",
+      "roughness": "/decors/U775_9/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "W1100_9",
+    "name": "Белый Альпийский W1100 ST9 PE",
+    "photo": {
+      "card": "/decors/W1100_9/card.webp",
+      "detail": "/decors/W1100_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/W1100_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/W1100_9/normal.png",
+      "roughness": "/decors/W1100_9/roughness.jpg",
+      "roughnessValue": 0.3,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "W960_SM",
+    "name": "Белый классический W960 SM",
+    "photo": {
+      "card": "/decors/W960_SM/card.webp",
+      "detail": "/decors/W960_SM/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/W960_SM/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/W960_SM/normal.png",
+      "roughness": "/decors/W960_SM/roughness.jpg",
+      "roughnessValue": 0.3,
+      "tiling": [
+        2.0,
+        8.0
+      ]
+    }
+  },
+  {
+    "code": "W960_7",
+    "name": "Белый классический W960 ST7",
+    "photo": {
+      "card": "/decors/W960_7/card.webp",
+      "detail": "/decors/W960_7/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/W960_7/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/W960_7/normal.png",
+      "roughness": "/decors/W960_7/roughness.jpg",
+      "roughnessValue": 0.28,
+      "tiling": [
+        1.0,
+        4.0
+      ]
+    }
+  },
+  {
+    "code": "W980_2",
+    "name": "Белый платиновый W980 ST2",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "W1000_19",
+    "name": "Белый премиум W1000 ST19",
+    "photo": {
+      "card": "/decors/W1000_19/card.webp",
+      "detail": "/decors/W1000_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/W1000_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/W1000_19/normal.png",
+      "roughness": "/decors/W1000_19/roughness.jpg",
+      "roughnessValue": 0.37,
+      "tiling": [
+        5.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "code": "H1732_9",
+    "name": "Берёза песочная H1732 ST9",
+    "photo": {
+      "card": "/decors/H1732_9/card.webp",
+      "detail": "/decors/H1732_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1732_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1732_9/normal.png",
+      "roughness": "/decors/H1732_9/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F186_9",
+    "name": "Бетон чикаго светлый F186 ST 9",
+    "photo": {
+      "card": "/decors/F186_9/card.webp",
+      "detail": "/decors/F186_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F186_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F186_9/normal.png",
+      "roughness": "/decors/F186_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F187_9",
+    "name": "Бетон чикаго темный F187 ST9",
+    "photo": {
+      "card": "/decors/F187_9/card.webp",
+      "detail": "/decors/F187_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F187_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F187_9/normal.png",
+      "roughness": "/decors/F187_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1910_9",
+    "name": "Бук луговой H1910 ST9",
+    "photo": {
+      "card": "/decors/H1910_9/card.webp",
+      "detail": "/decors/H1910_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1910_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1910_9/normal.png",
+      "roughness": "/decors/H1910_9/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "U108_9",
+    "name": "Ванильный жёлтый U108 ST9",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H1636_12",
+    "name": "Вишня локарно H1636 ST12",
+    "photo": {
+      "card": "/decors/H1636_12/card.webp",
+      "detail": "/decors/H1636_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1636_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1636_12/normal.png",
+      "roughness": "/decors/H1636_12/roughness.jpg",
+      "roughnessValue": 0.57,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3730_10",
+    "name": "Гикори натуральный H3730 ST10",
+    "photo": {
+      "card": "/decors/H3730_10/card.webp",
+      "detail": "/decors/H3730_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3730_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3730_10/normal.png",
+      "roughness": "/decors/H3730_10/roughness.jpg",
+      "roughnessValue": 0.54,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "U525_9",
+    "name": "Делфт голубой U525 st9",
+    "photo": {
+      "card": "/decors/U525_9/card.webp",
+      "detail": "/decors/U525_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U525_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U525_9/normal.png",
+      "roughness": "/decors/U525_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "AU540_9",
+    "name": "Деним голубой AU540 ST9",
+    "photo": {
+      "card": "/decors/AU540_9/card.webp",
+      "detail": "/decors/AU540_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/AU540_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/AU540_9/normal.png",
+      "roughness": "/decors/AU540_9/roughness.jpg",
+      "roughnessValue": 0.62,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U963_9",
+    "name": "Диамант серый U963 ST9",
+    "photo": {
+      "card": "/decors/U963_9/card.webp",
+      "detail": "/decors/U963_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U963_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U963_9/normal.png",
+      "roughness": "/decors/U963_9/roughness.jpg",
+      "roughnessValue": 0.7,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1318_10",
+    "name": "Дикий дуб натуральный H1318 ST10",
+    "photo": {
+      "card": "/decors/H1318_10/card.webp",
+      "detail": "/decors/H1318_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1318_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1318_10/normal.png",
+      "roughness": "/decors/H1318_10/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1122_22",
+    "name": "Древесина белая H1122 ST22",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H3787_19",
+    "name": "Древесина Боливар коричневая H3787 ST19",
+    "photo": {
+      "card": "/decors/H3787_19/card.jpg",
+      "detail": "/decors/H3787_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3787_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3787_19/normal.png",
+      "roughness": "/decors/H3787_19/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3786_19",
+    "name": "Древесина Боливар натуральная H3786 ST19",
+    "photo": {
+      "card": "/decors/H3786_19/card.jpg",
+      "detail": "/decors/H3786_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3786_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3786_19/normal.png",
+      "roughness": "/decors/H3786_19/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H3090_22",
+    "name": "Древисина Шорвуд H3090 ST22",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H1362_12",
+    "name": "Дуб барония светлый H1362 ST12",
+    "photo": {
+      "card": "/decors/H1362_12/card.webp",
+      "detail": "/decors/H1362_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1362_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1362_12/normal.png",
+      "roughness": "/decors/H1362_12/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1303_12",
+    "name": "Дуб Бельмонт коричневый H1303 st12",
+    "photo": {
+      "card": "/decors/H1303_12/card.webp",
+      "detail": "/decors/H1303_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1303_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1303_12/normal.png",
+      "roughness": "/decors/H1303_12/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1330_10",
+    "name": "Дуб винтаж сантафе H1330 ST10",
+    "photo": {
+      "card": "/decors/H1330_10/card.webp",
+      "detail": "/decors/H1330_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1330_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1330_10/normal.png",
+      "roughness": "/decors/H1330_10/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3157_12",
+    "name": "Дуб Виченца H3157 ST12",
+    "photo": {
+      "card": "/decors/H3157_12/card.webp",
+      "detail": "/decors/H3157_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3157_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3157_12/normal.png",
+      "roughness": "/decors/H3157_12/roughness.jpg",
+      "roughnessValue": 0.33,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3152_19",
+    "name": "Дуб Виченца белёный H3152 st19",
+    "photo": {
+      "card": "/decors/H3152_19/card.webp",
+      "detail": "/decors/H3152_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3152_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3152_19/normal.png",
+      "roughness": "/decors/H3152_19/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        5.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "code": "H1180_37",
+    "name": "Дуб Галифакс натуральный H1180 ST37",
+    "photo": {
+      "card": "/decors/H1180_37/card.webp",
+      "detail": "/decors/H1180_37/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1180_37/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1180_37/normal.png",
+      "roughness": "/decors/H1180_37/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3176_37",
+    "name": "Дуб Галифакс олово H3176 ST37",
+    "photo": {
+      "card": "/decors/H3176_37/card.webp",
+      "detail": "/decors/H3176_37/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3176_37/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3176_37/normal.png",
+      "roughness": "/decors/H3176_37/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1181_37",
+    "name": "Дуб Галифакс табак H1181 ST37",
+    "photo": {
+      "card": "/decors/H1181_37/card.webp",
+      "detail": "/decors/H1181_37/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1181_37/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1181_37/normal.png",
+      "roughness": "/decors/H1181_37/roughness.jpg",
+      "roughnessValue": 0.83,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3325_28",
+    "name": "Дуб гладстоун табак H3325 ST28",
+    "photo": {
+      "card": "/decors/H3325_28/card.webp",
+      "detail": "/decors/H3325_28/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3325_28/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3325_28/normal.png",
+      "roughness": "/decors/H3325_28/roughness.jpg",
+      "roughnessValue": 0.9,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3131_12",
+    "name": "Дуб давос натуральный H3131 ST12",
+    "photo": {
+      "card": "/decors/H3131_12/card.webp",
+      "detail": "/decors/H3131_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3131_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3131_12/normal.png",
+      "roughness": "/decors/H3131_12/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3359",
+    "name": "Дуб Девенпорт натуральный светлый H3359",
+    "photo": {
+      "card": "/decors/H3359/card.webp",
+      "detail": "/decors/H3359/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3359/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3359/normal.png",
+      "roughness": "/decors/H3359/roughness.jpg",
+      "roughnessValue": 0.51,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1399_10",
+    "name": "Дуб денвер трюфель H1399 ST10",
+    "photo": {
+      "card": "/decors/H1399_10/card.webp",
+      "detail": "/decors/H1399_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1399_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1399_10/normal.png",
+      "roughness": "/decors/H1399_10/roughness.jpg",
+      "roughnessValue": 0.58,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1387_10",
+    "name": "Дуб Денвер Графит ST10 H1387",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H1113_10",
+    "name": "Дуб Канзас Коричневый H1113 ST10",
+    "photo": {
+      "card": "/decors/H1113_10/card.webp",
+      "detail": "/decors/H1113_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1113_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1113_10/normal.png",
+      "roughness": "/decors/H1113_10/roughness.jpg",
+      "roughnessValue": 0.66,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1369",
+    "name": "Дуб Каселла каштановый H1369",
+    "photo": {
+      "card": "/decors/H1369/card.webp",
+      "detail": "/decors/H1369/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1369/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1369/normal.png",
+      "roughness": "/decors/H1369/roughness.jpg",
+      "roughnessValue": 1.0,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1385_40",
+    "name": "Дуб Каселла натуральный H1385 ST40",
+    "photo": {
+      "card": "/decors/H1385_40/card.webp",
+      "detail": "/decors/H1385_40/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1385_40/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1385_40/normal.png",
+      "roughness": "/decors/H1385_40/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1367_40",
+    "name": "Дуб Каселла натуральный светлый H1367 ST40",
+    "photo": {
+      "card": "/decors/H1367_40/card.webp",
+      "detail": "/decors/H1367_40/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1367_40/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1367_40/normal.png",
+      "roughness": "/decors/H1367_40/roughness.jpg",
+      "roughnessValue": 0.46,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3170_12",
+    "name": "Дуб кендал натуральный H3170 St12",
+    "photo": {
+      "card": "/decors/H3170_12/card.webp",
+      "detail": "/decors/H3170_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3170_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3170_12/normal.png",
+      "roughness": "/decors/H3170_12/roughness.jpg",
+      "roughnessValue": 0.3,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3398_12",
+    "name": "Дуб кендал коньяк H3398 St12",
+    "photo": {
+      "card": "/decors/H3398_12/card.webp",
+      "detail": "/decors/H3398_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3398_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3398_12/normal.png",
+      "roughness": "/decors/H3398_12/roughness.jpg",
+      "roughnessValue": 0.48,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3395_12",
+    "name": "Дуб корбридж натуральный H3395 ST12",
+    "photo": {
+      "card": "/decors/H3395_12/card.webp",
+      "detail": "/decors/H3395_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3395_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3395_12/normal.png",
+      "roughness": "/decors/H3395_12/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3317_28",
+    "name": "Дуб кунео коричневый H3317 ST28",
+    "photo": {
+      "card": "/decors/H3317_28/card.webp",
+      "detail": "/decors/H3317_28/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3317_28/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3317_28/normal.png",
+      "roughness": "/decors/H3317_28/roughness.jpg",
+      "roughnessValue": 0.61,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3331_10",
+    "name": "Дуб Небраска натуральная H3331 ST10 ЛДСПЭггер 5,796",
+    "photo": {
+      "card": "/decors/H3331_10/card.webp",
+      "detail": "/decors/H3331_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3331_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3331_10/normal.png",
+      "roughness": "/decors/H3331_10/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3332_10",
+    "name": "Дуб Небраска серая H3332 ST10",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H3003_19",
+    "name": "Дуб Норвичский H3003 ST19",
+    "photo": {
+      "card": "/decors/H3003_19/card.webp",
+      "detail": "/decors/H3003_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3003_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3003_19/normal.png",
+      "roughness": "/decors/H3003_19/roughness.jpg",
+      "roughnessValue": 0.64,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1715_12",
+    "name": "Дуб Парона H1715 ST12",
+    "photo": {
+      "card": "/decors/H1715_12/card.webp",
+      "detail": "/decors/H1715_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1715_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1715_12/normal.png",
+      "roughness": "/decors/H1715_12/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3322_17",
+    "name": "Дуб Ровато натуральный светлый H3322 ST17",
+    "photo": {
+      "card": "/decors/H3322_17/card.jpg",
+      "detail": "/decors/H3322_17/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3322_17/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3322_17/normal.png",
+      "roughness": "/decors/H3322_17/roughness.jpg",
+      "roughnessValue": 0.53,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1142_36",
+    "name": "Дуб Сакраменто коричневый H1142 ST36",
+    "photo": {
+      "card": "/decors/H1142_36/card.webp",
+      "detail": "/decors/H1142_36/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1142_36/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1142_36/normal.png",
+      "roughness": "/decors/H1142_36/roughness.jpg",
+      "roughnessValue": 0.38,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1137_12",
+    "name": "Дуб сорано черно коричневый H1137 ST12 ЛДСП 5,796",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H1316_17",
+    "name": "Дуб текстурный H1316 ST17",
+    "photo": {
+      "card": "/decors/H1316_17/card.jpg",
+      "detail": "/decors/H1316_17/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1316_17/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1316_17/normal.png",
+      "roughness": "/decors/H1316_17/roughness.jpg",
+      "roughnessValue": 0.53,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H309_12",
+    "name": "Дуб Тонсберг коричневый H309 st12",
+    "photo": {
+      "card": "/decors/H309_12/card.webp",
+      "detail": "/decors/H309_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H309_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H309_12/normal.png",
+      "roughness": "/decors/H309_12/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H305_12",
+    "name": "Дуб Тонсберг натуральный H305 st12",
+    "photo": {
+      "card": "/decors/H305_12/card.webp",
+      "detail": "/decors/H305_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H305_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H305_12/normal.png",
+      "roughness": "/decors/H305_12/roughness.jpg",
+      "roughnessValue": 0.33,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1312_10",
+    "name": "Дуб уайт песочно бежевый H1312 ST10",
+    "photo": {
+      "card": "/decors/H1312_10/card.webp",
+      "detail": "/decors/H1312_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1312_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1312_10/normal.png",
+      "roughness": "/decors/H1312_10/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1313_10",
+    "name": "Дуб уайт серо коричневый H1313 ST 10",
+    "photo": {
+      "card": "/decors/H1313_10/card.webp",
+      "detail": "/decors/H1313_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1313_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1313_10/normal.png",
+      "roughness": "/decors/H1313_10/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H2033_10",
+    "name": "Дуб Хантон темный H2033 ST10",
+    "photo": {
+      "card": "/decors/H2033_10/card.webp",
+      "detail": "/decors/H2033_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H2033_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H2033_10/normal.png",
+      "roughness": "/decors/H2033_10/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3154_36",
+    "name": "Дуб Чарльстон темно коричневый H3154 st36",
+    "photo": {
+      "card": "/decors/H3154_36/card.webp",
+      "detail": "/decors/H3154_36/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3154_36/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3154_36/normal.png",
+      "roughness": "/decors/H3154_36/roughness.jpg",
+      "roughnessValue": 0.48,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1344_32",
+    "name": "Дуб Шерман коньяк H1344 ST32",
+    "photo": {
+      "card": "/decors/H1344_32/card.webp",
+      "detail": "/decors/H1344_32/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1344_32/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1344_32/normal.png",
+      "roughness": "/decors/H1344_32/roughness.jpg",
+      "roughnessValue": 1.1,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H1345_32",
+    "name": "Дуб Шерман серый H1345 ST32",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "U125",
+    "name": "Жёлтый персик U125",
+    "photo": {
+      "card": "/decors/U125/card.webp",
+      "detail": "/decors/U125/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U125/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U125/normal.png",
+      "roughness": "/decors/U125/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U699_9",
+    "name": "Зелёный еловый U699 ST9",
+    "photo": {
+      "card": "/decors/U699_9/card.webp",
+      "detail": "/decors/U699_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U699_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U699_9/normal.png",
+      "roughness": "/decors/U699_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U665_9",
+    "name": "Зеленый камень U665 (AU665) ST9",
+    "photo": {
+      "card": "/decors/U665_9/card.webp",
+      "detail": "/decors/U665_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U665_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U665_9/normal.png",
+      "roughness": "/decors/U665_9/roughness.jpg",
+      "roughnessValue": 0.59,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U638_9",
+    "name": "Зелёный шалфеевый U638 (AU638) ST9",
+    "photo": {
+      "card": "/decors/U638_9/card.webp",
+      "detail": "/decors/U638_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U638_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U638_9/normal.png",
+      "roughness": "/decors/U638_9/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "AU604_9",
+    "name": "Зелёный эвкалипт AU604 st9",
+    "photo": {
+      "card": "/decors/AU604_9/card.webp",
+      "detail": "/decors/AU604_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/AU604_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/AU604_9/normal.png",
+      "roughness": "/decors/AU604_9/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U216_9",
+    "name": "Камель бежевый U216 st9",
+    "photo": {
+      "card": "/decors/U216_9/card.webp",
+      "detail": "/decors/U216_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U216_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U216_9/normal.png",
+      "roughness": "/decors/U216_9/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F206_9",
+    "name": "Камень Пьетро Гриджио Черный F206 ST9",
+    "photo": {
+      "card": "/decors/F206_9/card.webp",
+      "detail": "/decors/F206_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F206_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F206_9/normal.png",
+      "roughness": "/decors/F206_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U250_9",
+    "name": "Карамель беж U250 ST9",
+    "photo": {
+      "card": "/decors/U250_9/card.jpg",
+      "detail": "/decors/U250_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U250_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U250_9/normal.png",
+      "roughness": "/decors/U250_9/roughness.jpg",
+      "roughnessValue": 0.53,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "U830_9",
+    "name": "Карамель нюд U830 ST9",
+    "photo": {
+      "card": "/decors/U830_9/card.webp",
+      "detail": "/decors/U830_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U830_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U830_9/normal.png",
+      "roughness": "/decors/U830_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U115_9",
+    "name": "Карат бежевый U115 (AU115) ST9",
+    "photo": {
+      "card": "/decors/U115_9/card.webp",
+      "detail": "/decors/U115_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U115_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U115_9/normal.png",
+      "roughness": "/decors/U115_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U702_9",
+    "name": "Кашемир серый U702 ST9",
+    "photo": {
+      "card": "/decors/U702_9/card.webp",
+      "detail": "/decors/U702_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U702_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U702_9/normal.png",
+      "roughness": "/decors/U702_9/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1708_17",
+    "name": "Каштан Брайтон H1708 ST17",
+    "photo": {
+      "card": "/decors/H1708_17/card.jpg",
+      "detail": "/decors/H1708_17/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1708_17/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1708_17/normal.png",
+      "roughness": "/decors/H1708_17/roughness.jpg",
+      "roughnessValue": 0.55,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1710_10",
+    "name": "Каштан Кентуки песочный H1710 ST10ЛДСП Эггер 5,796",
+    "photo": {
+      "card": "/decors/H1710_10/card.webp",
+      "detail": "/decors/H1710_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1710_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1710_10/normal.png",
+      "roughness": "/decors/H1710_10/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "F323_20",
+    "name": "Кобра бронзовая F323 ST20",
+    "photo": {
+      "card": "/decors/F323_20/card.webp",
+      "detail": "/decors/F323_20/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F323_20/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F323_20/normal.png",
+      "roughness": "/decors/F323_20/roughness.jpg",
+      "roughnessValue": 0.48,
+      "tiling": [
+        2.0,
+        4.0
+      ]
+    }
+  },
+  {
+    "code": "U335_9",
+    "name": "Красно-коричневый U335 (AU335) ST9",
+    "photo": {
+      "card": "/decors/U335_9/card.webp",
+      "detail": "/decors/U335_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U335_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U335_9/normal.png",
+      "roughness": "/decors/U335_9/roughness.jpg",
+      "roughnessValue": 0.59,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U321_9",
+    "name": "Красный китайский U321 ST9",
+    "photo": {
+      "card": "/decors/U321_9/card.webp",
+      "detail": "/decors/U321_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U321_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U321_9/normal.png",
+      "roughness": "/decors/U321_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U222_9",
+    "name": "Крем бежевый U222 ST9",
+    "photo": {
+      "card": "/decors/U222_9/card.webp",
+      "detail": "/decors/U222_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U222_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U222_9/normal.png",
+      "roughness": "/decors/U222_9/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U767_9",
+    "name": "Кубанит серый U767 ST9",
+    "photo": {
+      "card": "/decors/U767_9/card.webp",
+      "detail": "/decors/U767_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U767_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U767_9/normal.png",
+      "roughness": "/decors/U767_9/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F433_10",
+    "name": "Лен антрацит F433 ST10",
+    "photo": {
+      "card": "/decors/F433_10/card.webp",
+      "detail": "/decors/F433_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F433_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F433_10/normal.png",
+      "roughness": "/decors/F433_10/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3408",
+    "name": "Лиственница горная коричневая термо H3408",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "F528_20",
+    "name": "Металл брашированный бронзовый F528 ST20",
+    "photo": {
+      "card": "/decors/F528_20/card.webp",
+      "detail": "/decors/F528_20/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F528_20/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F528_20/normal.png",
+      "roughness": "/decors/F528_20/roughness.jpg",
+      "roughnessValue": 0.42,
+      "tiling": [
+        1.0,
+        1.5
+      ]
+    }
+  },
+  {
+    "code": "H3190_19",
+    "name": "Металлик файнлайн Антрацит H3190 ST19",
+    "photo": {
+      "card": "/decors/H3190_19/card.webp",
+      "detail": "/decors/H3190_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3190_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3190_19/normal.png",
+      "roughness": "/decors/H3190_19/roughness.jpg",
+      "roughnessValue": 0.42,
+      "tiling": [
+        5.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "code": "H3192_19",
+    "name": "Металлик файнлайн корич H3192 ST19",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "U211_9",
+    "name": "Миндаль бежевый U211 ST9",
+    "photo": {
+      "card": "/decors/U211_9/card.webp",
+      "detail": "/decors/U211_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U211_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U211_9/normal.png",
+      "roughness": "/decors/U211_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U780_9",
+    "name": "Монумент серый U780 ST9",
+    "photo": {
+      "card": "/decors/U780_9/card.webp",
+      "detail": "/decors/U780_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U780_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U780_9/normal.png",
+      "roughness": "/decors/U780_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F243_10",
+    "name": "Мрамор кандела светло серый F243 ST10",
+    "photo": {
+      "card": "/decors/F243_10/card.webp",
+      "detail": "/decors/F243_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F243_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F243_10/normal.png",
+      "roughness": "/decors/F243_10/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "F204_9",
+    "name": "Мрамор карара белый F204 ST9",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "F800_9",
+    "name": "Мрамор Кристалл F800 ST9",
+    "photo": {
+      "card": "/decors/F800_9/card.webp",
+      "detail": "/decors/F800_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F800_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F800_9/normal.png",
+      "roughness": "/decors/F800_9/roughness.jpg",
+      "roughnessValue": 0.29,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F812_9",
+    "name": "Мрамор Левано белый F812 st9",
+    "photo": {
+      "card": "/decors/F812_9/card.webp",
+      "detail": "/decors/F812_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F812_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300
+    }
+  },
+  {
+    "code": "U899_9",
+    "name": "Нежный чёрный U899 ST9",
+    "photo": {
+      "card": "/decors/U899_9/card.webp",
+      "detail": "/decors/U899_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U899_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U899_9/normal.png",
+      "roughness": "/decors/U899_9/roughness.jpg",
+      "roughnessValue": 0.62,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H7586_17",
+    "name": "Ноче Альба табак H7586 ST17",
+    "photo": {
+      "card": "/decors/H7586_17/card.jpg",
+      "detail": "/decors/H7586_17/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H7586_17/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H7586_17/normal.png",
+      "roughness": "/decors/H7586_17/roughness.jpg",
+      "roughnessValue": 0.53,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U960_9",
+    "name": "Оникс серый U960 ST9",
+    "photo": {
+      "card": "/decors/U960_9/card.webp",
+      "detail": "/decors/U960_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U960_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U960_9/normal.png",
+      "roughness": "/decors/U960_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        1.5,
+        1.5
+      ]
+    }
+  },
+  {
+    "code": "H3734_9",
+    "name": "Орех Дижон натуральный H3734 st9",
+    "photo": {
+      "card": "/decors/H3734_9/card.webp",
+      "detail": "/decors/H3734_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3734_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3734_9/normal.png",
+      "roughness": "/decors/H3734_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H3710_12",
+    "name": "Орех карини натуральный H3710 ST12",
+    "photo": {
+      "card": "/decors/H3710_12/card.webp",
+      "detail": "/decors/H3710_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3710_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3710_12/normal.png",
+      "roughness": "/decors/H3710_12/roughness.jpg",
+      "roughnessValue": 0.59,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H1714_19",
+    "name": "Орех Линкольн H1714 St19",
+    "photo": {
+      "card": "/decors/H1714_19/card.webp",
+      "detail": "/decors/H1714_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1714_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1714_19/normal.png",
+      "roughness": "/decors/H1714_19/roughness.jpg",
+      "roughnessValue": 0.49,
+      "tiling": [
+        5.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "code": "H3700_10",
+    "name": "Орех пацифик натуральный H3700 ST10",
+    "photo": {
+      "card": "/decors/H3700_10/card.webp",
+      "detail": "/decors/H3700_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3700_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3700_10/normal.png",
+      "roughness": "/decors/H3700_10/roughness.jpg",
+      "roughnessValue": 0.53,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3702_10",
+    "name": "Орех пацифик табак H3702 ST10",
+    "photo": {
+      "card": "/decors/H3702_10/card.webp",
+      "detail": "/decors/H3702_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3702_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3702_10/normal.png",
+      "roughness": "/decors/H3702_10/roughness.jpg",
+      "roughnessValue": 0.57,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "U732_9",
+    "name": "Пыльный серый U732 ST9",
+    "photo": {
+      "card": "/decors/U732_9/card.webp",
+      "detail": "/decors/U732_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U732_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U732_9/normal.png",
+      "roughness": "/decors/U732_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1253_19",
+    "name": "Робиния Брэнсон Трюфель коричневый H1253 ST19",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "U325_9",
+    "name": "Розовый антик U325 (AU25) ST9",
+    "photo": {
+      "card": "/decors/U325_9/card.webp",
+      "detail": "/decors/U325_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U325_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U325_9/normal.png",
+      "roughness": "/decors/U325_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U708_9",
+    "name": "Светло серый U708 ST9",
+    "photo": {
+      "card": "/decors/U708_9/card.webp",
+      "detail": "/decors/U708_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U708_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U708_9/normal.png",
+      "roughness": "/decors/U708_9/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U201_19",
+    "name": "Серая галька U201 ST19",
+    "photo": {
+      "card": "/decors/U201_19/card.webp",
+      "detail": "/decors/U201_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U201_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U201_19/normal.png",
+      "roughness": "/decors/U201_19/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U201_9",
+    "name": "Серая галька U201 ST9 ОДНОТОННЫЙ",
+    "photo": {
+      "card": "/decors/U201_9/card.webp",
+      "detail": "/decors/U201_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U201_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U201_9/normal.png",
+      "roughness": "/decors/U201_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U741_9",
+    "name": "Серая Лава U741 ST9",
+    "photo": {
+      "card": "/decors/U741_9/card.webp",
+      "detail": "/decors/U741_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U741_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U741_9/normal.png",
+      "roughness": "/decors/U741_9/roughness.jpg",
+      "roughnessValue": 0.7,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F765_20",
+    "name": "Серебристый матовый F765 ST20",
+    "photo": {
+      "card": "/decors/F765_20/card.webp",
+      "detail": "/decors/F765_20/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F765_20/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F765_20/normal.png",
+      "roughness": "/decors/F765_20/roughness.jpg",
+      "roughnessValue": 0.34,
+      "tiling": [
+        2.0,
+        4.0
+      ]
+    }
+  },
+  {
+    "code": "U669_9",
+    "name": "Серо-зелёный U669 ST9",
+    "photo": {
+      "card": "/decors/U669_9/card.jpg",
+      "detail": "/decors/U669_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U669_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U669_9/normal.png",
+      "roughness": "/decors/U669_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "U740_9",
+    "name": "Серо-коричневый тёмный U740 ST9",
+    "photo": {
+      "card": "/decors/U740_9/card.webp",
+      "detail": "/decors/U740_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U740_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U740_9/normal.png",
+      "roughness": "/decors/U740_9/roughness.jpg",
+      "roughnessValue": 0.65,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U755_9",
+    "name": "Серый Гавана U755 ST9",
+    "photo": {
+      "card": "/decors/U755_9/card.jpg",
+      "detail": "/decors/U755_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U755_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U755_9/normal.png",
+      "roughness": "/decors/U755_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U727_9",
+    "name": "Серый камень U727 ST9",
+    "photo": {
+      "card": "/decors/U727_9/card.webp",
+      "detail": "/decors/U727_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U727_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U727_9/normal.png",
+      "roughness": "/decors/U727_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U763_9",
+    "name": "Серый перламутровый U763 ST9",
+    "photo": {
+      "card": "/decors/U763_9/card.webp",
+      "detail": "/decors/U763_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U763_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U763_9/normal.png",
+      "roughness": "/decors/U763_9/roughness.jpg",
+      "roughnessValue": 0.57,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "U968_9",
+    "name": "Серый уголь U968 ST9",
+    "photo": {
+      "card": "/decors/U968_9/card.webp",
+      "detail": "/decors/U968_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U968_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U968_9/normal.png",
+      "roughness": "/decors/U968_9/roughness.jpg",
+      "roughnessValue": 0.6,
+      "tiling": [
+        2.0,
+        2.0
+      ]
+    }
+  },
+  {
+    "code": "U502_9",
+    "name": "Синий Дымчатый U502 (AU502) ST9",
+    "photo": {
+      "card": "/decors/U502_9/card.webp",
+      "detail": "/decors/U502_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U502_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U502_9/normal.png",
+      "roughness": "/decors/U502_9/roughness.jpg",
+      "roughnessValue": 0.64,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F235_10",
+    "name": "Сланец Скиваро F235 ST10",
+    "photo": {
+      "card": "/decors/F235_10/card.webp",
+      "detail": "/decors/F235_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F235_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F235_10/normal.png",
+      "roughness": "/decors/F235_10/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3430_22",
+    "name": "Сосна аланд белая H3430 ST22",
+    "photo": {
+      "card": "/decors/H3430_22/card.webp",
+      "detail": "/decors/H3430_22/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3430_22/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3430_22/normal.png",
+      "roughness": "/decors/H3430_22/roughness.jpg",
+      "roughnessValue": 0.48,
+      "tiling": [
+        2.0,
+        8.0
+      ]
+    }
+  },
+  {
+    "code": "H3433_22",
+    "name": "Сосна аланд полярная H3433S T22",
+    "photo": {
+      "card": "/decors/H3433_22/card.webp",
+      "detail": "/decors/H3433_22/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3433_22/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3433_22/normal.png",
+      "roughness": "/decors/H3433_22/roughness.jpg",
+      "roughnessValue": 0.48,
+      "tiling": [
+        2.0,
+        8.0
+      ]
+    }
+  },
+  {
+    "code": "H1401",
+    "name": "Сосна касцина H1401 ST",
+    "photo": {
+      "card": "/decors/H1401/card.webp",
+      "detail": "/decors/H1401/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1401/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1401/normal.png",
+      "roughness": "/decors/H1401/roughness.jpg",
+      "roughnessValue": 0.58,
+      "tiling": [
+        2.0,
+        8.0
+      ]
+    }
+  },
+  {
+    "code": "H1486_36",
+    "name": "Сосна Пасадена H1486 St36",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "F416_10",
+    "name": "Текстиль бежевый F416 ST10",
+    "photo": {
+      "card": "/decors/F416_10/card.webp",
+      "detail": "/decors/F416_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F416_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/F416_10/normal.png",
+      "roughness": "/decors/F416_10/roughness.jpg",
+      "roughnessValue": 0.39,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "U748_9",
+    "name": "Трюфель коричневый U748 ST9",
+    "photo": {
+      "card": "/decors/U748_9/card.webp",
+      "detail": "/decors/U748_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U748_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U748_9/normal.png",
+      "roughness": "/decors/U748_9/roughness.jpg",
+      "roughnessValue": 0.73,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1424_22",
+    "name": "Файнлай крем H1424 ST22",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "H3195_19",
+    "name": "Файнлайн белый H3195 ST19",
+    "photo": {
+      "card": "/decors/H3195_19/card.webp",
+      "detail": "/decors/H3195_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3195_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3195_19/normal.png",
+      "roughness": "/decors/H3195_19/roughness.jpg",
+      "roughnessValue": 0.2,
+      "tiling": [
+        5.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "code": "H3197_19",
+    "name": "Файнлайн средне-серый H3197 ST19",
+    "photo": {
+      "card": "/decors/H3197_19/card.webp",
+      "detail": "/decors/H3197_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3197_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3197_19/normal.png",
+      "roughness": "/decors/H3197_19/roughness.jpg",
+      "roughnessValue": 0.3,
+      "tiling": [
+        5.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "code": "W1200_9",
+    "name": "Фарфор белый W1200 ST9",
+    "photo": {
+      "card": "/decors/W1200_9/card.webp",
+      "detail": "/decors/W1200_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/W1200_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/W1200_9/normal.png",
+      "roughness": "/decors/W1200_9/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "code": "H3450_22",
+    "name": "Флитвуд белый H3450 ST22",
+    "photo": {
+      "card": "/decors/H3450_22/card.webp",
+      "detail": "/decors/H3450_22/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3450_22/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3450_22/normal.png",
+      "roughness": "/decors/H3450_22/roughness.jpg",
+      "roughnessValue": 0.48,
+      "tiling": [
+        2.0,
+        8.0
+      ]
+    }
+  },
+  {
+    "code": "H3453_22",
+    "name": "Флитвуд серая лава H3453 ST22",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "AU636_9",
+    "name": "Фьёрд зелёный AU636 st9",
+    "photo": {
+      "card": "/decors/AU636_9/card.webp",
+      "detail": "/decors/AU636_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/AU636_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/AU636_9/normal.png",
+      "roughness": "/decors/AU636_9/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "F637_16",
+    "name": "Хромикс белый F637 st16",
+    "photo": {
+      "card": "/decors/F637_16/card.webp",
+      "detail": "/decors/F637_16/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F637_16/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300
+    }
+  },
+  {
+    "code": "F642_16",
+    "name": "Хромикс бронзовый F642 St 16",
+    "photo": null,
+    "textures": null
+  },
+  {
+    "code": "F638_10",
+    "name": "Хромикс серебро F638 (F638) ST10",
+    "photo": {
+      "card": "/decors/F638_10/card.webp",
+      "detail": "/decors/F638_10/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/F638_10/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300
+    }
+  },
+  {
+    "code": "U999_19",
+    "name": "Черный U999 ST19",
+    "photo": {
+      "card": "/decors/U999_19/card.webp",
+      "detail": "/decors/U999_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U999_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U999_19/normal.png",
+      "roughness": "/decors/U999_19/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        2.5,
+        5.0
+      ]
+    }
+  },
+  {
+    "code": "U999_2",
+    "name": "Черный U999 ST2",
+    "photo": {
+      "card": "/decors/U999_2/card.webp",
+      "detail": "/decors/U999_2/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U999_2/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U999_2/normal.png",
+      "roughness": "/decors/U999_2/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        2.5,
+        5.0
+      ]
+    }
+  },
+  {
+    "code": "U961_2",
+    "name": "Чёрный графит U961 ST2",
+    "photo": {
+      "card": "/decors/U961_2/card.webp",
+      "detail": "/decors/U961_2/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U961_2/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U961_2/normal.png",
+      "roughness": "/decors/U961_2/roughness.jpg",
+      "roughnessValue": 0.4,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "H3043_12",
+    "name": "Эвкалипт тёмно-коричневый H3043 ST12",
+    "photo": {
+      "card": "/decors/H3043_12/card.webp",
+      "detail": "/decors/H3043_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H3043_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H3043_12/normal.png",
+      "roughness": "/decors/H3043_12/roughness.jpg",
+      "roughnessValue": 0.5,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  },
+  {
+    "code": "U750_9",
+    "name": "Ярко серый U750 ST9",
+    "photo": {
+      "card": "/decors/U750_9/card.webp",
+      "detail": "/decors/U750_9/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/U750_9/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/U750_9/normal.png",
+      "roughness": "/decors/U750_9/roughness.jpg",
+      "roughnessValue": 0.59,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1223_19",
+    "name": "Ясень Севилья H1223 st19",
+    "photo": {
+      "card": "/decors/H1223_19/card.webp",
+      "detail": "/decors/H1223_19/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1223_19/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1223_19/normal.png",
+      "roughness": "/decors/H1223_19/roughness.jpg",
+      "roughnessValue": 0.45,
+      "tiling": [
+        3.0,
+        3.0
+      ]
+    }
+  },
+  {
+    "code": "H1225_12",
+    "name": "Ясень тронхейм H1225 ST12",
+    "photo": {
+      "card": "/decors/H1225_12/card.webp",
+      "detail": "/decors/H1225_12/detail.jpg"
+    },
+    "textures": {
+      "sheet": "/decors/H1225_12/sheet.jpg",
+      "sheetW": 2800,
+      "sheetH": 1300,
+      "normal": "/decors/H1225_12/normal.png",
+      "roughness": "/decors/H1225_12/roughness.jpg",
+      "roughnessValue": 0.37,
+      "tiling": [
+        3.0,
+        12.0
+      ]
+    }
+  }
+]
