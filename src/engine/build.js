@@ -2,11 +2,14 @@ import * as THREE from "three";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T } from "../modules/index.js";
 
 const SWITCH_KEYS = new Set(["upper", "lower", "body", "splash", "wall", "glass", "frame"]);
+const mm = (v) => v / 1000;
 
-export function buildKitchen(layout, mats, level) {
+export function buildKitchen(plan, mats, level) {
   const root = new THREE.Group();
   const switchable = [];
   const lamps = [];
+  const movers = [];
+  const pickables = [];
   let regionIdx = 0;
   const frac = (x) => x - Math.floor(x);
   const region = () => ({ ox: frac(0.618034 * ++regionIdx), oy: frac(0.381966 * regionIdx + 0.25) });
@@ -31,6 +34,12 @@ export function buildKitchen(layout, mats, level) {
       track(m, key, group, w, h, reg);
       return m;
     },
+    cyl(r1, r2, h, key, x, y, z) {
+      const m = new THREE.Mesh(new THREE.CylinderGeometry(r1, r2, h, 16), mats[key]);
+      m.position.set(x, y, z);
+      m.castShadow = level.shadows;
+      return m;
+    },
     lamp(intensity, distance, x, y, z, parent) {
       if (!level.ledLights) return;
       const p = new THREE.PointLight("#ffd9a0", intensity, distance, 2);
@@ -38,19 +47,38 @@ export function buildKitchen(layout, mats, level) {
       parent.add(p);
       lamps.push(p);
     },
-    cyl(r1, r2, h, key, x, y, z) {
-      const m = new THREE.Mesh(new THREE.CylinderGeometry(r1, r2, h, 16), mats[key]);
-      m.position.set(x, y, z);
-      m.castShadow = level.shadows;
-      return m;
+    pivot(parent, cx, cy, z, w, h, side) {
+      const pivot = new THREE.Group(), inner = new THREE.Group();
+      if (side === "top") {
+        pivot.position.set(cx, cy + h / 2, z);
+        inner.position.set(0, -h / 2, 0);
+        movers.push({ obj: pivot, axis: "x", max: -1.75 });
+      } else {
+        const sx = side === "left" ? -1 : 1;
+        pivot.position.set(cx + (sx * w) / 2, cy, z);
+        inner.position.set((-sx * w) / 2, 0, 0);
+        movers.push({ obj: pivot, axis: "y", max: side === "left" ? -1.6 : 1.6 });
+      }
+      pivot.add(inner);
+      parent.add(pivot);
+      return inner;
+    },
+    slider(parent, dist) {
+      const s = new THREE.Group();
+      parent.add(s);
+      movers.push({ obj: s, slide: dist });
+      return s;
     },
   };
 
-  const mm = (v) => v / 1000;
-  const room = { left: mm(layout.room.left), height: mm(layout.room.height) };
-  const place = (obj, wall, s) => {
+  const { room } = plan;
+  const R = { left: mm(room.left), right: mm(room.right), height: mm(room.height) };
+
+  const place = (obj, wall, s, id) => {
     if (wall === "back") obj.position.set(s, 0, 0);
-    else { obj.position.set(room.left, 0, s); obj.rotation.y = Math.PI / 2; }
+    else if (wall === "left") { obj.position.set(R.left, 0, s); obj.rotation.y = Math.PI / 2; }
+    else { obj.position.set(R.right, 0, s); obj.rotation.y = -Math.PI / 2; }
+    if (id) { obj.userData.itemId = id; pickables.push(obj); }
     root.add(obj);
   };
 
@@ -62,24 +90,36 @@ export function buildKitchen(layout, mats, level) {
     track(m, key);
     root.add(m);
   };
-  plane(14, 14, "floor", [0, 0, 0], [-Math.PI / 2, 0, 0]);
-  plane(14, room.height, "wall", [0, room.height / 2, 0], [0, 0, 0]);
-  plane(8, room.height, "wall", [room.left, room.height / 2, 4], [0, Math.PI / 2, 0]);
-  plane(14, 14, "wall", [0, room.height, 0], [Math.PI / 2, 0, 0]);
+  const W = R.right - R.left, cx = (R.left + R.right) / 2;
+  plane(16, 16, "floor", [cx, 0, 4], [-Math.PI / 2, 0, 0]);
+  plane(W, R.height, "wall", [cx, R.height / 2, 0], [0, 0, 0]);
+  plane(8, R.height, "wall", [R.left, R.height / 2, 4], [0, Math.PI / 2, 0]);
+  plane(8, R.height, "wall", [R.right, R.height / 2, 4], [0, -Math.PI / 2, 0]);
+  plane(16, 16, "wall", [cx, R.height, 4], [Math.PI / 2, 0, 0]);
 
-  for (const run of layout.runs) {
+  const lampAt = (wall, t) => {
+    if (!level.ledLights) return;
+    const p = new THREE.PointLight("#ffd9a0", 3, 1.8, 2);
+    if (wall === "back") p.position.set(t, UP_Y0 - 0.05, 0.3);
+    else if (wall === "left") p.position.set(R.left + 0.3, UP_Y0 - 0.05, t);
+    else p.position.set(R.right - 0.3, UP_Y0 - 0.05, t);
+    root.add(p);
+    lamps.push(p);
+  };
+
+  for (const run of plan.runs) {
     let s = mm(run.from);
     const segments = [];
     let seg = null;
     for (const it of run.items) {
-      const w = mm(it.w);
-      const c = s + w / 2;
-      if (it.tall) {
-        place(MODULES.tall(k, w, it.tall, it.h ? mm(it.h) : undefined), run.wall, c);
+      const w = mm(it.w), c = s + w / 2;
+      if (it.kind === "tall") {
+        place(MODULES.tall(k, w, it.tall), run.wall, c, it.id);
         seg = null;
       } else {
-        place(MODULES.base(k, w, it.base), run.wall, c);
-        if (it.upper) place(MODULES.upper(k, w, it.upper), run.wall, c);
+        const g = MODULES.base(k, w, it.base);
+        if (it.upper && it.upper !== "none") g.add(MODULES.upper(k, w, it.upper));
+        place(g, run.wall, c, it.id);
         if (!seg) segments.push((seg = { from: s, to: s }));
         seg.to = s + w;
       }
@@ -98,24 +138,31 @@ export function buildKitchen(layout, mats, level) {
         g.add(l);
       }
       place(g, run.wall, c);
-
       const n = level.ledLights === 0 ? 0 : Math.max(1, Math.round(len / (level.ledLights === 2 ? 1 : 1.8)));
-      for (let i = 0; i < n; i++) {
-        const t = sg.from + (len * (i + 0.5)) / n;
-        const p = new THREE.PointLight("#ffd9a0", 3, 1.8, 2);
-        if (run.wall === "back") p.position.set(t, UP_Y0 - 0.05, 0.3);
-        else p.position.set(room.left + 0.3, UP_Y0 - 0.05, t);
-        root.add(p);
-        lamps.push(p);
-      }
+      for (let i = 0; i < n; i++) lampAt(run.wall, sg.from + (len * (i + 0.5)) / n);
     }
+  }
+
+  if (plan.island) {
+    const isl = new THREE.Group();
+    const w = mm(plan.island.w), n = Math.max(2, Math.round(w / 0.6)), sw = w / n;
+    for (let i = 0; i < n; i++) {
+      const m = MODULES.base(k, sw, "drawers");
+      m.position.x = -w / 2 + sw * (i + 0.5);
+      isl.add(m);
+    }
+    isl.add(k.box(w + 0.04, TOP_T, D + 0.33, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2 - 0.15));
+    isl.position.set(mm(plan.island.from) + w / 2, 0, mm(plan.island.z));
+    isl.userData.itemId = "island";
+    pickables.push(isl);
+    root.add(isl);
   }
 
   const parts = switchable
     .filter((s) => s.front)
     .map((s) => ({ group: s.mesh.userData.group, w: Math.round(s.mesh.userData.w * 1000), h: Math.round(s.mesh.userData.h * 1000) }));
 
-  return { root, switchable, lamps, parts };
+  return { root, switchable, lamps, movers, pickables, parts };
 }
 
 export function addLights(scene, level) {

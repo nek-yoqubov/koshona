@@ -3,11 +3,12 @@ import { LEVELS, pixelRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
 import { createTextures, createGroupMaterials, applyDecor, frontUV } from "./materials.js";
 import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
+import { toRuns } from "./layout.js";
 import { findGlass, findFrame } from "../catalog/glass.js";
 
 const GROUP_KEYS = ["upper", "lower", "body", "splash"];
 
-export function createViewer(container, levelId, onStats) {
+export function createViewer(container, levelId, onStats, onPick) {
   const level = LEVELS[levelId];
   const renderer = new THREE.WebGLRenderer({ antialias: level.antialias, powerPreference: "high-performance" });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -48,7 +49,40 @@ export function createViewer(container, levelId, onStats) {
   const finish = { A: null, B: null };
   let compare = false, split = 0.5, lightMode = "day";
 
-  const orbit = createOrbit(renderer.domElement, camera, invalidate);
+  const raycaster = new THREE.Raycaster();
+  const pick = (x, y) => {
+    if (!kitchen) return;
+    raycaster.setFromCamera({ x, y }, camera);
+    const hit = raycaster.intersectObjects(kitchen.pickables, true)[0];
+    let o = hit?.object;
+    while (o && !o.userData.itemId) o = o.parent;
+    onPick?.(o?.userData.itemId ?? null);
+  };
+  const orbit = createOrbit(renderer.domElement, camera, invalidate, pick);
+
+  const selBox = new THREE.Box3Helper(new THREE.Box3(), 0xf07a1a);
+  selBox.visible = false;
+  selBox.material.depthTest = false;
+  selBox.renderOrder = 10;
+  scene.add(selBox);
+  let selected = null;
+  const showSelection = () => {
+    const obj = kitchen?.pickables.find((p) => p.userData.itemId === selected);
+    selBox.visible = !!obj;
+    if (obj) selBox.box.setFromObject(obj).expandByScalar(0.01);
+    invalidate();
+  };
+
+  let openT = 0, openTarget = 0, openAnim = false;
+  const applyOpen = () => {
+    const e = openT * openT * (3 - 2 * openT);
+    for (const m of kitchen?.movers ?? []) {
+      if (m.slide) m.obj.position.z = m.slide * e;
+      else m.obj.rotation[m.axis] = m.max * e;
+    }
+    renderer.shadowMap.needsUpdate = true;
+    invalidate();
+  };
 
   const bindSide = (s) => {
     const { mats, uv } = side[s];
@@ -85,12 +119,16 @@ export function createViewer(container, levelId, onStats) {
     invalidate();
   };
 
-  const setLayout = (layout) => {
+  const setLayout = (model) => {
     if (kitchen) {
       scene.remove(kitchen.root);
       kitchen.root.traverse((o) => o.geometry?.dispose());
     }
-    kitchen = buildKitchen(layout, { ...fixed, ...side.A.mats }, level);
+    const plan = toRuns(model);
+    kitchen = buildKitchen(plan, { ...fixed, ...side.A.mats }, level);
+    orbit.setFit((plan.room.left + plan.room.right) / 2000, (plan.room.right - plan.room.left) / 1000);
+    applyOpen();
+    showSelection();
     side.A.uv.clear();
     side.B.uv.clear();
     scene.add(kitchen.root);
@@ -147,9 +185,16 @@ export function createViewer(container, levelId, onStats) {
     }
   };
 
-  let raf, frames = 0, t0 = performance.now(), bench = null, lastFps = 0;
+  let raf, frames = 0, t0 = performance.now(), bench = null, lastFps = 0, prev = performance.now();
   const loop = (now) => {
     raf = requestAnimationFrame(loop);
+    const dt = Math.min(0.05, (now - prev) / 1000);
+    prev = now;
+    if (openAnim) {
+      openT += Math.sign(openTarget - openT) * dt * 1.6;
+      if ((openTarget === 1 && openT >= 1) || (openTarget === 0 && openT <= 0)) { openT = openTarget; openAnim = false; }
+      applyOpen();
+    }
     if (dirty || bench) {
       dirty = false;
       render();
@@ -179,6 +224,8 @@ export function createViewer(container, levelId, onStats) {
     setCompare(on) { compare = on; invalidate(); },
     setSplit(v) { split = v; invalidate(); },
     setLight(mode) { lightMode = mode; applyLight(); },
+    setOpen(on) { openTarget = on ? 1 : 0; openAnim = openT !== openTarget; },
+    setSelected(id) { selected = id; showSelection(); },
     setView: (v) => orbit.setView(v),
     benchmark(ms = 2500) {
       return new Promise((resolve) => { bench = { start: performance.now(), ms, frames: 0, resolve }; });
