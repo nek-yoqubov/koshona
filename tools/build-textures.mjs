@@ -27,19 +27,19 @@ async function card(src, dst) {
   await sharp(src).resize(256, 256, { fit: "cover" }).webp({ quality: 78 }).toFile(dst);
 }
 
-async function roughness(src, dst, rotate, size) {
+async function roughness(src, dst, rotate, max) {
   if (fresh(src, dst)) return;
   let img = sharp(src).greyscale();
   if (rotate) img = img.rotate(-90);
-  await img.resize({ width: size, height: size, fit: "fill" }).webp({ quality: 85 }).toFile(dst);
+  await img.resize({ width: max, height: max, fit: "inside", withoutEnlargement: true }).webp({ quality: 88 }).toFile(dst);
 }
 
-async function normal(src, dst, rotate, size) {
+async function normal(src, dst, rotate, max) {
   if (fresh(src, dst)) return;
   let img = sharp(src).removeAlpha().toColourspace("srgb");
   if (rotate) img = img.rotate(-90);
   const { data, info } = await img
-    .resize({ width: size, height: size, fit: "fill" })
+    .resize({ width: max, height: max, fit: "inside", withoutEnlargement: true })
     .raw()
     .toBuffer({ resolveWithObject: true });
   if (rotate) {
@@ -65,20 +65,23 @@ for (const sup of SUPPLIERS) {
     fs.mkdirSync(dir, { recursive: true });
     const rel = (f) => `tex/${d.code}/${f}`;
 
+    await color(src(t.sheet), path.join(dir, "c4.webp"), 4096, 88);
     await color(src(t.sheet), path.join(dir, "c2.webp"), 2048, 82);
     await color(src(t.sheet), path.join(dir, "c1.webp"), 1024, 78);
     await card(d.photo?.card ? src(d.photo.card) : src(t.sheet), path.join(dir, "card.webp"));
 
     let relief = null;
     if (t.normal && t.roughness) {
-      const meta = await sharp(src(t.normal)).metadata();
-      const size = Math.min(1024, Math.max(meta.width, meta.height));
-      await normal(src(t.normal), path.join(dir, "n.webp"), sup.reliefRotated, size);
-      await roughness(src(t.roughness), path.join(dir, "r.webp"), sup.reliefRotated, size);
+      await normal(src(t.normal), path.join(dir, "n.webp"), sup.reliefRotated, 1024);
+      await roughness(src(t.roughness), path.join(dir, "r.webp"), sup.reliefRotated, 1024);
+      await normal(src(t.normal), path.join(dir, "n4.webp"), sup.reliefRotated, 4096);
+      await roughness(src(t.roughness), path.join(dir, "r4.webp"), sup.reliefRotated, 4096);
       const [tu, tv] = t.tiling || [1, 1];
       relief = {
         normal: rel("n.webp"),
         rough: rel("r.webp"),
+        normalMax: rel("n4.webp"),
+        roughMax: rel("r4.webp"),
         repeat: sup.reliefRotated ? [tv, tu] : [tu, tv],
       };
     }
@@ -89,7 +92,7 @@ for (const sup of SUPPLIERS) {
       supplier: sup.name,
       sheet: [t.sheetW || 2800, t.sheetH || 1300],
       card: rel("card.webp"),
-      color: { hi: rel("c2.webp"), lo: rel("c1.webp") },
+      color: { max: rel("c4.webp"), hi: rel("c2.webp"), lo: rel("c1.webp") },
       relief,
       roughness: t.roughnessValue ?? 0.6,
     });

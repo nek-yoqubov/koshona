@@ -44,8 +44,9 @@ export function applyDecor(mat, decor, level, tex, fallbackHex) {
     mat.map = tex(decor.color[level.texture], { srgb: true });
     mat.roughness = decor.roughness;
     if (level.relief && decor.relief) {
-      mat.normalMap = tex(decor.relief.normal, { repeat: decor.relief.repeat });
-      mat.roughnessMap = tex(decor.relief.rough, { repeat: decor.relief.repeat });
+      const r = decor.relief;
+      mat.normalMap = tex(level.reliefMax ? r.normalMax : r.normal, { repeat: r.repeat });
+      mat.roughnessMap = tex(level.reliefMax ? r.roughMax : r.rough, { repeat: r.repeat });
       mat.normalScale.set(0.6, 0.6);
     }
   }

@@ -1,19 +1,18 @@
 import * as THREE from "three";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T } from "../modules/index.js";
 
-const GROUP_KEYS = new Set(["upper", "lower", "body", "splash"]);
+const SWITCH_KEYS = new Set(["upper", "lower", "body", "splash", "wall", "glass", "frame"]);
 
 export function buildKitchen(layout, mats, level) {
   const root = new THREE.Group();
   const switchable = [];
-  const ledLights = new THREE.Group();
-  const leds = [];
+  const lamps = [];
   let regionIdx = 0;
   const frac = (x) => x - Math.floor(x);
   const region = () => ({ ox: frac(0.618034 * ++regionIdx), oy: frac(0.381966 * regionIdx + 0.25) });
 
   const track = (mesh, key, group, w, h, reg) => {
-    if (!GROUP_KEYS.has(key) && key !== "wall") return;
+    if (!SWITCH_KEYS.has(key)) return;
     const item = { mesh, key };
     if (group) {
       mesh.userData = { w, h, group, ...(reg || region()) };
@@ -31,6 +30,13 @@ export function buildKitchen(layout, mats, level) {
       m.receiveShadow = level.shadows;
       track(m, key, group, w, h, reg);
       return m;
+    },
+    lamp(intensity, distance, x, y, z, parent) {
+      if (!level.ledLights) return;
+      const p = new THREE.PointLight("#ffd9a0", intensity, distance, 2);
+      p.position.set(x, y, z);
+      parent.add(p);
+      lamps.push(p);
     },
     cyl(r1, r2, h, key, x, y, z) {
       const m = new THREE.Mesh(new THREE.CylinderGeometry(r1, r2, h, 16), mats[key]);
@@ -89,7 +95,6 @@ export function buildKitchen(layout, mats, level) {
       for (const [y, z] of [[UP_Y0 - 0.005, UP_D - 0.03], [PLINTH - 0.005, D - 0.07]]) {
         const l = new THREE.Mesh(new THREE.BoxGeometry(len, 0.01, 0.02), mats.led);
         l.position.set(0, y, z);
-        leds.push(l);
         g.add(l);
       }
       place(g, run.wall, c);
@@ -100,21 +105,22 @@ export function buildKitchen(layout, mats, level) {
         const p = new THREE.PointLight("#ffd9a0", 3, 1.8, 2);
         if (run.wall === "back") p.position.set(t, UP_Y0 - 0.05, 0.3);
         else p.position.set(room.left + 0.3, UP_Y0 - 0.05, t);
-        ledLights.add(p);
+        root.add(p);
+        lamps.push(p);
       }
     }
   }
-  root.add(ledLights);
 
   const parts = switchable
     .filter((s) => s.front)
     .map((s) => ({ group: s.mesh.userData.group, w: Math.round(s.mesh.userData.w * 1000), h: Math.round(s.mesh.userData.h * 1000) }));
 
-  return { root, switchable, ledLights, leds, parts };
+  return { root, switchable, lamps, parts };
 }
 
 export function addLights(scene, level) {
-  scene.add(new THREE.HemisphereLight("#fff8ee", "#8f877c", level.spots ? 1.1 : 1.5));
+  const hemi = new THREE.HemisphereLight("#fff8ee", "#8f877c", 1.1);
+  scene.add(hemi);
   const key = new THREE.DirectionalLight("#fff3e2", 1.6);
   key.position.set(1.5, 4, 4);
   if (level.shadows) {
@@ -128,12 +134,20 @@ export function addLights(scene, level) {
   const fill = new THREE.DirectionalLight("#dfe8ff", 0.8);
   fill.position.set(-4, 3, 3);
   scene.add(fill);
+  const spots = [];
   if (level.spots) {
     for (const x of [-1.2, 0, 1.2]) {
       const sp = new THREE.SpotLight("#fff1dc", 10, 6, 0.6, 0.8, 1.5);
       sp.position.set(x, 2.68, 0.7);
       sp.target.position.set(x, 0, 0.5);
       scene.add(sp, sp.target);
+      spots.push(sp);
     }
   }
+  return { hemi, key, fill, spots };
 }
+
+export const LIGHT_MODES = {
+  day: { hemi: 1.5, hemiColor: "#f4f7fb", key: 2.4, keyColor: "#fffaf2", fill: 1.0, exposure: 1.0, lamps: false },
+  night: { hemi: 0.35, hemiColor: "#fff1dc", key: 0.35, keyColor: "#ffe2bd", fill: 0.25, exposure: 1.05, lamps: true },
+};

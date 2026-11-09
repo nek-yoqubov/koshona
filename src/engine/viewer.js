@@ -2,7 +2,8 @@ import * as THREE from "three";
 import { LEVELS, pixelRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
 import { createTextures, createGroupMaterials, applyDecor, frontUV } from "./materials.js";
-import { buildKitchen, addLights } from "./build.js";
+import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
+import { findGlass, findFrame } from "../catalog/glass.js";
 
 const GROUP_KEYS = ["upper", "lower", "body", "splash"];
 
@@ -20,7 +21,7 @@ export function createViewer(container, levelId, onStats) {
   const scene = new THREE.Scene();
   scene.background = new THREE.Color("#d9d5cf");
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 50);
-  addLights(scene, level);
+  const lights = addLights(scene, level);
 
   let dirty = true;
   const invalidate = () => { dirty = true; };
@@ -29,23 +30,23 @@ export function createViewer(container, levelId, onStats) {
   const fixed = {
     top: new THREE.MeshStandardMaterial({ color: "#e8e3da", roughness: 0.45 }),
     black: new THREE.MeshStandardMaterial({ color: "#151515", roughness: 0.4, metalness: 0.3 }),
-    glass: level.relief
-      ? new THREE.MeshPhysicalMaterial({ color: "#6a6058", roughness: 0.05, transmission: 0.85, thickness: 0.01, transparent: true })
-      : new THREE.MeshStandardMaterial({ color: "#3a332d", roughness: 0.1, transparent: true, opacity: 0.55 }),
-    shelfLight: new THREE.MeshStandardMaterial({ color: "#3a3028", emissive: "#ffb865", emissiveIntensity: 1.2 }),
-    led: new THREE.MeshStandardMaterial({ color: "#fff2d6", emissive: "#ffd9a0", emissiveIntensity: 3 }),
+    shelfLed: new THREE.MeshStandardMaterial({ color: "#d8d2c6", emissive: "#ffd9a0", emissiveIntensity: 0 }),
+    led: new THREE.MeshStandardMaterial({ color: "#d8d2c6", emissive: "#ffd9a0", emissiveIntensity: 0 }),
     floor: new THREE.MeshStandardMaterial({ color: "#cfcac2", roughness: 0.6 }),
     hob: new THREE.MeshStandardMaterial({ color: "#0a0a0a", roughness: 0.15, metalness: 0.4 }),
   };
-  const side = {
-    A: { mats: { ...createGroupMaterials(), wall: new THREE.MeshStandardMaterial({ color: "#e6e2db", roughness: 1 }) }, uv: new Map() },
-    B: { mats: { ...createGroupMaterials(), wall: new THREE.MeshStandardMaterial({ color: "#e6e2db", roughness: 1 }) }, uv: new Map() },
-  };
+  const sideMats = () => ({
+    ...createGroupMaterials(),
+    wall: new THREE.MeshStandardMaterial({ color: "#e6e2db", roughness: 1 }),
+    glass: new THREE.MeshStandardMaterial({ transparent: true, depthWrite: false, metalness: 0 }),
+    frame: new THREE.MeshStandardMaterial({ color: "#151515" }),
+  });
+  const side = { A: { mats: sideMats(), uv: new Map() }, B: { mats: sideMats(), uv: new Map() } };
 
   let kitchen = null;
   let decors = new Map();
   const finish = { A: null, B: null };
-  let compare = false, split = 0.5, led = true;
+  let compare = false, split = 0.5, lightMode = "day";
 
   const orbit = createOrbit(renderer.domElement, camera, invalidate);
 
@@ -65,6 +66,13 @@ export function createViewer(container, levelId, onStats) {
     if (!f || !kitchen) return;
     const { mats, uv } = side[s];
     mats.wall.color.set(f.wallHex);
+    const gl = findGlass(f.glass?.tint), fr = findFrame(f.glass?.frame);
+    mats.glass.color.set(gl.hex);
+    mats.glass.opacity = gl.opacity;
+    mats.glass.roughness = gl.roughness;
+    mats.frame.color.set(fr.hex);
+    mats.frame.metalness = fr.metalness;
+    mats.frame.roughness = fr.roughness;
     for (const key of GROUP_KEYS) {
       const sel = f[key];
       const d = sel?.code ? decors.get(sel.code) : null;
@@ -86,13 +94,27 @@ export function createViewer(container, levelId, onStats) {
     side.A.uv.clear();
     side.B.uv.clear();
     scene.add(kitchen.root);
-    kitchen.ledLights.visible = led;
-    kitchen.leds.forEach((l) => (l.visible = led));
+    applyLight();
     applyFinish("A");
     applyFinish("B");
     renderer.shadowMap.needsUpdate = true;
     invalidate();
   };
+
+  function applyLight() {
+    const m = LIGHT_MODES[lightMode];
+    lights.hemi.intensity = m.hemi;
+    lights.hemi.color.set(m.hemiColor);
+    lights.key.intensity = m.key;
+    lights.key.color.set(m.keyColor);
+    lights.fill.intensity = m.fill;
+    lights.spots.forEach((sp) => (sp.visible = m.lamps));
+    kitchen?.lamps.forEach((l) => (l.visible = m.lamps));
+    fixed.led.emissiveIntensity = m.lamps ? 3 : 0;
+    fixed.shelfLed.emissiveIntensity = m.lamps ? 2.5 : 0;
+    renderer.toneMappingExposure = m.exposure;
+    invalidate();
+  }
 
   const resize = () => {
     const w = container.clientWidth, h = container.clientHeight;
@@ -156,11 +178,7 @@ export function createViewer(container, levelId, onStats) {
     setFinish(s, f) { finish[s] = f; applyFinish(s); },
     setCompare(on) { compare = on; invalidate(); },
     setSplit(v) { split = v; invalidate(); },
-    setLed(on) {
-      led = on;
-      if (kitchen) { kitchen.ledLights.visible = on; kitchen.leds.forEach((l) => (l.visible = on)); }
-      invalidate();
-    },
+    setLight(mode) { lightMode = mode; applyLight(); },
     setView: (v) => orbit.setView(v),
     benchmark(ms = 2500) {
       return new Promise((resolve) => { bench = { start: performance.now(), ms, frames: 0, resolve }; });

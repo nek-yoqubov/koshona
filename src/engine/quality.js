@@ -28,7 +28,9 @@ export const LEVELS = {
     shadows: true,
     shadowSize: 2048,
     relief: true,
-    texture: "hi",
+    reliefMax: true,
+    supersample: 1.5,
+    texture: "max",
     spots: true,
     ledLights: 2,
   },
@@ -70,5 +72,6 @@ export function pickByFps(level, fps) {
 export function pixelRatioFor(level, w, h) {
   const dpr = window.devicePixelRatio || 1;
   const cap = Math.sqrt(LEVELS[level].maxPixels / Math.max(1, w * h));
-  return Math.max(0.5, Math.min(dpr, 2, cap));
+  const want = Math.max(dpr, LEVELS[level].supersample || 0);
+  return Math.max(0.5, Math.min(want, 2, cap));
 }

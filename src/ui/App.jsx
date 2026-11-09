@@ -5,6 +5,7 @@ import { LAYOUTS, WALLS, GROUPS } from "../catalog/layouts.js";
 import { emptyFinish, readHash, writeHash } from "./hash.js";
 import { buildSpec, downloadCsv } from "./spec.js";
 import CompareHandle from "./CompareHandle.jsx";
+import { GLASS, FRAMES } from "../catalog/glass.js";
 
 const base = import.meta.env.BASE_URL;
 const wallHex = (id) => (WALLS.find((w) => w.id === id) || WALLS[0]).hex;
@@ -31,7 +32,7 @@ export default function App() {
   const [active, setActive] = useState("lower");
   const [search, setSearch] = useState("");
   const [supplier, setSupplier] = useState("Все");
-  const [led, setLed] = useState(true);
+  const [light, setLight] = useState(fromUrl.light === "night" ? "night" : "day");
   const [specOpen, setSpecOpen] = useState(false);
   const [parts, setParts] = useState([]);
 
@@ -42,7 +43,7 @@ export default function App() {
         setDecors(list);
         const first = (i) => list[i % list.length]?.code ?? null;
         const fill = (f) => {
-          const g = structuredClone(f);
+          const g = { ...emptyFinish(), ...structuredClone(f) };
           for (const k of ["upper", "lower", "body"]) if (!list.some((d) => d.code === g[k].code)) g[k].code = first(0);
           if (g.splash.code && !list.some((d) => d.code === g.splash.code)) g.splash.code = null;
           return g;
@@ -71,7 +72,7 @@ export default function App() {
   useEffect(() => { v?.setFinish("B", toViewer(fin.B)); }, [viewerId, fin.B, decors]);
   useEffect(() => { v?.setCompare(compare); }, [viewerId, compare]);
   useEffect(() => { v?.setSplit(split); }, [viewerId, split]);
-  useEffect(() => { v?.setLed(led); }, [viewerId, led]);
+  useEffect(() => { v?.setLight(light); }, [viewerId, light]);
 
   useEffect(() => {
     if (!v || quality.tested || !decors.length) return;
@@ -85,8 +86,8 @@ export default function App() {
   }, [viewerId, quality.tested, decors.length]);
 
   useEffect(() => {
-    if (fin.A.lower.code) writeHash({ layout: layoutId, A: fin.A, B: fin.B, compare });
-  }, [layoutId, fin, compare]);
+    if (fin.A.lower.code) writeHash({ layout: layoutId, light, A: fin.A, B: fin.B, compare });
+  }, [layoutId, light, fin, compare]);
 
   const pickLevel = (id) => {
     if (id === "auto") {
@@ -189,10 +190,32 @@ export default function App() {
             </div>
           )}
           <div className="row">
-            {GROUPS.map((g) => (
+            {[...GROUPS, { key: "glass", label: "Витрины" }].map((g) => (
               <button key={g.key} className={active === g.key ? "chip on" : "chip"} onClick={() => setActive(g.key)}>{g.label}</button>
             ))}
           </div>
+          {active === "glass" ? (
+            <>
+              <div className="label mt">Стекло</div>
+              <div className="row">
+                {GLASS.map((g) => (
+                  <button key={g.id} className={cur.glass.tint === g.id ? "chip on" : "chip"} onClick={() => setCur((f) => ({ ...f, glass: { ...f.glass, tint: g.id } }))}>
+                    <span className="mini" style={{ background: g.hex, opacity: 0.35 + g.opacity * 0.65 }} />{g.name}
+                  </button>
+                ))}
+              </div>
+              <div className="label mt">Рамка</div>
+              <div className="row">
+                {FRAMES.map((f) => (
+                  <button key={f.id} className={cur.glass.frame === f.id ? "chip on" : "chip"} onClick={() => setCur((x) => ({ ...x, glass: { ...x.glass, frame: f.id } }))}>
+                    <span className="mini" style={{ background: f.hex }} />{f.name}
+                  </button>
+                ))}
+              </div>
+              <div className="muted small mt">Внутри витрины — цвет корпуса. Подсветка внутри включается в режиме «Вечер».</div>
+            </>
+          ) : (
+          <>
           <div className="row">
             {suppliers.map((s) => (
               <button key={s} className={supplier === s ? "chip sm on" : "chip sm"} onClick={() => setSupplier(s)}>{s}</button>
@@ -219,6 +242,8 @@ export default function App() {
               {cur[active].rot ? "волокно вертикально" : "волокно горизонтально"}
             </button>
           </div>
+          </>
+          )}
         </section>
 
         <section>
@@ -234,9 +259,11 @@ export default function App() {
         </section>
 
         <section>
-          <label className="check">
-            <input type="checkbox" checked={led} onChange={(e) => setLed(e.target.checked)} /> Подсветка
-          </label>
+          <div className="label">Освещение</div>
+          <div className="tabs">
+            <button className={light === "day" ? "tab on" : "tab"} onClick={() => setLight("day")}>День</button>
+            <button className={light === "night" ? "tab on" : "tab"} onClick={() => setLight("night")}>Вечер · лампы</button>
+          </div>
         </section>
 
         <section className="muted small foot">Повернуть — тянуть пальцем или мышью · масштаб — щипок или колёсико · сдвиг — двумя пальцами</section>
