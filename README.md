@@ -1,16 +1,16 @@
-# React + Vite
+# koshona — 3D-конфигуратор мебели Промебель
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+```
+src/catalog   данные: компоновки, стены, группы отделки
+src/modules   модули мебели: тумба, верхний шкаф, пенал (по файлу на тип)
+src/engine    3D: сцена, материалы, качество, управление, сравнение
+src/ui        интерфейс на React
+tools         конвейер текстур
+raw           исходные сканы декоров (на сайт не идут)
+public/tex    сжатые текстуры для сайта
+```
 
-Currently, two official plugins are available:
+Текстуры: `node tools/build-textures.mjs` (`--force` пересобрать всё, `--only=H1180_37` один декор).
+Рельеф Эггера в исходниках повёрнут на 90° относительно рисунка — конвейер поворачивает его и пересчитывает каналы normal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Запуск: `npm i && npm run dev`. Уровень качества можно задать кнопками в углу, выбор запоминается на устройстве.
