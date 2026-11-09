@@ -50,7 +50,7 @@ export function createViewer(container, levelId, onStats) {
 
   const orbit = createOrbit(renderer.domElement, camera, invalidate);
 
-  const useSide = (s) => {
+  const bindSide = (s) => {
     const { mats, uv } = side[s];
     for (const it of kitchen.switchable) {
       it.mesh.material = mats[it.key];
@@ -134,15 +134,15 @@ export function createViewer(container, levelId, onStats) {
     if (compare) {
       const x = Math.round(w * split);
       renderer.setScissorTest(true);
-      useSide("A");
+      bindSide("A");
       renderer.setScissor(0, 0, x, h);
       renderer.render(scene, camera);
-      useSide("B");
+      bindSide("B");
       renderer.setScissor(x, 0, w - x, h);
       renderer.render(scene, camera);
       renderer.setScissorTest(false);
     } else {
-      useSide("A");
+      bindSide("A");
       renderer.render(scene, camera);
     }
   };
