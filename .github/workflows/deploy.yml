@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, v2]
   workflow_dispatch:
 
 permissions:
@@ -19,12 +19,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
       - run: npm ci
       - run: npm run build
+
+      - uses: actions/checkout@v4
+        with:
+          ref: v2
+          path: v2src
+      - run: npm ci
+        working-directory: v2src
+      - run: npx vite build --base /koshona/v2/ --outDir ../dist/v2 --emptyOutDir
+        working-directory: v2src
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
