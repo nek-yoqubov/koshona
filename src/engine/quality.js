@@ -6,7 +6,7 @@ export const LEVELS = {
     shadows: false,
     shadowSize: 0,
     relief: false,
-    texture: "lo",
+    texture: "hi",
     spots: false,
     ledLights: 0,
   },
@@ -67,6 +67,11 @@ export function pickByFps(level, fps) {
   if (fps > 50 && level === "low") return "mid";
   if (fps > 55 && level === "mid" && !matchMedia("(pointer: coarse)").matches) return "high";
   return level;
+}
+
+export function refineRatioFor(w, h) {
+  const dpr = window.devicePixelRatio || 1;
+  return Math.max(0.5, Math.min(Math.max(dpr, 1), 2, Math.sqrt((3840 * 2160) / Math.max(1, w * h))));
 }
 
 export function pixelRatioFor(level, w, h) {

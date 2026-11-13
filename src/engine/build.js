@@ -195,6 +195,6 @@ export function addLights(scene, level) {
 }
 
 export const LIGHT_MODES = {
-  day: { hemi: 1.5, hemiColor: "#f4f7fb", key: 2.4, keyColor: "#fffaf2", fill: 1.0, exposure: 1.0, lamps: false },
-  night: { hemi: 0.35, hemiColor: "#fff1dc", key: 0.35, keyColor: "#ffe2bd", fill: 0.25, exposure: 1.05, lamps: true },
+  day: { env: 0.52, hemi: 0, hemiColor: "#ffffff", key: 0.52, keyColor: "#ffffff", fill: 0, exposure: 1.0, lamps: false, tone: "none" },
+  night: { env: 0.12, hemi: 0.2, hemiColor: "#ffe9cf", key: 0.15, keyColor: "#ffe2bd", fill: 0.1, exposure: 1.0, lamps: true, tone: "neutral" },
 };

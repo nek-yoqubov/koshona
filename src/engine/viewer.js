@@ -1,5 +1,6 @@
 import * as THREE from "three";
-import { LEVELS, pixelRatioFor } from "./quality.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { LEVELS, pixelRatioFor, refineRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
 import { createTextures, createGroupMaterials, applyDecor, frontUV } from "./materials.js";
 import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
@@ -12,8 +13,8 @@ export function createViewer(container, levelId, onStats, onPick) {
   const level = LEVELS[levelId];
   const renderer = new THREE.WebGLRenderer({ antialias: level.antialias, powerPreference: "high-performance" });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.95;
+  renderer.toneMapping = THREE.NeutralToneMapping;
+  renderer.toneMappingExposure = 1;
   renderer.shadowMap.enabled = level.shadows;
   renderer.shadowMap.type = level.shadowSize >= 2048 ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
   renderer.shadowMap.autoUpdate = false;
@@ -23,6 +24,9 @@ export function createViewer(container, levelId, onStats, onPick) {
   scene.background = new THREE.Color("#d9d5cf");
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 50);
   const lights = addLights(scene, level);
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  pmrem.dispose();
 
   let dirty = true;
   const invalidate = () => { dirty = true; };
@@ -146,17 +150,23 @@ export function createViewer(container, levelId, onStats, onPick) {
     lights.key.intensity = m.key;
     lights.key.color.set(m.keyColor);
     lights.fill.intensity = m.fill;
+    scene.environmentIntensity = m.env;
     lights.spots.forEach((sp) => (sp.visible = m.lamps));
     kitchen?.lamps.forEach((l) => (l.visible = m.lamps));
     fixed.led.emissiveIntensity = m.lamps ? 3 : 0;
     fixed.shelfLed.emissiveIntensity = m.lamps ? 2.5 : 0;
     renderer.toneMappingExposure = m.exposure;
+    renderer.toneMapping = m.tone === "none" ? THREE.NoToneMapping : THREE.NeutralToneMapping;
     invalidate();
   }
 
+  let baseRatio = 1, refineRatio = 1, refined = true, lastChange = 0;
   const resize = () => {
     const w = container.clientWidth, h = container.clientHeight;
-    renderer.setPixelRatio(pixelRatioFor(levelId, w, h));
+    baseRatio = pixelRatioFor(levelId, w, h);
+    refineRatio = refineRatioFor(w, h);
+    refined = false;
+    renderer.setPixelRatio(baseRatio);
     renderer.setSize(w, h);
     camera.aspect = w / Math.max(h, 1);
     camera.updateProjectionMatrix();
@@ -197,9 +207,18 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
     if (dirty || bench) {
       dirty = false;
+      if (renderer.getPixelRatio() !== baseRatio) renderer.setPixelRatio(baseRatio);
       render();
       frames++;
       if (bench) bench.frames++;
+      refined = false;
+      lastChange = now;
+    } else if (!refined && !openAnim && now - lastChange > 450) {
+      refined = true;
+      if (refineRatio > baseRatio + 0.05) {
+        renderer.setPixelRatio(refineRatio);
+        render();
+      }
     }
     if (now - t0 >= 500) {
       if (frames > 0) lastFps = Math.round((frames * 1000) / (now - t0));

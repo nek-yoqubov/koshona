@@ -10,6 +10,7 @@ import { locate, updateItem, removeItem, moveItem, duplicateItem, addItem, descr
 import { ItemIcon, ShapeIcon } from "./icons.jsx";
 import ItemEditor from "./ItemEditor.jsx";
 import CompareHandle from "./CompareHandle.jsx";
+import SampleView from "./SampleView.jsx";
 
 const base = import.meta.env.BASE_URL;
 const wallHex = (id) => (WALLS.find((w) => w.id === id) || WALLS[0]).hex;
@@ -44,6 +45,7 @@ export default function App() {
   const [supplier, setSupplier] = useState("Все");
   const [light, setLight] = useState(fromUrl.light === "night" ? "night" : "day");
   const [specOpen, setSpecOpen] = useState(false);
+  const [sample, setSample] = useState(null);
   const [parts, setParts] = useState([]);
 
   const setModel = (next) => {
@@ -220,7 +222,16 @@ export default function App() {
           <button className={compare ? "tb on" : "tb"} onClick={toggleCompare}>A / B</button>
         </div>
 
-        {sel && (
+        {sample && (
+          <SampleView
+            list={filtered.length ? filtered : decors}
+            code={sample}
+            onNav={(c) => { setSample(c); setCur((f) => ({ ...f, [active]: { ...f[active], code: c } })); }}
+            onClose={() => setSample(null)}
+          />
+        )}
+
+        {sel && !sample && (
           <div className="float">
             <ItemEditor {...editorProps} />
           </div>
@@ -320,6 +331,10 @@ export default function App() {
                   </div>
                   <div className="between">
                     <span className="muted pr">{nameOf(cur[active].code)}</span>
+                    <button className="btn" onClick={() => setSample(cur[active].code)} title="Декор во весь экран — сравнить с живым образцом">Образец ⤢</button>
+                  </div>
+                  <div className="between">
+                    <span />
                     <button className={cur[active].rot ? "btn on" : "btn"} onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], rot: !f[active].rot } }))}>
                       {cur[active].rot ? "волокно вертикально" : "волокно горизонтально"}
                     </button>
