@@ -77,12 +77,15 @@ for (const sup of SUPPLIERS) {
       await normal(src(t.normal), path.join(dir, "n4.webp"), sup.reliefRotated, 4096);
       await roughness(src(t.roughness), path.join(dir, "r4.webp"), sup.reliefRotated, 4096);
       const [tu, tv] = t.tiling || [1, 1];
+      const meta = await sharp(src(t.normal)).metadata();
+      const [sw, sh] = [t.sheetW || 2800, t.sheetH || 1300];
+      const squareTile = meta.width === meta.height && tu === tv;
       relief = {
         normal: rel("n.webp"),
         rough: rel("r.webp"),
         normalMax: rel("n4.webp"),
         roughMax: rel("r4.webp"),
-        repeat: sup.reliefRotated ? [tv, tu] : [tu, tv],
+        repeat: squareTile ? [+(tu * sw / sh).toFixed(3), tu] : sup.reliefRotated ? [tv, tu] : [tu, tv],
       };
     }
 
