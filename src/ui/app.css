@@ -102,3 +102,8 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .sample-nav.r { right: 14px; }
 .sample-info { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); background: rgba(250,248,245,.95); padding: 10px 18px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 15px; max-width: 90%; text-align: center; }
 .sample-info span { font-size: 12px; color: #6d6963; }
+
+/* глянцевые плиты: блик в углу образца */
+.sw.gloss { position: relative; }
+.sw.gloss::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 38%); }

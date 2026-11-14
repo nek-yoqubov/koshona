@@ -1,0 +1,1562 @@
+{
+ "3060": {
+  "name": "TEXTILE VISON",
+  "hex": "#A7A396",
+  "file": "3060.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3056": {
+  "name": "Слейт кремовый",
+  "hex": "#D3C7B8",
+  "file": "3056.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3057": {
+  "name": "Слейт серый",
+  "hex": "#42403A",
+  "file": "3057.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3058": {
+  "name": "Слейт кофейный",
+  "hex": "#645E57",
+  "file": "3058.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3063": {
+  "name": "Кроко серый",
+  "hex": "#9A9690",
+  "file": "3063.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3064": {
+  "name": "Кроко крем",
+  "hex": "#EEEAE3",
+  "file": "3064.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3049": {
+  "name": "Deep blue",
+  "hex": "#333B48",
+  "file": "3049.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3051": {
+  "name": "Caretta green",
+  "hex": "#626C4A",
+  "file": "3051.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3081": {
+  "name": "Арбуаз",
+  "hex": "#80766C",
+  "file": "3081.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": true
+ },
+ "398": {
+  "name": "Light cream",
+  "hex": "#F5EEE4",
+  "file": "398.jpg",
+  "finish": "supermatt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3001": {
+  "name": "LIGHT GREY",
+  "hex": "#83827D",
+  "file": "3001.jpg",
+  "finish": "supermatt",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": true
+ },
+ "6013": {
+  "name": "LIGHT GREY HG",
+  "hex": "#EFF0EB",
+  "file": "6013.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6016": {
+  "name": "ONYX GREY",
+  "hex": "#B6BAB7",
+  "file": "6016.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "399": {
+  "name": "STUDIO GREY",
+  "hex": "#9EA1A0",
+  "file": "399.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6020": {
+  "name": "Тренд серый",
+  "hex": "#CED0C8",
+  "file": "6020.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "728": {
+  "name": "Серая скала",
+  "hex": "#858774",
+  "file": "728.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6007": {
+  "name": "Мрамор белый",
+  "hex": "#F3F3ED",
+  "file": "6007.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1600,
+  "useHex": false
+ },
+ "678": {
+  "name": "Кремовая галактика",
+  "hex": "#FEEFCE",
+  "file": "678.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "670": {
+  "name": "Белая галактика",
+  "hex": "#F6FAFA",
+  "file": "670.png",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "667": {
+  "name": "Белое дерево",
+  "hex": "#C6BEA9",
+  "file": "667.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "601": {
+  "name": "Белый",
+  "hex": "#FDFCF7",
+  "file": "601.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "647": {
+  "name": "Бьянко",
+  "hex": "#FFFBE8",
+  "file": "647.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "633": {
+  "name": "Империя",
+  "hex": "#6D6651",
+  "file": "633.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1567,
+  "useHex": false
+ },
+ "605": {
+  "name": "Кремовый",
+  "hex": "#FEF8EC",
+  "file": "605.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "603": {
+  "name": "Металлик карагач",
+  "hex": "#2A2823",
+  "file": "603.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 2254,
+  "useHex": false
+ },
+ "6002": {
+  "name": "Черный",
+  "hex": "#000003",
+  "file": "6002.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "734": {
+  "name": "Белый мат",
+  "hex": "#FEFFFA",
+  "file": "734.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "730": {
+  "name": "Крем мат",
+  "hex": "#E2E0D1",
+  "file": "730.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "729": {
+  "name": "Новый серый",
+  "hex": "#C2BEA6",
+  "file": "729.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "726": {
+  "name": "Серый мат",
+  "hex": "#4B544C",
+  "file": "726.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3011": {
+  "name": "Лондон блюз",
+  "hex": "#0F2435",
+  "file": "3011.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3020": {
+  "name": "Серый сафари",
+  "hex": "#A4A2A3",
+  "file": "3020.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3022": {
+  "name": "Королевский серый",
+  "hex": "#5E5D5B",
+  "file": "3022.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3095": {
+  "name": "VICTORIA GREY",
+  "hex": "#D1D0CC",
+  "file": "3095.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3092": {
+  "name": "Tobac",
+  "hex": "#885132",
+  "file": "3092.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3017": {
+  "name": "TIMELESS GREY",
+  "hex": "#898D96",
+  "file": "3017.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3094": {
+  "name": "SONARA",
+  "hex": "#6D6153",
+  "file": "3094.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3019": {
+  "name": "Sahara cream",
+  "hex": "#C8BFAE",
+  "file": "3019.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3097": {
+  "name": "OLIVE GREEN",
+  "hex": "#677053",
+  "file": "3097.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3096": {
+  "name": "HAVANA COFFEE",
+  "hex": "#6E5D4B",
+  "file": "3096.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3025": {
+  "name": "Bitter",
+  "hex": "#312624",
+  "file": "3025.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3010": {
+  "name": "Черный",
+  "hex": "#1B1E25",
+  "file": "3010.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3018": {
+  "name": "MOON LIGHT",
+  "hex": "#EAEBED",
+  "file": "3018.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3093": {
+  "name": "Linden",
+  "hex": "#787B60",
+  "file": "3093.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3091": {
+  "name": "Sky Blue",
+  "hex": "#39414C",
+  "file": "3091.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3012": {
+  "name": "Снежный белый",
+  "hex": "#FFFFFF",
+  "file": "3012.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3023": {
+  "name": "Dolphin grey",
+  "hex": "#474745",
+  "file": "3023.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3013": {
+  "name": "Бриз бежевый",
+  "hex": "#CACABE",
+  "file": "3013.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3016": {
+  "name": "Розовая маргаритка",
+  "hex": "#BCA59D",
+  "file": "3016.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3029": {
+  "name": "Гламурный пацифик",
+  "hex": "#234C50",
+  "file": "3029.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3026": {
+  "name": "Деревенский красный",
+  "hex": "#532527",
+  "file": "3026.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3027": {
+  "name": "Зеленый лес",
+  "hex": "#45544D",
+  "file": "3027.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3015": {
+  "name": "Зеленый макарон",
+  "hex": "#8C9791",
+  "file": "3015.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3021": {
+  "name": "ICE GREY",
+  "hex": "#BDC2C6",
+  "file": "3021.jpg",
+  "finish": "supramat",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "686": {
+  "name": "Линен темный гл",
+  "hex": "#4E483D",
+  "file": "686.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1085,
+  "useHex": false
+ },
+ "685": {
+  "name": "Линен светлый гл",
+  "hex": "#8C8676",
+  "file": "685.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1085,
+  "useHex": false
+ },
+ "379": {
+  "name": "Темный линен матовый",
+  "hex": "#4E483D",
+  "file": "379.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1085,
+  "useHex": false
+ },
+ "378": {
+  "name": "Светлый линен матовый",
+  "hex": "#8C8676",
+  "file": "378.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1085,
+  "useHex": false
+ },
+ "687": {
+  "name": "Металик Голд",
+  "hex": "#A5A083",
+  "file": "687.jpg",
+  "finish": "metal",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "394": {
+  "name": "Пикасо инокс",
+  "hex": "#53504D",
+  "file": "394.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": true
+ },
+ "6023": {
+  "name": "SPECTRUM LIGHT",
+  "hex": "#7F786E",
+  "file": "6023.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6024": {
+  "name": "SPECTRUM DARK",
+  "hex": "#8A7D76",
+  "file": "6024.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6025": {
+  "name": "SPECTRUM BLUE",
+  "hex": "#6F736D",
+  "file": "6025.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3099": {
+  "name": "Nordic Oak",
+  "hex": "#DAB58B",
+  "file": "3099.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "6026": {
+  "name": "SPECTRUM ROSE",
+  "hex": "#7D6B5B",
+  "file": "6026.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3107": {
+  "name": "SPACE METAL",
+  "hex": "#E0E0E0",
+  "file": "3107.png",
+  "finish": "metal",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "733": {
+  "name": "Мокка",
+  "hex": "#3E3526",
+  "file": "733.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6005": {
+  "name": "Портер голд",
+  "hex": "#A2874B",
+  "file": "6005.jpg",
+  "finish": "metal",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1500,
+  "useHex": false
+ },
+ "3006": {
+  "name": "Белая галактика мат",
+  "hex": "#F8FAF7",
+  "file": "3006.jpg",
+  "finish": "supermatt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "387": {
+  "name": "Кашемир серый",
+  "hex": "#8F8B80",
+  "file": "387.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3005": {
+  "name": "Кремовая Галактика мат",
+  "hex": "#D8D5C5",
+  "file": "3005.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 800,
+  "useHex": false
+ },
+ "3008": {
+  "name": "Медовая галактика мат",
+  "hex": "#A49A86",
+  "file": "3008.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 800,
+  "useHex": false
+ },
+ "3009": {
+  "name": "Черная галактика мат",
+  "hex": "#313131",
+  "file": "3009.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 800,
+  "useHex": false
+ },
+ "3103": {
+  "name": "LINEA BROWN",
+  "hex": "#70614F",
+  "file": "3103.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3113": {
+  "name": "LINEARBRUSHED METAL",
+  "hex": "#A3A29F",
+  "file": "3113.png",
+  "finish": "metal",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3112": {
+  "name": "LUNA INOX",
+  "hex": "#C3C4C7",
+  "file": "3112.png",
+  "finish": "metal",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "6015": {
+  "name": "DIAMOND GREY",
+  "hex": "#908F89",
+  "file": "6015.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3039": {
+  "name": "Дуб Дельфи",
+  "hex": "#CEA887",
+  "file": "3039.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3076": {
+  "name": "Classic Oak",
+  "hex": "#DBBD8E",
+  "file": "3076.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "723": {
+  "name": "Черный мат",
+  "hex": "#000002",
+  "file": "723.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "390": {
+  "name": "Серый камень",
+  "hex": "#AEB6A2",
+  "file": "390.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "664": {
+  "name": "Волна белая",
+  "hex": "#E8E4E2",
+  "file": "664.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1600,
+  "useHex": false
+ },
+ "676": {
+  "name": "Линия темная роза",
+  "hex": "#743C3C",
+  "file": "676.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "640": {
+  "name": "Медовая галактика",
+  "hex": "#B49D7D",
+  "file": "640.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3032": {
+  "name": "Камень лофт мат",
+  "hex": "#6B6760",
+  "file": "3032.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "602": {
+  "name": "Европейский тик",
+  "hex": "#3B2F1F",
+  "file": "602.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1454,
+  "useHex": false
+ },
+ "662": {
+  "name": "Белая сахара",
+  "hex": "#DEDEDE",
+  "file": "662.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1522,
+  "useHex": false
+ },
+ "6021": {
+  "name": "Хром серый",
+  "hex": "#77827E",
+  "file": "6021.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "393": {
+  "name": "Камень арт",
+  "hex": "#423F3F",
+  "file": "393.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1500,
+  "useHex": false
+ },
+ "675": {
+  "name": "Жемчужная линия",
+  "hex": "#E5E3D4",
+  "file": "675.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 2362,
+  "useHex": false
+ },
+ "663": {
+  "name": "Фиолетовая сахара",
+  "hex": "#472D3A",
+  "file": "663.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1522,
+  "useHex": false
+ },
+ "661": {
+  "name": "Черная сахара",
+  "hex": "#212121",
+  "file": "661.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1522,
+  "useHex": false
+ },
+ "627": {
+  "name": "Милано",
+  "hex": "#70552C",
+  "file": "627.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "6018": {
+  "name": "Торос мрамор белый",
+  "hex": "#EBEBEB",
+  "file": "6018.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1600,
+  "useHex": false
+ },
+ "6019": {
+  "name": "Торос мрамор черный",
+  "hex": "#272725",
+  "file": "6019.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1600,
+  "useHex": false
+ },
+ "739": {
+  "name": "Желтый мат",
+  "hex": "#F8BA17",
+  "file": "739.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3079": {
+  "name": "Дуб деревянный",
+  "hex": "#6D4B2D",
+  "file": "3079.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3042": {
+  "name": "Дуб акра",
+  "hex": "#666359",
+  "file": "3042.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "736": {
+  "name": "Голубой океан",
+  "hex": "#6593AA",
+  "file": "736.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "386": {
+  "name": "Кашемир Медь",
+  "hex": "#583E2C",
+  "file": "386.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "735": {
+  "name": "Мятный мат",
+  "hex": "#A6C6B9",
+  "file": "735.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "732": {
+  "name": "Висон",
+  "hex": "#BEA88E",
+  "file": "732.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "727": {
+  "name": "Бежевый песок",
+  "hex": "#C3BA99",
+  "file": "727.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3111": {
+  "name": "ORBIT INOX",
+  "hex": "#A09B8D",
+  "file": "3111.png",
+  "finish": "metal",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3104": {
+  "name": "MOONGRAIN BROWN",
+  "hex": "#635F50",
+  "file": "3104.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "389": {
+  "name": "Толедо темный",
+  "hex": "#403429",
+  "file": "389.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "388": {
+  "name": "Толедо светлый",
+  "hex": "#8B7660",
+  "file": "388.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "737": {
+  "name": "Сиена",
+  "hex": "#665140",
+  "file": "737.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "395": {
+  "name": "Пикассо голд",
+  "hex": "#9F8753",
+  "file": "395.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "677": {
+  "name": "Черная галактика",
+  "hex": "#050503",
+  "file": "677.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 800,
+  "useHex": false
+ },
+ "680": {
+  "name": "Терра звезда",
+  "hex": "#3E361D",
+  "file": "680.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1814,
+  "useHex": false
+ },
+ "6003": {
+  "name": "Портер сильвер",
+  "hex": "#7B7D78",
+  "file": "6003.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1500,
+  "useHex": false
+ },
+ "6004": {
+  "name": "Портер белый",
+  "hex": "#F7F8E8",
+  "file": "6004.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "699": {
+  "name": "Металлик белый",
+  "hex": "#EEEDE0",
+  "file": "699.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "608": {
+  "name": "Металик антрацит",
+  "hex": "#494D4F",
+  "file": "608.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "385": {
+  "name": "Кашемир крем",
+  "hex": "#FFF9EB",
+  "file": "385.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "384": {
+  "name": "Кашемир голд",
+  "hex": "#3D3529",
+  "file": "384.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "383": {
+  "name": "Кашемир белый",
+  "hex": "#F5F5FE",
+  "file": "383.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "397": {
+  "name": "Дуб натуральный",
+  "hex": "#BD9366",
+  "file": "397.jpg",
+  "finish": "naturaltouch",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "604": {
+  "name": "Абаноз",
+  "hex": "#3C321A",
+  "file": "604.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 2228,
+  "useHex": false
+ },
+ "6017": {
+  "name": "Новый серый",
+  "hex": "#525357",
+  "file": "6017.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "6008": {
+  "name": "Делюкс серый",
+  "hex": "#D6CEC3",
+  "file": "6008.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "300": {
+  "name": "Инокс",
+  "hex": "#8F8D81",
+  "file": "300.jpg",
+  "finish": "metal",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "620": {
+  "name": "Коричневый",
+  "hex": "#342B1C",
+  "file": "620.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "600": {
+  "name": "Красный",
+  "hex": "#6E1414",
+  "file": "600.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "688": {
+  "name": "Металик кофе",
+  "hex": "#6D5F42",
+  "file": "688.jpg",
+  "finish": "metal",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "689": {
+  "name": "Металлик синий",
+  "hex": "#676E8B",
+  "file": "689.jpg",
+  "finish": "metal",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "654": {
+  "name": "Немецкий дуб",
+  "hex": "#A59A7F",
+  "file": "654.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1546,
+  "useHex": false
+ },
+ "645": {
+  "name": "Оливковый",
+  "hex": "#92944B",
+  "file": "645.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "612": {
+  "name": "Оранжевый",
+  "hex": "#B85802",
+  "file": "612.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "396": {
+  "name": "Пикассо бронза",
+  "hex": "#3D3326",
+  "file": "396.jpg",
+  "finish": "metal",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "679": {
+  "name": "Темная галактика",
+  "hex": "#777050",
+  "file": "679.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 800,
+  "useHex": false
+ },
+ "674": {
+  "name": "Тера бежевая",
+  "hex": "#D6D2B5",
+  "file": "674.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1220,
+  "useHex": false
+ },
+ "653": {
+  "name": "Тера коричневая",
+  "hex": "#564837",
+  "file": "653.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 699,
+  "useHex": false
+ },
+ "681": {
+  "name": "Терра крем",
+  "hex": "#ADAC99",
+  "file": "681.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1220,
+  "useHex": false
+ },
+ "622": {
+  "name": "Фиолетовый",
+  "hex": "#312531",
+  "file": "622.jpg",
+  "finish": "hg",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3098": {
+  "name": "Mat Stone Vision",
+  "hex": "#AD9E89",
+  "file": "3098.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "391": {
+  "name": "Бежевый камень",
+  "hex": "#D3D5BD",
+  "file": "391.jpg",
+  "finish": "matt",
+  "check": false,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3037": {
+  "name": "Дуб Техас",
+  "hex": "#624F3E",
+  "file": "3037.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "6022": {
+  "name": "Антрацит",
+  "hex": "#282725",
+  "file": "6022.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "878": {
+  "name": "Новый Визон",
+  "hex": "#A6967D",
+  "file": "878.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3040": {
+  "name": "Дуб орландо",
+  "hex": "#B0ACA9",
+  "file": "3040.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3077": {
+  "name": "SOOTY OAK",
+  "hex": "#4B3E31",
+  "file": "3077.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "615": {
+  "name": "Бордо",
+  "hex": "#41272A",
+  "file": "615.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "740": {
+  "name": "SOFT TOUCH BEIGE GREY",
+  "hex": "#696A59",
+  "file": "740.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3075": {
+  "name": "TOKYO WHITE",
+  "hex": "#EEEAE5",
+  "file": "3075.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3074": {
+  "name": "TOKYO GREY",
+  "hex": "#B6B1A5",
+  "file": "3074.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3080": {
+  "name": "PEARL MARBLE",
+  "hex": "#E6E6E7",
+  "file": "3080.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1600,
+  "useHex": false
+ },
+ "623": {
+  "name": "Капучино",
+  "hex": "#B8B2A0",
+  "file": "623.jpg",
+  "finish": "hg",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3078": {
+  "name": "Дуб фрезер",
+  "hex": "#8D7C67",
+  "file": "3078.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3041": {
+  "name": "PERU OAK",
+  "hex": "#886A46",
+  "file": "3041.jpg",
+  "finish": "matt",
+  "check": true,
+  "kind": "pattern",
+  "fragW": 1000,
+  "useHex": false
+ },
+ "3105": {
+  "name": "MINT GREEN",
+  "hex": "#CDD7CE",
+  "file": "3105.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3106": {
+  "name": "MIDNIGHT BLUE",
+  "hex": "#1C3755",
+  "file": "3106.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3110": {
+  "name": "ORBIT COPPER",
+  "hex": "#B08661",
+  "file": "3110.png",
+  "finish": "metal",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "3109": {
+  "name": "GRAPHITE GREY",
+  "hex": "#3E403C",
+  "file": "3109.png",
+  "finish": "matt",
+  "check": true,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ },
+ "738": {
+  "name": "CLAY",
+  "hex": "#915241",
+  "file": "738.jpg",
+  "finish": "softtouch",
+  "check": false,
+  "kind": "flat",
+  "fragW": null,
+  "useHex": false
+ }
+}

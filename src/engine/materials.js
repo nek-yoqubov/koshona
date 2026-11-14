@@ -22,8 +22,19 @@ export function createTextures(renderer, onLoad) {
   };
 }
 
+// Поверхности плит (AGT). hg — плёнка ≥80 GU: лаковый слой с отражением на любом уровне качества.
+export const FINISHES = {
+  hg: { label: "Глянец", roughness: 0.12, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.03 },
+  metal: { label: "Металлик", roughness: 0.35, metalness: 0.6, clearcoat: 0.5, clearcoatRoughness: 0.12 },
+  supramat: { label: "Супермат", roughness: 0.92 },
+  supermatt: { label: "Супермат", roughness: 0.9 },
+  softtouch: { label: "Soft Touch", roughness: 0.85 },
+  naturaltouch: { label: "Natural Touch", roughness: 0.7 },
+  matt: { label: "Мат", roughness: 0.6 },
+};
+
 export function createGroupMaterials() {
-  const std = (color, roughness = 0.5) => new THREE.MeshStandardMaterial({ color, roughness });
+  const std = (color, roughness = 0.5) => new THREE.MeshPhysicalMaterial({ color, roughness });
   return {
     upper: std(FALLBACK),
     lower: std(FALLBACK),
@@ -39,10 +50,17 @@ export function applyDecor(mat, decor, level, tex, fallbackHex) {
   if (!decor) {
     mat.color.set(fallbackHex || FALLBACK);
     mat.roughness = 0.6;
+    if ("clearcoat" in mat) { mat.metalness = 0; mat.clearcoat = 0; }
   } else {
     mat.color.set(0xffffff);
     mat.map = tex(decor.color[level.texture], { srgb: true });
     mat.roughness = decor.roughness;
+    const f = FINISHES[decor.finish];
+    if ("clearcoat" in mat) {
+      mat.metalness = f?.metalness ?? 0;
+      mat.clearcoat = f?.clearcoat ?? 0;
+      mat.clearcoatRoughness = f?.clearcoatRoughness ?? 0;
+    }
     if (level.relief && decor.relief) {
       const r = decor.relief;
       mat.normalMap = tex(level.reliefMax ? r.normalMax : r.normal, { repeat: r.repeat });
