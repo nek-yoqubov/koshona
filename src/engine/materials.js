@@ -25,6 +25,9 @@ export function createTextures(renderer, onLoad) {
 // Поверхности плит (AGT). hg — плёнка ≥80 GU: лаковый слой с отражением на любом уровне качества.
 export const FINISHES = {
   hg: { label: "Глянец", roughness: 0.12, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.03 },
+  akrilux: { label: "Глянец Akrilux", roughness: 0.1, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.02 },
+  hgmetal: { label: "Глянец металлик", roughness: 0.5, metalness: 0.3, clearcoat: 1, clearcoatRoughness: 0.03 },
+  mattmetal: { label: "Мат металлик", roughness: 0.6, metalness: 0.4 },
   metal: { label: "Металлик", roughness: 0.35, metalness: 0.6, clearcoat: 0.5, clearcoatRoughness: 0.12 },
   supramat: { label: "Супермат", roughness: 0.92 },
   supermatt: { label: "Супермат", roughness: 0.9 },

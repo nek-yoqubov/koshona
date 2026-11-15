@@ -106,7 +106,7 @@ for (const sup of SUPPLIERS) {
 // ---------- AGT: лист 2800×1220, рельефа нет, поверхность из raw/agt-finishes.json ----------
 const AGT_SHEET = [2800, 1220];
 const PX_PER_MM = 4096 / AGT_SHEET[0];
-const FIN_ROUGH = { hg: 0.12, metal: 0.35, supramat: 0.92, supermatt: 0.9, softtouch: 0.85, matt: 0.6, naturaltouch: 0.7 };
+const FIN_ROUGH = { hg: 0.12, akrilux: 0.1, hgmetal: 0.5, mattmetal: 0.6, metal: 0.35, supramat: 0.92, supermatt: 0.9, softtouch: 0.85, matt: 0.6, naturaltouch: 0.7 };
 
 async function median(file) {
   const { data, info } = await sharp(file).removeAlpha().resize(200, 200, { fit: "fill" })
@@ -116,12 +116,20 @@ async function median(file) {
   return ch.map((a) => a.sort((x, y) => x - y)[a.length >> 1]);
 }
 
+async function meanRgb(file) {
+  const { channels } = await sharp(file).removeAlpha().stats();
+  return channels.slice(0, 3).map((c) => c.mean);
+}
+
 const hexRgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
 
 // фрагмент → без запечённого градиента → масштаб в мм → зеркальная раскладка на весь лист
-async function patternSheet(file, fragW) {
-  const tw = Math.max(64, Math.round(fragW * PX_PER_MM));
-  const { data, info } = await sharp(file).removeAlpha().toColourspace("srgb").resize({ width: tw })
+// rotate: волокно на картинке идёт поперёк — поворачиваем, чтобы шло вдоль длины листа (2800)
+async function patternSheet(file, fragW, target = null, rotate = false) {
+  const meta = await sharp(file).metadata();
+  const scale = (fragW * PX_PER_MM) / meta.width;
+  const tw = Math.max(64, Math.round((rotate ? meta.height : meta.width) * scale));
+  const { data, info } = await sharp(file).rotate(rotate ? 90 : 0).removeAlpha().toColourspace("srgb").resize({ width: tw })
     .raw().toBuffer({ resolveWithObject: true });
   // освещение = сильно размытая копия; размываем уменьшенную, так в десятки раз быстрее
   const sw = Math.max(16, Math.round(info.width / 16)), sh = Math.max(8, Math.round(info.height / 16));
@@ -131,6 +139,7 @@ async function patternSheet(file, fragW) {
   for (let i = 0; i < data.length; i += 3) for (let k = 0; k < 3; k++) mean[k] += data[i + k];
   const n = data.length / 3;
   for (let k = 0; k < 3; k++) mean[k] /= n;
+  if (target) for (let k = 0; k < 3; k++) mean[k] = target[k];
   for (let i = 0; i < data.length; i += 3)
     for (let k = 0; k < 3; k++) data[i + k] = Math.min(255, Math.round(data[i + k] * mean[k] / Math.max(1, blur[i + k])));
   const tile = () => sharp(data, { raw: info }).png();
@@ -154,12 +163,12 @@ async function patternSheet(file, fragW) {
   for (const [code, f] of Object.entries(fin)) {
     if (only && code !== only) continue;
     const id = `agt-${code}`;
-    const src = path.join(RAW, "agt", f.file);
+    const src = path.join(RAW, f.src || path.join("agt", f.file));
     const dir = path.join(OUT, id);
     fs.mkdirSync(dir, { recursive: true });
     const rel = (x) => `tex/${id}/${x}`;
     const stamp = path.join(dir, "c1.webp");
-    const cfg = JSON.stringify([f.kind, f.fragW, f.useHex, f.hex]);
+    const cfg = JSON.stringify([f.kind, f.fragW, f.useHex, f.hex, f.src, f.colorRef, f.rotate]);
     const cfgFile = path.join(RAW, ".agt-cache", `${id}.cfg`);
     fs.mkdirSync(path.dirname(cfgFile), { recursive: true });
     const stale = force || !fs.existsSync(stamp) || fs.statSync(stamp).mtimeMs < fs.statSync(src).mtimeMs
@@ -173,7 +182,9 @@ async function patternSheet(file, fragW) {
         await solid(256, 256).webp({ quality: 90 }).toFile(path.join(dir, "card.webp"));
       }
     } else if (stale) {
-      const sheet = await patternSheet(src, f.fragW);
+      // скан другого источника, цвет подгоняем под картинку с сайта AGT
+      const target = f.colorRef ? await meanRgb(path.join(RAW, f.colorRef)) : null;
+      const sheet = await patternSheet(src, f.fragW, target, !!f.rotate);
       await sharp(sheet).webp({ quality: 88 }).toFile(path.join(dir, "c4.webp"));
       await sharp(sheet).resize({ width: 2048 }).webp({ quality: 82 }).toFile(path.join(dir, "c2.webp"));
       await sharp(sheet).resize({ width: 1024 }).webp({ quality: 78 }).toFile(path.join(dir, "c1.webp"));

@@ -7,7 +7,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3056": {
   "name": "Слейт кремовый",
@@ -17,7 +18,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3057": {
   "name": "Слейт серый",
@@ -27,7 +29,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3058": {
   "name": "Слейт кофейный",
@@ -37,7 +40,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3063": {
   "name": "Кроко серый",
@@ -47,7 +51,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3064": {
   "name": "Кроко крем",
@@ -57,7 +62,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3049": {
   "name": "Deep blue",
@@ -67,7 +73,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3051": {
   "name": "Caretta green",
@@ -77,7 +84,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): 3P PET"
  },
  "3081": {
   "name": "Арбуаз",
@@ -87,7 +95,8 @@
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": true
+  "useHex": true,
+  "note": "agt.com.tr: бывает мат/глянец/металлик — проверить образец"
  },
  "398": {
   "name": "Light cream",
@@ -97,7 +106,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)/каталог кухонь AGT 2023 (tbm.ru): Akrilux Super Matt"
  },
  "3001": {
   "name": "LIGHT GREY",
@@ -107,37 +117,41 @@
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": true
+  "useHex": true,
+  "note": "каталог Trendy 2024 (agtwood.ru)/каталог кухонь AGT 2023 (tbm.ru): Akrilux Super Matt"
  },
  "6013": {
   "name": "LIGHT GREY HG",
   "hex": "#EFF0EB",
   "file": "6013.jpg",
-  "finish": "hg",
+  "finish": "akrilux",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Akrilux HG"
  },
  "6016": {
   "name": "ONYX GREY",
   "hex": "#B6BAB7",
   "file": "6016.jpg",
-  "finish": "hg",
+  "finish": "akrilux",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Akrilux HG"
  },
  "399": {
   "name": "STUDIO GREY",
   "hex": "#9EA1A0",
   "file": "399.jpg",
-  "finish": "matt",
+  "finish": "supermatt",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)/каталог кухонь AGT 2023 (tbm.ru): Akrilux Super Matt"
  },
  "6020": {
   "name": "Тренд серый",
@@ -147,7 +161,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "728": {
   "name": "Серая скала",
@@ -157,7 +172,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "6007": {
   "name": "Мрамор белый",
@@ -167,17 +183,19 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1600,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "678": {
   "name": "Кремовая галактика",
   "hex": "#FEEFCE",
   "file": "678.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "670": {
   "name": "Белая галактика",
@@ -187,17 +205,19 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "667": {
   "name": "Белое дерево",
   "hex": "#C6BEA9",
   "file": "667.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "601": {
   "name": "Белый",
@@ -207,7 +227,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "647": {
   "name": "Бьянко",
@@ -217,17 +238,20 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "633": {
   "name": "Империя",
   "hex": "#6D6651",
   "file": "633.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1567,
-  "useHex": false
+  "fragW": 600,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец; масштаб картинки неизвестен (600 мм на глаз)",
+  "rotate": true
  },
  "605": {
   "name": "Кремовый",
@@ -237,17 +261,20 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "603": {
   "name": "Металлик карагач",
   "hex": "#2A2823",
   "file": "603.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": false,
   "kind": "pattern",
-  "fragW": 2254,
-  "useHex": false
+  "fragW": 795,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик",
+  "rotate": true
  },
  "6002": {
   "name": "Черный",
@@ -257,7 +284,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "734": {
   "name": "Белый мат",
@@ -267,7 +295,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "730": {
   "name": "Крем мат",
@@ -277,7 +306,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "729": {
   "name": "Новый серый",
@@ -287,7 +317,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "726": {
   "name": "Серый мат",
@@ -297,7 +328,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "3011": {
   "name": "Лондон блюз",
@@ -307,7 +339,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3020": {
   "name": "Серый сафари",
@@ -317,7 +350,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3022": {
   "name": "Королевский серый",
@@ -327,7 +361,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3095": {
   "name": "VICTORIA GREY",
@@ -337,7 +372,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3092": {
   "name": "Tobac",
@@ -347,7 +383,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3017": {
   "name": "TIMELESS GREY",
@@ -357,7 +394,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3094": {
   "name": "SONARA",
@@ -367,7 +405,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3019": {
   "name": "Sahara cream",
@@ -377,7 +416,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3097": {
   "name": "OLIVE GREEN",
@@ -387,7 +427,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3096": {
   "name": "HAVANA COFFEE",
@@ -397,7 +438,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3025": {
   "name": "Bitter",
@@ -407,7 +449,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3010": {
   "name": "Черный",
@@ -417,7 +460,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3018": {
   "name": "MOON LIGHT",
@@ -427,7 +471,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3093": {
   "name": "Linden",
@@ -437,7 +482,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3091": {
   "name": "Sky Blue",
@@ -447,7 +493,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3012": {
   "name": "Снежный белый",
@@ -457,7 +504,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3023": {
   "name": "Dolphin grey",
@@ -467,7 +515,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3013": {
   "name": "Бриз бежевый",
@@ -477,7 +526,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3016": {
   "name": "Розовая маргаритка",
@@ -487,7 +537,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3029": {
   "name": "Гламурный пацифик",
@@ -497,7 +548,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3026": {
   "name": "Деревенский красный",
@@ -507,7 +559,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3027": {
   "name": "Зеленый лес",
@@ -517,7 +570,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3015": {
   "name": "Зеленый макарон",
@@ -527,7 +581,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "3021": {
   "name": "ICE GREY",
@@ -537,7 +592,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Supramat"
  },
  "686": {
   "name": "Линен темный гл",
@@ -546,8 +602,9 @@
   "finish": "hg",
   "check": false,
   "kind": "pattern",
-  "fragW": 1085,
-  "useHex": false
+  "fragW": 383,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "685": {
   "name": "Линен светлый гл",
@@ -556,8 +613,9 @@
   "finish": "hg",
   "check": false,
   "kind": "pattern",
-  "fragW": 1085,
-  "useHex": false
+  "fragW": 383,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "379": {
   "name": "Темный линен матовый",
@@ -566,8 +624,9 @@
   "finish": "matt",
   "check": false,
   "kind": "pattern",
-  "fragW": 1085,
-  "useHex": false
+  "fragW": 383,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: матовый"
  },
  "378": {
   "name": "Светлый линен матовый",
@@ -576,58 +635,65 @@
   "finish": "matt",
   "check": false,
   "kind": "pattern",
-  "fragW": 1085,
-  "useHex": false
+  "fragW": 383,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: матовый"
  },
  "687": {
   "name": "Металик Голд",
   "hex": "#A5A083",
   "file": "687.jpg",
-  "finish": "metal",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "394": {
   "name": "Пикасо инокс",
   "hex": "#53504D",
   "file": "394.jpg",
-  "finish": "hg",
-  "check": true,
+  "finish": "hgmetal",
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": true
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): metal effect; архив Базиса TBM_AGT.xml: глянец",
+  "src": "agt-tbm/394.jpg"
  },
  "6023": {
   "name": "SPECTRUM LIGHT",
   "hex": "#7F786E",
   "file": "6023.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Spectrum: в каталоге без пометки, на фото перелив — проверить образец"
  },
  "6024": {
   "name": "SPECTRUM DARK",
   "hex": "#8A7D76",
   "file": "6024.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Spectrum: в каталоге без пометки, на фото перелив — проверить образец"
  },
  "6025": {
   "name": "SPECTRUM BLUE",
   "hex": "#6F736D",
   "file": "6025.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Spectrum: в каталоге без пометки, на фото перелив — проверить образец"
  },
  "3099": {
   "name": "Nordic Oak",
@@ -637,57 +703,65 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец",
+  "rotate": true
  },
  "6026": {
   "name": "SPECTRUM ROSE",
   "hex": "#7D6B5B",
   "file": "6026.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "Spectrum: в каталоге без пометки, на фото перелив — проверить образец"
  },
  "3107": {
   "name": "SPACE METAL",
   "hex": "#E0E0E0",
   "file": "3107.png",
-  "finish": "metal",
-  "check": false,
+  "finish": "mattmetal",
+  "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия металл, нет в каталогах — проверить образец",
+  "rotate": true
  },
  "733": {
   "name": "Мокка",
   "hex": "#3E3526",
   "file": "733.jpg",
-  "finish": "matt",
+  "finish": "softtouch",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: супермат, серия ST"
  },
  "6005": {
   "name": "Портер голд",
   "hex": "#A2874B",
   "file": "6005.jpg",
-  "finish": "metal",
+  "finish": "hgmetal",
   "check": false,
   "kind": "pattern",
-  "fragW": 1500,
-  "useHex": false
+  "fragW": 529,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "3006": {
   "name": "Белая галактика мат",
   "hex": "#F8FAF7",
   "file": "3006.jpg",
-  "finish": "supermatt",
+  "finish": "mattmetal",
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Super Matt Galaxy; архив Базиса TBM_AGT.xml: суперматовый металлик"
  },
  "387": {
   "name": "Кашемир серый",
@@ -697,37 +771,41 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "3005": {
   "name": "Кремовая Галактика мат",
   "hex": "#D8D5C5",
   "file": "3005.jpg",
-  "finish": "matt",
+  "finish": "mattmetal",
   "check": false,
   "kind": "pattern",
-  "fragW": 800,
-  "useHex": false
+  "fragW": 282,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: суперматовый металлик"
  },
  "3008": {
   "name": "Медовая галактика мат",
   "hex": "#A49A86",
   "file": "3008.jpg",
-  "finish": "matt",
+  "finish": "mattmetal",
   "check": false,
   "kind": "pattern",
-  "fragW": 800,
-  "useHex": false
+  "fragW": 282,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: суперматовый металлик"
  },
  "3009": {
   "name": "Черная галактика мат",
   "hex": "#313131",
   "file": "3009.jpg",
-  "finish": "matt",
+  "finish": "mattmetal",
   "check": false,
   "kind": "pattern",
-  "fragW": 800,
-  "useHex": false
+  "fragW": 282,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: суперматовый металлик"
  },
  "3103": {
   "name": "LINEA BROWN",
@@ -737,47 +815,54 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец"
  },
  "3113": {
   "name": "LINEARBRUSHED METAL",
   "hex": "#A3A29F",
   "file": "3113.png",
-  "finish": "metal",
-  "check": false,
+  "finish": "mattmetal",
+  "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия металл, нет в каталогах — проверить образец",
+  "rotate": true
  },
  "3112": {
   "name": "LUNA INOX",
   "hex": "#C3C4C7",
   "file": "3112.png",
-  "finish": "metal",
-  "check": false,
+  "finish": "mattmetal",
+  "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия металл, нет в каталогах — проверить образец"
  },
  "6015": {
   "name": "DIAMOND GREY",
   "hex": "#908F89",
   "file": "6015.jpg",
-  "finish": "hg",
+  "finish": "akrilux",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Akrilux HG"
  },
  "3039": {
   "name": "Дуб Дельфи",
   "hex": "#CEA887",
   "file": "3039.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "3076": {
   "name": "Classic Oak",
@@ -787,7 +872,9 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "agt.com.tr: Surface Matte",
+  "rotate": true
  },
  "723": {
   "name": "Черный мат",
@@ -797,7 +884,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "390": {
   "name": "Серый камень",
@@ -807,27 +895,31 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "664": {
   "name": "Волна белая",
   "hex": "#E8E4E2",
   "file": "664.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1600,
-  "useHex": false
+  "fragW": 564,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец",
+  "rotate": true
  },
  "676": {
   "name": "Линия темная роза",
   "hex": "#743C3C",
   "file": "676.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "640": {
   "name": "Медовая галактика",
@@ -837,7 +929,8 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "3032": {
   "name": "Камень лофт мат",
@@ -847,27 +940,32 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "602": {
   "name": "Европейский тик",
   "hex": "#3B2F1F",
   "file": "602.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1454,
-  "useHex": false
+  "fragW": 513,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец",
+  "rotate": true
  },
  "662": {
   "name": "Белая сахара",
   "hex": "#DEDEDE",
   "file": "662.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1522,
-  "useHex": false
+  "fragW": 537,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец-матовый (Сахара) — рисунок полосами глянец/мат",
+  "rotate": true
  },
  "6021": {
   "name": "Хром серый",
@@ -877,7 +975,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "393": {
   "name": "Камень арт",
@@ -886,38 +985,45 @@
   "finish": "matt",
   "check": false,
   "kind": "pattern",
-  "fragW": 1500,
-  "useHex": false
+  "fragW": 529,
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "675": {
   "name": "Жемчужная линия",
   "hex": "#E5E3D4",
   "file": "675.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 2362,
-  "useHex": false
+  "fragW": 600,
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru); масштаб картинки неизвестен (600 мм на глаз)",
+  "rotate": true
  },
  "663": {
   "name": "Фиолетовая сахара",
   "hex": "#472D3A",
   "file": "663.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1522,
-  "useHex": false
+  "fragW": 537,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец-матовый (Сахара) — рисунок полосами глянец/мат",
+  "rotate": true
  },
  "661": {
   "name": "Черная сахара",
   "hex": "#212121",
   "file": "661.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1522,
-  "useHex": false
+  "fragW": 537,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец-матовый (Сахара) — рисунок полосами глянец/мат",
+  "rotate": true
  },
  "627": {
   "name": "Милано",
@@ -927,7 +1033,9 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)",
+  "rotate": true
  },
  "6018": {
   "name": "Торос мрамор белый",
@@ -937,7 +1045,9 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1600,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)",
+  "rotate": true
  },
  "6019": {
   "name": "Торос мрамор черный",
@@ -947,7 +1057,9 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1600,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)",
+  "rotate": true
  },
  "739": {
   "name": "Желтый мат",
@@ -957,27 +1069,32 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "3079": {
   "name": "Дуб деревянный",
   "hex": "#6D4B2D",
   "file": "3079.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "3042": {
   "name": "Дуб акра",
   "hex": "#666359",
   "file": "3042.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "736": {
   "name": "Голубой океан",
@@ -987,17 +1104,19 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "386": {
   "name": "Кашемир Медь",
   "hex": "#583E2C",
   "file": "386.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: матовый"
  },
  "735": {
   "name": "Мятный мат",
@@ -1007,7 +1126,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "732": {
   "name": "Висон",
@@ -1017,27 +1137,30 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "727": {
   "name": "Бежевый песок",
   "hex": "#C3BA99",
   "file": "727.jpg",
-  "finish": "matt",
+  "finish": "softtouch",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: супермат, серия ST"
  },
  "3111": {
   "name": "ORBIT INOX",
   "hex": "#A09B8D",
   "file": "3111.png",
-  "finish": "metal",
-  "check": false,
+  "finish": "mattmetal",
+  "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия металл, нет в каталогах — проверить образец"
  },
  "3104": {
   "name": "MOONGRAIN BROWN",
@@ -1047,27 +1170,32 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец"
  },
  "389": {
   "name": "Толедо темный",
   "hex": "#403429",
   "file": "389.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: матовый",
+  "rotate": true
  },
  "388": {
   "name": "Толедо светлый",
   "hex": "#8B7660",
   "file": "388.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: матовый",
+  "rotate": true
  },
  "737": {
   "name": "Сиена",
@@ -1076,28 +1204,33 @@
   "finish": "softtouch",
   "check": false,
   "kind": "pattern",
-  "fragW": 1000,
-  "useHex": false
+  "fragW": 1183,
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)",
+  "src": "agt-tbm/737.jpg",
+  "colorRef": "agt/737.jpg"
  },
  "395": {
   "name": "Пикассо голд",
   "hex": "#9F8753",
   "file": "395.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): metal effect; архив Базиса TBM_AGT.xml: глянец"
  },
  "677": {
   "name": "Черная галактика",
   "hex": "#050503",
   "file": "677.jpg",
-  "finish": "hg",
-  "check": true,
+  "finish": "hgmetal",
+  "check": false,
   "kind": "pattern",
-  "fragW": 800,
-  "useHex": false
+  "fragW": 282,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "680": {
   "name": "Терра звезда",
@@ -1106,48 +1239,53 @@
   "finish": "hg",
   "check": false,
   "kind": "pattern",
-  "fragW": 1814,
-  "useHex": false
+  "fragW": 640,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "6003": {
   "name": "Портер сильвер",
   "hex": "#7B7D78",
   "file": "6003.jpg",
-  "finish": "hg",
-  "check": true,
+  "finish": "hgmetal",
+  "check": false,
   "kind": "pattern",
-  "fragW": 1500,
-  "useHex": false
+  "fragW": 529,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "6004": {
   "name": "Портер белый",
   "hex": "#F7F8E8",
   "file": "6004.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог кухонь AGT 2023 (tbm.ru): HG Porte"
  },
  "699": {
   "name": "Металлик белый",
   "hex": "#EEEDE0",
   "file": "699.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): HG Metallic"
  },
  "608": {
   "name": "Металик антрацит",
   "hex": "#494D4F",
   "file": "608.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): HG Metallic"
  },
  "385": {
   "name": "Кашемир крем",
@@ -1157,7 +1295,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "384": {
   "name": "Кашемир голд",
@@ -1167,7 +1306,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "383": {
   "name": "Кашемир белый",
@@ -1177,7 +1317,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "397": {
   "name": "Дуб натуральный",
@@ -1187,7 +1328,9 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)",
+  "rotate": true
  },
  "604": {
   "name": "Абаноз",
@@ -1196,8 +1339,10 @@
   "finish": "hg",
   "check": false,
   "kind": "pattern",
-  "fragW": 2228,
-  "useHex": false
+  "fragW": 786,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец",
+  "rotate": true
  },
  "6017": {
   "name": "Новый серый",
@@ -1207,7 +1352,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "6008": {
   "name": "Делюкс серый",
@@ -1217,17 +1363,19 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "300": {
   "name": "Инокс",
   "hex": "#8F8D81",
   "file": "300.jpg",
-  "finish": "metal",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "620": {
   "name": "Коричневый",
@@ -1237,7 +1385,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "600": {
   "name": "Красный",
@@ -1247,37 +1396,41 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "688": {
   "name": "Металик кофе",
   "hex": "#6D5F42",
   "file": "688.jpg",
-  "finish": "metal",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "689": {
   "name": "Металлик синий",
   "hex": "#676E8B",
   "file": "689.jpg",
-  "finish": "metal",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "654": {
   "name": "Немецкий дуб",
   "hex": "#A59A7F",
   "file": "654.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1546,
-  "useHex": false
+  "fragW": 498,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "645": {
   "name": "Оливковый",
@@ -1287,7 +1440,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "612": {
   "name": "Оранжевый",
@@ -1297,37 +1451,41 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "396": {
   "name": "Пикассо бронза",
   "hex": "#3D3326",
   "file": "396.jpg",
-  "finish": "metal",
+  "finish": "hgmetal",
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "679": {
   "name": "Темная галактика",
   "hex": "#777050",
   "file": "679.jpg",
-  "finish": "hg",
+  "finish": "hgmetal",
   "check": false,
   "kind": "pattern",
-  "fragW": 800,
-  "useHex": false
+  "fragW": 282,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец металлик"
  },
  "674": {
   "name": "Тера бежевая",
   "hex": "#D6D2B5",
   "file": "674.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 1220,
-  "useHex": false
+  "fragW": 395,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "653": {
   "name": "Тера коричневая",
@@ -1336,8 +1494,9 @@
   "finish": "hg",
   "check": false,
   "kind": "pattern",
-  "fragW": 699,
-  "useHex": false
+  "fragW": 600,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец; масштаб картинки неизвестен (600 мм на глаз)"
  },
  "681": {
   "name": "Терра крем",
@@ -1346,18 +1505,21 @@
   "finish": "hg",
   "check": false,
   "kind": "pattern",
-  "fragW": 1220,
-  "useHex": false
+  "fragW": 688,
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец",
+  "rotate": true
  },
  "622": {
   "name": "Фиолетовый",
   "hex": "#312531",
   "file": "622.jpg",
   "finish": "hg",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "3098": {
   "name": "Mat Stone Vision",
@@ -1367,7 +1529,8 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец"
  },
  "391": {
   "name": "Бежевый камень",
@@ -1377,17 +1540,20 @@
   "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): Matt"
  },
  "3037": {
   "name": "Дуб Техас",
   "hex": "#624F3E",
   "file": "3037.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "6022": {
   "name": "Антрацит",
@@ -1397,7 +1563,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "878": {
   "name": "Новый Визон",
@@ -1407,27 +1574,32 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "3040": {
   "name": "Дуб орландо",
   "hex": "#B0ACA9",
   "file": "3040.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "3077": {
   "name": "SOOTY OAK",
   "hex": "#4B3E31",
   "file": "3077.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "615": {
   "name": "Бордо",
@@ -1437,7 +1609,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "архив Базиса TBM_AGT.xml: глянец"
  },
  "740": {
   "name": "SOFT TOUCH BEIGE GREY",
@@ -1447,7 +1620,8 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "3075": {
   "name": "TOKYO WHITE",
@@ -1457,7 +1631,9 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "agt.com.tr: бывает мат/глянец/металлик — проверить образец",
+  "rotate": true
  },
  "3074": {
   "name": "TOKYO GREY",
@@ -1467,7 +1643,9 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "agt.com.tr: бывает мат/глянец/металлик — проверить образец",
+  "rotate": true
  },
  "3080": {
   "name": "PEARL MARBLE",
@@ -1477,7 +1655,8 @@
   "check": true,
   "kind": "pattern",
   "fragW": 1600,
-  "useHex": false
+  "useHex": false,
+  "note": "agt.com.tr: бывает мат/глянец/металлик — проверить образец"
  },
  "623": {
   "name": "Капучино",
@@ -1487,27 +1666,32 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  },
  "3078": {
   "name": "Дуб фрезер",
   "hex": "#8D7C67",
   "file": "3078.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "3041": {
   "name": "PERU OAK",
   "hex": "#886A46",
   "file": "3041.jpg",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru): группа дубов без пометки HG/ST, как 3076 (Matte)",
+  "rotate": true
  },
  "3105": {
   "name": "MINT GREEN",
@@ -1517,7 +1701,8 @@
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец"
  },
  "3106": {
   "name": "MIDNIGHT BLUE",
@@ -1527,17 +1712,19 @@
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец"
  },
  "3110": {
   "name": "ORBIT COPPER",
   "hex": "#B08661",
   "file": "3110.png",
-  "finish": "metal",
+  "finish": "mattmetal",
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия металл, нет в каталогах — проверить образец"
  },
  "3109": {
   "name": "GRAPHITE GREY",
@@ -1547,7 +1734,8 @@
   "check": true,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "новая серия, нет в каталогах — проверить образец"
  },
  "738": {
   "name": "CLAY",
@@ -1557,6 +1745,7 @@
   "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false
+  "useHex": false,
+  "note": "каталог Trendy 2024 (agtwood.ru)"
  }
 }

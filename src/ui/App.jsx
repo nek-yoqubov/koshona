@@ -327,7 +327,7 @@ export default function App() {
                   <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
                   <div className="grid">
                     {filtered.map((d) => (
-                      <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (d.finish === "hg" || d.finish === "metal" ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
+                      <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (["hg", "akrilux", "hgmetal", "metal"].includes(d.finish) ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
                         onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], code: d.code } }))} />
                     ))}
                   </div>
