@@ -106,7 +106,7 @@ for (const sup of SUPPLIERS) {
 // ---------- AGT: лист 2800×1220, рельефа нет, поверхность из raw/agt-finishes.json ----------
 const AGT_SHEET = [2800, 1220];
 const PX_PER_MM = 4096 / AGT_SHEET[0];
-const FIN_ROUGH = { hg: 0.12, akrilux: 0.1, hgmetal: 0.5, mattmetal: 0.6, metal: 0.35, supramat: 0.92, supermatt: 0.9, softtouch: 0.85, matt: 0.6, naturaltouch: 0.7 };
+const FIN_ROUGH = { hgpearl: 0.4, mattpearl: 0.65, textured: 0.75, hg: 0.12, akrilux: 0.1, hgmetal: 0.5, mattmetal: 0.6, metal: 0.35, supramat: 0.92, supermatt: 0.9, softtouch: 0.85, matt: 0.6, naturaltouch: 0.7 };
 
 async function median(file) {
   const { data, info } = await sharp(file).removeAlpha().resize(200, 200, { fit: "fill" })
@@ -168,7 +168,11 @@ async function patternSheet(file, fragW, target = null, rotate = false) {
     fs.mkdirSync(dir, { recursive: true });
     const rel = (x) => `tex/${id}/${x}`;
     const stamp = path.join(dir, "c1.webp");
-    const cfg = JSON.stringify([f.kind, f.fragW, f.useHex, f.hex, f.src, f.colorRef, f.rotate]);
+    // готовый лист из tools/agt-quilt.py (синтез без зеркальных повторов), если он есть
+    const quilted = path.join(RAW, "agt-sheets", `${code}.png`);
+    const qkey = path.join(RAW, "agt-sheets", `${code}.key`);
+    const hasQuilt = f.kind === "pattern" && fs.existsSync(quilted) && fs.existsSync(qkey);
+    const cfg = JSON.stringify([f.kind, f.fragW, f.useHex, f.hex, f.src, f.colorRef, f.rotate, hasQuilt && fs.readFileSync(qkey, "utf8")]);
     const cfgFile = path.join(RAW, ".agt-cache", `${id}.cfg`);
     fs.mkdirSync(path.dirname(cfgFile), { recursive: true });
     const stale = force || !fs.existsSync(stamp) || fs.statSync(stamp).mtimeMs < fs.statSync(src).mtimeMs
@@ -184,7 +188,7 @@ async function patternSheet(file, fragW, target = null, rotate = false) {
     } else if (stale) {
       // скан другого источника, цвет подгоняем под картинку с сайта AGT
       const target = f.colorRef ? await meanRgb(path.join(RAW, f.colorRef)) : null;
-      const sheet = await patternSheet(src, f.fragW, target, !!f.rotate);
+      const sheet = hasQuilt ? fs.readFileSync(quilted) : await patternSheet(src, f.fragW, target, !!f.rotate);
       await sharp(sheet).webp({ quality: 88 }).toFile(path.join(dir, "c4.webp"));
       await sharp(sheet).resize({ width: 2048 }).webp({ quality: 82 }).toFile(path.join(dir, "c2.webp"));
       await sharp(sheet).resize({ width: 1024 }).webp({ quality: 78 }).toFile(path.join(dir, "c1.webp"));
