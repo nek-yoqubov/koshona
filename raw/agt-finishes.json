@@ -92,12 +92,18 @@
   "hex": "#80766C",
   "file": "3081.jpg",
   "finish": "textured",
-  "check": true,
+  "check": false,
   "kind": "pattern",
-  "fragW": 580,
+  "fragW": 220,
   "useHex": false,
-  "note": "agtwood.com (поле Surface на странице декора): Textured (тиснение); рисунок вырезан из фасада на интерьерном фото AGT (тёмный сланец, как в каталоге), масштаб ~ дверь 600 мм",
-  "src": "agt-extra/3081.png"
+  "note": "образец в шоуруме (фото Нека 17.11): мелкий рисунок и цвет — с образца-карточки, крупные разводы — с фасада на фото AGT",
+  "src": "agt-extra/3081-sample.png",
+  "overlay": {
+   "src": "agt-extra/3081-front.png",
+   "fragW": 580,
+   "blur": 22,
+   "amount": 0.7
+  }
  },
  "398": {
   "name": "Light cream",
@@ -114,12 +120,12 @@
   "name": "LIGHT GREY",
   "hex": "#F2F3EF",
   "file": "3001.jpg",
-  "finish": "textured",
-  "check": true,
+  "finish": "supermatt",
+  "check": false,
   "kind": "flat",
   "fragW": null,
   "useHex": true,
-  "note": "agtwood.com: Textured; цвет по образцу в каталоге Trendy 2024 (на сайте только фото интерьера)"
+  "note": "образец в шоуруме (фото Нека 17.11): мат; цвет по каталогу Trendy 2024"
  },
  "6013": {
   "name": "LIGHT GREY HG",
@@ -203,12 +209,12 @@
   "name": "Белая галактика",
   "hex": "#F6FAFA",
   "file": "670.png",
-  "finish": "hg",
-  "check": true,
+  "finish": "hgpearl",
+  "check": false,
   "kind": "flat",
   "fragW": null,
   "useHex": false,
-  "note": "на сайте указано Matte, но в каталоге и названии HG Galaxy White — проверить образец"
+  "note": "образец в шоуруме (фото Нека 17.11): белый глянец с блёстками"
  },
  "667": {
   "name": "Белое дерево",
@@ -834,11 +840,11 @@
   "hex": "#A3A29F",
   "file": "3113.png",
   "finish": "mattmetal",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
   "useHex": false,
-  "note": "новая серия металл: на сайте поверхность не указана — проверить образец",
+  "note": "образец в шоуруме (фото Нека 17.11): светлый шлифованный металл с сатиновым блеском",
   "rotate": true,
   "grain": true,
   "flat": 10
@@ -1231,12 +1237,12 @@
   "name": "Сиена",
   "hex": "#665140",
   "file": "737.jpg",
-  "finish": "mattmetal",
-  "check": true,
+  "finish": "softtouch",
+  "check": false,
   "kind": "pattern",
   "fragW": 1183,
   "useHex": false,
-  "note": "agtwood.com (поле Surface на странице декора): Metallic; в каталоге Soft Touch Siena Wood",
+  "note": "образец в шоуруме (фото Нека 17.11): дерево Soft Touch",
   "src": "agt-tbm/737.jpg",
   "colorRef": "agt/737.jpg",
   "grain": true

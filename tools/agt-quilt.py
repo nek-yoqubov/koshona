@@ -43,6 +43,16 @@ def load(f, code):
         ref = np.asarray(Image.open(os.path.join(RAW, f["colorRef"])).convert("RGB"), np.float32)
         mean = ref.reshape(-1, 3).mean(0)
     a = np.clip(a / np.maximum(light, 1) * mean, 0, 255)
+    if f.get("statsRef"):
+        # цвет и контраст — с фото живого образца, рисунок — с исходной картинки
+        r = np.asarray(Image.open(os.path.join(RAW, f["statsRef"])).convert("RGB"), np.float32)
+        rl = np.stack([gaussian_filter(r[..., k], max(r.shape[:2]) / 6, mode="reflect") for k in range(3)], -1)
+        r = r / np.maximum(rl, 1) * r.reshape(-1, 3).mean(0)
+        W3 = np.array([0.299, 0.587, 0.114], np.float32)
+        rL, aL = r @ W3, a @ W3
+        tint = r.reshape(-1, 3).mean(0) / max(rL.mean(), 1)
+        L = (aL - aL.mean()) / max(aL.std(), 1) * rL.std() + rL.mean()
+        a = np.clip(L[..., None] * tint, 0, 255)
     return a
 
 
@@ -139,7 +149,7 @@ def main():
     for code, f in fin.items():
         if f["kind"] != "pattern" or (only and code not in only):
             continue
-        key = hashlib.md5(json.dumps([VERSION, f.get("src"), f["file"], f["fragW"], f.get("rotate"), f.get("colorRef"), f.get("block"), f.get("grain"), f.get("flat")]).encode()).hexdigest()[:10]
+        key = hashlib.md5(json.dumps([VERSION, f.get("src"), f["file"], f["fragW"], f.get("rotate"), f.get("colorRef"), f.get("block"), f.get("grain"), f.get("flat"), f.get("statsRef"), f.get("overlay")]).encode()).hexdigest()[:10]
         dst = os.path.join(OUT, code + ".png")
         stamp = os.path.join(OUT, code + ".key")
         if os.path.exists(dst) and os.path.exists(stamp) and open(stamp).read() == key:
@@ -155,6 +165,16 @@ def main():
             else:
                 bw = bh = max(48, f["block"] if f.get("block") else min(int(min(sh, sw) * 0.45), 360))
                 res = quilt(src, rng, bw, bh)
+        if f.get("overlay"):
+            # крупные разводы с другой картинки поверх мелкого рисунка образца
+            o = f["overlay"]
+            of = dict(f, src=o["src"], fragW=o["fragW"], statsRef=None, rotate=False)
+            osrc = load(of, code)
+            ob = osrc.shape[0]
+            osheet = quilt(osrc, np.random.default_rng(int(code) + 1), int(ob * 0.45), int(ob * 0.45))
+            lum = gaussian_filter(osheet @ np.array([0.299, 0.587, 0.114], np.float32), o.get("blur", 25))
+            lum = lum / lum.mean()
+            res = res * (1 + o.get("amount", 0.6) * (lum[..., None] - 1))
         Image.fromarray(res.clip(0, 255).astype(np.uint8)).save(dst, optimize=False)
         open(stamp, "w").write(key)
         print(code, f"фрагмент {sw}x{sh} -> лист", flush=True)
