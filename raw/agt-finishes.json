@@ -738,12 +738,17 @@
   "hex": "#E0E0E0",
   "file": "3107.png",
   "finish": "mattmetal",
-  "check": true,
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
   "useHex": false,
-  "note": "новая серия металл: на сайте поверхность не указана — проверить образец",
-  "rotate": true
+  "note": "образец в шоуруме (фото Нека 19.11, цвет выровнен по белой этикетке): серебристый металл с круговой шлифовкой",
+  "rotate": true,
+  "colorMean": [
+   186,
+   192,
+   196
+  ]
  },
  "733": {
   "name": "Мокка",
@@ -853,13 +858,18 @@
   "name": "LUNA INOX",
   "hex": "#C3C4C7",
   "file": "3112.png",
-  "finish": "mattmetal",
-  "check": true,
+  "finish": "hgmetal",
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
   "useHex": false,
-  "note": "новая серия металл: на сайте поверхность не указана — проверить образец",
-  "flat": 10
+  "note": "образец в шоуруме (фото Нека 19.11): серебристо-голубой металл с тёмными разводами, глянец; рисунок пока с картинки сайта — разводы слабее, чем на образце (нужно фото без бликов)",
+  "colorMean": [
+   165,
+   180,
+   195
+  ],
+  "rotate": false
  },
  "6015": {
   "name": "DIAMOND GREY",
@@ -1187,25 +1197,30 @@
  },
  "3111": {
   "name": "ORBIT INOX",
-  "hex": "#A09B8D",
+  "hex": "#A2A7A6",
   "file": "3111.png",
-  "finish": "mattmetal",
-  "check": true,
+  "finish": "hgmetal",
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false,
-  "note": "новая серия металл: на сайте поверхность не указана — проверить образец"
+  "useHex": true,
+  "note": "образец в шоуруме (фото Нека 19.11, цвет выровнен по белой этикетке): серебро с круговой шлифовкой, глянец"
  },
  "3104": {
   "name": "MOONGRAIN BROWN",
   "hex": "#635F50",
   "file": "3104.png",
-  "finish": "matt",
-  "check": true,
+  "finish": "textured",
+  "check": false,
   "kind": "pattern",
   "fragW": 1000,
   "useHex": false,
-  "note": "новая серия: на сайте поверхность не указана — проверить образец"
+  "note": "образец в шоуруме (фото Нека 19.11, цвет выровнен по белой этикетке): светлый бежево-серый, рельеф «мятой бумаги»",
+  "colorMean": [
+   176,
+   168,
+   154
+  ]
  },
  "389": {
   "name": "Толедо темный",
@@ -1746,47 +1761,47 @@
  },
  "3105": {
   "name": "MINT GREEN",
-  "hex": "#CDD7CE",
+  "hex": "#C8CBC0",
   "file": "3105.png",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false,
-  "note": "новая серия: на сайте поверхность не указана — проверить образец"
+  "useHex": true,
+  "note": "образец в шоуруме (фото Нека 19.11, цвет выровнен по белой этикетке): бледная мята, мат"
  },
  "3106": {
   "name": "MIDNIGHT BLUE",
-  "hex": "#1C3755",
+  "hex": "#52729F",
   "file": "3106.png",
   "finish": "matt",
-  "check": true,
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false,
-  "note": "новая серия: на сайте поверхность не указана — проверить образец"
+  "useHex": true,
+  "note": "образец в шоуруме (фото Нека 19.11, цвет выровнен по белой этикетке): синий, мат (на сайте картинка темнее)"
  },
  "3110": {
   "name": "ORBIT COPPER",
   "hex": "#B08661",
   "file": "3110.png",
-  "finish": "mattmetal",
+  "finish": "hgmetal",
   "check": true,
   "kind": "flat",
   "fragW": null,
   "useHex": false,
-  "note": "новая серия металл: на сайте поверхность не указана — проверить образец"
+  "note": "нет на стенде шоурума — поверхность по аналогии с 3111 Orbit Inox"
  },
  "3109": {
   "name": "GRAPHITE GREY",
-  "hex": "#3E403C",
+  "hex": "#767B77",
   "file": "3109.png",
-  "finish": "matt",
-  "check": true,
+  "finish": "hg",
+  "check": false,
   "kind": "flat",
   "fragW": null,
-  "useHex": false,
-  "note": "новая серия: на сайте поверхность не указана — проверить образец"
+  "useHex": true,
+  "note": "образец в шоуруме (фото Нека 19.11, цвет выровнен по белой этикетке): серый ГЛЯНЕЦ (на сайте картинка темнее)"
  },
  "738": {
   "name": "CLAY",

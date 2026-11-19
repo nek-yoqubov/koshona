@@ -36,10 +36,19 @@ def load(f, code):
     scale = f["fragW"] * PX_PER_MM / w0
     im = im.resize((max(32, round(im.width * scale)), max(32, round(im.height * scale))), Image.LANCZOS)
     a = np.asarray(im, np.float32)
-    s = (min(a.shape[:2]) / f["flat"]) if f.get("flat") else max(a.shape[:2]) / 6
-    light = np.stack([gaussian_filter(a[..., k], s, mode="reflect") for k in range(3)], -1)
+    if f.get("flat") == "profile":
+        # снято на телефон: свет меняется плавно по строкам и столбцам — убираем 1D-профили, пятна рисунка остаются
+        from scipy.ndimage import gaussian_filter1d
+        rows = gaussian_filter1d(a.mean(1), a.shape[0] / 12, axis=0)[:, None, :]
+        cols = gaussian_filter1d(a.mean(0), a.shape[1] / 12, axis=0)[None, :, :]
+        light = rows * cols / np.maximum(a.reshape(-1, 3).mean(0), 1)
+    else:
+        s = (min(a.shape[:2]) / f["flat"]) if f.get("flat") else max(a.shape[:2]) / 6
+        light = np.stack([gaussian_filter(a[..., k], s, mode="reflect") for k in range(3)], -1)
     mean = a.reshape(-1, 3).mean(0)
-    if f.get("colorRef"):
+    if f.get("colorMean"):
+        mean = np.array(f["colorMean"], np.float32)
+    elif f.get("colorRef"):
         ref = np.asarray(Image.open(os.path.join(RAW, f["colorRef"])).convert("RGB"), np.float32)
         mean = ref.reshape(-1, 3).mean(0)
     a = np.clip(a / np.maximum(light, 1) * mean, 0, 255)
@@ -149,7 +158,7 @@ def main():
     for code, f in fin.items():
         if f["kind"] != "pattern" or (only and code not in only):
             continue
-        key = hashlib.md5(json.dumps([VERSION, f.get("src"), f["file"], f["fragW"], f.get("rotate"), f.get("colorRef"), f.get("block"), f.get("grain"), f.get("flat"), f.get("statsRef"), f.get("overlay")]).encode()).hexdigest()[:10]
+        key = hashlib.md5(json.dumps([VERSION, f.get("src"), f["file"], f["fragW"], f.get("rotate"), f.get("colorRef"), f.get("block"), f.get("grain"), f.get("flat"), f.get("statsRef"), f.get("overlay"), f.get("colorMean")]).encode()).hexdigest()[:10]
         dst = os.path.join(OUT, code + ".png")
         stamp = os.path.join(OUT, code + ".key")
         if os.path.exists(dst) and os.path.exists(stamp) and open(stamp).read() == key:
