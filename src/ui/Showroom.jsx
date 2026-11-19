@@ -1,0 +1,54 @@
+import { useRef } from "react";
+import { Ico } from "./icons.jsx";
+
+const GLOSS = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
+
+// Режим «Шоурум»: кухня на весь экран, снизу крупно название декора и полоса образцов.
+export default function Showroom({ groups, active, setActive, list, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
+  const strip = useRef(null);
+  const scroll = (dir) => strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.8, behavior: "smooth" });
+  const label = groups.find((g) => g.key === active)?.label ?? "";
+  const m = current?.name.match(/^(\S+)\s+(.*)$/);
+  const code = m ? m[1] : "", name = m ? m[2] : current?.name ?? "—";
+  const fin = finishOf(current);
+
+  return (
+    <>
+      <div className="sr-actions">
+        {views.map(([id, l, ic]) => (
+          <button key={id} className="sr-round" aria-label={l} title={l} onClick={() => onView(id)}><Ico name={ic} size={19} /></button>
+        ))}
+        <button className={open ? "sr-round on" : "sr-round"} aria-label="Открыть фасады" title="Открыть фасады" onClick={onOpen}><Ico name="door" size={19} /></button>
+        <button className="sr-round" aria-label={light === "day" ? "Вечер" : "День"} title={light === "day" ? "Вечер" : "День"} onClick={onLight}><Ico name={light === "day" ? "moon" : "sun"} size={19} /></button>
+        <button className={compare ? "sr-round on" : "sr-round"} aria-label="Сравнить A / B" title="Сравнить A / B" onClick={onCompare}><Ico name="ab" size={19} /></button>
+        <button className="sr-round accent" aria-label="Поделиться" title="Поделиться" onClick={onShare}><Ico name="qr" size={19} /></button>
+      </div>
+
+      <div className="sr-bottom">
+        <div className="sr-head">
+          <div className="sr-title">
+            <div className="sr-kicker">{label}{current ? ` · ${current.supplier}` : ""}{fin ? ` · ${fin}` : ""}</div>
+            <div className="sr-name">{name} <span>{code}</span></div>
+          </div>
+          <div className="sr-groups">
+            {groups.map((g) => (
+              <button key={g.key} className={active === g.key ? "on" : ""} onClick={() => setActive(g.key)}>{g.label}</button>
+            ))}
+            <button className="sr-edit" onClick={onEdit}><Ico name="sliders" size={16} />Настроить</button>
+          </div>
+        </div>
+        <div className="sr-strip-wrap">
+          <button className="sr-nav" aria-label="Назад" onClick={() => scroll(-1)}><Ico name="chevL" size={22} /></button>
+          <div className="sr-strip" ref={strip}>
+            {list.map((d) => (
+              <button key={d.code} title={d.name} aria-label={d.name} className={(current?.code === d.code ? "sr-sw on" : "sr-sw") + (GLOSS.includes(d.finish) ? " gloss" : "")} onClick={() => onPick(d.code)}>
+                <img src={base + d.card} alt="" loading="lazy" />
+              </button>
+            ))}
+          </div>
+          <button className="sr-nav" aria-label="Вперёд" onClick={() => scroll(1)}><Ico name="chevR" size={22} /></button>
+        </div>
+      </div>
+    </>
+  );
+}

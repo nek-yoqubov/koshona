@@ -8,7 +8,8 @@ import { FINISHES } from "../engine/materials.js";
 import { emptyFinish, readHash, writeHash } from "./hash.js";
 import { buildSpec, downloadCsv } from "./spec.js";
 import { locate, updateItem, removeItem, moveItem, duplicateItem, addItem, describe, runLength } from "./layoutOps.js";
-import { ItemIcon, ShapeIcon } from "./icons.jsx";
+import { ItemIcon, ShapeIcon, Ico } from "./icons.jsx";
+import Showroom from "./Showroom.jsx";
 import ItemEditor from "./ItemEditor.jsx";
 import CompareHandle from "./CompareHandle.jsx";
 import SampleView from "./SampleView.jsx";
@@ -48,6 +49,11 @@ export default function App() {
   const [specOpen, setSpecOpen] = useState(false);
   const [sample, setSample] = useState(null);
   const [parts, setParts] = useState([]);
+  const [mode, setMode] = useState(() => (localStorage.getItem("koshona.mode") === "showroom" ? "showroom" : "editor"));
+  const [panelOpen, setPanelOpen] = useState(true);
+  const [barOpen, setBarOpen] = useState(true);
+  const [gearOpen, setGearOpen] = useState(false);
+  useEffect(() => { try { localStorage.setItem("koshona.mode", mode); } catch {} }, [mode]);
 
   const setModel = (next) => {
     setHistory((h) => [...h.slice(-49), model]);
@@ -100,6 +106,7 @@ export default function App() {
   useEffect(() => { v?.setSplit(split); }, [viewerId, split]);
   useEffect(() => { v?.setLight(light); }, [viewerId, light]);
   useEffect(() => { v?.setOpen(open); }, [viewerId, open]);
+  useEffect(() => { v?.setInset(mode === "editor" && panelOpen && window.innerWidth > 800 ? 404 : 0); }, [viewerId, mode, panelOpen]);
   useEffect(() => { v?.setSelected(selected); }, [viewerId, selected, model]);
 
   useEffect(() => {
@@ -200,33 +207,84 @@ export default function App() {
     </div>
   );
 
+  const views = [["overall", "Общий", "cube"], ["fronts", "Фасады", "front"], ["closeup", "Крупно", "zoom"]];
+  const share = () => { navigator.clipboard?.writeText(location.href); screenshot(); };
+  const decorOf = (code) => decors.find((d) => d.code === code);
+
   return (
-    <div className="app">
+    <div className={"app mode-" + mode}>
       <div className="stage">
         <div ref={mountRef} className="canvas" />
-        {compare && <CompareHandle split={split} onChange={setSplit} labelA={shortName(fin.A)} labelB={shortName(fin.B)} />}
+        {compare && <CompareHandle split={split} onChange={setSplit} labelA={shortName(fin.A)} labelB={shortName(fin.B)} editing={editing} onEdit={setEditing} />}
 
-        <div className="quality">
-          <span className="fps">{stats.active ? `${stats.fps} fps` : "пауза"}</span>
-          {["auto", "low", "mid", "high"].map((id) => {
-            const on = id === "auto" ? quality.auto : !quality.auto && quality.level === id;
-            return (
-              <button key={id} className={on ? "q on" : "q"} onClick={() => pickLevel(id)}>
-                {id === "auto" ? `Авто · ${LEVELS[quality.level].label.toLowerCase()}` : LEVELS[id].label}
-              </button>
-            );
-          })}
+        <div className="brand glass">
+          <img src={base + "brand/logo.png"} alt="PRO MEBEL — лучшее для вдохновения" />
         </div>
 
-        <div className="toolbar">
-          {[["overall", "Общий"], ["fronts", "Фасады"], ["closeup", "Крупно"]].map(([id, l]) => (
-            <button key={id} className="tb" onClick={() => v?.setView(id)}>{l}</button>
-          ))}
-          <span className="sep" />
-          <button className={open ? "tb on" : "tb"} onClick={() => setOpen((o) => !o)}>{open ? "Закрыть фасады" : "Открыть фасады"}</button>
-          <button className="tb" onClick={() => setLight((l) => (l === "day" ? "night" : "day"))}>{light === "day" ? "☀ День" : "☾ Вечер"}</button>
-          <button className={compare ? "tb on" : "tb"} onClick={toggleCompare}>A / B</button>
+        <div className="topright">
+          {mode === "editor" && (
+            <button className="sharebtn" onClick={share} title="Ссылка скопирована, картинка скачана"><Ico name="qr" size={20} />Поделиться</button>
+          )}
+          <div className="modes glass">
+            <button className={mode === "showroom" ? "on" : ""} onClick={() => setMode("showroom")}>Шоурум</button>
+            <button className={mode === "editor" ? "on" : ""} onClick={() => setMode("editor")}>Конструктор</button>
+          </div>
         </div>
+
+        {mode === "editor" && (barOpen ? (
+          <div className="viewbar glass">
+            {views.map(([id, l, ic]) => (
+              <button key={id} className="vb" onClick={() => v?.setView(id)}><Ico name={ic} size={18} />{l}</button>
+            ))}
+            <span className="vsep" />
+            <button className={open ? "vb on" : "vb"} onClick={() => setOpen((o) => !o)}><Ico name="door" size={18} />{open ? "Закрыть" : "Открыть"}</button>
+            <button className="vb" onClick={() => setLight((l) => (l === "day" ? "night" : "day"))}><Ico name={light === "day" ? "moon" : "sun"} size={18} />{light === "day" ? "Вечер" : "День"}</button>
+            <button className={compare ? "vb on" : "vb"} onClick={toggleCompare}><Ico name="ab" size={18} />A / B</button>
+            <button className="vb icon" aria-label="Скрыть панель вида" onClick={() => setBarOpen(false)}><Ico name="chevU" size={18} /></button>
+          </div>
+        ) : (
+          <button className="tabtop glass" onClick={() => setBarOpen(true)}><Ico name="chevD" size={16} />Вид</button>
+        ))}
+
+        <div className="gear">
+          <button className="gear-b glass" aria-label="Качество картинки" onClick={() => setGearOpen((o) => !o)}><Ico name="gear" size={18} /></button>
+          {gearOpen && (
+            <div className="gear-p glass">
+              <span className="fps">{stats.active ? `${stats.fps} fps` : "пауза"}</span>
+              {["auto", "low", "mid", "high"].map((id) => {
+                const on = id === "auto" ? quality.auto : !quality.auto && quality.level === id;
+                return (
+                  <button key={id} className={on ? "q on" : "q"} onClick={() => pickLevel(id)}>
+                    {id === "auto" ? `Авто · ${LEVELS[quality.level].label.toLowerCase()}` : LEVELS[id].label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {mode === "showroom" && (
+          <Showroom
+            groups={GROUPS}
+            active={active}
+            setActive={setActive}
+            list={filtered}
+            current={decorOf(cur[active]?.code)}
+            finishOf={finishOf}
+            base={base}
+            onPick={(code) => setCur((f) => ({ ...f, [active]: { ...f[active], code } }))}
+            views={views}
+            onView={(id) => v?.setView(id)}
+            open={open}
+            onOpen={() => setOpen((o) => !o)}
+            light={light}
+            onLight={() => setLight((l) => (l === "day" ? "night" : "day"))}
+            compare={compare}
+            onCompare={toggleCompare}
+            onShare={share}
+            onEdit={() => setMode("editor")}
+          />
+        )}
 
         {sample && (
           <SampleView
@@ -237,151 +295,158 @@ export default function App() {
           />
         )}
 
-        {sel && !sample && (
+        {mode === "editor" && sel && !sample && (
           <div className="float">
             <ItemEditor {...editorProps} />
           </div>
         )}
-      </div>
 
-      <aside className="side">
-        <div className="steps">
-          <button className={tab === "layout" ? "step on" : "step"} onClick={() => setTab("layout")}><i>1</i>Компоновка</button>
-          <button className={tab === "finish" ? "step on" : "step"} onClick={() => setTab("finish")}><i>2</i>Отделка</button>
-        </div>
+        {mode === "editor" && (panelOpen ? (
+          <aside className="side glass">
+            <button className="side-tab" aria-label="Скрыть панель" onClick={() => setPanelOpen(false)}><Ico name="chevR" size={16} /></button>
+            <div className="side-in">
+          <div className="steps">
+            <button className={tab === "layout" ? "step on" : "step"} onClick={() => setTab("layout")}><i>1</i>Компоновка</button>
+            <button className={tab === "finish" ? "step on" : "step"} onClick={() => setTab("finish")}><i>2</i>Отделка</button>
+          </div>
 
-        {tab === "layout" ? (
-          <>
-            <section>
-              <div className="label">Начать с шаблона</div>
-              <div className="row">
-                {TEMPLATES.map((t) => (
-                  <button key={t.id} className="chip" onClick={() => applyTemplate(t)}>{t.name}</button>
-                ))}
-              </div>
-            </section>
-            <section>
-              <div className="label">Форма</div>
-              <div className="shapes">
-                {SHAPES.map((s) => (
-                  <button key={s.id} className={model.shape === s.id ? "shape on" : "shape"} onClick={() => setShape(s.id)}>
-                    <ShapeIcon shape={s.id} />
-                    <span>{s.name}</span>
-                  </button>
-                ))}
-                <button className={model.island ? "shape on" : "shape"} onClick={() => setModel({ ...model, island: !model.island })}>
-                  <ShapeIcon shape={model.shape} island />
-                  <span>{model.island ? "Остров ✓" : "Остров"}</span>
-                </button>
-              </div>
-            </section>
-            <section>
-              {wallList("main", "Основная стена")}
-              {model.shape !== "straight" && wallList("side", model.shape === "left" ? "Левая стена" : "Правая стена")}
-              <div className="between">
-                <span className="muted small">Нажмите на шкаф в списке или прямо на 3D-модели</span>
-                <button className="btn sm" onClick={undo} disabled={!history.length}>↶ Отменить</button>
-              </div>
-            </section>
-            <section>
-              <button className="btn wide dark" onClick={() => setTab("finish")}>Далее · отделка →</button>
-            </section>
-          </>
-        ) : (
-          <>
-            <section>
-              {compare && (
-                <div className="tabs">
-                  {["A", "B"].map((s) => (
-                    <button key={s} className={editing === s ? "tab on" : "tab"} onClick={() => setEditing(s)}>Вариант {s}</button>
+          {tab === "layout" ? (
+            <>
+              <section>
+                <div className="label">Начать с шаблона</div>
+                <div className="row">
+                  {TEMPLATES.map((t) => (
+                    <button key={t.id} className="chip" onClick={() => applyTemplate(t)}>{t.name}</button>
                   ))}
                 </div>
-              )}
-              <div className="row">
-                {[...GROUPS, { key: "glass", label: "Витрины" }].map((g) => (
-                  <button key={g.key} className={active === g.key ? "chip on" : "chip"} onClick={() => setActive(g.key)}>{g.label}</button>
-                ))}
-              </div>
-              {active === "glass" ? (
-                <>
-                  <div className="label mt">Стекло</div>
-                  <div className="row">
-                    {GLASS.map((g) => (
-                      <button key={g.id} className={cur.glass.tint === g.id ? "chip on" : "chip"} onClick={() => setCur((f) => ({ ...f, glass: { ...f.glass, tint: g.id } }))}>
-                        <span className="mini" style={{ background: g.hex, opacity: 0.35 + g.opacity * 0.65 }} />{g.name}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="label mt">Рамка</div>
-                  <div className="row">
-                    {FRAMES.map((f) => (
-                      <button key={f.id} className={cur.glass.frame === f.id ? "chip on" : "chip"} onClick={() => setCur((x) => ({ ...x, glass: { ...x.glass, frame: f.id } }))}>
-                        <span className="mini" style={{ background: f.hex }} />{f.name}
-                      </button>
-                    ))}
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="row">
-                    {suppliers.map((s) => (
-                      <button key={s} className={sup === s ? "chip sm on" : "chip sm"} onClick={() => setSupplier(s)}>{s}</button>
-                    ))}
-                  </div>
-                  <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
-                  <div className="grid">
-                    {filtered.map((d) => (
-                      <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (["hg", "akrilux", "hgmetal", "hgpearl", "metal"].includes(d.finish) ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
-                        onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], code: d.code } }))} />
-                    ))}
-                  </div>
-                  <div className="between">
-                    <span className="muted pr">{nameOf(cur[active].code)}{finishOf(decors.find((d) => d.code === cur[active].code)) && ` · ${finishOf(decors.find((d) => d.code === cur[active].code))}`}</span>
-                    <button className="btn" onClick={() => setSample(cur[active].code)} title="Декор во весь экран — сравнить с живым образцом">Образец ⤢</button>
-                  </div>
-                  <div className="between">
-                    <span />
-                    <button className={cur[active].rot ? "btn on" : "btn"} onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], rot: !f[active].rot } }))}>
-                      {cur[active].rot ? "волокно вертикально" : "волокно горизонтально"}
+              </section>
+              <section>
+                <div className="label">Форма</div>
+                <div className="shapes">
+                  {SHAPES.map((s) => (
+                    <button key={s.id} className={model.shape === s.id ? "shape on" : "shape"} onClick={() => setShape(s.id)}>
+                      <ShapeIcon shape={s.id} />
+                      <span>{s.name}</span>
                     </button>
+                  ))}
+                  <button className={model.island ? "shape on" : "shape"} onClick={() => setModel({ ...model, island: !model.island })}>
+                    <ShapeIcon shape={model.shape} island />
+                    <span>{model.island ? "Остров ✓" : "Остров"}</span>
+                  </button>
+                </div>
+              </section>
+              <section>
+                {wallList("main", "Основная стена")}
+                {model.shape !== "straight" && wallList("side", model.shape === "left" ? "Левая стена" : "Правая стена")}
+                <div className="between">
+                  <span className="muted small">Нажмите на шкаф в списке или прямо на 3D-модели</span>
+                  <button className="btn sm" onClick={undo} disabled={!history.length}>↶ Отменить</button>
+                </div>
+              </section>
+              <section>
+                <button className="btn wide dark" onClick={() => setTab("finish")}>Далее · отделка →</button>
+              </section>
+            </>
+          ) : (
+            <>
+              <section>
+                {compare && (
+                  <div className="tabs">
+                    {["A", "B"].map((s) => (
+                      <button key={s} className={editing === s ? "tab on" : "tab"} onClick={() => setEditing(s)}>Вариант {s}</button>
+                    ))}
                   </div>
-                </>
-              )}
-            </section>
-            <section>
-              <div className="label">Стены</div>
-              <div className="row">
-                {WALLS.map((w) => (
-                  <button key={w.id} title={w.name} className={cur.wall === w.id ? "dot on" : "dot"} style={{ background: w.hex }} onClick={() => setCur((f) => ({ ...f, wall: w.id }))} />
-                ))}
-              </div>
-              {cur.splash.code && <button className="link" onClick={() => setCur((f) => ({ ...f, splash: { ...f.splash, code: null } }))}>Фартук — как стена</button>}
-            </section>
-            <section>
-              <div className="row top0">
-                <button className="btn" onClick={screenshot}>Скриншот</button>
-                <button className="btn" onClick={() => navigator.clipboard?.writeText(location.href)}>Ссылка</button>
-                <button className={specOpen ? "btn on" : "btn"} onClick={() => setSpecOpen((o) => !o)}>Спецификация</button>
-              </div>
-              {specOpen && (
-                <div className="spec">
-                  {spec.map((g) => (
-                    <div key={g.key} className="spec-g">
-                      <div className="between"><span>{g.label}</span><span className="muted">{g.area.toFixed(2)} м²</span></div>
-                      <div className="muted small">{g.decor}</div>
-                      {g.list.map((r) => (
-                        <div key={r.size} className="between small top0"><span>{r.size} мм × {r.n}</span><span>{r.area.toFixed(2)} м²</span></div>
+                )}
+                <div className="row">
+                  {[...GROUPS, { key: "glass", label: "Витрины" }].map((g) => (
+                    <button key={g.key} className={active === g.key ? "chip on" : "chip"} onClick={() => setActive(g.key)}>{g.label}</button>
+                  ))}
+                </div>
+                {active === "glass" ? (
+                  <>
+                    <div className="label mt">Стекло</div>
+                    <div className="row">
+                      {GLASS.map((g) => (
+                        <button key={g.id} className={cur.glass.tint === g.id ? "chip on" : "chip"} onClick={() => setCur((f) => ({ ...f, glass: { ...f.glass, tint: g.id } }))}>
+                          <span className="mini" style={{ background: g.hex, opacity: 0.35 + g.opacity * 0.65 }} />{g.name}
+                        </button>
                       ))}
                     </div>
+                    <div className="label mt">Рамка</div>
+                    <div className="row">
+                      {FRAMES.map((f) => (
+                        <button key={f.id} className={cur.glass.frame === f.id ? "chip on" : "chip"} onClick={() => setCur((x) => ({ ...x, glass: { ...x.glass, frame: f.id } }))}>
+                          <span className="mini" style={{ background: f.hex }} />{f.name}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="row">
+                      {suppliers.map((s) => (
+                        <button key={s} className={sup === s ? "chip sm on" : "chip sm"} onClick={() => setSupplier(s)}>{s}</button>
+                      ))}
+                    </div>
+                    <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
+                    <div className="grid">
+                      {filtered.map((d) => (
+                        <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (["hg", "akrilux", "hgmetal", "hgpearl", "metal"].includes(d.finish) ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
+                          onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], code: d.code } }))} />
+                      ))}
+                    </div>
+                    <div className="between">
+                      <span className="muted pr">{nameOf(cur[active].code)}{finishOf(decors.find((d) => d.code === cur[active].code)) && ` · ${finishOf(decors.find((d) => d.code === cur[active].code))}`}</span>
+                      <button className="btn" onClick={() => setSample(cur[active].code)} title="Декор во весь экран — сравнить с живым образцом">Образец ⤢</button>
+                    </div>
+                    <div className="between">
+                      <span />
+                      <button className={cur[active].rot ? "btn on" : "btn"} onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], rot: !f[active].rot } }))}>
+                        {cur[active].rot ? "волокно вертикально" : "волокно горизонтально"}
+                      </button>
+                    </div>
+                  </>
+                )}
+              </section>
+              <section>
+                <div className="label">Стены</div>
+                <div className="row">
+                  {WALLS.map((w) => (
+                    <button key={w.id} title={w.name} className={cur.wall === w.id ? "dot on" : "dot"} style={{ background: w.hex }} onClick={() => setCur((f) => ({ ...f, wall: w.id }))} />
                   ))}
-                  <button className="btn wide dark" onClick={() => downloadCsv(spec)}>Скачать CSV</button>
                 </div>
-              )}
-            </section>
-          </>
-        )}
-        <section className="muted small foot">Повернуть — тянуть · масштаб — щипок или колёсико · сдвиг — двумя пальцами</section>
-      </aside>
+                {cur.splash.code && <button className="link" onClick={() => setCur((f) => ({ ...f, splash: { ...f.splash, code: null } }))}>Фартук — как стена</button>}
+              </section>
+              <section>
+                <div className="row top0">
+                  <button className="btn" onClick={screenshot}>Скриншот</button>
+                  <button className="btn" onClick={() => navigator.clipboard?.writeText(location.href)}>Ссылка</button>
+                  <button className={specOpen ? "btn on" : "btn"} onClick={() => setSpecOpen((o) => !o)}>Спецификация</button>
+                </div>
+                {specOpen && (
+                  <div className="spec">
+                    {spec.map((g) => (
+                      <div key={g.key} className="spec-g">
+                        <div className="between"><span>{g.label}</span><span className="muted">{g.area.toFixed(2)} м²</span></div>
+                        <div className="muted small">{g.decor}</div>
+                        {g.list.map((r) => (
+                          <div key={r.size} className="between small top0"><span>{r.size} мм × {r.n}</span><span>{r.area.toFixed(2)} м²</span></div>
+                        ))}
+                      </div>
+                    ))}
+                    <button className="btn wide dark" onClick={() => downloadCsv(spec)}>Скачать CSV</button>
+                  </div>
+                )}
+              </section>
+            </>
+          )}
+              <section className="muted small foot">Повернуть — тянуть · масштаб — щипок или колёсико · сдвиг — двумя пальцами</section>
+            </div>
+          </aside>
+        ) : (
+          <button className="tabside glass" onClick={() => setPanelOpen(true)}><Ico name="chevL" size={16} /><span>Отделка</span></button>
+        ))}
+      </div>
     </div>
   );
 }

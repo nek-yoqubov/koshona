@@ -172,7 +172,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     invalidate();
   }
 
-  let baseRatio = 1, refineRatio = 1, refined = true, lastChange = 0;
+  let baseRatio = 1, refineRatio = 1, refined = true, lastChange = 0, insetR = 0;
   const resize = () => {
     const w = container.clientWidth, h = container.clientHeight;
     baseRatio = pixelRatioFor(levelId, w, h);
@@ -180,7 +180,14 @@ export function createViewer(container, levelId, onStats, onPick) {
     refined = false;
     renderer.setPixelRatio(baseRatio);
     renderer.setSize(w, h);
-    camera.aspect = w / Math.max(h, 1);
+    // правая панель закрывает часть экрана — сдвигаем центр кадра влево на половину её ширины
+    if (insetR > 0 && w > insetR * 1.6) {
+      camera.aspect = (w + insetR) / Math.max(h, 1);
+      camera.setViewOffset(w + insetR, h, insetR, 0, w, h);
+    } else {
+      camera.clearViewOffset();
+      camera.aspect = w / Math.max(h, 1);
+    }
     camera.updateProjectionMatrix();
     invalidate();
   };
@@ -258,6 +265,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     setOpen(on) { openTarget = on ? 1 : 0; openAnim = openT !== openTarget; },
     setSelected(id) { selected = id; showSelection(); },
     setView: (v) => orbit.setView(v),
+    setInset(px) { if (px !== insetR) { insetR = px; resize(); } },
     benchmark(ms = 2500) {
       return new Promise((resolve) => { bench = { start: performance.now(), ms, frames: 0, resolve }; });
     },
