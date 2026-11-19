@@ -1,0 +1,188 @@
+﻿Название,Поставщик,Артикул (SKU),Цена за единицу,Единица,Цвет,Описание для ИИ (English),Фактура,Материал,"Длина, мм","Ширина, мм","Толщина, мм",Кухня: Нижние фасады,Кухня: Верхние фасады,Кухня: Столешница,Кухня: Пол,Кухня: Стены,Кухня: Металл и фурнитура,Шкаф: Фасады дверей,Шкаф: Корпус и полки,Шкаф: Пол,Шкаф: Стены,Шкаф: Фурнитура,Ванная: Фасады тумбы,Ванная: Столешница,Ванная: Плитка,Ванная: Пол,Ванная: Сантехника,Офис: Фасады,Офис: Столешница,Офис: Пол,Офис: Стены,Офис: Фурнитура
+Азул Оникс,ULTRADECOR,C509 CA,660,лист,#DCD9D3,light grey Azool Onyx solid matte color,C509_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Цемент песочный,ULTRADECOR,C319 CA,660,лист,#C8B79E,light orange-brown Cement Sand CB stone texture,C319_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Серый графит,ULTRADECOR,0162 BS,590,лист,#5B595A,dark grey Graphite Grey solid matte color,0162_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сегни Темный,ULTRADECOR,C317 CA,660,лист,#968E8C,medium grey solid matte color,C317_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сантонини тёмный,ULTRADECOR,C312 CA,660,лист,#7B7C80,medium grey solid matte color,C312_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сантонини светлый,ULTRADECOR,C311 CA,660,лист,#C4BFBB,light grey solid matte color,C311_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Мрамор Пьетра Графитовый,ULTRADECOR,U704 CA,660,лист,#44474A,dark grey Graphite Pietra Marble CB stone texture,U704_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кипарисовый зеленый,ULTRADECOR,C321 BS,590,лист,#B4BEA3,light olive Cypress Green SU solid matte color,C321_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кашемир,ULTRADECOR,5981 BS,590,лист,#CCC3BA,light orange-brown Cashmere wood grain,5981_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Карамель,ULTRADECOR,C323 BS,590,лист,#C1987A,medium orange-brown Reddish Brown SU solid matte color,C323_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб сторсунд,ULTRADECOR,C314 PW,610,лист,#CDB4A1,light orange-brown wood grain,C314_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Сантана,ULTRADECOR,5521 PW,610,лист,#B78F68,medium orange-brown Santana Oak wood grain,5521_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб крафт натуральный,ULTRADECOR,U700 PW,610,лист,#C9B08C,light orange-brown Craft Oak Natural PW wood grain,U700_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Светлый зеленый,ULTRADECOR,C322 BS,610,лист,#D7D3B8,light beige-yellow Clear Green SU solid matte color,C322_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ароза Светлая,ULTRADECOR,U701 CA,590,лист,#E4E4E5,very light grey Arosa Light CB stone texture,U701_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сегни светлый,ULTRADECOR,C318 CA,660,лист,#C2BEB5,light grey solid matte color,C318_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ароза Песочная,ULTRADECOR,U702 CA,590,лист,#C7B49B,light orange-brown Arosa Sand CB stone texture,U702_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Антрацит,ULTRADECOR,0164 BS,590,лист,#3B3B3B,dark grey Anthracite solid matte color,0164_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Антрацитовый Камень,ULTRADECOR,C309 CA,660,лист,#61594C,dark orange-brown Anthracite flow CB stone texture,C309_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ледяной камень,ULTRADECOR,K385 CA,660,лист,#E4DFDC,very light orange-brown Ice Flow CB stone texture,K385_CA.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дымчатый розовый,ULTRADECOR,C320 BS,590,лист,#E6D3B5,light orange-brown Misty Pink SU solid matte color,C320_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб фэрбенк,ULTRADECOR,C313 PW,610,лист,#C2AC91,light orange-brown wood grain,C313_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сатин,ULTRADECOR,7045 BS,590,лист,#DACDBD,light orange-brown Satin solid matte color,7045_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Шиншилла Серая,ULTRADECOR,C197,520,лист,#A4A5A0,medium grey solid matte color,C197.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сумеречная пудра,ULTRADECOR,C324 BS,550,лист,#B3A290,medium orange-brown Twilight Powder SU solid matte color,C324_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Молочный,ULTRADECOR,8622,443,лист,#F1D4BA,light orange-brown wood grain,8622.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Сонома светлый,ULTRADECOR,3025,480,лист,#BAA791,medium orange-brown Sonoma Light Oak wood grain,3025.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Серый графит,ULTRADECOR,0162 PE,480,лист,#5B595A,dark grey Graphite Grey solid matte color,0162_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кремовый,ULTRADECOR,7031 SM,440,лист,#FFFCE9,very light beige-yellow Cream solid matte color,7031_SM.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Селект Светлый,ULTRADECOR,K008,530,лист,#A18868,medium orange-brown Light Select Walnut wood grain,K008.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Крослайн Карамель,ULTRADECOR,8362 SN,580,лист,#A68A77,medium orange-brown solid matte color,8362_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кремовый,ULTRADECOR,7031 BS,480,лист,#FFFCE9,very light beige-yellow Cream solid matte color,7031_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб крафт золотой,ULTRADECOR,K003 PW,480,лист,#B1976F,medium orange-brown Gold Craft Oak wood grain,K003_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Бежевый,ULTRADECOR,0522 PE,480,лист,#E1D3B8,light orange-brown Beige solid matte color,0522_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Антрацит,ULTRADECOR,0164 PE,480,лист,#3B3B3B,dark grey Anthracite solid matte color,0164_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сатин,ULTRADECOR,7045 SU,480,лист,#DACDBD,light orange-brown Satin solid matte color,7045_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб крафт серый,ULTRADECOR,K002 PW,390,лист,#B2A692,medium orange-brown Grey Craft Oak wood grain,K002_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб крафт табачный,ULTRADECOR,K004 PW,480,лист,#927558,medium orange-brown Tobacco Craft Oak wood grain,K004_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб крафт белый,ULTRADECOR,K001 PW,480,лист,#E0DDD5,very light beige-yellow White Craft Oak wood grain,K001_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Вишня Оксфорд,ULTRADECOR,0088 PR,480,лист,#B46122,medium orange-brown wood grain,0088_PR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Венге Цаво,ULTRADECOR,3354 PR,480,лист,#322423,very dark red wood grain,3354_PR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый,ULTRADECOR,0110 SM,410,лист,#F0EFEB,very light beige-yellow White solid matte color,0110_SM.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый,ULTRADECOR,0110 PE,410,лист,#F0EFEB,very light beige-yellow White solid matte color,0110_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Чёрный,ULTRADECOR,0190,480,лист,#131917,very dark green Black solid matte color,0190.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Мария Луиза,ULTRADECOR,9490 PR,480,лист,#5A2418,dark red wood grain,9490_PR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Серый Шифер,ULTRADECOR,0171 PE,480,лист,#858384,medium grey Slate Grey stone texture,0171_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Кастелло Медовый,ULTRADECOR,K358 PW,550,лист,#B19276,medium orange-brown Honey Castello Oak wood grain,K358_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб гранж колониальный,ULTRADECOR,K354,530,лист,#836D5D,medium orange-brown Charcoal Stone wood grain,K354.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Франклин карамельный,ULTRADECOR,K546 RW,530,лист,#7D6045,dark orange-brown wood grain,K546_RW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Селект Темный,ULTRADECOR,K009,557,лист,#856C50,medium orange-brown Dark Select Walnut wood grain,K009.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Селект Светлый,ULTRADECOR,K008,520,лист,#A18868,medium orange-brown Light Select Walnut wood grain,K008.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Феррара,ULTRADECOR,8921 PR,530,лист,#BEA48F,light orange-brown Ferrara Oak wood grain,8921_PR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ясень Прибрежный светлый,ULTRADECOR,K525,530,лист,#C8AF8C,light orange-brown Blonde Surfside Ash wood grain,K525.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ясень прибрежный натуральный,ULTRADECOR,K524 SN,530,лист,#E5E2DD,very light orange-brown Pure Surfside Ash wood grain,K524_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб урбан янтарный,ULTRADECOR,K006,530,лист,#C0A788,medium orange-brown Amber Urban Oak wood grain,K006.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Финлайн Мокко,ULTRADECOR,8548 SN,530,лист,#6F5138,dark orange-brown Fineline Mokka solid matte color,8548_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Финлайн Крем,ULTRADECOR,8547 SN,530,лист,#E3DBCC,light orange-brown solid matte color,8547_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ржавый камень,ULTRADECOR,K351,530,лист,#735946,dark orange-brown Rusty Flow stone texture,K351.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Пудровый,ULTRADECOR,K512 PW,530,лист,#CA959F,light red Native Pink solid matte color,K512_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Пастельный зеленый,ULTRADECOR,7063,540,лист,#C9D0C9,light grey Green Pale solid matte color,7063.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орегон,ULTRADECOR,5529,510,лист,#C6BCAE,light orange-brown Oregon solid matte color,5529.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Мышиный серый,ULTRADECOR,K519,510,лист,#879E9F,medium grey Mouse Grey solid matte color,K519.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Темно Коричневый,ULTRADECOR,0182 BS,510,лист,#503927,dark orange-brown solid matte color,0182_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Морской Синий,ULTRADECOR,8984 BS,510,лист,#09283C,very dark blue Sea Blue solid matte color,8984_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Миндаль,ULTRADECOR,0564 PE,510,лист,#FEF8E2,very light beige-yellow Almond solid matte color,0564_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Слоновая Кость,ULTRADECOR,0514 PE,510,лист,#FFF5DA,very light beige-yellow Ivory solid matte color,0514_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Макиато,ULTRADECOR,8533 BS,557,лист,#C0A28A,medium orange-brown Macchiatto solid matte color,8533_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Серый камень,ULTRADECOR,0112 PE,510,лист,#C6CBCC,light grey Grey Stone stone texture,0112_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Зелёный дымчатый,ULTRADECOR,K521 SU,510,лист,#517D56,medium green Smoke Green solid matte color,K521_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ясень Серфсайд темный,ULTRADECOR,K526 SN,580,лист,#55514D,dark grey Iron Surfside Ash wood grain,K526_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Зелёный дымчатый,ULTRADECOR,K521 SN,510,лист,#517D56,medium green Smoke Green solid matte color,K521_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K527,ULTRADECOR,K527,580,лист,#C0A184,medium orange-brown Biscotti Hudson Oak wood grain,K527.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K536,ULTRADECOR,K536 SN,580,лист,#9D7C52,medium orange-brown Amber Baroque Oak wood grain,K536_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K554,ULTRADECOR,K554,580,лист,#715848,dark orange-brown solid matte color,K554.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Экспресив Бронзовый,ULTRADECOR,K090,530,лист,#6F5136,dark orange-brown Bronze Expressive Oak wood grain,K090.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб кастелло серый,ULTRADECOR,K357 PW,530,лист,#B19E90,medium orange-brown Greige Castello Oak wood grain,K357_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб гранж песочный,ULTRADECOR,K356,530,лист,#9D8877,medium orange-brown Sand Grange Oak wood grain,K356.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб харбор золотой,ULTRADECOR,K361 PW,530,лист,#AD8E73,medium orange-brown Gold Harbor Oak wood grain,K361_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб харбор эспрессо,ULTRADECOR,K362 PW,530,лист,#726353,dark orange-brown wood grain,K362_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб эвок прибрежный,ULTRADECOR,K365 PW,530,лист,#9F8765,medium orange-brown Evoke Seaside Oak wood grain,K365_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб харбор винтажный,ULTRADECOR,K360 PW,530,лист,#BDA591,light orange-brown Vintage Harbor Oak wood grain,K360_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K356,ULTRADECOR,K356 SN,557,лист,#9D8877,medium orange-brown Sand Grange Oak wood grain,K356_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K357,ULTRADECOR,K357 SN,557,лист,#B19E90,medium orange-brown Greige Castello Oak wood grain,K357_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K361,ULTRADECOR,K361 SN,557,лист,#AD8E73,medium orange-brown Gold Harbor Oak wood grain,K361_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K362,ULTRADECOR,K362 SN,557,лист,#726353,dark orange-brown solid matte color,K362_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+K365,ULTRADECOR,K365 SN,557,лист,#9F8765,medium orange-brown Evoke Seaside Oak wood grain,K365_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Капучино,ULTRADECOR,0301 SU,510,лист,#A69079,medium orange-brown Cappucchino solid matte color,0301_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Сильверджек винтажный,ULTRADECOR,K545,530,лист,#7A573E,dark orange-brown wood grain,K545.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Каштан Арвадонна каменный,ULTRADECOR,K531,530,лист,#AFA69B,medium grey wood grain,K531.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Каштан Арвадонна Норка,ULTRADECOR,K533,530,лист,#544B44,dark grey wood grain,K533.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Каштан Арвадонна Пламенный,ULTRADECOR,K532,530,лист,#7A5339,dark orange-brown wood grain,K532.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Каштан Арвадонна Угольный,ULTRADECOR,K534,530,лист,#18171C,very dark black wood grain,K534.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Лазурный голубой,ULTRADECOR,K517,510,лист,#70B5FF,light blue Azure Blue solid matte color,K517.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб урбан кофейный,ULTRADECOR,K007 PW,530,лист,#94806A,medium orange-brown Coffee Urban Oak wood grain,K007_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб лисса,ULTRADECOR,8925 BS,530,лист,#BF956B,medium orange-brown wood grain,8925_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Капучино,ULTRADECOR,0301 BS,510,лист,#A69079,medium orange-brown Cappucchino solid matte color,0301_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Бурбон,ULTRADECOR,K082,530,лист,#69472D,dark orange-brown Bourbon Oak wood grain,K082.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Барокко янтарный,ULTRADECOR,K536 RW,490,лист,#9D7C52,medium orange-brown Amber Baroque Oak wood grain,K536_RW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Гранж Платиновый,ULTRADECOR,K355,530,лист,#B7ACA2,light orange-brown Platinum Grange Oak wood grain,K355.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Голубой прибой,ULTRADECOR,K518,510,лист,#94DBED,light teal Surf Blue solid matte color,K518.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Темный изумруд,ULTRADECOR,K520,510,лист,#2A5A4A,dark green Dark Emerald solid matte color,K520.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Земля,ULTRADECOR,7184,557,лист,#4A403E,dark grey solid matte color,7184.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Глиняный Серый,ULTRADECOR,K096,510,лист,#9F9188,medium grey Clay Gray solid matte color,K096.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Селект Каминный,ULTRADECOR,K020,580,лист,#5F3E25,dark orange-brown Fireside Select Walnut wood grain,K020.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб винтаж оксид,ULTRADECOR,5194 PE,530,лист,#928373,medium orange-brown Vintage Oxide Oak wood grain,5194_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Вязь либерти серебянный,ULTRADECOR,K019,530,лист,#D6CEBE,light beige-yellow Silver Liberty Elm solid matte color,K019.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Вяз Натуральный Благородный,ULTRADECOR,5500,510,лист,#A49477,medium orange-brown Natural Elm Noble solid matte color,5500.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Железный камень,ULTRADECOR,K352,530,лист,#65625E,dark grey Iron Flow stone texture,K352.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Вяз Аврора Натуральный,ULTRADECOR,K363 PW,530,лист,#A98870,medium orange-brown solid matte color,K363_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Вяз Аврора Каменный,ULTRADECOR,K364 PW,530,лист,#776559,medium orange-brown solid matte color,K364_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Вишня Риверсайд Темная,ULTRADECOR,K078,510,лист,#AB896C,medium orange-brown Dark Riverside Cherry wood grain,K078.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Королевский синий,ULTRADECOR,0125,510,лист,#005596,dark blue Blue Queens solid matte color,0125.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Алюминиевый Блеск,ULTRADECOR,K522,530,лист,#B5B6B7,light grey Aluminium Flash wood grain,K522.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб эвок Окаменелый,ULTRADECOR,K366 PW,530,лист,#7E7367,medium grey Fossil Evoke Oak wood grain,K366_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Бетонный камень,ULTRADECOR,K350,530,лист,#C6BEB8,light grey Concrete Stone stone texture,K350.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Океан,ULTRADECOR,0245,510,лист,#006F73,dark teal solid matte color,0245.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Угольный камень,ULTRADECOR,K353,530,лист,#363C40,dark grey Charcoal Flow stone texture,K353.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Шелковый камень,ULTRADECOR,K349,530,лист,#E8E0D5,very light orange-brown Silk Flow stone texture,K349.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Бензин,ULTRADECOR,0244 SU,510,лист,#355457,dark teal Gasolina solid matte color,0244_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Гикори Рокфорд Светлый,ULTRADECOR,K085 PW,530,лист,#BEB1A3,light orange-brown Gikory Rockford Light wood grain,K085_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Тьеполо,ULTRADECOR,8953 SU,530,лист,#73603F,dark orange-brown Tiepolo Nut wood grain,8953_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый Фасадный,ULTRADECOR,0101 PE,510,лист,#FFFFFF,very light white Facade White solid matte color,0101_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Мармешоу,ULTRADECOR,K513,510,лист,#F7BEEB,very light pink Marshmallow solid matte color,K513.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Кастелло Бренди,ULTRADECOR,K359 PW,530,лист,#7E5538,dark orange-brown Brandy Castello Oak wood grain,K359_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый снег,ULTRADECOR,8685,470,лист,#FFFFFF,very light white White Snow solid matte color,8685.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый брилиант,ULTRADECOR,8681,510,лист,#FBFBFD,very light blue White Brilliant solid matte color,8681.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый,ULTRADECOR,0101 PR,510,лист,#FFFFFF,very light white Facade White solid matte color,0101_PR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Сильверджек Ореховый,ULTRADECOR,K544 PW,530,лист,#AE8F6F,medium orange-brown wood grain,K544_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Барокко Ристретто,ULTRADECOR,K537 PW,530,лист,#574434,dark orange-brown Ristretto Baroque Oak wood grain,K537_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб барбера песчаный,ULTRADECOR,K543 SN,530,лист,#C1B192,light orange-brown Sand Barbera Oak wood grain,K543_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Безмолвная пустыня,ULTRADECOR,K514 SN,510,лист,#93544A,medium red Deep Sahara solid matte color,K514_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Тессеа Мокка,ULTRADECOR,K542 PN,530,лист,#938B7E,medium grey Mocha Tessea stone texture,K542_PN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Тессеа Серо бежевый,ULTRADECOR,K541 PN,530,лист,#B0AB9F,light grey Greige Tessea stone texture,K541_PN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ясень пряный табак,ULTRADECOR,K548 PW,530,лист,#655645,dark orange-brown wood grain,K548_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Франклин табак,ULTRADECOR,K547 PW,530,лист,#60452F,dark orange-brown wood grain,K547_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Барокко золотой,ULTRADECOR,K535,530,лист,#B59D70,medium orange-brown Gold Baroque Oak wood grain,K535.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Платинум диск,ULTRADECOR,K523,510,лист,#7A7A7A,medium grey Platinum Disk solid matte color,K523.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ароза темно-серый,ULTRADECOR,K539,510,лист,#706C69,medium grey Fossil Arosa stone texture,K539.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кокобола,ULTRADECOR,8995 SN,530,лист,#CEB797,light orange-brown Koko Bola solid matte color,8995_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Зеленый Оксид,ULTRADECOR,9561 BS,510,лист,#007036,dark green Oxide Green solid matte color,9561_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Энгрейн Элегантный,ULTRADECOR,K107 PW,530,лист,#D9C6B1,light orange-brown Elegance Endgrain Oak wood grain,K107_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Гикори Рокфорд Темный,ULTRADECOR,K087 PW,530,лист,#7C6856,medium orange-brown wood grain,K087_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Гикори Рокфорд натуральный,ULTRADECOR,K086 PW,530,лист,#927A5F,medium orange-brown Gikory Rockford Natural wood grain,K086_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Венге Винтаж,ULTRADECOR,7648 SN,530,лист,#E0DDD4,very light beige-yellow Vintage Wenge wood grain,7648_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ателье светлое,ULTRADECOR,4298 SU,530,лист,#AFAEAC,light grey Atelier Light solid matte color,4298_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Артвуд светлый,ULTRADECOR,K083 PW,530,лист,#D3D1CB,light grey Light Artwood wood grain,K083_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Малиновый,ULTRADECOR,K100 SU,510,лист,#B32561,medium pink solid matte color,K100_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Морское дерево винтаж,ULTRADECOR,K015,530,лист,#947B64,medium orange-brown Vintage Marine Wood wood grain,K015.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Морское дерево корбон,ULTRADECOR,K016 PW,530,лист,#3C3A35,dark grey Carbon Marine Wood wood grain,K016_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех,ULTRADECOR,0729 PR,530,лист,#644A32,dark orange-brown Nut wood grain,0729_PR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Северное дерево светлое,ULTRADECOR,8508 SU,530,лист,#EEECE7,very light beige-yellow wood grain,8508_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Северное дерево темное,ULTRADECOR,8509 SN,530,лист,#40403F,dark grey wood grain,8509_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Скандинавское дерево серое,ULTRADECOR,K089 PW,530,лист,#AAA293,medium grey Grey Nordic Wood wood grain,K089_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сумеречный голубой,ULTRADECOR,K097 SU,510,лист,#708D89,medium grey Moonlight Blue solid matte color,K097_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Темно синий,ULTRADECOR,K099 SU,510,лист,#0A4E7B,dark blue solid matte color,K099_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб урбан ойстер,ULTRADECOR,K005 PW,530,лист,#C5B7A5,light orange-brown Oyster Urban Oak wood grain,K005_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Орех Лион Светлый,ULTRADECOR,9614,530,лист,#8D6D4F,medium orange-brown Lion Light Nut wood grain,9614.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Экспресив Песочный,ULTRADECOR,K076,510,лист,#CFBAA5,light orange-brown Sand Expressive Oak wood grain,K076.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Блеквуд сатиновый,ULTRADECOR,K022 SN,530,лист,#CCBEB2,light orange-brown Blackwood Satin wood grain,K022_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Альби полуночно-синий,ULTRADECOR,5994,530,лист,#466F86,dark blue Alby Blue solid matte color,5994.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Бюро стиль,ULTRADECOR,0166 BS,490,лист,#151B1D,very dark blue Basalt solid matte color,0166_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Стальной Серый,ULTRADECOR,1700 PE,510,лист,#B7BDBD,light grey Steel Grey solid matte color,1700_PE.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Латте,ULTRADECOR,7166 BS,510,лист,#776758,medium orange-brown Latte solid matte color,7166_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Лаванда,ULTRADECOR,8536 BS,530,лист,#EDCCDF,very light pink solid matte color,8536_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Крослайн Латте,ULTRADECOR,8361 SN,530,лист,#D9C8BC,light orange-brown solid matte color,8361_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Красный чили,ULTRADECOR,7113 BS,510,лист,#C9151E,medium red Chilli Red solid matte color,7113_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Керамический красный,ULTRADECOR,K098 SU,510,лист,#963125,dark red Red Ceramic solid matte color,K098_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кашемир,ULTRADECOR,5981 SU,510,лист,#CCC3BA,light orange-brown Cashmere wood grain,5981_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Капри Синий,ULTRADECOR,0121 BS,510,лист,#80A1C0,medium blue solid matte color,0121_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Зеленый Лайм,ULTRADECOR,5519 BS,510,лист,#DADD48,medium beige-yellow solid matte color,5519_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Энгрейн необработанный,ULTRADECOR,K105 PW,530,лист,#BFAEA1,light orange-brown Endgray Oak Row wood grain,K105_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб Приморский Сатиновый,ULTRADECOR,K081 PW,530,лист,#BAAFA7,light orange-brown Seaside Oak Satin wood grain,K081_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Дуб клабхаус серый,ULTRADECOR,K079 PW,530,лист,#BBB7BB,light grey Grey Clubhouse Oak wood grain,K079_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Венге Луизиана,ULTRADECOR,9763 BS,530,лист,#322422,very dark red Wenge Luisiana wood grain,9763_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Блэквуд ячменный,ULTRADECOR,K021 SN,530,лист,#BA946D,medium orange-brown Blackwood Barley wood grain,K021_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Белый жемчуг,ULTRADECOR,8100 SM,510,лист,#FFFDF6,very light beige-yellow Pearl White solid matte color,8100_SM.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Ателье темное,ULTRADECOR,4299 SU,530,лист,#4A463F,dark grey Atelier Dark solid matte color,4299_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Артвуд темный,ULTRADECOR,K084 SN,530,лист,#BDB8B2,light grey Dark Artwood wood grain,K084_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Роза,ULTRADECOR,8534 BS,510,лист,#EA9CB2,light pink solid matte color,8534_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Пельтро,ULTRADECOR,K108,530,лист,#7F7872,medium grey solid matte color,K108.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Скандинавское дерево белое,ULTRADECOR,K088 PW,530,лист,#DFDCD0,light beige-yellow White Nordic Wood wood grain,K088_PW.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сосна лофт белая,ULTRADECOR,K010 SN,530,лист,#E5E3DE,very light grey White Loft Pine wood grain,K010_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сосна Лофт кремовая,ULTRADECOR,K011 SN,530,лист,#DED2C0,light orange-brown wood grain,K011_SN.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Холодный серый,ULTRADECOR,0191 SU,510,лист,#D8DBD4,light grey Grey Cold solid matte color,0191_SU.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Платина,ULTRADECOR,0859,510,лист,#939594,medium grey solid matte color,0859.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Сумеречная пудра,ULTRADECOR,C324 BS,550,лист,#B3A290,medium orange-brown Twilight Powder SU solid matte color,C324_BS.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
+Кашемир,ULTRADECOR,5981 UR,510,лист,#CCC3BA,light orange-brown Cashmere wood grain,5981_UR.jpg,ЛДСП,2800,2070,16,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0
