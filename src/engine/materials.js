@@ -99,3 +99,53 @@ export function frontUV(mesh, sheet, vertical) {
   }
   return new THREE.BufferAttribute(out, 2);
 }
+
+// Раскрой: детали группы раскладываются по листу (рядами, пропил 4 мм), как на пиле.
+// У каждой детали свой кусок листа; кончился лист — следующий, отражённый, чтобы рисунок не повторялся.
+// Ящики одной тумбы (userData.stack) режутся одной полосой подряд — рисунок идёт сквозь них.
+export function sheetLayout(meshes, sheet, vertical) {
+  const [L, S] = sheet, KERF = 4;
+  const pieces = [];
+  const stacks = new Map();
+  for (const m of meshes) {
+    const { w, h, stack, sy } = m.userData;
+    const W = w * 1000, H = h * 1000;
+    if (stack != null) {
+      let p = stacks.get(stack);
+      if (!p) { p = { W, H: 0, parts: [] }; stacks.set(stack, p); pieces.push(p); }
+      p.parts.push({ m, W, H, sy });
+      p.H = Math.max(p.H, sy + H);
+    } else pieces.push({ W, H, parts: [{ m, W, H, sy: 0 }] });
+  }
+  const out = new Map();
+  let x = 0, y = 0, row = 0, idx = 0;
+  for (const p of pieces) {
+    let vert = vertical;
+    let a = vert ? p.H : p.W, b = vert ? p.W : p.H;
+    if ((a > L || b > S) && b <= L && a <= S) { vert = !vert; [a, b] = [b, a]; }
+    const k = Math.max(1, a / L, b / S);
+    a /= k; b /= k;
+    if (x + a > L) { x = 0; y += row + KERF; row = 0; }
+    if (y + b > S) { x = 0; y = 0; row = 0; idx++; }
+    const fu = idx % 2 === 1, fv = idx % 4 >= 2;
+    for (const q of p.parts) {
+      const uv0 = q.m.geometry.userData.uv0 || (q.m.geometry.userData.uv0 = q.m.geometry.attributes.uv.array.slice());
+      const qa = (vert ? q.H : q.W) / k, qb = (vert ? q.W : q.H) / k, off = q.sy / k;
+      const ox = vert ? x + off : x, oy = vert ? y : y + off;
+      const arr = new Float32Array(uv0.length);
+      for (let i = 0; i < uv0.length; i += 2) {
+        const u = uv0[i], v = uv0[i + 1];
+        let su = vert ? (ox + v * qa) / L : (ox + u * qa) / L;
+        let sv = vert ? (oy + (1 - u) * qb) / S : (oy + v * qb) / S;
+        if (fu) su = 1 - su;
+        if (fv) sv = 1 - sv;
+        arr[i] = su;
+        arr[i + 1] = sv;
+      }
+      out.set(q.m, new THREE.BufferAttribute(arr, 2));
+    }
+    x += a + KERF;
+    row = Math.max(row, b);
+  }
+  return out;
+}

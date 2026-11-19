@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { LEVELS, pixelRatioFor, refineRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
-import { createTextures, createGroupMaterials, applyDecor, frontUV } from "./materials.js";
+import { createTextures, createGroupMaterials, applyDecor, frontUV, sheetLayout } from "./materials.js";
 import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
 import { toRuns } from "./layout.js";
 import { findGlass, findFrame } from "../catalog/glass.js";
@@ -116,9 +116,21 @@ export function createViewer(container, levelId, onStats, onPick) {
       const d = sel?.code ? decors.get(sel.code) : null;
       applyDecor(mats[key], d, level, tex, key === "splash" ? f.wallHex : key === "top" ? "#e8e3da" : null);
       const sheet = d ? d.sheet : [600, 400];
-      for (const it of kitchen.switchable) {
-        if (it.front && it.mesh.userData.group === key) uv.set(it.mesh, frontUV(it.mesh, sheet, sel?.rot ?? true));
-      }
+      if (key === "top" || key === "splash")
+        for (const it of kitchen.switchable) if (it.front && it.mesh.userData.group === key) uv.set(it.mesh, frontUV(it.mesh, sheet, sel?.rot ?? true));
+    }
+    // группы с одним и тем же декором режутся из одних листов — общий раскрой
+    const cut = new Map();
+    for (const key of ["upper", "lower", "body"]) {
+      const sel = f[key];
+      const id = `${sel?.code}|${sel?.rot ?? true}`;
+      if (!cut.has(id)) cut.set(id, { sel, keys: [] });
+      cut.get(id).keys.push(key);
+    }
+    for (const { sel, keys } of cut.values()) {
+      const d = sel?.code ? decors.get(sel.code) : null;
+      const parts = kitchen.switchable.filter((it) => it.front && keys.includes(it.mesh.userData.group)).map((it) => it.mesh);
+      for (const [m, a] of sheetLayout(parts, d ? d.sheet : [600, 400], sel?.rot ?? true)) uv.set(m, a);
     }
     invalidate();
   };
