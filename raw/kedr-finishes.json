@@ -1,0 +1,2145 @@
+{
+ "7011": {
+  "name": "Canyon",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7011.jpg",
+  "src": "c-s.by/7011.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "7351": {
+  "name": "Stromboly grey",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7351.jpg",
+  "src": "c-s.by/7351.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "938": {
+  "name": "Агат бежевый",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "938.jpg",
+  "src": "c-s.by/938_Agat_Bejevy_Stoleshnica_Kedr.jpg",
+  "px": [
+   6000,
+   1360
+  ],
+  "sheet": [
+   3050,
+   691
+  ]
+ },
+ "937": {
+  "name": "Агат светлый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "937.jpg",
+  "src": "c-s.by/937_Agat_Svetly_Stoleshnica_Kedr.jpg",
+  "px": [
+   6000,
+   1360
+  ],
+  "sheet": [
+   3050,
+   691
+  ]
+ },
+ "3124": {
+  "name": "Азул",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3124.jpg",
+  "src": "c-s.by/3124_Azul_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4026": {
+  "name": "Аламбра",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4026.jpg",
+  "src": "c-s.by/4026.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4035": {
+  "name": "Аламбра темная",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "4035.jpg",
+  "src": "c-s.by/40355.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2096": {
+  "name": "Амберг",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2096.jpg",
+  "src": "c-s.by/2096_FL-Anberg-Stoleshnica-Kedr.jpg",
+  "px": [
+   5146,
+   1701
+  ],
+  "sheet": [
+   3050,
+   1008
+  ]
+ },
+ "5110": {
+  "name": "Андромеда белая",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "5110.jpg",
+  "src": "c-s.by/5110.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "206": {
+  "name": "Андромеда серая",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "206.jpg",
+  "src": "c-s.by/206.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "1052": {
+  "name": "Андромеда черная",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "1052.jpg",
+  "src": "c-s.by/1052.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "1538": {
+  "name": "Ароза",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "1538.jpg",
+  "src": "c-s.by/1538-Arosa-Stoleshnica-Kedr.jpg",
+  "px": [
+   7937,
+   1587
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "1539": {
+  "name": "Ароза темно-серая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "1539.jpg",
+  "src": "c-s.by/1539-Aroza-TemnoSeraya-Stoleshnica-Kedr.jpg",
+  "px": [
+   3957,
+   1587
+  ],
+  "sheet": [
+   3050,
+   1223
+  ]
+ },
+ "3146": {
+  "name": "Асти",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3146.jpg",
+  "src": "c-s.by/3146-Asti-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   600
+  ],
+  "sheet": [
+   3050,
+   600
+  ]
+ },
+ "1110": {
+  "name": "Белый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "flat",
+  "hex": "#ECEBE7"
+ },
+ "111": {
+  "name": "Белый глянец",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "flat",
+  "hex": "#F3F3EF"
+ },
+ "2058": {
+  "name": "Бискайская сосна",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2058.jpg",
+  "src": "c-s.by/2058-Biskayskaya-Sosna-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3118": {
+  "name": "Боско",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3118.jpg",
+  "src": "c-s.by/3118_Q-Bosco-Stoleshnica-Kedr.jpg",
+  "px": [
+   4621,
+   2000
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "2238": {
+  "name": "Брекчия светлая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2238.jpg",
+  "src": "c-s.by/2238.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "1210": {
+  "name": "Бриллиант белый",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "1210.jpg",
+  "src": "c-s.by/1210.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3316": {
+  "name": "Брион",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "3316.jpg",
+  "src": "c-s.by/3313.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ],
+  "check": true
+ },
+ "70022": {
+  "name": "Бук кремовый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70022.jpg",
+  "src": "c-s.by/70022_S-Buk-Kremovy-Stoleshnica-Kedr.jpg",
+  "px": [
+   6000,
+   4000
+  ],
+  "sheet": [
+   3050,
+   2033
+  ]
+ },
+ "4116": {
+  "name": "Витрум бежевый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4116.jpg",
+  "src": "c-s.by/4116-Vitrum-Bejevy-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   1320
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "4018": {
+  "name": "Галактика",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4018.jpg",
+  "src": "c-s.by/4018.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "G011": {
+  "name": "Галактика белая",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "G011.jpg",
+  "src": "c-s.by/G011.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "G018": {
+  "name": "Галактика черная",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "G018.jpg",
+  "src": "c-s.by/G018.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ],
+  "check": true,
+  "colorMean": [
+   80,
+   80,
+   72
+  ],
+  "note": "цвет по фото образца в шоуруме (белая этикетка = 242)"
+ },
+ "G014": {
+  "name": "Галактика шампань",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "G014.jpg",
+  "src": "c-s.by/G004.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ],
+  "check": true
+ },
+ "2946": {
+  "name": "Галия",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2946.jpg",
+  "src": "c-s.by/29465.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "70013": {
+  "name": "Горный мрамор",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70013.jpg",
+  "src": "c-s.by/70013-Gorny-Mramor-Stoleshnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "3027": {
+  "name": "Гранит белый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3027.jpg",
+  "src": "c-s.by/3027.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3122": {
+  "name": "Даркстоун",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3122.jpg",
+  "src": "c-s.by/3122-Darkstoun-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   600
+  ],
+  "sheet": [
+   3050,
+   600
+  ]
+ },
+ "2098": {
+  "name": "Дерево Каньон",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2098.jpg",
+  "src": "c-s.by/2098_FL-Derevo-Kanion-Naturalny-Stoleshnica-Kedr.jpg",
+  "px": [
+   3194,
+   638
+  ],
+  "sheet": [
+   3050,
+   609
+  ]
+ },
+ "3829": {
+  "name": "Дуб Бунратти",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3829.jpg",
+  "src": "c-s.by/3859_Dub_Bunratti_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ],
+  "check": true
+ },
+ "2088": {
+  "name": "Дуб Делано",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2088.jpg",
+  "src": "c-s.by/2088_FL-Dub-Delano-Stoleshnica-Kedr.jpg",
+  "px": [
+   4894,
+   1701
+  ],
+  "sheet": [
+   3050,
+   1060
+  ]
+ },
+ "2094": {
+  "name": "Дуб Делано Натуральный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2094.jpg",
+  "src": "c-s.by/2094_FL-Dub-Delano-Naturalny-Stoleshnica-Kedr.jpg",
+  "px": [
+   3946,
+   1701
+  ],
+  "sheet": [
+   3050,
+   1315
+  ]
+ },
+ "2102": {
+  "name": "Дуб Итальянский",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2102.jpg",
+  "src": "c-s.by/2102-Dub-Italianski-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   1320
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "1003": {
+  "name": "Дуб Крафт золотой",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "1003.jpg",
+  "src": "c-s.by/1003-Dub-Kraft-Zolotoy-Stoleshnica-Kedr.jpg",
+  "px": [
+   4244,
+   1587
+  ],
+  "sheet": [
+   3050,
+   1141
+  ]
+ },
+ "7052": {
+  "name": "Дуб вотан",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7052.jpg",
+  "src": "c-s.by/7052.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2074": {
+  "name": "Дуб каштан",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2074.jpg",
+  "src": "c-s.by/2074.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2075": {
+  "name": "Дуб кера",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2075.jpg",
+  "src": "c-s.by/2075.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "5270": {
+  "name": "Дуб классический",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "5270.jpg",
+  "src": "c-s.by/5270-Dub-Klassichesky-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2072": {
+  "name": "Дуб мокко",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2072.jpg",
+  "src": "c-s.by/2072.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2073": {
+  "name": "Дуб светлый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2073.jpg",
+  "src": "c-s.by/2073.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "70012": {
+  "name": "Дымчатый кварц",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70012.jpg",
+  "src": "c-s.by/70012-Dymchaty-Kvarc-Stoleshnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "2085": {
+  "name": "Жемчужный Перито",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2085.jpg",
+  "src": "c-s.by/2085_Q-Jemchujny-Perito-Stoleshnica-Kedr.jpg",
+  "px": [
+   8504,
+   1701
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "722": {
+  "name": "Золотой каспий",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "722.jpg",
+  "src": "c-s.by/722_Kaspiy_Zolotoy_Stoleshnica_Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "690": {
+  "name": "Индийское дерево",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "690.jpg",
+  "src": "c-s.by/690.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4030": {
+  "name": "Калакатта",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4030.jpg",
+  "src": "c-s.by/4030.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "905": {
+  "name": "Калакатта",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "905.jpg",
+  "src": "c-s.by/905_Kalakatta_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4163": {
+  "name": "Калахари",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4163.jpg",
+  "src": "c-s.by/4163-Kalahari-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   1320
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "3103": {
+  "name": "Каспий Чёрное золото",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "3103.jpg",
+  "src": "c-s.by/3103_Kaspiy_Cherny_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "946": {
+  "name": "Кастилло темный",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "946.jpg",
+  "src": "c-s.by/9467.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4046": {
+  "name": "Кастило темный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4046.jpg",
+  "src": "c-s.by/4046.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3255": {
+  "name": "Кокоболо",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3255.jpg",
+  "src": "c-s.by/3255.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "692": {
+  "name": "Колумбийское Золото",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "692.jpg",
+  "src": "c-s.by/692.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "706": {
+  "name": "Королевский опал",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "706.jpg",
+  "src": "c-s.by/706.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "921": {
+  "name": "Кунгур мрамор",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "921.jpg",
+  "src": "c-s.by/921.jpg",
+  "px": [
+   17717,
+   3543
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3094": {
+  "name": "Лавант",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3094.jpg",
+  "src": "c-s.by/3094_Lavant_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3138": {
+  "name": "Лаос",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "3138.jpg",
+  "src": "c-s.by/3138-Laos-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   599
+  ],
+  "sheet": [
+   3050,
+   599
+  ]
+ },
+ "8221": {
+  "name": "Манаус",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "8221.jpg",
+  "src": "c-s.by/8221_Pt-Manaus-Stoleshnica-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "939": {
+  "name": "Маракай Бо",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "939.jpg",
+  "src": "c-s.by/939_Marakaybo_Stoleshnica_Kedr.jpg",
+  "px": [
+   6000,
+   1360
+  ],
+  "sheet": [
+   3050,
+   691
+  ]
+ },
+ "2022": {
+  "name": "Модена",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2022.jpg",
+  "src": "c-s.by/2022.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "1515": {
+  "name": "Морское дерево винтаж",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "1515.jpg",
+  "src": "c-s.by/1515-Morskoe-Derevo-Vintaj-Stoleshnica-Kedr.jpg",
+  "px": [
+   4460,
+   1587
+  ],
+  "sheet": [
+   3050,
+   1085
+  ]
+ },
+ "7771": {
+  "name": "Мрамор Аврора",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7771.jpg",
+  "src": "c-s.by/7771-Mramor-Avrora-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   600
+  ],
+  "sheet": [
+   3050,
+   600
+  ]
+ },
+ "7772": {
+  "name": "Мрамор Алексис",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7772.jpg",
+  "src": "c-s.by/7772-Mramor-Alexis-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   600
+  ],
+  "sheet": [
+   3050,
+   600
+  ]
+ },
+ "4155": {
+  "name": "Мрамор Альберика",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4155.jpg",
+  "src": "c-s.by/4155-Mramor-Alberika-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   1320
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "7031": {
+  "name": "Мрамор Бергамо",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7031.jpg",
+  "src": "c-s.by/7031.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "7032": {
+  "name": "Мрамор Бергамо темный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7032.jpg",
+  "src": "c-s.by/7032.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2157": {
+  "name": "Мрамор Верде",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2157.jpg",
+  "src": "c-s.by/2157-Mramor-verde-stoleshica-kedr.jpg",
+  "px": [
+   3050,
+   1320
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "7025": {
+  "name": "Мрамор Джалло",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7025.jpg",
+  "src": "c-s.by/7025.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "7024": {
+  "name": "Мрамор Империал",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7024.jpg",
+  "src": "c-s.by/7024.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "70024": {
+  "name": "Мрамор Мартьян",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70024.jpg",
+  "src": "c-s.by/70024-Mramor-Martian-Stolesnica-Kedr.jpg",
+  "px": [
+   6000,
+   4000
+  ],
+  "sheet": [
+   3050,
+   2033
+  ]
+ },
+ "2341": {
+  "name": "Мрамор Нуволато",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2341.jpg",
+  "src": "c-s.by/2341.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "8507": {
+  "name": "Мрамор Опера",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "8507.jpg",
+  "src": "c-s.by/8507-Mramor-Opera-Stoleshnica-Kedr.jpg",
+  "px": [
+   3050,
+   1320
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "2337": {
+  "name": "Мрамор бежевый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2337.jpg",
+  "src": "c-s.by/2337.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "2385": {
+  "name": "Мрамор бежевый светлый",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "2385.jpg",
+  "src": "c-s.by/2385.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "9585": {
+  "name": "Мрамор бежевый светлый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "9585.jpg",
+  "src": "c-s.by/9585.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2384": {
+  "name": "Мрамор греческий",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2384.jpg",
+  "src": "c-s.by/2384_Mramor_Grechesky_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3024": {
+  "name": "Мрамор золотой",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3024.jpg",
+  "src": "c-s.by/3024.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3028": {
+  "name": "Мрамор марквина",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3028.jpg",
+  "src": "c-s.by/3028-Mramor-markvina-Bely-Stolesnica-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "694": {
+  "name": "Мрамор марквина серый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "694.jpg",
+  "src": "c-s.by/694.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3034": {
+  "name": "Мрамор марквина синий",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3034.jpg",
+  "src": "c-s.by/3034-Mramor-markvina-Siniy-Stolesnica-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "734": {
+  "name": "Мрамор марквина синий",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "734.jpg",
+  "src": "c-s.by/734.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3029": {
+  "name": "Мрамор марквина черный",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3029.jpg",
+  "src": "c-s.by/3029.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "920": {
+  "name": "Мрамор миланский",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "920.jpg",
+  "src": "c-s.by/920.jpg",
+  "px": [
+   17717,
+   3543
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3025": {
+  "name": "Мрамор черный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3025.jpg",
+  "src": "c-s.by/3025.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "8260": {
+  "name": "Нова Канту",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "8260.jpg",
+  "src": "c-s.by/8260_Pt-Nova-Kantu-Stoleshnica-Kedr.jpg",
+  "px": [
+   8504,
+   2683
+  ],
+  "sheet": [
+   3050,
+   962
+  ]
+ },
+ "910": {
+  "name": "Обсидиан коричневый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "910.jpg",
+  "src": "c-s.by/910.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "70020": {
+  "name": "Оливковое дерево",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70020.jpg",
+  "src": "c-s.by/70020_S-Olivkovoe-Derevo-Stoleshnica-Kedr.jpg",
+  "px": [
+   4572,
+   3100
+  ],
+  "sheet": [
+   3050,
+   2068
+  ]
+ },
+ "2231": {
+  "name": "Оникс бежевый классический",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2231.jpg",
+  "src": "c-s.by/2231.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "8233": {
+  "name": "Оникс персидский",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "8233.jpg",
+  "src": "c-s.by/8233_S-Onix-Persidsky-Stoleshnica-Kedr.jpg",
+  "px": [
+   2046,
+   600
+  ],
+  "sheet": [
+   3050,
+   894
+  ]
+ },
+ "70017": {
+  "name": "Опал горный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70017.jpg",
+  "src": "c-s.by/70017-Opal-Gorny-Stolesnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "3061": {
+  "name": "Паладина светлая",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "3061.jpg",
+  "src": "c-s.by/3061_Paladina_Svetlaya_Stoleshnica_Kedr.jpg",
+  "px": [
+   8646,
+   3742
+  ],
+  "sheet": [
+   3050,
+   1320
+  ]
+ },
+ "70025": {
+  "name": "Паладина светлая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70025.jpg",
+  "src": "c-s.by/70025-Paladina-Svetlaya-Stolesnica-Kedr.jpg",
+  "px": [
+   6000,
+   4000
+  ],
+  "sheet": [
+   3050,
+   2033
+  ]
+ },
+ "8318": {
+  "name": "Паутина коричневая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "8318.jpg",
+  "src": "c-s.by/8318.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2012": {
+  "name": "Перлино",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2012.jpg",
+  "src": "c-s.by/2012.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "70001": {
+  "name": "Пирит светлый",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70001.jpg",
+  "src": "c-s.by/70001_Pirit_Svetly_Stoleshnica_Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "70006": {
+  "name": "Пирит темный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70006.jpg",
+  "src": "c-s.by/70006-Pirit-Tevny-Stolesnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "5013": {
+  "name": "Платина",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "5013.jpg",
+  "src": "c-s.by/5013_Platina_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3114": {
+  "name": "Розовый кварц",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3114.jpg",
+  "src": "c-s.by/3114_Q-Rozovy-Kvarc-Stoleshnica-Kedr.jpg",
+  "px": [
+   2355,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1408
+  ]
+ },
+ "2236": {
+  "name": "Семолина бежевая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2236.jpg",
+  "src": "c-s.by/2236.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "2235": {
+  "name": "Семолина серая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2235.jpg",
+  "src": "c-s.by/2235.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "3043": {
+  "name": "Семолина серая",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3043.jpg",
+  "src": "c-s.by/3043_Semolina_Seraya_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "70003": {
+  "name": "Содалит",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70003.jpg",
+  "src": "c-s.by/70003_Sodalit_Stoleshnica_Kedr.jpg",
+  "px": [
+   3543,
+   3543
+  ],
+  "sheet": [
+   3050,
+   3050
+  ]
+ },
+ "2057": {
+  "name": "Сосна Пондероса",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2057.jpg",
+  "src": "c-s.by/2057_M-Sosna-Panderosa-Stoleshnica-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "7053": {
+  "name": "Таксус",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7053.jpg",
+  "src": "c-s.by/7053.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "709": {
+  "name": "Таурус Андромеда",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "709.jpg",
+  "src": "c-s.by/709.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "757": {
+  "name": "Терезина",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "757.jpg",
+  "src": "c-s.by/4057_Terezina_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ],
+  "check": true,
+  "colorMean": [
+   205,
+   196,
+   188
+  ],
+  "note": "цвет по фото образца в шоуруме (белая этикетка = 242)"
+ },
+ "70008": {
+  "name": "Тис",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70008.jpg",
+  "src": "c-s.by/70008_S-Tis-Stoleshnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "70023": {
+  "name": "Томан",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70023.jpg",
+  "src": "c-s.by/70023_S-Toman-Stoleshnica-Kedr.jpg",
+  "px": [
+   6000,
+   4000
+  ],
+  "sheet": [
+   3050,
+   2033
+  ]
+ },
+ "8341": {
+  "name": "Травертин Бежевый",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "8341.jpg",
+  "src": "c-s.by/8341.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "8343": {
+  "name": "Травертин Коричневый",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "8343.jpg",
+  "src": "c-s.by/8343.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "8345": {
+  "name": "Травертин Серый",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "8345.jpg",
+  "src": "c-s.by/8345.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "2062": {
+  "name": "Трансильвания",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2062.jpg",
+  "src": "c-s.by/2062_Transilvaniya_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "9756": {
+  "name": "Флакстаф темный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "9756.jpg",
+  "src": "c-s.by/9756_Dub_Flakstaf_Temny_Stoleshnica_Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4059": {
+  "name": "Черная бронза",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4059.jpg",
+  "src": "c-s.by/4059.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "8227": {
+  "name": "Черная сахара",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "8227.jpg",
+  "src": "c-s.by/8227_Pt-Chernaya-Sahara-Stoleshnica-Kedr.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "7030": {
+  "name": "Черная сосна",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "7030.jpg",
+  "src": "c-s.by/7030.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "4060": {
+  "name": "Черное серебро",
+  "surfaces": [
+   "Глянцевая",
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "4060.jpg",
+  "src": "c-s.by/4060.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "1021": {
+  "name": "Черный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "flat",
+  "hex": "#1C1C1C"
+ },
+ "713": {
+  "name": "Черный гранит",
+  "surfaces": [
+   "Глянцевая"
+  ],
+  "kind": "pattern",
+  "file": "713.jpg",
+  "src": "c-s.by/713.jpg",
+  "px": [
+   3000,
+   600
+  ],
+  "sheet": [
+   3050,
+   610
+  ]
+ },
+ "3074": {
+  "name": "Черный тунис",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "3074.jpg",
+  "src": "c-s.by/3074_Cherny_Tunis_Stoleshnica_Kedr.jpg",
+  "px": [
+   3596,
+   1592
+  ],
+  "sheet": [
+   3050,
+   1350
+  ]
+ },
+ "70007": {
+  "name": "Штейн",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70007.jpg",
+  "src": "c-s.by/70007_Stain_Stoleshnica_Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "70015": {
+  "name": "Шунгит тёмный",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70015.jpg",
+  "src": "c-s.by/70015-Shungit-Temny-Stolesnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ },
+ "2323": {
+  "name": "Этна",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "2323.jpg",
+  "src": "c-s.by/2323.jpg",
+  "px": [
+   2359,
+   1087
+  ],
+  "sheet": [
+   3050,
+   1405
+  ]
+ },
+ "70011": {
+  "name": "Яшма песочная",
+  "surfaces": [
+   "Матовая"
+  ],
+  "kind": "pattern",
+  "file": "70011.jpg",
+  "src": "c-s.by/70011-Yashma-Pesochnaya-Stoleshnica-Kedr.jpg",
+  "px": [
+   6000,
+   3000
+  ],
+  "sheet": [
+   3050,
+   1525
+  ]
+ }
+}

@@ -7,7 +7,7 @@ import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
 import { toRuns } from "./layout.js";
 import { findGlass, findFrame } from "../catalog/glass.js";
 
-const GROUP_KEYS = ["upper", "lower", "body", "splash"];
+const GROUP_KEYS = ["upper", "lower", "body", "splash", "top"];
 
 export function createViewer(container, levelId, onStats, onPick) {
   const level = LEVELS[levelId];
@@ -114,7 +114,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     for (const key of GROUP_KEYS) {
       const sel = f[key];
       const d = sel?.code ? decors.get(sel.code) : null;
-      applyDecor(mats[key], d, level, tex, key === "splash" ? f.wallHex : null);
+      applyDecor(mats[key], d, level, tex, key === "splash" ? f.wallHex : key === "top" ? "#e8e3da" : null);
       const sheet = d ? d.sheet : [600, 400];
       for (const it of kitchen.switchable) {
         if (it.front && it.mesh.userData.group === key) uv.set(it.mesh, frontUV(it.mesh, sheet, sel?.rot ?? true));

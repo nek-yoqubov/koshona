@@ -102,4 +102,5 @@ export const GROUPS = [
   { key: "lower", label: "Нижние фасады" },
   { key: "body", label: "Корпус" },
   { key: "splash", label: "Фартук" },
+  { key: "top", label: "Столешница" },
 ];

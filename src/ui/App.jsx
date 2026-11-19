@@ -66,8 +66,10 @@ export default function App() {
         setDecors(list);
         const fill = (f) => {
           const g = { ...emptyFinish(), ...structuredClone(f) };
-          for (const k of ["upper", "lower", "body"]) if (!list.some((d) => d.code === g[k].code)) g[k].code = list[0]?.code ?? null;
+          const fronts = list.filter((d) => d.kind !== "top");
+          for (const k of ["upper", "lower", "body"]) if (!fronts.some((d) => d.code === g[k].code)) g[k].code = fronts[0]?.code ?? null;
           if (g.splash.code && !list.some((d) => d.code === g.splash.code)) g.splash.code = null;
+          if (g.top.code && !list.some((d) => d.code === g.top.code && d.kind === "top")) g.top.code = null;
           return g;
         };
         setFin((f) => ({ A: fill(f.A), B: fill(f.B) }));
@@ -163,9 +165,11 @@ export default function App() {
     setTab("finish");
   };
 
-  const suppliers = useMemo(() => ["Все", ...new Set(decors.map((d) => d.supplier))], [decors]);
+  const pool = useMemo(() => decors.filter((d) => (active === "top") === (d.kind === "top")), [decors, active]);
+  const suppliers = useMemo(() => ["Все", ...new Set(pool.map((d) => d.supplier))], [pool]);
   const finishOf = (d) => FINISHES[d?.finish]?.label ?? "";
-  const filtered = decors.filter((d) => (supplier === "Все" || d.supplier === supplier) && `${d.name} ${finishOf(d)}`.toLowerCase().includes(search.toLowerCase()));
+  const sup = suppliers.includes(supplier) ? supplier : "Все";
+  const filtered = pool.filter((d) => (sup === "Все" || d.supplier === sup) && `${d.name} ${finishOf(d)}`.toLowerCase().includes(search.toLowerCase()));
   const nameOf = (code) => decors.find((d) => d.code === code)?.name ?? "—";
   const shortName = (f) => nameOf(f.lower.code).replace(/\s+\S+\s+\S+$/, "");
   const spec = useMemo(() => buildSpec(parts, fin.A, decors), [parts, fin.A, decors]);
@@ -321,7 +325,7 @@ export default function App() {
                 <>
                   <div className="row">
                     {suppliers.map((s) => (
-                      <button key={s} className={supplier === s ? "chip sm on" : "chip sm"} onClick={() => setSupplier(s)}>{s}</button>
+                      <button key={s} className={sup === s ? "chip sm on" : "chip sm"} onClick={() => setSupplier(s)}>{s}</button>
                     ))}
                   </div>
                   <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />

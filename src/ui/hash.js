@@ -1,5 +1,5 @@
-const KEYS = ["upper", "lower", "body", "splash"];
-const SHORT = { upper: "u", lower: "l", body: "b", splash: "s" };
+const KEYS = ["upper", "lower", "body", "splash", "top"];
+const SHORT = { upper: "u", lower: "l", body: "b", splash: "s", top: "t" };
 
 export function emptyFinish() {
   return {
@@ -7,6 +7,7 @@ export function emptyFinish() {
     lower: { code: null, rot: true },
     body: { code: null, rot: true },
     splash: { code: null, rot: false },
+    top: { code: null, rot: false },
     wall: "warm",
     glass: { tint: "clear", frame: "black" },
   };

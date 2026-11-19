@@ -267,6 +267,67 @@ for (const [sup, label, prefix] of [["ultradecor", "ULTRADECOR", "ud"], ["extrav
   }
 }
 
+// ---------- Столешницы Кедр: картинка — вся столешница целиком (обычно 3000×600 ≈ 3050×600 мм), рельефа нет ----------
+// длинная сторона картинки = 3050 мм; если декор есть и в мате, и в глянце — две позиции с одной текстурой
+{
+  const fin = JSON.parse(fs.readFileSync(path.join(RAW, "kedr-finishes.json"), "utf8"));
+  for (const [code, f] of Object.entries(fin)) {
+    if (only && code !== only) continue;
+    const id = `kd-${code}`;
+    const dir = path.join(OUT, id);
+    fs.mkdirSync(dir, { recursive: true });
+    const rel = (x) => `tex/${id}/${x}`;
+    const src = f.file ? path.join(RAW, "kedr", f.file) : null;
+    const cfg = JSON.stringify([f.kind, f.hex, f.file, f.colorMean, "k1"]);
+    const cfgFile = path.join(RAW, ".agt-cache", `${id}.cfg`);
+    fs.mkdirSync(path.dirname(cfgFile), { recursive: true });
+    const stamp = path.join(dir, "c1.webp");
+    const stale = force || !fs.existsSync(stamp) || !fs.existsSync(cfgFile) || fs.readFileSync(cfgFile, "utf8") !== cfg;
+    let sheet = f.sheet || [3050, 600];
+    if (stale && f.kind === "flat") {
+      const rgb = hexRgb(f.hex);
+      const solid = (w, h) => sharp({ create: { width: w, height: h, channels: 3, background: { r: rgb[0], g: rgb[1], b: rgb[2] } } });
+      for (const x of ["c4", "c2", "c1"]) await solid(64, 13).webp({ quality: 95 }).toFile(path.join(dir, `${x}.webp`));
+      await solid(256, 256).webp({ quality: 90 }).toFile(path.join(dir, "card.webp"));
+    } else if (stale) {
+      const meta = await sharp(src).metadata();
+      const rot = meta.height > meta.width;
+      let img = sharp(src).rotate(rot ? 90 : 0).removeAlpha().toColourspace("srgb").resize({ width: 4096 });
+      let { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
+      if (f.colorMean) {
+        const m = await meanRgb(src);
+        for (let i = 0; i < data.length; i += 3) for (let k = 0; k < 3; k++) data[i + k] = Math.min(255, Math.round(data[i + k] * f.colorMean[k] / m[k]));
+      }
+      const base = sharp(data, { raw: info });
+      await base.clone().webp({ quality: 86 }).toFile(path.join(dir, "c4.webp"));
+      await base.clone().resize({ width: 2048 }).webp({ quality: 82 }).toFile(path.join(dir, "c2.webp"));
+      await base.clone().resize({ width: 1024 }).webp({ quality: 78 }).toFile(path.join(dir, "c1.webp"));
+      const s = Math.min(info.height, Math.round(info.width / 3));
+      await base.clone().extract({ left: Math.round((info.width - s) / 2), top: Math.round((info.height - s) / 2), width: s, height: s })
+        .resize(256, 256).webp({ quality: 78 }).toFile(path.join(dir, "card.webp"));
+    }
+    fs.writeFileSync(cfgFile, cfg);
+    const surf = f.surfaces || ["Матовая"];
+    for (const sname of surf) {
+      const gloss = sname.startsWith("Глянц");
+      decors.push({
+        code: surf.length > 1 && gloss ? `${id}-hg` : id,
+        name: `${code} ${f.name}` + (surf.length > 1 ? (gloss ? " · глянец" : " · мат") : ""),
+        supplier: "КЕДР",
+        kind: "top",
+        sheet,
+        card: rel("card.webp"),
+        color: { max: rel("c4.webp"), hi: rel("c2.webp"), lo: rel("c1.webp") },
+        relief: null,
+        finish: gloss ? "hg" : "matt",
+        roughness: gloss ? 0.12 : 0.5,
+        ...(f.check ? { check: true } : {}),
+      });
+    }
+    process.stdout.write("·");
+  }
+}
+
 if (!only) {
   fs.mkdirSync(path.dirname(CATALOG), { recursive: true });
   fs.writeFileSync(CATALOG, JSON.stringify(decors));

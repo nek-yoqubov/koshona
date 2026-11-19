@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T } from "../modules/index.js";
 
-const SWITCH_KEYS = new Set(["upper", "lower", "body", "splash", "wall", "glass", "frame"]);
+const SWITCH_KEYS = new Set(["upper", "lower", "body", "splash", "top", "wall", "glass", "frame"]);
 const mm = (v) => v / 1000;
 
 export function buildKitchen(plan, mats, level) {
@@ -31,7 +31,7 @@ export function buildKitchen(plan, mats, level) {
       m.position.set(x, y, z);
       m.castShadow = level.shadows;
       m.receiveShadow = level.shadows;
-      track(m, key, group, w, h, reg);
+      track(m, key, group, w, reg?.top ? d : h, reg);
       return m;
     },
     cyl(r1, r2, h, key, x, y, z) {
@@ -129,7 +129,7 @@ export function buildKitchen(plan, mats, level) {
     for (const sg of segments) {
       const len = sg.to - sg.from, c = (sg.from + sg.to) / 2;
       const g = new THREE.Group();
-      g.add(k.box(len + 0.02, TOP_T, D + 0.03, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2));
+      g.add(k.box(len + 0.02, TOP_T, D + 0.03, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2, "top", { ox: 0, oy: 0, top: true }));
       const sh = UP_Y0 - BASE_H - TOP_T;
       g.add(k.box(len, sh, 0.01, "splash", 0, BASE_H + TOP_T + sh / 2, 0.005, "splash", { ox: frac(0.3 + c), oy: 0.5 }));
       for (const [y, z] of [[UP_Y0 - 0.005, UP_D - 0.03], [PLINTH - 0.005, D - 0.07]]) {
@@ -151,7 +151,7 @@ export function buildKitchen(plan, mats, level) {
       m.position.x = -w / 2 + sw * (i + 0.5);
       isl.add(m);
     }
-    isl.add(k.box(w + 0.04, TOP_T, D + 0.33, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2 - 0.15));
+    isl.add(k.box(w + 0.04, TOP_T, D + 0.33, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2 - 0.15, "top", { ox: 0, oy: 0, top: true }));
     isl.position.set(mm(plan.island.from) + w / 2, 0, mm(plan.island.z));
     isl.userData.itemId = "island";
     pickables.push(isl);

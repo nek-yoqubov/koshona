@@ -46,6 +46,7 @@ export function createGroupMaterials() {
     lower: std(FALLBACK),
     body: std("#d8d4cc", 0.6),
     splash: std("#ebe6de", 0.6),
+    top: std("#e8e3da", 0.45),
   };
 }
 
