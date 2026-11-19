@@ -1,0 +1,504 @@
+{
+ "F.434.F03": {
+  "name": "Цемент вятский туманный",
+  "file": "AURUM 18 мм/F.434.F03.jpg",
+  "hex": "#F2F2F4",
+  "skus": [
+   {
+    "sku": "F.434.F03",
+    "name": "Цемент вятский туманный",
+    "surface": "F03",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "check": true
+ },
+ "M.602.S01": {
+  "name": "Зеленый буковый",
+  "file": "ЛДСП 16 мм/M.602.S01.jpg",
+  "hex": "#A6AF94",
+  "skus": [
+   {
+    "sku": "M.602.S01",
+    "name": "Зеленый буковый",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "M.435.W01": {
+  "name": "Серый бетонный",
+  "file": "ЛДСП 16 мм/M.435.W01.jpg",
+  "hex": "#262324",
+  "skus": [
+   {
+    "sku": "M.435.W01",
+    "name": "Серый бетонный",
+    "surface": "W01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true,
+  "check": true,
+  "note": "картинки нет в архиве, цвет с превью сайта"
+ },
+ "D.513.S01": {
+  "name": "Дуб печорский кофейный",
+  "file": "ЛДСП 18 мм/D.513.S01.jpg",
+  "hex": "#8F7A6B",
+  "skus": [
+   {
+    "sku": "D.513.S01",
+    "name": "Дуб печорский кофейный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "M.603.S01": {
+  "name": "Зеленый тростниковый",
+  "file": "ЛДСП 16 мм/M.603.S01.jpg",
+  "hex": "#A9A58C",
+  "skus": [
+   {
+    "sku": "M.603.S01",
+    "name": "Зеленый тростниковый",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "M.101.S01": {
+  "name": "Белый снежный",
+  "file": "ЛДСП 16 мм/M.101.S01.jpg",
+  "hex": "#FFFFFF",
+  "skus": [
+   {
+    "sku": "M.101.S01",
+    "name": "Белый снежный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "M.601.S01": {
+  "name": "Зеленый чайный",
+  "file": "ЛДСП 16 мм/M.601.S01.jpg",
+  "hex": "#D6E0C7",
+  "skus": [
+   {
+    "sku": "M.601.S01",
+    "name": "Зеленый чайный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "D.301.W04": {
+  "name": "Дуб уральский ячменный",
+  "file": "ЛДСП 18 мм/D.301.W04.jpg",
+  "hex": "#C2A78B",
+  "skus": [
+   {
+    "sku": "D.301.W04",
+    "name": "Дуб уральский ячменный",
+    "surface": "W04",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "M.201.S01": {
+  "name": "Синий скалистый",
+  "file": "ЛДСП 16 мм/M.201.S01.jpg",
+  "hex": "#A0ABA5",
+  "skus": [
+   {
+    "sku": "M.201.S01",
+    "name": "Синий скалистый",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "M.605.S01": {
+  "name": "Зелёный мятный",
+  "file": "ЛДСП 16 мм/M.605.S01.jpg",
+  "hex": "#D3E5CB",
+  "skus": [
+   {
+    "sku": "M.605.S01",
+    "name": "Зелёный мятный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "M.200.S01": {
+  "name": "Голубой пыльный",
+  "file": "ЛДСП 16 мм/M.200.S01.jpg",
+  "hex": "#C0C7D1",
+  "skus": [
+   {
+    "sku": "M.200.S01",
+    "name": "Голубой пыльный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true
+ },
+ "F.416.F02": {
+  "name": "Сланец алтайский снежный",
+  "file": "ЛДСП 18 мм/F.416.F02.jpg",
+  "hex": "#E6E4E7",
+  "skus": [
+   {
+    "sku": "F.416.F02",
+    "name": "Сланец алтайский снежный",
+    "surface": "F02",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true
+ },
+ "F.413.F01": {
+  "name": "Сплав белгородский светлый",
+  "file": "ЛДСП 18 мм/F.413.F01.jpg",
+  "hex": "#B3AC9B",
+  "skus": [
+   {
+    "sku": "F.413.F01",
+    "name": "Сплав белгородский светлый",
+    "surface": "F01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "rotate": true
+ },
+ "D.316.W01": {
+  "name": "Дуб владикавказский пшеничный",
+  "file": "ЛДСП 18 мм/D.316.W01.jpg",
+  "hex": "#C9B598",
+  "skus": [
+   {
+    "sku": "D.316.W01",
+    "name": "Дуб владикавказский пшеничный",
+    "surface": "W01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "D.341.W01": {
+  "name": "Дуб коломенский молочный",
+  "file": "ЛДСП 18 мм/D.341.W01.jpg",
+  "hex": "#F3ECDD",
+  "skus": [
+   {
+    "sku": "D.341.W01",
+    "name": "Дуб коломенский молочный",
+    "surface": "W01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "F.346.M01": {
+  "name": "Золото амурское белое",
+  "file": "ЛДСП 18 мм/F.346.M01.jpg",
+  "hex": "#CDC4B9",
+  "skus": [
+   {
+    "sku": "F.346.M01",
+    "name": "Золото амурское белое",
+    "surface": "M01",
+    "finish": "mattmetal"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "rotate": true
+ },
+ "F.414.F01": {
+  "name": "Сплав белгородский темный",
+  "file": "ЛДСП 18 мм/F.414.F01.jpg",
+  "hex": "#84858B",
+  "skus": [
+   {
+    "sku": "F.414.F01",
+    "name": "Сплав белгородский темный",
+    "surface": "F01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "rotate": true
+ },
+ "D.317.S01": {
+  "name": "Дуб елецкий пшеничный",
+  "file": "ЛДСП 18 мм/D.317.S01.jpg",
+  "hex": "#D6BFA3",
+  "skus": [
+   {
+    "sku": "D.317.S01",
+    "name": "Дуб елецкий пшеничный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "D.318.S01": {
+  "name": "Дуб печорский ячменный",
+  "file": "ЛДСП 18 мм/D.318.S01.jpg",
+  "hex": "#D2BCA7",
+  "skus": [
+   {
+    "sku": "D.318.S01",
+    "name": "Дуб печорский ячменный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "D.500.S01": {
+  "name": "Орех ростовский гречишный",
+  "file": "ЛДСП 18 мм/D.500.S01.jpg",
+  "hex": "#836146",
+  "skus": [
+   {
+    "sku": "D.500.S01",
+    "name": "Орех ростовский гречишный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "D.313.S01": {
+  "name": "Каштан черноморский мокко",
+  "file": "ЛДСП 18 мм/D.313.S01.jpg",
+  "hex": "#CCA37D",
+  "skus": [
+   {
+    "sku": "D.313.S01",
+    "name": "Каштан черноморский мокко",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "D.342.S01": {
+  "name": "Дуб коломенский пряный",
+  "file": "ЛДСП 18 мм/D.342.S01.jpg",
+  "hex": "#BDA78B",
+  "skus": [
+   {
+    "sku": "D.342.S01",
+    "name": "Дуб коломенский пряный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "F.415.S01": {
+  "name": "Мрамор карельский снежный",
+  "file": "ЛДСП 18 мм/F.415.S01.jpg",
+  "hex": "#E9E3DD",
+  "skus": [
+   {
+    "sku": "F.415.S01",
+    "name": "Мрамор карельский снежный",
+    "surface": "S01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1200,
+  "check": true
+ },
+ "F.407.F02": {
+  "name": "Кварц кольский смоляной",
+  "file": "ЛДСП 18 мм/F.407.F02.jpg",
+  "hex": "#444444",
+  "skus": [
+   {
+    "sku": "F.407.F02",
+    "name": "Кварц кольский смоляной",
+    "surface": "F02",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true
+ },
+ "F.406.F02": {
+  "name": "Бетон норильский угольный",
+  "file": "ЛДСП 18 мм/F.406.F02.jpg",
+  "hex": "#9F9D98",
+  "skus": [
+   {
+    "sku": "F.406.F02",
+    "name": "Бетон норильский угольный",
+    "surface": "F02",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true
+ },
+ "F.336.M01": {
+  "name": "Латунь барнаульская сатинированная",
+  "file": "ЛДСП 18 мм/F.336.M01.jpg",
+  "hex": "#85796B",
+  "skus": [
+   {
+    "sku": "F.336.M01",
+    "name": "Латунь барнаульская сатинированная",
+    "surface": "M01",
+    "finish": "mattmetal"
+   }
+  ],
+  "kind": "flat",
+  "useHex": true,
+  "check": true
+ },
+ "D.332.W01": {
+  "name": "Сосна выборгская глиняная",
+  "file": "ЛДСП 18 мм/D.332.W01.jpg",
+  "hex": "#544E4B",
+  "skus": [
+   {
+    "sku": "D.332.W01",
+    "name": "Сосна выборгская глиняная",
+    "surface": "W01",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "F.410.F02": {
+  "name": "Известняк ленинградский дымчатый",
+  "file": "ЛДСП 18 мм/F.410.F02.jpg",
+  "hex": "#D4CEC7",
+  "skus": [
+   {
+    "sku": "F.410.F02",
+    "name": "Известняк ленинградский дымчатый",
+    "surface": "F02",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true
+ },
+ "D.339.F02": {
+  "name": "Сосна мурманская снежная",
+  "file": "ЛДСП 18 мм/D.339.F02.jpg",
+  "hex": "#EAE7DF",
+  "skus": [
+   {
+    "sku": "D.339.F02",
+    "name": "Сосна мурманская снежная",
+    "surface": "F02",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ },
+ "D.522.W04": {
+  "name": "Дуб орский никелевый",
+  "file": "ЛДСП 18 мм/D.522.W04.jpg",
+  "hex": "#8C7B73",
+  "skus": [
+   {
+    "sku": "D.522.W04",
+    "name": "Дуб орский никелевый",
+    "surface": "W04",
+    "finish": "matt"
+   }
+  ],
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "grain": true,
+  "rotate": true
+ }
+}

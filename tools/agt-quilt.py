@@ -7,8 +7,9 @@
 совпадало лучше всего, а шов идёт по пути минимальной ошибки. Свет фрагмента
 предварительно выравнивается (убираем запечённый градиент).
 
-    python3 tools/agt-quilt.py            # все декоры kind=pattern
-    python3 tools/agt-quilt.py 3076 6018  # только эти
+    python3 tools/agt-quilt.py                         # AGT, все декоры kind=pattern
+    python3 tools/agt-quilt.py 3076 6018               # только эти
+    python3 tools/agt-quilt.py --sup ultradecor C509   # другой поставщик (лист 2800×2070)
 
 Результат: raw/agt-sheets/<код>.png (4096 × 1785, волокно вдоль длины листа).
 Перезапуск пропускает готовые, если параметры не менялись.
@@ -21,22 +22,47 @@ from scipy.ndimage import gaussian_filter
 Image.MAX_IMAGE_PIXELS = None
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "raw")
+# поставщик: (лист в мм, папка исходников, файл настроек, папка готовых листов)
+SUPPLIERS = {
+    "agt": ((2800, 1220), "agt", "agt-finishes.json", "agt-sheets"),
+    "ultradecor": ((2800, 2070), "ultradecor", "ultradecor-finishes.json", "ultradecor-sheets"),
+    "extravert": ((2800, 2070), "extravert", "extravert-finishes.json", "extravert-sheets"),
+}
+SUP = "agt"
 OUT = os.path.join(RAW, "agt-sheets")
 SW, SH = 4096, round(4096 * 1220 / 2800)
 PX_PER_MM = SW / 2800
 VERSION = "q5"
 
 
+def setup(sup):
+    global SUP, OUT, SW, SH, PX_PER_MM
+    (L, W), _, _, out = SUPPLIERS[sup]
+    SUP, OUT = sup, os.path.join(RAW, out)
+    SW, SH = 4096, round(4096 * W / L)
+    PX_PER_MM = SW / L
+
+
+def seed(code):
+    return int(code) if str(code).isdigit() else int(hashlib.md5(str(code).encode()).hexdigest()[:8], 16)
+
+
 def load(f, code):
-    src = os.path.join(RAW, f.get("src") or os.path.join("agt", f["file"]))
-    im = Image.open(src).convert("RGB")
-    w0 = im.width
+    src = os.path.join(RAW, f.get("src") or os.path.join(SUPPLIERS[SUP][1], f["file"]))
+    im = Image.open(src)
+    w0, h0 = im.size
+    scale = f["fragW"] * PX_PER_MM / w0
+    tw, th = max(32, round(w0 * scale)), max(32, round(h0 * scale))
+    if scale < 0.5:
+        im.draft("RGB", (tw, th))  # огромный JPEG: декодируем сразу уменьшенным
+    im = im.convert("RGB").resize((tw, th), Image.LANCZOS)
     if f.get("rotate"):
         im = im.rotate(90, expand=True)
-    scale = f["fragW"] * PX_PER_MM / w0
-    im = im.resize((max(32, round(im.width * scale)), max(32, round(im.height * scale))), Image.LANCZOS)
     a = np.asarray(im, np.float32)
-    if f.get("flat") == "profile":
+    if f.get("flat") == 0:
+        # целый лист: свет не выравниваем, крупный рисунок — часть декора
+        light = None
+    elif f.get("flat") == "profile":
         # снято на телефон: свет меняется плавно по строкам и столбцам — убираем 1D-профили, пятна рисунка остаются
         from scipy.ndimage import gaussian_filter1d
         rows = gaussian_filter1d(a.mean(1), a.shape[0] / 12, axis=0)[:, None, :]
@@ -51,7 +77,7 @@ def load(f, code):
     elif f.get("colorRef"):
         ref = np.asarray(Image.open(os.path.join(RAW, f["colorRef"])).convert("RGB"), np.float32)
         mean = ref.reshape(-1, 3).mean(0)
-    a = np.clip(a / np.maximum(light, 1) * mean, 0, 255)
+    a = np.clip(a / np.maximum(light, 1) * mean, 0, 255) if light is not None else a * (mean / np.maximum(a.reshape(-1, 3).mean(0), 1))
     if f.get("statsRef"):
         # цвет и контраст — с фото живого образца, рисунок — с исходной картинки
         r = np.asarray(Image.open(os.path.join(RAW, f["statsRef"])).convert("RGB"), np.float32)
@@ -152,8 +178,12 @@ def grain_sheet(src, rng):
 
 
 def main():
-    fin = json.load(open(os.path.join(RAW, "agt-finishes.json"), encoding="utf-8"))
-    only = set(sys.argv[1:])
+    args = sys.argv[1:]
+    if args[:1] == ["--sup"]:
+        setup(args[1])
+        args = args[2:]
+    fin = json.load(open(os.path.join(RAW, SUPPLIERS[SUP][2]), encoding="utf-8"))
+    only = set(args)
     os.makedirs(OUT, exist_ok=True)
     for code, f in fin.items():
         if f["kind"] != "pattern" or (only and code not in only):
@@ -165,10 +195,10 @@ def main():
             continue
         src = load(f, code)
         sh, sw = src.shape[:2]
-        if sw >= SW and sh >= SH:
+        if sw >= SW - 2 and sh >= SH - 2:
             res = src[:SH, :SW]
         else:
-            rng = np.random.default_rng(int(code))
+            rng = np.random.default_rng(seed(code))
             if f.get("grain"):
                 res = grain_sheet(src, rng)
             else:
@@ -180,10 +210,12 @@ def main():
             of = dict(f, src=o["src"], fragW=o["fragW"], statsRef=None, rotate=False)
             osrc = load(of, code)
             ob = osrc.shape[0]
-            osheet = quilt(osrc, np.random.default_rng(int(code) + 1), int(ob * 0.45), int(ob * 0.45))
+            osheet = quilt(osrc, np.random.default_rng(seed(code) + 1), int(ob * 0.45), int(ob * 0.45))
             lum = gaussian_filter(osheet @ np.array([0.299, 0.587, 0.114], np.float32), o.get("blur", 25))
             lum = lum / lum.mean()
             res = res * (1 + o.get("amount", 0.6) * (lum[..., None] - 1))
+        if res.shape[0] < SH or res.shape[1] < SW:
+            res = np.asarray(Image.fromarray(res.clip(0, 255).astype(np.uint8)).resize((SW, SH), Image.LANCZOS), np.float32)
         Image.fromarray(res.clip(0, 255).astype(np.uint8)).save(dst, optimize=False)
         open(stamp, "w").write(key)
         print(code, f"фрагмент {sw}x{sh} -> лист", flush=True)

@@ -2,3 +2,6 @@ node_modules
 dist
 raw/.agt-cache
 raw/agt-sheets/*.png
+raw/ultradecor-sheets/*.png
+raw/extravert-sheets/*.png
+tools/__pycache__/

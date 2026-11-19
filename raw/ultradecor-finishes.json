@@ -1,0 +1,3217 @@
+{
+ "C509": {
+  "name": "Азул Оникс",
+  "file": "C509_CA.jpg",
+  "hex": "#DCD9D3",
+  "en": "Azool Onyx",
+  "kind": "pattern",
+  "fragW": 1400,
+  "check": true,
+  "skus": [
+   {
+    "sku": "C509 CA",
+    "name": "Азул Оникс",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C319": {
+  "name": "Цемент песочный",
+  "file": "C319_CA.jpg",
+  "hex": "#C8B79E",
+  "en": "Cement Sand CB",
+  "kind": "pattern",
+  "fragW": 1300,
+  "rotate": true,
+  "check": true,
+  "skus": [
+   {
+    "sku": "C319 CA",
+    "name": "Цемент песочный",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0162": {
+  "name": "Серый графит",
+  "file": "0162_BS.jpg",
+  "hex": "#5B595A",
+  "en": "Graphite Grey",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0162 BS",
+    "name": "Серый графит",
+    "surface": "BS",
+    "finish": "matt"
+   },
+   {
+    "sku": "0162 PE",
+    "name": "Серый графит",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C317": {
+  "name": "Сегни Темный",
+  "file": "C317_CA.jpg",
+  "hex": "#968E8C",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "skus": [
+   {
+    "sku": "C317 CA",
+    "name": "Сегни Темный",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "C312": {
+  "name": "Сантонини тёмный",
+  "file": "C312_CA.jpg",
+  "hex": "#7B7C80",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "C312 CA",
+    "name": "Сантонини тёмный",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "C311": {
+  "name": "Сантонини светлый",
+  "file": "C311_CA.jpg",
+  "hex": "#C4BFBB",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "C311 CA",
+    "name": "Сантонини светлый",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "U704": {
+  "name": "Мрамор Пьетра Графитовый",
+  "file": "U704_CA.jpg",
+  "hex": "#44474A",
+  "en": "Graphite Pietra Marble CB",
+  "kind": "pattern",
+  "fragW": 3023,
+  "rotate": false,
+  "flat": 0,
+  "check": true,
+  "skus": [
+   {
+    "sku": "U704 CA",
+    "name": "Мрамор Пьетра Графитовый",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C321": {
+  "name": "Кипарисовый зеленый",
+  "file": "C321_BS.jpg",
+  "hex": "#B4BEA3",
+  "en": "Cypress Green SU",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "C321 BS",
+    "name": "Кипарисовый зеленый",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "5981": {
+  "name": "Кашемир",
+  "file": "5981_BS.jpg",
+  "hex": "#CCC3BA",
+  "en": "Cashmere",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "5981 BS",
+    "name": "Кашемир",
+    "surface": "BS",
+    "finish": "matt"
+   },
+   {
+    "sku": "5981 SU",
+    "name": "Кашемир",
+    "surface": "SU",
+    "finish": "supermatt"
+   },
+   {
+    "sku": "5981 UR",
+    "name": "Кашемир",
+    "surface": "UR",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C323": {
+  "name": "Карамель",
+  "file": "C323_BS.jpg",
+  "hex": "#C1987A",
+  "en": "Reddish Brown SU",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "C323 BS",
+    "name": "Карамель",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C314": {
+  "name": "Дуб сторсунд",
+  "file": "C314_PW.jpg",
+  "hex": "#CDB4A1",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "C314 PW",
+    "name": "Дуб сторсунд",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "5521": {
+  "name": "Дуб Сантана",
+  "file": "5521_PW.jpg",
+  "hex": "#B78F68",
+  "en": "Santana Oak",
+  "kind": "pattern",
+  "fragW": 1300,
+  "rotate": true,
+  "check": true,
+  "skus": [
+   {
+    "sku": "5521 PW",
+    "name": "Дуб Сантана",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "grain": true,
+  "site": "ultradecor.com"
+ },
+ "U700": {
+  "name": "Дуб крафт натуральный",
+  "file": "U700_PW.jpg",
+  "hex": "#C9B08C",
+  "en": "Craft Oak Natural PW",
+  "kind": "pattern",
+  "fragW": 3040,
+  "rotate": true,
+  "check": true,
+  "skus": [
+   {
+    "sku": "U700 PW",
+    "name": "Дуб крафт натуральный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com",
+  "grain": true,
+  "flat": 0
+ },
+ "C322": {
+  "name": "Светлый зеленый",
+  "file": "C322_BS.jpg",
+  "hex": "#D7D3B8",
+  "en": "Clear Green SU",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "C322 BS",
+    "name": "Светлый зеленый",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "U701": {
+  "name": "Ароза Светлая",
+  "file": "U701_CA.jpg",
+  "hex": "#E4E4E5",
+  "en": "Arosa Light CB",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "skus": [
+   {
+    "sku": "U701 CA",
+    "name": "Ароза Светлая",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C318": {
+  "name": "Сегни светлый",
+  "file": "C318_CA.jpg",
+  "hex": "#C2BEB5",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "skus": [
+   {
+    "sku": "C318 CA",
+    "name": "Сегни светлый",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "U702": {
+  "name": "Ароза Песочная",
+  "file": "U702_CA.jpg",
+  "hex": "#C7B49B",
+  "en": "Arosa Sand CB",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "skus": [
+   {
+    "sku": "U702 CA",
+    "name": "Ароза Песочная",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0164": {
+  "name": "Антрацит",
+  "file": "0164_BS.jpg",
+  "hex": "#3B3B3B",
+  "en": "Anthracite",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0164 BS",
+    "name": "Антрацит",
+    "surface": "BS",
+    "finish": "matt"
+   },
+   {
+    "sku": "0164 PE",
+    "name": "Антрацит",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C309": {
+  "name": "Антрацитовый Камень",
+  "file": "C309_CA.jpg",
+  "hex": "#61594C",
+  "en": "Anthracite flow CB",
+  "kind": "pattern",
+  "fragW": 3608,
+  "rotate": false,
+  "flat": 0,
+  "check": true,
+  "skus": [
+   {
+    "sku": "C309 CA",
+    "name": "Антрацитовый Камень",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K385": {
+  "name": "Ледяной камень",
+  "file": "K385_CA.jpg",
+  "hex": "#E4DFDC",
+  "en": "Ice Flow CB",
+  "kind": "pattern",
+  "fragW": 3608,
+  "rotate": false,
+  "flat": 0,
+  "check": true,
+  "skus": [
+   {
+    "sku": "K385 CA",
+    "name": "Ледяной камень",
+    "surface": "CA",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C320": {
+  "name": "Дымчатый розовый",
+  "file": "C320_BS.jpg",
+  "hex": "#E6D3B5",
+  "en": "Misty Pink SU",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "C320 BS",
+    "name": "Дымчатый розовый",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C313": {
+  "name": "Дуб фэрбенк",
+  "file": "C313_PW.jpg",
+  "hex": "#C2AC91",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "C313 PW",
+    "name": "Дуб фэрбенк",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "7045": {
+  "name": "Сатин",
+  "file": "7045_BS.jpg",
+  "hex": "#DACDBD",
+  "en": "Satin",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "7045 BS",
+    "name": "Сатин",
+    "surface": "BS",
+    "finish": "matt"
+   },
+   {
+    "sku": "7045 SU",
+    "name": "Сатин",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "C197": {
+  "name": "Шиншилла Серая",
+  "file": "C197.jpg",
+  "hex": "#A4A5A0",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "C197",
+    "name": "Шиншилла Серая",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "C324": {
+  "name": "Сумеречная пудра",
+  "file": "C324_BS.jpg",
+  "hex": "#B3A290",
+  "en": "Twilight Powder SU",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "C324 BS",
+    "name": "Сумеречная пудра",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8622": {
+  "name": "Дуб Молочный",
+  "file": "8622.jpg",
+  "hex": "#F1D4BA",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8622",
+    "name": "Дуб Молочный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "3025": {
+  "name": "Дуб Сонома светлый",
+  "file": "3025.jpg",
+  "hex": "#BAA791",
+  "en": "Sonoma Light Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "3025",
+    "name": "Дуб Сонома светлый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "7031": {
+  "name": "Кремовый",
+  "file": "7031_BS.jpg",
+  "hex": "#FFFCE9",
+  "en": "Cream",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "7031 SM",
+    "name": "Кремовый",
+    "surface": "SM",
+    "finish": "matt"
+   },
+   {
+    "sku": "7031 BS",
+    "name": "Кремовый",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K008": {
+  "name": "Орех Селект Светлый",
+  "file": "K008.jpg",
+  "hex": "#A18868",
+  "en": "Light Select Walnut",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K008",
+    "name": "Орех Селект Светлый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8362": {
+  "name": "Крослайн Карамель",
+  "file": "8362_SN.jpg",
+  "hex": "#A68A77",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8362 SN",
+    "name": "Крослайн Карамель",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K003": {
+  "name": "Дуб крафт золотой",
+  "file": "K003_PW.jpg",
+  "hex": "#B1976F",
+  "en": "Gold Craft Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K003 PW",
+    "name": "Дуб крафт золотой",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0522": {
+  "name": "Бежевый",
+  "file": "0522_PE.jpg",
+  "hex": "#E1D3B8",
+  "en": "Beige",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0522 PE",
+    "name": "Бежевый",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K002": {
+  "name": "Дуб крафт серый",
+  "file": "K002_PW.jpg",
+  "hex": "#B2A692",
+  "en": "Grey Craft Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K002 PW",
+    "name": "Дуб крафт серый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K004": {
+  "name": "Дуб крафт табачный",
+  "file": "K004_PW.jpg",
+  "hex": "#927558",
+  "en": "Tobacco Craft Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K004 PW",
+    "name": "Дуб крафт табачный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K001": {
+  "name": "Дуб крафт белый",
+  "file": "K001_PW.jpg",
+  "hex": "#E0DDD5",
+  "en": "White Craft Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K001 PW",
+    "name": "Дуб крафт белый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0088": {
+  "name": "Вишня Оксфорд",
+  "file": "0088_PR.jpg",
+  "hex": "#B46122",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "0088 PR",
+    "name": "Вишня Оксфорд",
+    "surface": "PR",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "3354": {
+  "name": "Венге Цаво",
+  "file": "3354_PR.jpg",
+  "hex": "#322423",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "3354 PR",
+    "name": "Венге Цаво",
+    "surface": "PR",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "0110": {
+  "name": "Белый",
+  "file": "0110_PE.jpg",
+  "hex": "#F0EFEB",
+  "en": "White",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0110 SM",
+    "name": "Белый",
+    "surface": "SM",
+    "finish": "matt"
+   },
+   {
+    "sku": "0110 PE",
+    "name": "Белый",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "0190": {
+  "name": "Чёрный",
+  "file": "0190.jpg",
+  "hex": "#131917",
+  "en": "Black",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0190",
+    "name": "Чёрный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "9490": {
+  "name": "Орех Мария Луиза",
+  "file": "9490_PR.jpg",
+  "hex": "#5A2418",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 600,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "9490 PR",
+    "name": "Орех Мария Луиза",
+    "surface": "PR",
+    "finish": "matt"
+   }
+  ],
+  "site": "plittorg.com"
+ },
+ "0171": {
+  "name": "Серый Шифер",
+  "file": "0171_PE.jpg",
+  "hex": "#858384",
+  "en": "Slate Grey",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0171 PE",
+    "name": "Серый Шифер",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K358": {
+  "name": "Дуб Кастелло Медовый",
+  "file": "K358_PW.jpg",
+  "hex": "#B19276",
+  "en": "Honey Castello Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K358 PW",
+    "name": "Дуб Кастелло Медовый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K354": {
+  "name": "Дуб гранж колониальный",
+  "file": "K354.jpg",
+  "hex": "#836D5D",
+  "en": "Charcoal Stone",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K354",
+    "name": "Дуб гранж колониальный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K546": {
+  "name": "Орех Франклин карамельный",
+  "file": "K546_RW.jpg",
+  "hex": "#7D6045",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K546 RW",
+    "name": "Орех Франклин карамельный",
+    "surface": "RW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K009": {
+  "name": "Орех Селект Темный",
+  "file": "K009.jpg",
+  "hex": "#856C50",
+  "en": "Dark Select Walnut",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K009",
+    "name": "Орех Селект Темный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8921": {
+  "name": "Дуб Феррара",
+  "file": "8921_PR.jpg",
+  "hex": "#BEA48F",
+  "en": "Ferrara Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "8921 PR",
+    "name": "Дуб Феррара",
+    "surface": "PR",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K525": {
+  "name": "Ясень Прибрежный светлый",
+  "file": "K525.jpg",
+  "hex": "#C8AF8C",
+  "en": "Blonde Surfside Ash",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K525",
+    "name": "Ясень Прибрежный светлый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K524": {
+  "name": "Ясень прибрежный натуральный",
+  "file": "K524_SN.jpg",
+  "hex": "#E5E2DD",
+  "en": "Pure Surfside Ash",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K524 SN",
+    "name": "Ясень прибрежный натуральный",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K006": {
+  "name": "Дуб урбан янтарный",
+  "file": "K006.jpg",
+  "hex": "#C0A788",
+  "en": "Amber Urban Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K006",
+    "name": "Дуб урбан янтарный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8548": {
+  "name": "Финлайн Мокко",
+  "file": "8548_SN.jpg",
+  "hex": "#6F5138",
+  "en": "Fineline Mokka",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "8548 SN",
+    "name": "Финлайн Мокко",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8547": {
+  "name": "Финлайн Крем",
+  "file": "8547_SN.jpg",
+  "hex": "#E3DBCC",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8547 SN",
+    "name": "Финлайн Крем",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K351": {
+  "name": "Ржавый камень",
+  "file": "K351.jpg",
+  "hex": "#735946",
+  "en": "Rusty Flow",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K351",
+    "name": "Ржавый камень",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K512": {
+  "name": "Пудровый",
+  "file": "K512_PW.jpg",
+  "hex": "#CA959F",
+  "en": "Native Pink",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K512 PW",
+    "name": "Пудровый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "7063": {
+  "name": "Пастельный зеленый",
+  "file": "7063.jpg",
+  "hex": "#C9D0C9",
+  "en": "Green Pale",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "7063",
+    "name": "Пастельный зеленый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "5529": {
+  "name": "Орегон",
+  "file": "5529.jpg",
+  "hex": "#C6BCAE",
+  "en": "Oregon",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "5529",
+    "name": "Орегон",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K519": {
+  "name": "Мышиный серый",
+  "file": "K519.jpg",
+  "hex": "#879E9F",
+  "en": "Mouse Grey",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K519",
+    "name": "Мышиный серый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0182": {
+  "name": "Темно Коричневый",
+  "file": "0182_BS.jpg",
+  "hex": "#503927",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0182 BS",
+    "name": "Темно Коричневый",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "8984": {
+  "name": "Морской Синий",
+  "file": "8984_BS.jpg",
+  "hex": "#09283C",
+  "en": "Sea Blue",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8984 BS",
+    "name": "Морской Синий",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0564": {
+  "name": "Миндаль",
+  "file": "0564_PE.jpg",
+  "hex": "#FEF8E2",
+  "en": "Almond",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0564 PE",
+    "name": "Миндаль",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0514": {
+  "name": "Слоновая Кость",
+  "file": "0514_PE.jpg",
+  "hex": "#FFF5DA",
+  "en": "Ivory",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0514 PE",
+    "name": "Слоновая Кость",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8533": {
+  "name": "Макиато",
+  "file": "8533_BS.jpg",
+  "hex": "#C0A28A",
+  "en": "Macchiatto",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8533 BS",
+    "name": "Макиато",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0112": {
+  "name": "Серый камень",
+  "file": "0112_PE.jpg",
+  "hex": "#C6CBCC",
+  "en": "Grey Stone",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0112 PE",
+    "name": "Серый камень",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K521": {
+  "name": "Зелёный дымчатый",
+  "file": "K521_SN.jpg",
+  "hex": "#517D56",
+  "en": "Smoke Green",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K521 SU",
+    "name": "Зелёный дымчатый",
+    "surface": "SU",
+    "finish": "supermatt"
+   },
+   {
+    "sku": "K521 SN",
+    "name": "Зелёный дымчатый",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K526": {
+  "name": "Ясень Серфсайд темный",
+  "file": "K526_SN.jpg",
+  "hex": "#55514D",
+  "en": "Iron Surfside Ash",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K526 SN",
+    "name": "Ясень Серфсайд темный",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K527": {
+  "name": "K527",
+  "file": "K527.jpg",
+  "hex": "#C0A184",
+  "en": "Biscotti Hudson Oak",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K527",
+    "name": "K527",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K536": {
+  "name": "K536",
+  "file": "K536_SN.jpg",
+  "hex": "#9D7C52",
+  "en": "Amber Baroque Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K536 SN",
+    "name": "K536",
+    "surface": "SN",
+    "finish": "matt"
+   },
+   {
+    "sku": "K536 RW",
+    "name": "Дуб Барокко янтарный",
+    "surface": "RW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K554": {
+  "name": "K554",
+  "file": "K554.jpg",
+  "hex": "#715848",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K554",
+    "name": "K554",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K090": {
+  "name": "Дуб Экспресив Бронзовый",
+  "file": "K090.jpg",
+  "hex": "#6F5136",
+  "en": "Bronze Expressive Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K090",
+    "name": "Дуб Экспресив Бронзовый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K357": {
+  "name": "Дуб кастелло серый",
+  "file": "K357_PW.jpg",
+  "hex": "#B19E90",
+  "en": "Greige Castello Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K357 PW",
+    "name": "Дуб кастелло серый",
+    "surface": "PW",
+    "finish": "matt"
+   },
+   {
+    "sku": "K357 SN",
+    "name": "K357",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K356": {
+  "name": "Дуб гранж песочный",
+  "file": "K356.jpg",
+  "hex": "#9D8877",
+  "en": "Sand Grange Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K356",
+    "name": "Дуб гранж песочный",
+    "surface": "",
+    "finish": "matt"
+   },
+   {
+    "sku": "K356 SN",
+    "name": "K356",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K361": {
+  "name": "Дуб харбор золотой",
+  "file": "K361_PW.jpg",
+  "hex": "#AD8E73",
+  "en": "Gold Harbor Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K361 PW",
+    "name": "Дуб харбор золотой",
+    "surface": "PW",
+    "finish": "matt"
+   },
+   {
+    "sku": "K361 SN",
+    "name": "K361",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K362": {
+  "name": "Дуб харбор эспрессо",
+  "file": "K362_PW.jpg",
+  "hex": "#726353",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K362 PW",
+    "name": "Дуб харбор эспрессо",
+    "surface": "PW",
+    "finish": "matt"
+   },
+   {
+    "sku": "K362 SN",
+    "name": "K362",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K365": {
+  "name": "Дуб эвок прибрежный",
+  "file": "K365_PW.jpg",
+  "hex": "#9F8765",
+  "en": "Evoke Seaside Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K365 PW",
+    "name": "Дуб эвок прибрежный",
+    "surface": "PW",
+    "finish": "matt"
+   },
+   {
+    "sku": "K365 SN",
+    "name": "K365",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K360": {
+  "name": "Дуб харбор винтажный",
+  "file": "K360_PW.jpg",
+  "hex": "#BDA591",
+  "en": "Vintage Harbor Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K360 PW",
+    "name": "Дуб харбор винтажный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0301": {
+  "name": "Капучино",
+  "file": "0301_BS.jpg",
+  "hex": "#A69079",
+  "en": "Cappucchino",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0301 SU",
+    "name": "Капучино",
+    "surface": "SU",
+    "finish": "supermatt"
+   },
+   {
+    "sku": "0301 BS",
+    "name": "Капучино",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K545": {
+  "name": "Дуб Сильверджек винтажный",
+  "file": "K545.jpg",
+  "hex": "#7A573E",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K545",
+    "name": "Дуб Сильверджек винтажный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K531": {
+  "name": "Каштан Арвадонна каменный",
+  "file": "K531.jpg",
+  "hex": "#AFA69B",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K531",
+    "name": "Каштан Арвадонна каменный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K533": {
+  "name": "Каштан Арвадонна Норка",
+  "file": "K533.jpg",
+  "hex": "#544B44",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K533",
+    "name": "Каштан Арвадонна Норка",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K532": {
+  "name": "Каштан Арвадонна Пламенный",
+  "file": "K532.jpg",
+  "hex": "#7A5339",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K532",
+    "name": "Каштан Арвадонна Пламенный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K534": {
+  "name": "Каштан Арвадонна Угольный",
+  "file": "K534.jpg",
+  "hex": "#18171C",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K534",
+    "name": "Каштан Арвадонна Угольный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K517": {
+  "name": "Лазурный голубой",
+  "file": "K517.jpg",
+  "hex": "#70B5FF",
+  "en": "Azure Blue",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K517",
+    "name": "Лазурный голубой",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K007": {
+  "name": "Дуб урбан кофейный",
+  "file": "K007_PW.jpg",
+  "hex": "#94806A",
+  "en": "Coffee Urban Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K007 PW",
+    "name": "Дуб урбан кофейный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8925": {
+  "name": "Дуб лисса",
+  "file": "8925_BS.jpg",
+  "hex": "#BF956B",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8925 BS",
+    "name": "Дуб лисса",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K082": {
+  "name": "Дуб Бурбон",
+  "file": "K082.jpg",
+  "hex": "#69472D",
+  "en": "Bourbon Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K082",
+    "name": "Дуб Бурбон",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K355": {
+  "name": "Дуб Гранж Платиновый",
+  "file": "K355.jpg",
+  "hex": "#B7ACA2",
+  "en": "Platinum Grange Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K355",
+    "name": "Дуб Гранж Платиновый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K518": {
+  "name": "Голубой прибой",
+  "file": "K518.jpg",
+  "hex": "#94DBED",
+  "en": "Surf Blue",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K518",
+    "name": "Голубой прибой",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K520": {
+  "name": "Темный изумруд",
+  "file": "K520.jpg",
+  "hex": "#2A5A4A",
+  "en": "Dark Emerald",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K520",
+    "name": "Темный изумруд",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "7184": {
+  "name": "Земля",
+  "file": "7184.jpg",
+  "hex": "#4A403E",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "7184",
+    "name": "Земля",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K096": {
+  "name": "Глиняный Серый",
+  "file": "K096.jpg",
+  "hex": "#9F9188",
+  "en": "Clay Gray",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K096",
+    "name": "Глиняный Серый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K020": {
+  "name": "Орех Селект Каминный",
+  "file": "K020.jpg",
+  "hex": "#5F3E25",
+  "en": "Fireside Select Walnut",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K020",
+    "name": "Орех Селект Каминный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "5194": {
+  "name": "Дуб винтаж оксид",
+  "file": "5194_PE.jpg",
+  "hex": "#928373",
+  "en": "Vintage Oxide Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "5194 PE",
+    "name": "Дуб винтаж оксид",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K019": {
+  "name": "Вязь либерти серебянный",
+  "file": "K019.jpg",
+  "hex": "#D6CEBE",
+  "en": "Silver Liberty Elm",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K019",
+    "name": "Вязь либерти серебянный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "5500": {
+  "name": "Вяз Натуральный Благородный",
+  "file": "5500.jpg",
+  "hex": "#A49477",
+  "en": "Natural Elm Noble",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "5500",
+    "name": "Вяз Натуральный Благородный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K352": {
+  "name": "Железный камень",
+  "file": "K352.jpg",
+  "hex": "#65625E",
+  "en": "Iron Flow",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K352",
+    "name": "Железный камень",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K363": {
+  "name": "Вяз Аврора Натуральный",
+  "file": "K363_PW.jpg",
+  "hex": "#A98870",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K363 PW",
+    "name": "Вяз Аврора Натуральный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K364": {
+  "name": "Вяз Аврора Каменный",
+  "file": "K364_PW.jpg",
+  "hex": "#776559",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K364 PW",
+    "name": "Вяз Аврора Каменный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K078": {
+  "name": "Вишня Риверсайд Темная",
+  "file": "K078.jpg",
+  "hex": "#AB896C",
+  "en": "Dark Riverside Cherry",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K078",
+    "name": "Вишня Риверсайд Темная",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0125": {
+  "name": "Королевский синий",
+  "file": "0125.jpg",
+  "hex": "#005596",
+  "en": "Blue Queens",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0125",
+    "name": "Королевский синий",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K522": {
+  "name": "Алюминиевый Блеск",
+  "file": "K522.jpg",
+  "hex": "#B5B6B7",
+  "en": "Aluminium Flash",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "skus": [
+   {
+    "sku": "K522",
+    "name": "Алюминиевый Блеск",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K366": {
+  "name": "Дуб эвок Окаменелый",
+  "file": "K366_PW.jpg",
+  "hex": "#7E7367",
+  "en": "Fossil Evoke Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K366 PW",
+    "name": "Дуб эвок Окаменелый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K350": {
+  "name": "Бетонный камень",
+  "file": "K350.jpg",
+  "hex": "#C6BEB8",
+  "en": "Concrete Stone",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K350",
+    "name": "Бетонный камень",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0245": {
+  "name": "Океан",
+  "file": "0245.jpg",
+  "hex": "#006F73",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0245",
+    "name": "Океан",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K353": {
+  "name": "Угольный камень",
+  "file": "K353.jpg",
+  "hex": "#363C40",
+  "en": "Charcoal Flow",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K353",
+    "name": "Угольный камень",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K349": {
+  "name": "Шелковый камень",
+  "file": "K349.jpg",
+  "hex": "#E8E0D5",
+  "en": "Silk Flow",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K349",
+    "name": "Шелковый камень",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0244": {
+  "name": "Бензин",
+  "file": "0244_SU.jpg",
+  "hex": "#355457",
+  "en": "Gasolina",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0244 SU",
+    "name": "Бензин",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K085": {
+  "name": "Гикори Рокфорд Светлый",
+  "file": "K085_PW.jpg",
+  "hex": "#BEB1A3",
+  "en": "Gikory Rockford Light",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K085 PW",
+    "name": "Гикори Рокфорд Светлый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8953": {
+  "name": "Орех Тьеполо",
+  "file": "8953_SU.jpg",
+  "hex": "#73603F",
+  "en": "Tiepolo Nut",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "8953 SU",
+    "name": "Орех Тьеполо",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0101": {
+  "name": "Белый Фасадный",
+  "file": "0101_PE.jpg",
+  "hex": "#FFFFFF",
+  "en": "Facade White",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0101 PE",
+    "name": "Белый Фасадный",
+    "surface": "PE",
+    "finish": "matt"
+   },
+   {
+    "sku": "0101 PR",
+    "name": "Белый",
+    "surface": "PR",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K513": {
+  "name": "Мармешоу",
+  "file": "K513.jpg",
+  "hex": "#F7BEEB",
+  "en": "Marshmallow",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K513",
+    "name": "Мармешоу",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K359": {
+  "name": "Дуб Кастелло Бренди",
+  "file": "K359_PW.jpg",
+  "hex": "#7E5538",
+  "en": "Brandy Castello Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K359 PW",
+    "name": "Дуб Кастелло Бренди",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8685": {
+  "name": "Белый снег",
+  "file": "8685.jpg",
+  "hex": "#FFFFFF",
+  "en": "White Snow",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8685",
+    "name": "Белый снег",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8681": {
+  "name": "Белый брилиант",
+  "file": "8681.jpg",
+  "hex": "#FBFBFD",
+  "en": "White Brilliant",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8681",
+    "name": "Белый брилиант",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K544": {
+  "name": "Дуб Сильверджек Ореховый",
+  "file": "K544_PW.jpg",
+  "hex": "#AE8F6F",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K544 PW",
+    "name": "Дуб Сильверджек Ореховый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K537": {
+  "name": "Дуб Барокко Ристретто",
+  "file": "K537_PW.jpg",
+  "hex": "#574434",
+  "en": "Ristretto Baroque Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K537 PW",
+    "name": "Дуб Барокко Ристретто",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K543": {
+  "name": "Дуб барбера песчаный",
+  "file": "K543_SN.jpg",
+  "hex": "#C1B192",
+  "en": "Sand Barbera Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K543 SN",
+    "name": "Дуб барбера песчаный",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K514": {
+  "name": "Безмолвная пустыня",
+  "file": "K514_SN.jpg",
+  "hex": "#93544A",
+  "en": "Deep Sahara",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K514 SN",
+    "name": "Безмолвная пустыня",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K542": {
+  "name": "Тессеа Мокка",
+  "file": "K542_PN.jpg",
+  "hex": "#938B7E",
+  "en": "Mocha Tessea",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K542 PN",
+    "name": "Тессеа Мокка",
+    "surface": "PN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K541": {
+  "name": "Тессеа Серо бежевый",
+  "file": "K541_PN.jpg",
+  "hex": "#B0AB9F",
+  "en": "Greige Tessea",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K541 PN",
+    "name": "Тессеа Серо бежевый",
+    "surface": "PN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K548": {
+  "name": "Ясень пряный табак",
+  "file": "K548_PW.jpg",
+  "hex": "#655645",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K548 PW",
+    "name": "Ясень пряный табак",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K547": {
+  "name": "Орех Франклин табак",
+  "file": "K547_PW.jpg",
+  "hex": "#60452F",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K547 PW",
+    "name": "Орех Франклин табак",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K535": {
+  "name": "Дуб Барокко золотой",
+  "file": "K535.jpg",
+  "hex": "#B59D70",
+  "en": "Gold Baroque Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K535",
+    "name": "Дуб Барокко золотой",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K523": {
+  "name": "Платинум диск",
+  "file": "K523.jpg",
+  "hex": "#7A7A7A",
+  "en": "Platinum Disk",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "skus": [
+   {
+    "sku": "K523",
+    "name": "Платинум диск",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K539": {
+  "name": "Ароза темно-серый",
+  "file": "K539.jpg",
+  "hex": "#706C69",
+  "en": "Fossil Arosa",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K539",
+    "name": "Ароза темно-серый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8995": {
+  "name": "Кокобола",
+  "file": "8995_SN.jpg",
+  "hex": "#CEB797",
+  "en": "Koko Bola",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "8995 SN",
+    "name": "Кокобола",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "9561": {
+  "name": "Зеленый Оксид",
+  "file": "9561_BS.jpg",
+  "hex": "#007036",
+  "en": "Oxide Green",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "9561 BS",
+    "name": "Зеленый Оксид",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K107": {
+  "name": "Дуб Энгрейн Элегантный",
+  "file": "K107_PW.jpg",
+  "hex": "#D9C6B1",
+  "en": "Elegance Endgrain Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K107 PW",
+    "name": "Дуб Энгрейн Элегантный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K087": {
+  "name": "Гикори Рокфорд Темный",
+  "file": "K087_PW.jpg",
+  "hex": "#7C6856",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K087 PW",
+    "name": "Гикори Рокфорд Темный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K086": {
+  "name": "Гикори Рокфорд натуральный",
+  "file": "K086_PW.jpg",
+  "hex": "#927A5F",
+  "en": "Gikory Rockford Natural",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K086 PW",
+    "name": "Гикори Рокфорд натуральный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "7648": {
+  "name": "Венге Винтаж",
+  "file": "7648_SN.jpg",
+  "hex": "#E0DDD4",
+  "en": "Vintage Wenge",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "7648 SN",
+    "name": "Венге Винтаж",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "4298": {
+  "name": "Ателье светлое",
+  "file": "4298_SU.jpg",
+  "hex": "#AFAEAC",
+  "en": "Atelier Light",
+  "kind": "pattern",
+  "fragW": 1000,
+  "check": true,
+  "skus": [
+   {
+    "sku": "4298 SU",
+    "name": "Ателье светлое",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K083": {
+  "name": "Артвуд светлый",
+  "file": "K083_PW.jpg",
+  "hex": "#D3D1CB",
+  "en": "Light Artwood",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K083 PW",
+    "name": "Артвуд светлый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K100": {
+  "name": "Малиновый",
+  "file": "K100_SU.jpg",
+  "hex": "#B32561",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K100 SU",
+    "name": "Малиновый",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K015": {
+  "name": "Морское дерево винтаж",
+  "file": "K015.jpg",
+  "hex": "#947B64",
+  "en": "Vintage Marine Wood",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K015",
+    "name": "Морское дерево винтаж",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K016": {
+  "name": "Морское дерево корбон",
+  "file": "K016_PW.jpg",
+  "hex": "#3C3A35",
+  "en": "Carbon Marine Wood",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K016 PW",
+    "name": "Морское дерево корбон",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0729": {
+  "name": "Орех",
+  "file": "0729_PR.jpg",
+  "hex": "#644A32",
+  "en": "Nut",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "0729 PR",
+    "name": "Орех",
+    "surface": "PR",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8508": {
+  "name": "Северное дерево светлое",
+  "file": "8508_SU.jpg",
+  "hex": "#EEECE7",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8508 SU",
+    "name": "Северное дерево светлое",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "8509": {
+  "name": "Северное дерево темное",
+  "file": "8509_SN.jpg",
+  "hex": "#40403F",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8509 SN",
+    "name": "Северное дерево темное",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K089": {
+  "name": "Скандинавское дерево серое",
+  "file": "K089_PW.jpg",
+  "hex": "#AAA293",
+  "en": "Grey Nordic Wood",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K089 PW",
+    "name": "Скандинавское дерево серое",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K097": {
+  "name": "Сумеречный голубой",
+  "file": "K097_SU.jpg",
+  "hex": "#708D89",
+  "en": "Moonlight Blue",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K097 SU",
+    "name": "Сумеречный голубой",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K099": {
+  "name": "Темно синий",
+  "file": "K099_SU.jpg",
+  "hex": "#0A4E7B",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K099 SU",
+    "name": "Темно синий",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K005": {
+  "name": "Дуб урбан ойстер",
+  "file": "K005_PW.jpg",
+  "hex": "#C5B7A5",
+  "en": "Oyster Urban Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K005 PW",
+    "name": "Дуб урбан ойстер",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "9614": {
+  "name": "Орех Лион Светлый",
+  "file": "9614.jpg",
+  "hex": "#8D6D4F",
+  "en": "Lion Light Nut",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "9614",
+    "name": "Орех Лион Светлый",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K076": {
+  "name": "Дуб Экспресив Песочный",
+  "file": "K076.jpg",
+  "hex": "#CFBAA5",
+  "en": "Sand Expressive Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K076",
+    "name": "Дуб Экспресив Песочный",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K022": {
+  "name": "Блеквуд сатиновый",
+  "file": "K022_SN.jpg",
+  "hex": "#CCBEB2",
+  "en": "Blackwood Satin",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K022 SN",
+    "name": "Блеквуд сатиновый",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "5994": {
+  "name": "Альби полуночно-синий",
+  "file": "5994.jpg",
+  "hex": "#466F86",
+  "en": "Alby Blue",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "5994",
+    "name": "Альби полуночно-синий",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0166": {
+  "name": "Бюро стиль",
+  "file": "0166_BS.jpg",
+  "hex": "#151B1D",
+  "en": "Basalt",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0166 BS",
+    "name": "Бюро стиль",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "1700": {
+  "name": "Стальной Серый",
+  "file": "1700_PE.jpg",
+  "hex": "#B7BDBD",
+  "en": "Steel Grey",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "1700 PE",
+    "name": "Стальной Серый",
+    "surface": "PE",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "7166": {
+  "name": "Латте",
+  "file": "7166_BS.jpg",
+  "hex": "#776758",
+  "en": "Latte",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "7166 BS",
+    "name": "Латте",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8536": {
+  "name": "Лаванда",
+  "file": "8536_BS.jpg",
+  "hex": "#EDCCDF",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8536 BS",
+    "name": "Лаванда",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "8361": {
+  "name": "Крослайн Латте",
+  "file": "8361_SN.jpg",
+  "hex": "#D9C8BC",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "8361 SN",
+    "name": "Крослайн Латте",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "7113": {
+  "name": "Красный чили",
+  "file": "7113_BS.jpg",
+  "hex": "#C9151E",
+  "en": "Chilli Red",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "7113 BS",
+    "name": "Красный чили",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K098": {
+  "name": "Керамический красный",
+  "file": "K098_SU.jpg",
+  "hex": "#963125",
+  "en": "Red Ceramic",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "K098 SU",
+    "name": "Керамический красный",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0121": {
+  "name": "Капри Синий",
+  "file": "0121_BS.jpg",
+  "hex": "#80A1C0",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0121 BS",
+    "name": "Капри Синий",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "5519": {
+  "name": "Зеленый Лайм",
+  "file": "5519_BS.jpg",
+  "hex": "#DADD48",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "5519 BS",
+    "name": "Зеленый Лайм",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K105": {
+  "name": "Дуб Энгрейн необработанный",
+  "file": "K105_PW.jpg",
+  "hex": "#BFAEA1",
+  "en": "Endgray Oak Row",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K105 PW",
+    "name": "Дуб Энгрейн необработанный",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K081": {
+  "name": "Дуб Приморский Сатиновый",
+  "file": "K081_PW.jpg",
+  "hex": "#BAAFA7",
+  "en": "Seaside Oak Satin",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K081 PW",
+    "name": "Дуб Приморский Сатиновый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K079": {
+  "name": "Дуб клабхаус серый",
+  "file": "K079_PW.jpg",
+  "hex": "#BBB7BB",
+  "en": "Grey Clubhouse Oak",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K079 PW",
+    "name": "Дуб клабхаус серый",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "9763": {
+  "name": "Венге Луизиана",
+  "file": "9763_BS.jpg",
+  "hex": "#322422",
+  "en": "Wenge Luisiana",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "9763 BS",
+    "name": "Венге Луизиана",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K021": {
+  "name": "Блэквуд ячменный",
+  "file": "K021_SN.jpg",
+  "hex": "#BA946D",
+  "en": "Blackwood Barley",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K021 SN",
+    "name": "Блэквуд ячменный",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8100": {
+  "name": "Белый жемчуг",
+  "file": "8100_SM.jpg",
+  "hex": "#FFFDF6",
+  "en": "Pearl White",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8100 SM",
+    "name": "Белый жемчуг",
+    "surface": "SM",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "4299": {
+  "name": "Ателье темное",
+  "file": "4299_SU.jpg",
+  "hex": "#4A463F",
+  "en": "Atelier Dark",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "4299 SU",
+    "name": "Ателье темное",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K084": {
+  "name": "Артвуд темный",
+  "file": "K084_SN.jpg",
+  "hex": "#BDB8B2",
+  "en": "Dark Artwood",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K084 SN",
+    "name": "Артвуд темный",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "8534": {
+  "name": "Роза",
+  "file": "8534_BS.jpg",
+  "hex": "#EA9CB2",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "8534 BS",
+    "name": "Роза",
+    "surface": "BS",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K108": {
+  "name": "Пельтро",
+  "file": "K108.jpg",
+  "hex": "#7F7872",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "skus": [
+   {
+    "sku": "K108",
+    "name": "Пельтро",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "K088": {
+  "name": "Скандинавское дерево белое",
+  "file": "K088_PW.jpg",
+  "hex": "#DFDCD0",
+  "en": "White Nordic Wood",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K088 PW",
+    "name": "Скандинавское дерево белое",
+    "surface": "PW",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K010": {
+  "name": "Сосна лофт белая",
+  "file": "K010_SN.jpg",
+  "hex": "#E5E3DE",
+  "en": "White Loft Pine",
+  "kind": "pattern",
+  "fragW": 2070,
+  "rotate": true,
+  "flat": 0,
+  "skus": [
+   {
+    "sku": "K010 SN",
+    "name": "Сосна лофт белая",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "K011": {
+  "name": "Сосна Лофт кремовая",
+  "file": "K011_SN.jpg",
+  "hex": "#DED2C0",
+  "en": "",
+  "kind": "pattern",
+  "fragW": 700,
+  "check": true,
+  "grain": true,
+  "rotate": true,
+  "skus": [
+   {
+    "sku": "K011 SN",
+    "name": "Сосна Лофт кремовая",
+    "surface": "SN",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ },
+ "0191": {
+  "name": "Холодный серый",
+  "file": "0191_SU.jpg",
+  "hex": "#D8DBD4",
+  "en": "Grey Cold",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0191 SU",
+    "name": "Холодный серый",
+    "surface": "SU",
+    "finish": "supermatt"
+   }
+  ],
+  "site": "ultradecor.com"
+ },
+ "0859": {
+  "name": "Платина",
+  "file": "0859.jpg",
+  "hex": "#939594",
+  "en": "",
+  "kind": "flat",
+  "useHex": true,
+  "skus": [
+   {
+    "sku": "0859",
+    "name": "Платина",
+    "surface": "",
+    "finish": "matt"
+   }
+  ],
+  "site": "kronospan.com"
+ }
+}

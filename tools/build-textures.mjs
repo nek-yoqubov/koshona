@@ -211,6 +211,62 @@ async function patternSheet(file, fragW, target = null, rotate = false) {
   }
 }
 
+// ---------- Ultradecor и Extravert: лист 2800×2070, рельефа нет ----------
+// один рисунок (папка tex/<префикс>-<код>) может продаваться с разными поверхностями — в каталоге отдельная позиция на каждый артикул
+// шероховатость по коду поверхности Kronospan/Ultradecor (PE Pearl, BS Bureau Structure, SU Super Matt, SM Silk Matt, PR Wood Pore…)
+const SURF_ROUGH = { PE: 0.72, BS: 0.75, SU: 0.9, SM: 0.55, PR: 0.55, PW: 0.62, SN: 0.6, RW: 0.6, PN: 0.7, CA: 0.7, UR: 0.7 };
+for (const [sup, label, prefix] of [["ultradecor", "ULTRADECOR", "ud"], ["extravert", "EXTRAVERT", "ex"]]) {
+  const SHEET = [2800, 2070];
+  const fin = JSON.parse(fs.readFileSync(path.join(RAW, `${sup}-finishes.json`), "utf8"));
+  for (const [code, f] of Object.entries(fin)) {
+    if (only && code !== only) continue;
+    const id = `${prefix}-${code}`;
+    const src = path.join(RAW, sup, f.file);
+    const dir = path.join(OUT, id);
+    fs.mkdirSync(dir, { recursive: true });
+    const rel = (x) => `tex/${id}/${x}`;
+    const stamp = path.join(dir, "c1.webp");
+    const quilted = path.join(RAW, `${sup}-sheets`, `${code}.png`);
+    const qkey = path.join(RAW, `${sup}-sheets`, `${code}.key`);
+    if (f.kind === "pattern" && !(fs.existsSync(quilted) && fs.existsSync(qkey))) {
+      console.log(`\nнет листа ${sup}/${code}: сначала python3 tools/agt-quilt.py --sup ${sup}`);
+      continue;
+    }
+    const cfg = JSON.stringify([f.kind, f.hex, f.useHex, f.kind === "pattern" && fs.readFileSync(qkey, "utf8")]);
+    const cfgFile = path.join(RAW, ".agt-cache", `${id}.cfg`);
+    fs.mkdirSync(path.dirname(cfgFile), { recursive: true });
+    const stale = force || !fs.existsSync(stamp) || !fs.existsSync(cfgFile) || fs.readFileSync(cfgFile, "utf8") !== cfg;
+    if (stale && f.kind === "flat") {
+      const rgb = f.useHex && f.hex ? hexRgb(f.hex) : await median(src);
+      const solid = (w, h) => sharp({ create: { width: w, height: h, channels: 3, background: { r: rgb[0], g: rgb[1], b: rgb[2] } } });
+      for (const x of ["c4", "c2", "c1"]) await solid(64, 47).webp({ quality: 95 }).toFile(path.join(dir, `${x}.webp`));
+      await solid(256, 256).webp({ quality: 90 }).toFile(path.join(dir, "card.webp"));
+    } else if (stale) {
+      const sheet = fs.readFileSync(quilted);
+      await sharp(sheet).webp({ quality: 88 }).toFile(path.join(dir, "c4.webp"));
+      await sharp(sheet).resize({ width: 2048 }).webp({ quality: 82 }).toFile(path.join(dir, "c2.webp"));
+      await sharp(sheet).resize({ width: 1024 }).webp({ quality: 78 }).toFile(path.join(dir, "c1.webp"));
+      await sharp(sheet).extract({ left: 0, top: 0, width: 1200, height: 1200 }).resize(256, 256).webp({ quality: 78 }).toFile(path.join(dir, "card.webp"));
+    }
+    fs.writeFileSync(cfgFile, cfg);
+    for (const s of f.skus) {
+      decors.push({
+        code: `${prefix}-${s.sku.replace(/ /g, "_")}`,
+        name: `${s.sku} ${s.name}`,
+        supplier: label,
+        sheet: SHEET,
+        card: rel("card.webp"),
+        color: { max: rel("c4.webp"), hi: rel("c2.webp"), lo: rel("c1.webp") },
+        relief: null,
+        finish: s.finish,
+        roughness: FIN_ROUGH[s.finish] && s.finish !== "matt" ? FIN_ROUGH[s.finish] : SURF_ROUGH[s.surface] ?? 0.65,
+        ...(f.check ? { check: true } : {}),
+      });
+    }
+    process.stdout.write("·");
+  }
+}
+
 if (!only) {
   fs.mkdirSync(path.dirname(CATALOG), { recursive: true });
   fs.writeFileSync(CATALOG, JSON.stringify(decors));
