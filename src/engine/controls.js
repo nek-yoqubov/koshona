@@ -6,9 +6,12 @@ export const VIEWS = {
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-export function createOrbit(dom, camera, onChange, onTap) {
+export function createOrbit(dom, camera, onChange, onTap, frame = { t: 0.384, a: 1.6 }) {
   const o = { ...VIEWS.overall };
-  const fit = { cx: 0, r: 5.4 };
+  const fit = { cx: 0, w: 4, r: 5.4 };
+  let auto = true;
+  const fitR = () => Math.max(4, (fit.w * 0.75) / (frame.t * frame.a) + 0.8, 1.7 / frame.t + 0.8);
+  const rMax = () => Math.max(8, fit.r * 1.4);
   const pts = new Map();
   let pinch = null, tap = null;
 
@@ -29,6 +32,7 @@ export function createOrbit(dom, camera, onChange, onTap) {
 
   const down = (e) => {
     dom.setPointerCapture(e.pointerId);
+    auto = false;
     pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
     tap = pts.size === 1 ? { x: e.clientX, y: e.clientY, t: performance.now() } : null;
     if (pts.size === 2) pinch = pinchState();
@@ -45,7 +49,7 @@ export function createOrbit(dom, camera, onChange, onTap) {
       o.phi = clamp(o.phi + dy * 0.005, 0.9, 1.55);
     } else if (pts.size === 2 && pinch) {
       const n = pinchState();
-      o.r = clamp(o.r * (pinch.d / Math.max(n.d, 1)), 1.2, 8);
+      o.r = clamp(o.r * (pinch.d / Math.max(n.d, 1)), 1.2, rMax());
       const k = o.r / 900;
       o.cx = clamp(o.cx - (n.x - pinch.x) * k, -5, 5);
       o.cy = clamp(o.cy + (n.y - pinch.y) * k, 0.4, 2.2);
@@ -66,7 +70,8 @@ export function createOrbit(dom, camera, onChange, onTap) {
 
   const wheel = (e) => {
     e.preventDefault();
-    o.r = clamp(o.r * Math.exp(e.deltaY * 0.001), 1.2, 8);
+    auto = false;
+    o.r = clamp(o.r * Math.exp(e.deltaY * 0.001), 1.2, rMax());
     apply();
   };
 
@@ -80,12 +85,15 @@ export function createOrbit(dom, camera, onChange, onTap) {
 
   return {
     setView(v) {
+      fit.r = fitR();
       Object.assign(o, VIEWS[v]);
-      if (v === "overall") Object.assign(o, fit);
-      else o.cx += fit.cx;
+      if (v === "overall") { o.cx = fit.cx; o.r = fit.r; auto = true; }
+      else { o.cx += fit.cx; o.r *= Math.max(1, fit.r / 6.2); auto = false; }
       apply();
     },
-    setFit(cx, width) { fit.cx = cx; fit.r = Math.max(5.4, width * 1.25 + 1); },
+    setFit(cx, width) { fit.cx = cx; fit.w = width; if (auto) this.setView("overall"); },
+    refit() { if (auto) this.setView("overall"); },
+    get auto() { return auto; },
     dispose() {
       dom.removeEventListener("pointerdown", down);
       dom.removeEventListener("pointermove", move);

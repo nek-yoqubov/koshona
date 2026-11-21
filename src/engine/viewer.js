@@ -62,7 +62,8 @@ export function createViewer(container, levelId, onStats, onPick) {
     while (o && !o.userData.itemId) o = o.parent;
     onPick?.(o?.userData.itemId ?? null);
   };
-  const orbit = createOrbit(renderer.domElement, camera, invalidate, pick);
+  const frame = { t: 0.384, a: 1.6 };
+  const orbit = createOrbit(renderer.domElement, camera, invalidate, pick, frame);
 
   const selBox = new THREE.Box3Helper(new THREE.Box3(), 0xf07a1a);
   selBox.visible = false;
@@ -172,7 +173,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     invalidate();
   }
 
-  let baseRatio = 1, refineRatio = 1, refined = true, lastChange = 0, insetR = 0;
+  let baseRatio = 1, refineRatio = 1, refined = true, lastChange = 0, insetR = 0, insetB = 0, insetT = 0;
   const resize = () => {
     const w = container.clientWidth, h = container.clientHeight;
     baseRatio = pixelRatioFor(levelId, w, h);
@@ -180,15 +181,19 @@ export function createViewer(container, levelId, onStats, onPick) {
     refined = false;
     renderer.setPixelRatio(baseRatio);
     renderer.setSize(w, h);
-    // правая панель закрывает часть экрана — сдвигаем центр кадра влево на половину её ширины
-    if (insetR > 0 && w > insetR * 1.6) {
-      camera.aspect = (w + insetR) / Math.max(h, 1);
-      camera.setViewOffset(w + insetR, h, insetR, 0, w, h);
-    } else {
-      camera.clearViewOffset();
-      camera.aspect = w / Math.max(h, 1);
-    }
+    const r = insetR > 0 && w > insetR * 1.6 ? insetR : 0;
+    let b = insetB > 0 && h > insetB * 1.4 ? insetB : 0;
+    const t = b && h - b - insetT > 160 ? insetT : 0;
+    const uw = w - r, uh = h - b - t;
+    const vh = h + Math.abs(b - t);
+    frame.a = uw / Math.max(uh, 1);
+    frame.t = Math.min(0.7, Math.max(0.384, 0.36 / frame.a));
+    camera.fov = (2 * Math.atan(frame.t * vh / Math.max(uh, 1)) * 180) / Math.PI;
+    camera.aspect = (w + r) / Math.max(vh, 1);
+    if (r || vh !== h) camera.setViewOffset(w + r, vh, r, Math.max(0, b - t), w, h);
+    else camera.clearViewOffset();
     camera.updateProjectionMatrix();
+    orbit?.refit();
     invalidate();
   };
   const ro = new ResizeObserver(resize);
@@ -197,7 +202,7 @@ export function createViewer(container, levelId, onStats, onPick) {
 
   const render = () => {
     if (!kitchen) return;
-    const w = renderer.domElement.clientWidth, h = renderer.domElement.clientHeight;
+    const size = renderer.getSize(new THREE.Vector2()), w = size.x, h = size.y;
     if (compare) {
       const x = Math.round(w * split);
       renderer.setScissorTest(true);
@@ -265,9 +270,24 @@ export function createViewer(container, levelId, onStats, onPick) {
     setOpen(on) { openTarget = on ? 1 : 0; openAnim = openT !== openTarget; },
     setSelected(id) { selected = id; showSelection(); },
     setView: (v) => orbit.setView(v),
-    setInset(px) { if (px !== insetR) { insetR = px; resize(); } },
+    setInset(r, b = 0, t = 0) { if (r !== insetR || b !== insetB || t !== insetT) { insetR = r; insetB = b; insetT = t; resize(); } },
     benchmark(ms = 2500) {
       return new Promise((resolve) => { bench = { start: performance.now(), ms, frames: 0, resolve }; });
+    },
+    snapshot(w = 1600, h = 1000) {
+      const saved = { ...frame };
+      if (orbit.auto) { frame.t = 0.384; frame.a = w / h; orbit.refit(); }
+      renderer.setPixelRatio(1);
+      renderer.setSize(w, h, false);
+      camera.clearViewOffset();
+      camera.fov = (2 * Math.atan(frame.t) * 180) / Math.PI;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      render();
+      const url = renderer.domElement.toDataURL("image/jpeg", 0.92);
+      Object.assign(frame, saved);
+      resize();
+      return url;
     },
     screenshot() {
       const w = renderer.domElement.clientWidth, h = renderer.domElement.clientHeight;

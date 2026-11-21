@@ -13,6 +13,7 @@ import Showroom from "./Showroom.jsx";
 import ItemEditor from "./ItemEditor.jsx";
 import CompareHandle from "./CompareHandle.jsx";
 import SampleView from "./SampleView.jsx";
+import ShareModal from "./ShareModal.jsx";
 
 const base = import.meta.env.BASE_URL;
 const wallHex = (id) => (WALLS.find((w) => w.id === id) || WALLS[0]).hex;
@@ -53,6 +54,7 @@ export default function App() {
   const [panelOpen, setPanelOpen] = useState(true);
   const [barOpen, setBarOpen] = useState(true);
   const [gearOpen, setGearOpen] = useState(false);
+  const [shareData, setShareData] = useState(null);
   useEffect(() => { try { localStorage.setItem("koshona.mode", mode); } catch {} }, [mode]);
 
   const setModel = (next) => {
@@ -106,7 +108,28 @@ export default function App() {
   useEffect(() => { v?.setSplit(split); }, [viewerId, split]);
   useEffect(() => { v?.setLight(light); }, [viewerId, light]);
   useEffect(() => { v?.setOpen(open); }, [viewerId, open]);
-  useEffect(() => { v?.setInset(mode === "editor" && panelOpen && window.innerWidth > 800 ? 404 : 0); }, [viewerId, mode, panelOpen]);
+  useEffect(() => {
+    if (!v) return;
+    const calc = () => {
+      const W = window.innerWidth, H = window.innerHeight;
+      let r = 0, b = 0;
+      const side = document.querySelector(".side");
+      if (side) {
+        const rc = side.getBoundingClientRect();
+        if (W > 800) r = Math.round(W - rc.left + 12); else b = Math.round(H - rc.top);
+      }
+      const head = document.querySelector(".sr-head");
+      if (head) b = Math.round(H - head.getBoundingClientRect().top + 8);
+      let t = 0;
+      document.querySelectorAll(".topright, .viewbar, .sr-actions").forEach((e) => { t = Math.max(t, Math.round(e.getBoundingClientRect().bottom)); });
+      v.setInset(r, b, t);
+    };
+    calc();
+    const ro = new ResizeObserver(calc);
+    document.querySelectorAll(".side, .sr-bottom").forEach((e) => ro.observe(e));
+    window.addEventListener("resize", calc);
+    return () => { ro.disconnect(); window.removeEventListener("resize", calc); };
+  }, [viewerId, mode, panelOpen]);
   useEffect(() => { v?.setSelected(selected); }, [viewerId, selected, model]);
 
   useEffect(() => {
@@ -208,8 +231,16 @@ export default function App() {
   );
 
   const views = [["overall", "Общий", "cube"], ["fronts", "Фасады", "front"], ["closeup", "Крупно", "zoom"]];
-  const share = () => { navigator.clipboard?.writeText(location.href); screenshot(); };
   const decorOf = (code) => decors.find((d) => d.code === code);
+  const share = () => {
+    if (!v) return;
+    const rows = GROUPS.map((g) => {
+      const d = decorOf(fin.A[g.key]?.code);
+      if (!d) return g.key === "splash" ? { label: g.label, name: "В цвет стены", sub: (WALLS.find((w) => w.id === fin.A.wall) || WALLS[0]).name } : null;
+      return { label: g.label, name: d.name, sub: [d.supplier, finishOf(d)].filter(Boolean).join(" · ") };
+    }).filter(Boolean);
+    setShareData({ shot: v.snapshot(), url: location.href, rows });
+  };
 
   return (
     <div className={"app mode-" + mode}>
@@ -223,7 +254,7 @@ export default function App() {
 
         <div className="topright">
           {mode === "editor" && (
-            <button className="sharebtn" onClick={share} title="Ссылка скопирована, картинка скачана"><Ico name="qr" size={20} />Поделиться</button>
+            <button className="sharebtn" onClick={share} title="Карточка с QR-кодом"><Ico name="qr" size={20} />Поделиться</button>
           )}
           <div className="modes glass">
             <button className={mode === "showroom" ? "on" : ""} onClick={() => setMode("showroom")}>Шоурум</button>
@@ -285,6 +316,8 @@ export default function App() {
             onEdit={() => setMode("editor")}
           />
         )}
+
+        {shareData && <ShareModal {...shareData} base={base} onClose={() => setShareData(null)} />}
 
         {sample && (
           <SampleView

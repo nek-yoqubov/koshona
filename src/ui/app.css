@@ -164,7 +164,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 @media (max-width: 800px) {
   .side { left: 0; right: 0; top: auto; bottom: 0; width: auto; height: 52vh; border-radius: 14px 14px 0 0; }
   .side-tab { left: 50%; top: -24px; transform: translateX(-50%) rotate(90deg); }
-  .viewbar { top: 70px; max-width: calc(100% - 24px); overflow-x: auto; }
+  .viewbar { left: 12px; top: 70px; max-width: calc(100% - 24px); overflow-x: auto; scrollbar-width: none; }
   .vb { padding: 0 9px; font-size: 13px; }
   .brand img { height: 24px; }
   .sharebtn { height: 42px; padding: 0 12px; font-size: 0; gap: 0; }
@@ -195,3 +195,23 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .cmp-knob .cmp-r { position: absolute; left: 0; top: 0; }
 .cmp-knob .cmp-grip { position: absolute; left: 0; top: 8px; margin: 0 0 0 -22px; }
 .gtabs { flex-wrap: wrap; column-gap: 16px; row-gap: 0; overflow: visible; }
+
+.sh-back { position: fixed; inset: 0; z-index: 50; background: rgba(14,14,15,.62); display: flex; align-items: center; justify-content: center; padding: 24px; }
+.sh-box { position: relative; background: #fff; border-radius: 16px; padding: 18px; max-width: min(1180px, 100%); max-height: 100%; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.sh-prev { flex: 1; min-height: 200px; display: flex; align-items: center; justify-content: center; overflow: auto; }
+.sh-prev img { display: block; max-width: 100%; max-height: calc(100vh - 170px); border-radius: 8px; border: 1px solid #ebe7e1; }
+.sh-acts { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.sh-acts .btn { height: 46px; padding: 0 18px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; }
+.sh-x { position: absolute; right: -14px; top: -14px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #fff; font-size: 26px; line-height: 1; box-shadow: 0 4px 14px rgba(0,0,0,.2); z-index: 1; }
+.print-sheet { display: none; }
+@media print {
+  @page { size: A4 landscape; margin: 8mm; }
+  body > *:not(.print-sheet) { display: none !important; }
+  .print-sheet { display: block; width: 100%; height: auto; }
+}
+@media (max-width: 800px) {
+  .sh-back { padding: 10px; }
+  .sh-box { padding: 12px; }
+  .sh-x { right: 4px; top: 4px; }
+  .sh-acts .btn { flex: 1 1 45%; padding: 0 10px; font-size: 14px; }
+}
