@@ -136,6 +136,61 @@ export function createViewer(container, levelId, onStats, onPick) {
     invalidate();
   };
 
+  let anchors = [], roomC = 0, anchorCb = null, lastA = "";
+  const AX = { upper: -0.55, splash: 0.35, top: -0.1, lower: 0.6, body: 1.2 };
+  const AY = { upper: 1.95, splash: 1.2, top: 0.9, lower: 0.45, body: 1.0 };
+  const rc = new THREE.Raycaster();
+  const computeAnchors = () => {
+    anchors = [];
+    if (!kitchen) return;
+    kitchen.root.updateMatrixWorld(true);
+    camera.updateMatrixWorld();
+    const keyOf = new Map(kitchen.switchable.map((it) => [it.mesh, it.key]));
+    const solids = [];
+    kitchen.root.traverse((o) => { if (o.isMesh && o.visible && !(o.material?.transparent)) solids.push(o); });
+    const eye = camera.getWorldPosition(new THREE.Vector3());
+    for (const key of GROUP_KEYS) {
+      const items = kitchen.switchable.filter((it) => it.key === key);
+      if (!items.length) continue;
+      const tx = roomC + AX[key], ty = AY[key];
+      let best = null, bestS = Infinity, fallback = null;
+      for (const it of items) {
+        const bx = new THREE.Box3().setFromObject(it.mesh);
+        if (bx.isEmpty()) continue;
+        const dx = bx.max.x - bx.min.x, dy = bx.max.y - bx.min.y, dz = bx.max.z - bx.min.z;
+        const cy = Math.min(bx.max.y, Math.max(bx.min.y, ty));
+        const pts = [];
+        if (key === "top") pts.push(new THREE.Vector3(Math.min(bx.max.x, Math.max(bx.min.x, tx)), bx.max.y, bx.max.z - 0.02));
+        else if (dz <= dx) pts.push(new THREE.Vector3(Math.min(bx.max.x - 0.05, Math.max(bx.min.x + 0.05, tx)), cy, bx.max.z + 0.003));
+        else pts.push(new THREE.Vector3(bx.max.x + 0.003, cy, (bx.min.z + bx.max.z) / 2), new THREE.Vector3(bx.min.x - 0.003, cy, (bx.min.z + bx.max.z) / 2));
+        for (const p of pts) {
+          fallback ||= p;
+          const dir = p.clone().sub(eye);
+          const dist = dir.length();
+          rc.set(eye, dir.normalize());
+          rc.far = dist + 0.05;
+          const hit = rc.intersectObjects(solids, false)[0];
+          if (!hit || keyOf.get(hit.object) !== key || hit.distance < dist - 0.06) continue;
+          const sc = Math.abs(p.x - tx) + Math.abs(p.y - ty) * 0.7 - Math.min(dy, 0.8) * 0.2;
+          if (sc < bestS) { bestS = sc; best = p; }
+        }
+      }
+      if (best || fallback) anchors.push({ key, p: best || fallback });
+    }
+    lastA = "";
+  };
+  const v3 = new THREE.Vector3();
+  const emitAnchors = () => {
+    if (!anchorCb || !kitchen) return;
+    const size = renderer.getSize(new THREE.Vector2());
+    const list = anchors.map(({ key, p }) => {
+      v3.copy(p).project(camera);
+      return { key, x: Math.round(((v3.x + 1) / 2) * size.x), y: Math.round(((1 - v3.y) / 2) * size.y), on: v3.z < 1 && Math.abs(v3.x) < 1.05 && Math.abs(v3.y) < 1.05 };
+    });
+    const sig = JSON.stringify(list);
+    if (sig !== lastA) { lastA = sig; anchorCb(list); }
+  };
+
   const setLayout = (model) => {
     if (kitchen) {
       scene.remove(kitchen.root);
@@ -143,12 +198,14 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
     const plan = toRuns(model);
     kitchen = buildKitchen(plan, { ...fixed, ...side.A.mats }, level);
-    orbit.setFit((plan.room.left + plan.room.right) / 2000, (plan.room.right - plan.room.left) / 1000);
+    roomC = (plan.room.left + plan.room.right) / 2000;
+    orbit.setFit(roomC, (plan.room.right - plan.room.left) / 1000);
     applyOpen();
     showSelection();
     side.A.uv.clear();
     side.B.uv.clear();
     scene.add(kitchen.root);
+    computeAnchors();
     applyLight();
     applyFinish("A");
     applyFinish("B");
@@ -233,6 +290,7 @@ export function createViewer(container, levelId, onStats, onPick) {
       dirty = false;
       if (renderer.getPixelRatio() !== baseRatio) renderer.setPixelRatio(baseRatio);
       render();
+      emitAnchors();
       frames++;
       if (bench) bench.frames++;
       refined = false;
@@ -270,6 +328,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     setOpen(on) { openTarget = on ? 1 : 0; openAnim = openT !== openTarget; },
     setSelected(id) { selected = id; showSelection(); },
     setView: (v) => orbit.setView(v),
+    onAnchors(cb) { anchorCb = cb; lastA = ""; invalidate(); },
     setInset(r, b = 0, t = 0) { if (r !== insetR || b !== insetB || t !== insetT) { insetR = r; insetB = b; insetT = t; resize(); } },
     benchmark(ms = 2500) {
       return new Promise((resolve) => { bench = { start: performance.now(), ms, frames: 0, resolve }; });

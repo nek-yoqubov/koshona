@@ -4,7 +4,7 @@ import { Ico } from "./icons.jsx";
 const GLOSS = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
 
 // Режим «Шоурум»: кухня на весь экран, снизу крупно название декора и полоса образцов.
-export default function Showroom({ groups, active, setActive, list, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
+export default function Showroom({ groups, active, setActive, list, brands = [], brand, onBrand, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
   const strip = useRef(null);
   const scroll = (dir) => strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.8, behavior: "smooth" });
   const label = groups.find((g) => g.key === active)?.label ?? "";
@@ -36,6 +36,12 @@ export default function Showroom({ groups, active, setActive, list, current, fin
             ))}
             <button className="sr-edit" onClick={onEdit}><Ico name="sliders" size={16} />Настроить</button>
           </div>
+        </div>
+        <div className="sr-brands">
+          <button className={!brand ? "on" : ""} onClick={() => onBrand(null)}>Все</button>
+          {brands.map((b) => (
+            <button key={b.name} className={brand === b.name ? "on" : ""} onClick={() => onBrand(b.name)}>{b.name} <small>{b.n}</small></button>
+          ))}
         </div>
         <div className="sr-strip-wrap">
           <button className="sr-nav" aria-label="Назад" onClick={() => scroll(-1)}><Ico name="chevL" size={22} /></button>

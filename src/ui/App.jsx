@@ -14,6 +14,7 @@ import ItemEditor from "./ItemEditor.jsx";
 import CompareHandle from "./CompareHandle.jsx";
 import SampleView from "./SampleView.jsx";
 import ShareModal from "./ShareModal.jsx";
+import HotSpots from "./HotSpots.jsx";
 
 const base = import.meta.env.BASE_URL;
 const wallHex = (id) => (WALLS.find((w) => w.id === id) || WALLS[0]).hex;
@@ -45,7 +46,7 @@ export default function App() {
   const [editing, setEditing] = useState("A");
   const [active, setActive] = useState("lower");
   const [search, setSearch] = useState("");
-  const [supplier, setSupplier] = useState("Все");
+  const [supplier, setSupplier] = useState(null);
   const [light, setLight] = useState(fromUrl.light === "night" ? "night" : "day");
   const [specOpen, setSpecOpen] = useState(false);
   const [sample, setSample] = useState(null);
@@ -198,10 +199,19 @@ export default function App() {
   };
 
   const pool = useMemo(() => decors.filter((d) => (active === "top") === (d.kind === "top")), [decors, active]);
-  const suppliers = useMemo(() => ["Все", ...new Set(pool.map((d) => d.supplier))], [pool]);
+  const brands = useMemo(() => {
+    const m = new Map();
+    for (const d of pool) {
+      if (!m.has(d.supplier)) m.set(d.supplier, []);
+      m.get(d.supplier).push(d);
+    }
+    return [...m].map(([name, list]) => ({ name, n: list.length, prev: list.slice(0, 4) })).sort((a, b) => b.n - a.n);
+  }, [pool]);
+  const suppliers = brands.map((b) => b.name);
   const finishOf = (d) => FINISHES[d?.finish]?.label ?? "";
-  const sup = suppliers.includes(supplier) ? supplier : "Все";
-  const filtered = pool.filter((d) => (sup === "Все" || d.supplier === sup) && `${d.name} ${finishOf(d)}`.toLowerCase().includes(search.toLowerCase()));
+  const sup = suppliers.includes(supplier) ? supplier : supplier === "Все" ? "Все" : null;
+  const filtered = pool.filter((d) => (!sup || sup === "Все" || d.supplier === sup) && `${d.name} ${finishOf(d)}`.toLowerCase().includes(search.toLowerCase()));
+  const curBrand = decors.find((d) => d.code === cur[active]?.code)?.supplier;
   const nameOf = (code) => decors.find((d) => d.code === code)?.name ?? "—";
   const shortName = (f) => nameOf(f.lower.code).replace(/\s+\S+\s+\S+$/, "");
   const spec = useMemo(() => buildSpec(parts, fin.A, decors), [parts, fin.A, decors]);
@@ -248,6 +258,9 @@ export default function App() {
     <div className={"app mode-" + mode + (mode === "editor" && sel && !sample ? " has-item" : "")}>
       <div className="stage">
         <div ref={mountRef} className="canvas" />
+        {(mode === "showroom" || tab === "finish") && !open && (
+          <HotSpots viewer={v} groups={GROUPS} active={active} onPick={(k) => { setActive(k); if (mode === "editor") { setTab("finish"); setPanelOpen(true); } }} />
+        )}
         {compare && <CompareHandle split={split} onChange={setSplit} labelA={shortName(fin.A)} labelB={shortName(fin.B)} editing={editing} onEdit={setEditing} />}
 
         <div className="brand glass">
@@ -302,6 +315,9 @@ export default function App() {
             active={active}
             setActive={setActive}
             list={filtered}
+            brands={brands}
+            brand={sup && sup !== "Все" ? sup : null}
+            onBrand={(b) => setSupplier(b)}
             current={decorOf(cur[active]?.code)}
             finishOf={finishOf}
             base={base}
@@ -419,19 +435,32 @@ export default function App() {
                   </>
                 ) : (
                   <>
-                    <div className="filters">
-                      <select className="supsel" value={sup} onChange={(e) => setSupplier(e.target.value)} aria-label="Поставщик">
-                        {suppliers.map((s) => <option key={s} value={s}>{s === "Все" ? "Все поставщики" : s}</option>)}
-                      </select>
-                      <span className="muted small">{filtered.length} декоров</span>
-                    </div>
                     <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
-                    <div className="grid">
-                      {filtered.map((d) => (
-                        <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (["hg", "akrilux", "hgmetal", "hgpearl", "metal"].includes(d.finish) ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
-                          onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], code: d.code } }))} />
-                      ))}
-                    </div>
+                    {!sup && !search ? (
+                      <div className="brands">
+                        {brands.map((b) => (
+                          <button key={b.name} className={b.name === curBrand ? "brand-c on" : "brand-c"} onClick={() => setSupplier(b.name)}>
+                            <span className="brand-sw">{b.prev.map((d) => <i key={d.code} style={{ backgroundImage: `url(${base + d.card})` }} />)}</span>
+                            <b>{b.name}</b>
+                            <small>{b.n} декоров{b.name === curBrand ? " · выбран" : ""}</small>
+                          </button>
+                        ))}
+                        <button className="brand-c all" onClick={() => setSupplier("Все")}><b>Все декоры</b><small>{pool.length} шт.</small></button>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="filters">
+                          <button className="link back" onClick={() => { setSupplier(null); setSearch(""); }}>← Бренды</button>
+                          <span className="muted small">{sup && sup !== "Все" ? sup + " · " : ""}{filtered.length} декоров</span>
+                        </div>
+                        <div className="grid">
+                          {filtered.map((d) => (
+                            <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (["hg", "akrilux", "hgmetal", "hgpearl", "metal"].includes(d.finish) ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
+                              onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], code: d.code } }))} />
+                          ))}
+                        </div>
+                      </>
+                    )}
                     <div className="between">
                       <span className="muted pr">{nameOf(cur[active].code)}{finishOf(decors.find((d) => d.code === cur[active].code)) && ` · ${finishOf(decors.find((d) => d.code === cur[active].code))}`}</span>
                       <button className="btn" onClick={() => setSample(cur[active].code)} title="Декор во весь экран — сравнить с живым образцом">Образец ⤢</button>
