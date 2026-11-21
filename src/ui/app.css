@@ -171,7 +171,9 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
   .modes button { padding: 0 10px; font-size: 13px; }
   .sr-name { font-size: 26px; }
   .sr-actions { top: 70px; }
-  .float { max-width: calc(100% - 24px); bottom: calc(52vh + 12px); }
+  .float { left: 0; right: 0; bottom: 0; max-width: none; max-height: 58vh; overflow-y: auto; z-index: 5; }
+  .float .editor { border-radius: 14px 14px 0 0; border: 0; padding: 14px 16px 18px; }
+  .has-item .side, .has-item .tabside { display: none; }
   .gear { top: 120px; }
 }
 
@@ -215,3 +217,17 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
   .sh-x { right: 4px; top: 4px; }
   .sh-acts .btn { flex: 1 1 45%; padding: 0 10px; font-size: 14px; }
 }
+
+@media (max-width: 800px) {
+  .sr-actions { right: 12px; gap: 6px; }
+  .sr-round { width: 40px; height: 40px; }
+  .cmp-l, .cmp-r { height: 44px; font-size: 20px; width: 46px; }
+  .cmp-l { padding-right: 14px; border-radius: 10px 0 0 10px; }
+  .cmp-r { padding-left: 14px; border-radius: 0 10px 10px 0; }
+  .cmp-l.on, .cmp-r.on { width: 92px; gap: 6px; }
+  .cmp-l small, .cmp-r small { font-size: 10px; }
+  .cmp-knob { height: 44px; }
+  .cmp-grip { width: 36px; height: 36px; }
+  .cmp-knob .cmp-grip { top: 4px; margin-left: -18px; }
+}
+.mode-showroom .cmp-tag { bottom: auto; top: 128px; }

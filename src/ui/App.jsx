@@ -113,7 +113,9 @@ export default function App() {
     const calc = () => {
       const W = window.innerWidth, H = window.innerHeight;
       let r = 0, b = 0;
-      const side = document.querySelector(".side");
+      const item = W <= 800 && document.querySelector(".float");
+      const side = !item && document.querySelector(".side");
+      if (item) b = Math.round(H - item.getBoundingClientRect().top);
       if (side) {
         const rc = side.getBoundingClientRect();
         if (W > 800) r = Math.round(W - rc.left + 12); else b = Math.round(H - rc.top);
@@ -126,10 +128,10 @@ export default function App() {
     };
     calc();
     const ro = new ResizeObserver(calc);
-    document.querySelectorAll(".side, .sr-bottom").forEach((e) => ro.observe(e));
+    document.querySelectorAll(".side, .sr-bottom, .float").forEach((e) => ro.observe(e));
     window.addEventListener("resize", calc);
     return () => { ro.disconnect(); window.removeEventListener("resize", calc); };
-  }, [viewerId, mode, panelOpen]);
+  }, [viewerId, mode, panelOpen, selected, sample]);
   useEffect(() => { v?.setSelected(selected); }, [viewerId, selected, model]);
 
   useEffect(() => {
@@ -243,7 +245,7 @@ export default function App() {
   };
 
   return (
-    <div className={"app mode-" + mode}>
+    <div className={"app mode-" + mode + (mode === "editor" && sel && !sample ? " has-item" : "")}>
       <div className="stage">
         <div ref={mountRef} className="canvas" />
         {compare && <CompareHandle split={split} onChange={setSplit} labelA={shortName(fin.A)} labelB={shortName(fin.B)} editing={editing} onEdit={setEditing} />}
