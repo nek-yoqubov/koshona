@@ -42,9 +42,9 @@ export default function CompareHandle({ split, onChange, labelA, labelB, editing
         onPointerUp={(e) => ref.current.releasePointerCapture(e.pointerId)}
       >
         <div className={shown ? "cmp-knob shown" : "cmp-knob"}>
-          <button className={editing === "A" ? "cmp-l on" : "cmp-l"} onPointerDown={(e) => e.stopPropagation()} onClick={() => onEdit("A")}>A</button>
+          <button className={editing === "A" ? "cmp-l on" : "cmp-l"} onPointerDown={(e) => e.stopPropagation()} onClick={() => onEdit("A")}>{editing === "A" && <small>Правим</small>}A</button>
           <span className="cmp-grip"><Ico name="swap" size={18} /></span>
-          <button className={editing === "B" ? "cmp-r on" : "cmp-r"} onPointerDown={(e) => e.stopPropagation()} onClick={() => onEdit("B")}>B</button>
+          <button className={editing === "B" ? "cmp-r on" : "cmp-r"} onPointerDown={(e) => e.stopPropagation()} onClick={() => onEdit("B")}>B{editing === "B" && <small>Правим</small>}</button>
         </div>
       </div>
       <div className={shown ? "cmp-tag cmp-a shown" : "cmp-tag cmp-a"}>A · {labelA}</div>

@@ -351,15 +351,16 @@ export default function App() {
             <>
               <section>
                 {compare && (
-                  <div className="tabs">
+                  <div className="editing">
+                    <span>Правите</span>
                     {["A", "B"].map((s) => (
-                      <button key={s} className={editing === s ? "tab on" : "tab"} onClick={() => setEditing(s)}>Вариант {s}</button>
+                      <button key={s} className={editing === s ? "on" : ""} onClick={() => setEditing(s)}>Вариант {s}</button>
                     ))}
                   </div>
                 )}
-                <div className="row">
+                <div className="gtabs">
                   {[...GROUPS, { key: "glass", label: "Витрины" }].map((g) => (
-                    <button key={g.key} className={active === g.key ? "chip on" : "chip"} onClick={() => setActive(g.key)}>{g.label}</button>
+                    <button key={g.key} className={active === g.key ? "on" : ""} onClick={() => setActive(g.key)}>{g.label.replace(" фасады", "")}</button>
                   ))}
                 </div>
                 {active === "glass" ? (
@@ -383,10 +384,11 @@ export default function App() {
                   </>
                 ) : (
                   <>
-                    <div className="row">
-                      {suppliers.map((s) => (
-                        <button key={s} className={sup === s ? "chip sm on" : "chip sm"} onClick={() => setSupplier(s)}>{s}</button>
-                      ))}
+                    <div className="filters">
+                      <select className="supsel" value={sup} onChange={(e) => setSupplier(e.target.value)} aria-label="Поставщик">
+                        {suppliers.map((s) => <option key={s} value={s}>{s === "Все" ? "Все поставщики" : s}</option>)}
+                      </select>
+                      <span className="muted small">{filtered.length} декоров</span>
                     </div>
                     <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
                     <div className="grid">
