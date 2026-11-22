@@ -82,16 +82,18 @@ export default function App() {
   };
 
   useEffect(() => {
-    Promise.all([fetch(base + "catalog/decors.json").then((r) => r.json()), fetch(base + "catalog/cats.json").then((r) => r.json()).catch(() => ({}))])
-      .then(([list, cats]) => {
-        for (const d of list) d.cat = cats[d.code] || "plain";
+    Promise.all([fetch(base + "catalog/decors.json").then((r) => r.json()), fetch(base + "catalog/cats.json").then((r) => r.json()).catch(() => ({})), fetch(base + "catalog/surfaces.json").then((r) => r.json()).catch(() => [])])
+      .then(([list0, cats, surf]) => {
+        const list = [...list0, ...surf];
+        for (const d of list) d.cat = cats[d.code] || d.cat || "plain";
         setDecors(list);
         const fill = (f) => {
           const g = { ...emptyFinish(), ...structuredClone(f) };
-          const fronts = list.filter((d) => d.kind !== "top");
+          const fronts = list.filter((d) => !d.kind);
           for (const k of ["upper", "lower", "body"]) if (!fronts.some((d) => d.code === g[k].code)) g[k].code = fronts[0]?.code ?? null;
           if (g.splash.code && !list.some((d) => d.code === g.splash.code)) g.splash.code = null;
           if (g.top.code && !list.some((d) => d.code === g.top.code && d.kind === "top")) g.top.code = null;
+          if (g.wallTex && !list.some((d) => d.code === g.wallTex && d.kind === "wall")) g.wallTex = null;
           return g;
         };
         setFin((f) => {
@@ -206,6 +208,25 @@ export default function App() {
     evs.forEach((e) => window.addEventListener(e, act, true));
     return () => evs.forEach((e) => window.removeEventListener(e, act, true));
   }, []);
+  useEffect(() => {
+    const el = mountRef.current;
+    if (!el) return;
+    let last = 0, lx = 0, ly = 0, dx = 0, dy = 0;
+    const down = (e) => { dx = e.clientX; dy = e.clientY; };
+    const up = (e) => {
+      if (Math.hypot(e.clientX - dx, e.clientY - dy) > 10) { last = 0; return; }
+      const now = performance.now();
+      if (now - last < 350 && Math.hypot(e.clientX - lx, e.clientY - ly) < 40) {
+        last = 0;
+        if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
+        else document.documentElement.requestFullscreen?.().catch(() => {});
+      } else { last = now; lx = e.clientX; ly = e.clientY; }
+    };
+    el.addEventListener("pointerdown", down);
+    el.addEventListener("pointerup", up);
+    return () => { el.removeEventListener("pointerdown", down); el.removeEventListener("pointerup", up); };
+  }, []);
+
   const idleCheck = useRef(null);
   idleCheck.current = () => {
     if (!touring && mode === "showroom" && !shareData && !sample && Date.now() - lastAct.current > TOUR_IDLE) startTour();
@@ -273,7 +294,7 @@ export default function App() {
     setTab("finish");
   };
 
-  const pool = useMemo(() => decors.filter((d) => (active === "top") === (d.kind === "top")
+  const pool = useMemo(() => decors.filter((d) => (active === "top" ? d.kind === "top" : active === "splash" ? !d.kind || d.kind === "splash" : !d.kind)
     && (!cat || d.cat === cat)
     && (!shine || (shine === "gloss") === GLOSSY.includes(d.finish))), [decors, active, cat, shine]);
   const brands = useMemo(() => {
@@ -282,7 +303,8 @@ export default function App() {
       if (!m.has(d.supplier)) m.set(d.supplier, []);
       m.get(d.supplier).push(d);
     }
-    return [...m].map(([name, list]) => ({ name, n: list.length, prev: list.slice(0, 4) })).sort((a, b) => b.n - a.n);
+    const first = (n) => (n === "Плитка" ? 2 : n === "Стекло" ? 1 : 0);
+    return [...m].map(([name, list]) => ({ name, n: list.length, prev: list.slice(0, 4) })).sort((a, b) => first(b.name) - first(a.name) || b.n - a.n);
   }, [pool]);
   const suppliers = brands.map((b) => b.name);
   const finishOf = (d) => FINISHES[d?.finish]?.label ?? "";
@@ -328,6 +350,8 @@ export default function App() {
       if (!d) return g.key === "splash" ? { label: g.label, name: "В цвет стены", sub: (WALLS.find((w) => w.id === fin.A.wall) || WALLS[0]).name } : null;
       return { label: g.label, name: cleanName(d.name), sub: [d.supplier, finishOf(d)].filter(Boolean).join(" · ") };
     }).filter(Boolean);
+    const wt = decorOf(fin.A.wallTex);
+    if (wt) rows.push({ label: "Стены", name: wt.name, sub: wt.tint ? (WALLS.find((w) => w.id === fin.A.wall) || WALLS[0]).name : "" });
     setShareData({ shot: v.snapshot(), url: location.href, rows });
   };
 
@@ -580,6 +604,15 @@ export default function App() {
                 <div className="row">
                   {WALLS.map((w) => (
                     <button key={w.id} title={w.name} className={cur.wall === w.id ? "dot on" : "dot"} style={{ background: w.hex }} onClick={() => setCur((f) => ({ ...f, wall: w.id }))} />
+                  ))}
+                </div>
+                <div className="label mt">Покрытие</div>
+                <div className="wtex">
+                  <button className={!cur.wallTex ? "wt on" : "wt"} onClick={() => setCur((f) => ({ ...f, wallTex: null }))}><span className="wt-paint" style={{ background: wallHex(cur.wall) }} />Краска</button>
+                  {decors.filter((d) => d.kind === "wall").map((d) => (
+                    <button key={d.code} className={cur.wallTex === d.code ? "wt on" : "wt"} onClick={() => setCur((f) => ({ ...f, wallTex: d.code }))} title={d.name}>
+                      <span style={{ backgroundImage: `url(${base + d.card})`, backgroundColor: d.tint ? wallHex(cur.wall) : undefined, backgroundBlendMode: d.tint ? "multiply" : undefined }} />{d.name}
+                    </button>
                   ))}
                 </div>
                 {cur.splash.code && <button className="link" onClick={() => setCur((f) => ({ ...f, splash: { ...f.splash, code: null } }))}>Фартук — как стена</button>}

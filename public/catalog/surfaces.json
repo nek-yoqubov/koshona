@@ -1,0 +1,710 @@
+[
+ {
+  "code": "s-Plaster001",
+  "name": "Штукатурка гладкая",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "plain",
+  "tile": 2000,
+  "tint": true,
+  "card": "tex/s-Plaster001/card.webp",
+  "color": {
+   "max": "tex/s-Plaster001/c.webp",
+   "hi": "tex/s-Plaster001/c.webp",
+   "lo": "tex/s-Plaster001/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Plaster001/n.webp",
+   "rough": "tex/s-Plaster001/r.webp",
+   "normalMax": "tex/s-Plaster001/n.webp",
+   "roughMax": "tex/s-Plaster001/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.79,
+  "source": "ambientCG Plaster001 (CC0)"
+ },
+ {
+  "code": "s-Plaster003",
+  "name": "Штукатурка фактурная",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "plain",
+  "tile": 1500,
+  "tint": true,
+  "card": "tex/s-Plaster003/card.webp",
+  "color": {
+   "max": "tex/s-Plaster003/c.webp",
+   "hi": "tex/s-Plaster003/c.webp",
+   "lo": "tex/s-Plaster003/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Plaster003/n.webp",
+   "rough": "tex/s-Plaster003/r.webp",
+   "normalMax": "tex/s-Plaster003/n.webp",
+   "roughMax": "tex/s-Plaster003/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.84,
+  "source": "ambientCG Plaster003 (CC0)"
+ },
+ {
+  "code": "s-PaintedPlaster017",
+  "name": "Декоративная штукатурка",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "plain",
+  "tile": 2000,
+  "tint": true,
+  "card": "tex/s-PaintedPlaster017/card.webp",
+  "color": {
+   "max": "tex/s-PaintedPlaster017/c.webp",
+   "hi": "tex/s-PaintedPlaster017/c.webp",
+   "lo": "tex/s-PaintedPlaster017/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-PaintedPlaster017/n.webp",
+   "rough": "tex/s-PaintedPlaster017/r.webp",
+   "normalMax": "tex/s-PaintedPlaster017/n.webp",
+   "roughMax": "tex/s-PaintedPlaster017/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.515,
+  "source": "ambientCG PaintedPlaster017 (CC0)"
+ },
+ {
+  "code": "s-Wallpaper001A",
+  "name": "Обои фактурные",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "plain",
+  "tile": 800,
+  "tint": true,
+  "card": "tex/s-Wallpaper001A/card.webp",
+  "color": {
+   "max": "tex/s-Wallpaper001A/c.webp",
+   "hi": "tex/s-Wallpaper001A/c.webp",
+   "lo": "tex/s-Wallpaper001A/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Wallpaper001A/n.webp",
+   "rough": "tex/s-Wallpaper001A/r.webp",
+   "normalMax": "tex/s-Wallpaper001A/n.webp",
+   "roughMax": "tex/s-Wallpaper001A/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.657,
+  "source": "ambientCG Wallpaper001A (CC0)"
+ },
+ {
+  "code": "s-Wallpaper002A",
+  "name": "Обои фактурные крупные",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "plain",
+  "tile": 800,
+  "tint": true,
+  "card": "tex/s-Wallpaper002A/card.webp",
+  "color": {
+   "max": "tex/s-Wallpaper002A/c.webp",
+   "hi": "tex/s-Wallpaper002A/c.webp",
+   "lo": "tex/s-Wallpaper002A/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Wallpaper002A/n.webp",
+   "rough": "tex/s-Wallpaper002A/r.webp",
+   "normalMax": "tex/s-Wallpaper002A/n.webp",
+   "roughMax": "tex/s-Wallpaper002A/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.652,
+  "source": "ambientCG Wallpaper002A (CC0)"
+ },
+ {
+  "code": "s-Concrete034",
+  "name": "Микроцемент светлый",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 1100,
+  "tint": false,
+  "card": "tex/s-Concrete034/card.webp",
+  "color": {
+   "max": "tex/s-Concrete034/c.webp",
+   "hi": "tex/s-Concrete034/c.webp",
+   "lo": "tex/s-Concrete034/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Concrete034/n.webp",
+   "rough": "tex/s-Concrete034/r.webp",
+   "normalMax": "tex/s-Concrete034/n.webp",
+   "roughMax": "tex/s-Concrete034/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.516,
+  "source": "ambientCG Concrete034 (CC0)"
+ },
+ {
+  "code": "s-Concrete016",
+  "name": "Микроцемент серый",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 2000,
+  "tint": false,
+  "card": "tex/s-Concrete016/card.webp",
+  "color": {
+   "max": "tex/s-Concrete016/c.webp",
+   "hi": "tex/s-Concrete016/c.webp",
+   "lo": "tex/s-Concrete016/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Concrete016/n.webp",
+   "rough": "tex/s-Concrete016/r.webp",
+   "normalMax": "tex/s-Concrete016/n.webp",
+   "roughMax": "tex/s-Concrete016/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.627,
+  "source": "ambientCG Concrete016 (CC0)"
+ },
+ {
+  "code": "s-Concrete046",
+  "name": "Бетон тёплый",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 2400,
+  "tint": false,
+  "card": "tex/s-Concrete046/card.webp",
+  "color": {
+   "max": "tex/s-Concrete046/c.webp",
+   "hi": "tex/s-Concrete046/c.webp",
+   "lo": "tex/s-Concrete046/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Concrete046/n.webp",
+   "rough": "tex/s-Concrete046/r.webp",
+   "normalMax": "tex/s-Concrete046/n.webp",
+   "roughMax": "tex/s-Concrete046/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.495,
+  "source": "ambientCG Concrete046 (CC0)"
+ },
+ {
+  "code": "s-Concrete032",
+  "name": "Бетон тёмный",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 2000,
+  "tint": false,
+  "card": "tex/s-Concrete032/card.webp",
+  "color": {
+   "max": "tex/s-Concrete032/c.webp",
+   "hi": "tex/s-Concrete032/c.webp",
+   "lo": "tex/s-Concrete032/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Concrete032/n.webp",
+   "rough": "tex/s-Concrete032/r.webp",
+   "normalMax": "tex/s-Concrete032/n.webp",
+   "roughMax": "tex/s-Concrete032/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.693,
+  "source": "ambientCG Concrete032 (CC0)"
+ },
+ {
+  "code": "s-Bricks060",
+  "name": "Кирпич белый крашеный",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 1050,
+  "tint": false,
+  "card": "tex/s-Bricks060/card.webp",
+  "color": {
+   "max": "tex/s-Bricks060/c.webp",
+   "hi": "tex/s-Bricks060/c.webp",
+   "lo": "tex/s-Bricks060/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Bricks060/n.webp",
+   "rough": "tex/s-Bricks060/r.webp",
+   "normalMax": "tex/s-Bricks060/n.webp",
+   "roughMax": "tex/s-Bricks060/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.585,
+  "source": "ambientCG Bricks060 (CC0)"
+ },
+ {
+  "code": "s-Bricks020",
+  "name": "Кирпич коричневый",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 1100,
+  "tint": false,
+  "card": "tex/s-Bricks020/card.webp",
+  "color": {
+   "max": "tex/s-Bricks020/c.webp",
+   "hi": "tex/s-Bricks020/c.webp",
+   "lo": "tex/s-Bricks020/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Bricks020/n.webp",
+   "rough": "tex/s-Bricks020/r.webp",
+   "normalMax": "tex/s-Bricks020/n.webp",
+   "roughMax": "tex/s-Bricks020/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.546,
+  "source": "ambientCG Bricks020 (CC0)"
+ },
+ {
+  "code": "s-Bricks085",
+  "name": "Кирпич красный старый",
+  "supplier": "Стены",
+  "kind": "wall",
+  "cat": "stone",
+  "tile": 2400,
+  "tint": false,
+  "card": "tex/s-Bricks085/card.webp",
+  "color": {
+   "max": "tex/s-Bricks085/c.webp",
+   "hi": "tex/s-Bricks085/c.webp",
+   "lo": "tex/s-Bricks085/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Bricks085/n.webp",
+   "rough": "tex/s-Bricks085/r.webp",
+   "normalMax": "tex/s-Bricks085/n.webp",
+   "roughMax": "tex/s-Bricks085/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.58,
+  "source": "ambientCG Bricks085 (CC0)"
+ },
+ {
+  "code": "s-Tiles136A",
+  "name": "Кабанчик белый 75×150",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 1050,
+  "tint": false,
+  "card": "tex/s-Tiles136A/card.webp",
+  "color": {
+   "max": "tex/s-Tiles136A/c.webp",
+   "hi": "tex/s-Tiles136A/c.webp",
+   "lo": "tex/s-Tiles136A/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles136A/n.webp",
+   "rough": "tex/s-Tiles136A/r.webp",
+   "normalMax": "tex/s-Tiles136A/n.webp",
+   "roughMax": "tex/s-Tiles136A/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.231,
+  "source": "ambientCG Tiles136A (CC0)"
+ },
+ {
+  "code": "s-Tiles008",
+  "name": "Кабанчик бежевый 100×200",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 800,
+  "tint": false,
+  "card": "tex/s-Tiles008/card.webp",
+  "color": {
+   "max": "tex/s-Tiles008/c.webp",
+   "hi": "tex/s-Tiles008/c.webp",
+   "lo": "tex/s-Tiles008/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles008/n.webp",
+   "rough": "tex/s-Tiles008/r.webp",
+   "normalMax": "tex/s-Tiles008/n.webp",
+   "roughMax": "tex/s-Tiles008/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.052,
+  "source": "ambientCG Tiles008 (CC0)"
+ },
+ {
+  "code": "s-Tiles029",
+  "name": "Кабанчик бирюзовый 75×150",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 900,
+  "tint": false,
+  "card": "tex/s-Tiles029/card.webp",
+  "color": {
+   "max": "tex/s-Tiles029/c.webp",
+   "hi": "tex/s-Tiles029/c.webp",
+   "lo": "tex/s-Tiles029/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles029/n.webp",
+   "rough": "tex/s-Tiles029/r.webp",
+   "normalMax": "tex/s-Tiles029/n.webp",
+   "roughMax": "tex/s-Tiles029/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.21,
+  "source": "ambientCG Tiles029 (CC0)"
+ },
+ {
+  "code": "s-Tiles032",
+  "name": "Кабанчик зелёный 75×150",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 900,
+  "tint": false,
+  "card": "tex/s-Tiles032/card.webp",
+  "color": {
+   "max": "tex/s-Tiles032/c.webp",
+   "hi": "tex/s-Tiles032/c.webp",
+   "lo": "tex/s-Tiles032/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles032/n.webp",
+   "rough": "tex/s-Tiles032/r.webp",
+   "normalMax": "tex/s-Tiles032/n.webp",
+   "roughMax": "tex/s-Tiles032/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.209,
+  "source": "ambientCG Tiles032 (CC0)"
+ },
+ {
+  "code": "s-Tiles133A",
+  "name": "Плитка белая 100×100",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 1000,
+  "tint": false,
+  "card": "tex/s-Tiles133A/card.webp",
+  "color": {
+   "max": "tex/s-Tiles133A/c.webp",
+   "hi": "tex/s-Tiles133A/c.webp",
+   "lo": "tex/s-Tiles133A/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles133A/n.webp",
+   "rough": "tex/s-Tiles133A/r.webp",
+   "normalMax": "tex/s-Tiles133A/n.webp",
+   "roughMax": "tex/s-Tiles133A/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.236,
+  "source": "ambientCG Tiles133A (CC0)"
+ },
+ {
+  "code": "s-Tiles009",
+  "name": "Плитка белая под мрамор",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "stone",
+  "tile": 1200,
+  "tint": false,
+  "card": "tex/s-Tiles009/card.webp",
+  "color": {
+   "max": "tex/s-Tiles009/c.webp",
+   "hi": "tex/s-Tiles009/c.webp",
+   "lo": "tex/s-Tiles009/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles009/n.webp",
+   "rough": "tex/s-Tiles009/r.webp",
+   "normalMax": "tex/s-Tiles009/n.webp",
+   "roughMax": "tex/s-Tiles009/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.196,
+  "source": "ambientCG Tiles009 (CC0)"
+ },
+ {
+  "code": "s-Tiles106",
+  "name": "Плитка чёрная глянцевая",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 1000,
+  "tint": false,
+  "card": "tex/s-Tiles106/card.webp",
+  "color": {
+   "max": "tex/s-Tiles106/c.webp",
+   "hi": "tex/s-Tiles106/c.webp",
+   "lo": "tex/s-Tiles106/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles106/n.webp",
+   "rough": "tex/s-Tiles106/r.webp",
+   "normalMax": "tex/s-Tiles106/n.webp",
+   "roughMax": "tex/s-Tiles106/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.052,
+  "source": "ambientCG Tiles106 (CC0)"
+ },
+ {
+  "code": "s-Tiles071",
+  "name": "Шестигранник белый",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 450,
+  "tint": false,
+  "card": "tex/s-Tiles071/card.webp",
+  "color": {
+   "max": "tex/s-Tiles071/c.webp",
+   "hi": "tex/s-Tiles071/c.webp",
+   "lo": "tex/s-Tiles071/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles071/n.webp",
+   "rough": "tex/s-Tiles071/r.webp",
+   "normalMax": "tex/s-Tiles071/n.webp",
+   "roughMax": "tex/s-Tiles071/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.511,
+  "source": "ambientCG Tiles071 (CC0)"
+ },
+ {
+  "code": "s-Tiles072",
+  "name": "Шестигранник тёмный",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "plain",
+  "tile": 450,
+  "tint": false,
+  "card": "tex/s-Tiles072/card.webp",
+  "color": {
+   "max": "tex/s-Tiles072/c.webp",
+   "hi": "tex/s-Tiles072/c.webp",
+   "lo": "tex/s-Tiles072/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles072/n.webp",
+   "rough": "tex/s-Tiles072/r.webp",
+   "normalMax": "tex/s-Tiles072/n.webp",
+   "roughMax": "tex/s-Tiles072/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.473,
+  "source": "ambientCG Tiles072 (CC0)"
+ },
+ {
+  "code": "s-Tiles054",
+  "name": "Керамогранит под белый мрамор",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "stone",
+  "tile": 1800,
+  "tint": false,
+  "card": "tex/s-Tiles054/card.webp",
+  "color": {
+   "max": "tex/s-Tiles054/c.webp",
+   "hi": "tex/s-Tiles054/c.webp",
+   "lo": "tex/s-Tiles054/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles054/n.webp",
+   "rough": "tex/s-Tiles054/r.webp",
+   "normalMax": "tex/s-Tiles054/n.webp",
+   "roughMax": "tex/s-Tiles054/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.553,
+  "source": "ambientCG Tiles054 (CC0)"
+ },
+ {
+  "code": "s-Tiles052",
+  "name": "Керамогранит под тёмный мрамор",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "stone",
+  "tile": 1500,
+  "tint": false,
+  "card": "tex/s-Tiles052/card.webp",
+  "color": {
+   "max": "tex/s-Tiles052/c.webp",
+   "hi": "tex/s-Tiles052/c.webp",
+   "lo": "tex/s-Tiles052/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles052/n.webp",
+   "rough": "tex/s-Tiles052/r.webp",
+   "normalMax": "tex/s-Tiles052/n.webp",
+   "roughMax": "tex/s-Tiles052/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.557,
+  "source": "ambientCG Tiles052 (CC0)"
+ },
+ {
+  "code": "s-Tiles043",
+  "name": "Терраццо",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "stone",
+  "tile": 1200,
+  "tint": false,
+  "card": "tex/s-Tiles043/card.webp",
+  "color": {
+   "max": "tex/s-Tiles043/c.webp",
+   "hi": "tex/s-Tiles043/c.webp",
+   "lo": "tex/s-Tiles043/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles043/n.webp",
+   "rough": "tex/s-Tiles043/r.webp",
+   "normalMax": "tex/s-Tiles043/n.webp",
+   "roughMax": "tex/s-Tiles043/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.571,
+  "source": "ambientCG Tiles043 (CC0)"
+ },
+ {
+  "code": "s-Tiles101",
+  "name": "Пэчворк сине-белый",
+  "supplier": "Плитка",
+  "kind": "splash",
+  "cat": "other",
+  "tile": 1000,
+  "tint": false,
+  "card": "tex/s-Tiles101/card.webp",
+  "color": {
+   "max": "tex/s-Tiles101/c.webp",
+   "hi": "tex/s-Tiles101/c.webp",
+   "lo": "tex/s-Tiles101/c1.webp"
+  },
+  "relief": {
+   "normal": "tex/s-Tiles101/n.webp",
+   "rough": "tex/s-Tiles101/r.webp",
+   "normalMax": "tex/s-Tiles101/n.webp",
+   "roughMax": "tex/s-Tiles101/r.webp",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  "roughness": 0.105,
+  "source": "ambientCG Tiles101 (CC0)"
+ },
+ {
+  "code": "s-glass-white",
+  "name": "Стекло белое",
+  "supplier": "Стекло",
+  "kind": "splash",
+  "cat": "plain",
+  "hex": "#f2f1ec",
+  "finish": "hg",
+  "card": "tex/s-glass-white/card.webp",
+  "roughness": 0.05
+ },
+ {
+  "code": "s-glass-black",
+  "name": "Стекло чёрное",
+  "supplier": "Стекло",
+  "kind": "splash",
+  "cat": "plain",
+  "hex": "#121314",
+  "finish": "hg",
+  "card": "tex/s-glass-black/card.webp",
+  "roughness": 0.05
+ },
+ {
+  "code": "s-glass-sage",
+  "name": "Стекло шалфей",
+  "supplier": "Стекло",
+  "kind": "splash",
+  "cat": "plain",
+  "hex": "#a7b2a0",
+  "finish": "hg",
+  "card": "tex/s-glass-sage/card.webp",
+  "roughness": 0.05
+ }
+]

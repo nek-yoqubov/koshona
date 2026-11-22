@@ -308,3 +308,8 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .sr-brands button.logo.on small { color: #6b6e73; }
 .sr-klogo { display: inline-flex; align-items: center; vertical-align: middle; margin: -3px 8px 0; padding: 3px 8px; background: #fff; border-radius: 6px; }
 .sr-klogo img { height: 12px; max-width: 90px; object-fit: contain; display: block; }
+.wtex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+.wt { display: flex; flex-direction: column; gap: 4px; padding: 0; border: 0; background: none; font: inherit; font-size: 11px; line-height: 1.2; color: #3b3d40; text-align: left; }
+.wt span { display: block; aspect-ratio: 1.6; border-radius: 8px; background-size: cover; background-position: center; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); transition: box-shadow .2s; }
+.wt.on span { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e8621a; }
+.wt.on { color: #e8621a; font-weight: 600; }

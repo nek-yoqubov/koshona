@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { LEVELS, pixelRatioFor, refineRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
-import { createTextures, createGroupMaterials, applyDecor, frontUV, sheetLayout } from "./materials.js";
+import { createTextures, createGroupMaterials, applyDecor, frontUV, sheetLayout, tileUV, surfaceOn } from "./materials.js";
 import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
 import { toRuns } from "./layout.js";
 import { findGlass, findFrame } from "../catalog/glass.js";
@@ -38,6 +38,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     shelfLed: new THREE.MeshStandardMaterial({ color: "#d8d2c6", emissive: "#ffd9a0", emissiveIntensity: 0 }),
     led: new THREE.MeshStandardMaterial({ color: "#d8d2c6", emissive: "#ffd9a0", emissiveIntensity: 0 }),
     floor: new THREE.MeshStandardMaterial({ color: "#cfcac2", roughness: 0.6 }),
+    ceil: new THREE.MeshStandardMaterial({ color: "#efece6", roughness: 1 }),
     hob: new THREE.MeshStandardMaterial({ color: "#0a0a0a", roughness: 0.15, metalness: 0.4 }),
   };
   const sideMats = () => ({
@@ -104,7 +105,14 @@ export function createViewer(container, levelId, onStats, onPick) {
     const f = finish[s];
     if (!f || !kitchen) return;
     const { mats, uv } = side[s];
-    mats.wall.color.set(f.wallHex);
+    const ws = f.wallTex ? decors.get(f.wallTex) : null;
+    if (ws) surfaceOn(mats.wall, ws, level, tex, f.wallHex);
+    else {
+      mats.wall.map = mats.wall.normalMap = mats.wall.roughnessMap = null;
+      mats.wall.color.set(f.wallHex);
+      mats.wall.roughness = 1;
+      mats.wall.needsUpdate = true;
+    }
     const gl = findGlass(f.glass?.tint), fr = findFrame(f.glass?.frame);
     mats.glass.color.set(gl.hex);
     mats.glass.opacity = gl.opacity;
@@ -114,11 +122,15 @@ export function createViewer(container, levelId, onStats, onPick) {
     mats.frame.roughness = fr.roughness;
     for (const key of GROUP_KEYS) {
       const sel = f[key];
-      const d = sel?.code ? decors.get(sel.code) : null;
-      applyDecor(mats[key], d, level, tex, key === "splash" ? f.wallHex : key === "top" ? "#e8e3da" : null);
-      const sheet = d ? d.sheet : [600, 400];
+      let d = sel?.code ? decors.get(sel.code) : null;
+      if (key === "splash" && !d && ws) d = { ...ws, tile: ws.tile, color: ws.color };
+      if (key === "splash" && d && d.kind === "wall") {
+        applyDecor(mats[key], { ...d, roughness: d.roughness }, level, tex, null);
+        if (d.tint) mats[key].color.set(f.wallHex);
+      } else applyDecor(mats[key], d, level, tex, key === "splash" ? f.wallHex : key === "top" ? "#e8e3da" : null);
+      const sheet = d?.sheet || [600, 400];
       if (key === "top" || key === "splash")
-        for (const it of kitchen.switchable) if (it.front && it.mesh.userData.group === key) uv.set(it.mesh, frontUV(it.mesh, sheet, sel?.rot ?? true));
+        for (const it of kitchen.switchable) if (it.front && it.mesh.userData.group === key) uv.set(it.mesh, d?.tile ? tileUV(it.mesh, d.tile) : frontUV(it.mesh, sheet, sel?.rot ?? true));
     }
     // группы с одним и тем же декором режутся из одних листов — общий раскрой
     const cut = new Map();

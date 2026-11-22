@@ -149,7 +149,9 @@ export function buildKitchen(plan, mats, level) {
   };
 
   const plane = (w, h, key, pos, rot) => {
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mats[key]);
+    const g = new THREE.PlaneGeometry(w, h);
+    if (key === "wall") { const a = g.attributes.uv.array; for (let i = 0; i < a.length; i += 2) { a[i] *= w; a[i + 1] *= h; } }
+    const m = new THREE.Mesh(g, mats[key]);
     m.position.set(...pos);
     m.rotation.set(...rot);
     m.receiveShadow = level.shadows;
@@ -161,7 +163,7 @@ export function buildKitchen(plan, mats, level) {
   plane(W, R.height, "wall", [cx, R.height / 2, 0], [0, 0, 0]);
   plane(8, R.height, "wall", [R.left, R.height / 2, 4], [0, Math.PI / 2, 0]);
   plane(8, R.height, "wall", [R.right, R.height / 2, 4], [0, -Math.PI / 2, 0]);
-  plane(16, 16, "wall", [cx, R.height, 4], [Math.PI / 2, 0, 0]);
+  plane(16, 16, "ceil", [cx, R.height, 4], [Math.PI / 2, 0, 0]);
 
   const lampAt = (wall, t) => {
     if (!level.ledLights) return;

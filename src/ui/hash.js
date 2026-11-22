@@ -9,6 +9,7 @@ export function emptyFinish() {
     splash: { code: null, rot: false },
     top: { code: null, rot: false },
     wall: "warm",
+    wallTex: null,
     glass: { tint: "clear", frame: "black" },
   };
 }
@@ -21,6 +22,7 @@ function readFinish(h, p) {
     f[k] = { code: h.get(p + SHORT[k]) || null, rot: r[i] === "1" };
   });
   if (h.get(p + "w")) f.wall = h.get(p + "w");
+  if (h.get(p + "wt")) f.wallTex = h.get(p + "wt");
   const [tint, frame] = (h.get(p + "g") || "").split(".");
   if (tint) f.glass = { tint, frame: frame || "black" };
   return f;
@@ -30,6 +32,7 @@ function writeFinish(p, f, out) {
   KEYS.forEach((k) => f[k].code && out.set(p + SHORT[k], f[k].code));
   out.set(p + "r", KEYS.map((k) => (f[k].rot ? "1" : "0")).join(""));
   out.set(p + "w", f.wall);
+  if (f.wallTex) out.set(p + "wt", f.wallTex);
   out.set(p + "g", `${f.glass.tint}.${f.glass.frame}`);
 }
 

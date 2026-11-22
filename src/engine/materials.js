@@ -58,9 +58,12 @@ export function applyDecor(mat, decor, level, tex, fallbackHex) {
     mat.color.set(fallbackHex || FALLBACK);
     mat.roughness = 0.6;
     if ("clearcoat" in mat) { mat.metalness = 0; mat.clearcoat = 0; }
+  } else if (decor.hex) {
+    mat.color.set(decor.hex);
+    mat.roughness = decor.roughness;
   } else {
     mat.color.set(0xffffff);
-    mat.map = tex(decor.color[level.texture], { srgb: true });
+    mat.map = tex(decor.color[level.texture], decor.tile ? { srgb: true, repeat: [1, 1] } : { srgb: true });
     mat.roughness = decor.roughness;
     const f = FINISHES[decor.finish];
     if ("clearcoat" in mat) {
@@ -73,8 +76,28 @@ export function applyDecor(mat, decor, level, tex, fallbackHex) {
       mat.normalMap = tex(level.reliefMax ? r.normalMax : r.normal, { repeat: r.repeat });
       mat.roughnessMap = tex(level.reliefMax ? r.roughMax : r.rough, { repeat: r.repeat });
       mat.normalScale.set(0.6, 0.6);
+      if (decor.tile) { mat.roughness = 1; mat.normalScale.set(1, 1); }
     }
   }
+  mat.needsUpdate = true;
+}
+
+// плитка и стены: картинка повторяется, одна картинка = size мм
+export function tileUV(mesh, size) {
+  const { w, h } = mesh.userData;
+  const uv0 = mesh.geometry.userData.uv0 || (mesh.geometry.userData.uv0 = mesh.geometry.attributes.uv.array.slice());
+  const out = new Float32Array(uv0.length);
+  for (let i = 0; i < uv0.length; i += 2) { out[i] = (uv0[i] * w * 1000) / size; out[i + 1] = (uv0[i + 1] * h * 1000) / size; }
+  return new THREE.BufferAttribute(out, 2);
+}
+
+export function surfaceOn(mat, s, level, tex, tintHex) {
+  const k = 1000 / s.tile;
+  mat.map = tex(s.color[level.texture], { srgb: true, repeat: [k, k] });
+  mat.color.set(s.tint ? tintHex : 0xffffff);
+  mat.normalMap = level.relief ? tex(s.relief.normal, { repeat: [k, k] }) : null;
+  mat.roughnessMap = level.relief ? tex(s.relief.rough, { repeat: [k, k] }) : null;
+  mat.roughness = level.relief ? 1 : s.roughness;
   mat.needsUpdate = true;
 }
 
