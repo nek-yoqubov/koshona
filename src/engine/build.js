@@ -1,5 +1,63 @@
 import * as THREE from "three";
-import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T } from "../modules/index.js";
+import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T, TOP_R } from "../modules/index.js";
+
+// Столешница-постформинг: передний край скруглён сверху и снизу, пластик обходит кромку — рисунок идёт через неё
+function worktopGeometry(len, depth, t, r) {
+  const prof = [[0, t]];
+  const arc = (cz, cy, a0, a1) => { for (let i = 1; i <= 8; i++) { const a = a0 + ((a1 - a0) * i) / 8; prof.push([cz + r * Math.cos(a), cy + r * Math.sin(a)]); } };
+  prof.push([depth - r, t]);
+  arc(depth - r, t - r, Math.PI / 2, 0);
+  prof.push([depth, r]);
+  arc(depth - r, r, 0, -Math.PI / 2);
+  const front = prof.length;
+  prof.push([0, 0]);
+  const s = [0];
+  for (let i = 1; i < prof.length; i++) s.push(s[i - 1] + Math.hypot(prof[i][0] - prof[i - 1][0], prof[i][1] - prof[i - 1][1]));
+  const S = s[front - 1];
+  const pos = [], uv = [], idx = [];
+  const x0 = -len / 2, x1 = len / 2;
+  for (let i = 0; i < prof.length; i++) {
+    const [z, y] = prof[i], v = 1 - Math.min(1, s[i] / S);
+    pos.push(x0, y, z, x1, y, z);
+    uv.push(0, v, 1, v);
+  }
+  for (let i = 0; i < prof.length - 1; i++) {
+    const a = i * 2, b = a + 2;
+    idx.push(a, b, a + 1, a + 1, b, b + 1);
+  }
+  const g0 = new THREE.BufferGeometry();
+  g0.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  g0.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2));
+  g0.setIndex(idx);
+  const side = new THREE.BufferGeometry();
+  const sp = [], su = [], si = [];
+  for (const [x, flip] of [[x0, true], [x1, false]]) {
+    const base = sp.length / 3;
+    sp.push(x, t / 2, depth / 2);
+    su.push(0.5, 0.5);
+    for (const [z, y] of prof) { sp.push(x, y, z); su.push(z / depth, y / depth); }
+    for (let i = 0; i < prof.length; i++) {
+      const a = base + 1 + i, b = base + 1 + ((i + 1) % prof.length);
+      if (flip) si.push(base, b, a); else si.push(base, a, b);
+    }
+  }
+  side.setAttribute("position", new THREE.Float32BufferAttribute(sp, 3));
+  side.setAttribute("uv", new THREE.Float32BufferAttribute(su, 2));
+  side.setIndex(si);
+  const g = mergeTwo(g0, side);
+  g.computeVertexNormals();
+  return g;
+}
+
+function mergeTwo(a, b) {
+  const g = new THREE.BufferGeometry();
+  const n = a.attributes.position.count;
+  const cat = (k) => { const x = a.attributes[k].array, y = b.attributes[k].array, o = new Float32Array(x.length + y.length); o.set(x); o.set(y, x.length); return o; };
+  g.setAttribute("position", new THREE.BufferAttribute(cat("position"), 3));
+  g.setAttribute("uv", new THREE.BufferAttribute(cat("uv"), 2));
+  g.setIndex([...a.index.array, ...[...b.index.array].map((i) => i + n)]);
+  return g;
+}
 
 const SWITCH_KEYS = new Set(["upper", "lower", "body", "splash", "top", "wall", "glass", "frame"]);
 const mm = (v) => v / 1000;
@@ -32,6 +90,14 @@ export function buildKitchen(plan, mats, level) {
       m.castShadow = level.shadows;
       m.receiveShadow = level.shadows;
       track(m, key, group, w, reg?.top ? d : h, reg);
+      return m;
+    },
+    worktop(len, depth, x, z) {
+      const m = new THREE.Mesh(worktopGeometry(len, depth, TOP_T, TOP_R), mats.top);
+      m.position.set(x, BASE_H, z);
+      m.castShadow = level.shadows;
+      m.receiveShadow = level.shadows;
+      track(m, "top", "top", len, depth, { ox: 0, oy: 0, top: true });
       return m;
     },
     cyl(r1, r2, h, key, x, y, z) {
@@ -129,7 +195,7 @@ export function buildKitchen(plan, mats, level) {
     for (const sg of segments) {
       const len = sg.to - sg.from, c = (sg.from + sg.to) / 2;
       const g = new THREE.Group();
-      g.add(k.box(len + 0.02, TOP_T, D + 0.03, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2, "top", { ox: 0, oy: 0, top: true }));
+      g.add(k.worktop(len + 0.02, D + 0.03, 0, 0));
       const sh = UP_Y0 - BASE_H - TOP_T;
       g.add(k.box(len, sh, 0.01, "splash", 0, BASE_H + TOP_T + sh / 2, 0.005, "splash", { ox: frac(0.3 + c), oy: 0.5 }));
       for (const [y, z] of [[UP_Y0 - 0.005, UP_D - 0.03], [PLINTH - 0.005, D - 0.07]]) {
@@ -151,7 +217,7 @@ export function buildKitchen(plan, mats, level) {
       m.position.x = -w / 2 + sw * (i + 0.5);
       isl.add(m);
     }
-    isl.add(k.box(w + 0.04, TOP_T, D + 0.33, "top", 0, BASE_H + TOP_T / 2, (D + 0.03) / 2 - 0.15, "top", { ox: 0, oy: 0, top: true }));
+    isl.add(k.worktop(w + 0.04, D + 0.33, 0, -0.15));
     isl.position.set(mm(plan.island.from) + w / 2, 0, mm(plan.island.z));
     isl.userData.itemId = "island";
     pickables.push(isl);

@@ -4,4 +4,5 @@ export const D = 0.6;
 export const UP_D = 0.35;
 export const UP_Y0 = 1.45;
 export const TALL_H = 2.4;
-export const TOP_T = 0.03;
+export const TOP_T = 0.038;
+export const TOP_R = 0.009;

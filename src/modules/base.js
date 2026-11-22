@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { BASE_H, PLINTH, D } from "./dims.js";
+import { BASE_H, PLINTH, D, TOP_T } from "./dims.js";
 
 export function doorsRow(k, parent, w, h, cy, z, key, region) {
   const dw = w - 0.006;
@@ -41,14 +41,14 @@ export function base(k, w, variant) {
   }
 
   if (variant === "sink") {
-    g.add(k.box(Math.min(0.5, w - 0.1), 0.01, 0.4, "black", 0, BASE_H + 0.031, 0.32));
+    g.add(k.box(Math.min(0.5, w - 0.1), 0.01, 0.4, "black", 0, BASE_H + TOP_T + 0.001, 0.32));
     const tap = k.cyl(0.012, 0.012, 0.32, "black", 0, BASE_H + 0.19, 0.1);
     const spout = k.cyl(0.01, 0.01, 0.2, "black", 0, BASE_H + 0.34, 0.2);
     spout.rotation.x = Math.PI / 2;
     g.add(tap, spout);
   }
   if (variant === "hob") {
-    g.add(k.box(Math.min(0.56, w - 0.04), 0.006, 0.48, "hob", 0, BASE_H + 0.033, 0.3));
+    g.add(k.box(Math.min(0.56, w - 0.04), 0.006, 0.48, "hob", 0, BASE_H + TOP_T + 0.003, 0.3));
     g.add(k.cyl(0.13, 0.12, 0.14, "black", 0, BASE_H + 0.11, 0.32));
   }
   return g;
