@@ -19,6 +19,7 @@ import { cleanName, splitName } from "./names.js";
 import { TOUR, TOUR_IDLE, TOUR_STEP, TOUR_RESET } from "../catalog/tour.js";
 
 const base = import.meta.env.BASE_URL;
+export const LOGOS = { EGGER: "egger.svg", AGT: "agt.svg", EXTRAVERT: "extravert.svg", ULTRADECOR: "ultradecor.svg", "КЕДР": "kedr.png" };
 const GLOSSY = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
 const CATS = [["wood", "Дерево"], ["stone", "Камень"], ["plain", "Однотон"], ["other", "Другое"]];
 const SHINES = [["matt", "Мат"], ["gloss", "Глянец"]];
@@ -395,6 +396,7 @@ export default function App() {
             brands={brands}
             brand={sup && sup !== "Все" ? sup : null}
             onBrand={(b) => setSupplier(b)}
+            logos={LOGOS}
             cats={CATS}
             cat={cat}
             onCat={(k) => setCat(cat === k ? null : k)}
@@ -540,7 +542,7 @@ export default function App() {
                         {brands.map((b) => (
                           <button key={b.name} className={b.name === curBrand ? "brand-c on" : "brand-c"} onClick={() => setSupplier(b.name)}>
                             <span className="brand-sw">{b.prev.map((d) => <i key={d.code} style={{ backgroundImage: `url(${base + d.card})` }} />)}</span>
-                            <b>{b.name}</b>
+                            {LOGOS[b.name] ? <img className="brand-logo" src={base + "brand/sup/" + LOGOS[b.name]} alt={b.name} /> : <b>{b.name}</b>}
                             <small>{b.n} декоров{b.name === curBrand ? " · выбран" : ""}</small>
                           </button>
                         ))}

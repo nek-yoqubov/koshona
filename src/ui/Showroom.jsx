@@ -5,7 +5,7 @@ import { splitName } from "./names.js";
 const GLOSS = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
 
 // Режим «Шоурум»: кухня на весь экран, снизу крупно название декора и полоса образцов.
-export default function Showroom({ groups, active, setActive, list, brands = [], brand, onBrand, cats = [], cat, onCat, shines = [], shine, onShine, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
+export default function Showroom({ groups, active, setActive, list, brands = [], brand, onBrand, logos = {}, cats = [], cat, onCat, shines = [], shine, onShine, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
   const strip = useRef(null);
   const scroll = (dir) => strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.8, behavior: "smooth" });
   const label = groups.find((g) => g.key === active)?.label ?? "";
@@ -28,7 +28,7 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
       <div className="sr-bottom">
         <div className="sr-head">
           <div className="sr-title fade" key={current?.code}>
-            <div className="sr-kicker">{label}{current ? ` · ${current.supplier}` : ""}{fin ? ` · ${fin}` : ""}</div>
+            <div className="sr-kicker">{label}{current && (logos[current.supplier] ? <span className="sr-klogo"><img src={base + "brand/sup/" + logos[current.supplier]} alt={current.supplier} /></span> : ` · ${current.supplier}`)}{fin ? ` · ${fin}` : ""}</div>
             <div className="sr-name">{name} {nm && <span>{code}</span>}</div>
           </div>
           <div className="sr-groups">
@@ -45,7 +45,9 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
           <span className="sr-sep" />
           <button className={!brand ? "on" : ""} onClick={() => onBrand(null)}>Все</button>
           {brands.map((b) => (
-            <button key={b.name} className={brand === b.name ? "on" : ""} onClick={() => onBrand(b.name)}>{b.name} <small>{b.n}</small></button>
+            <button key={b.name} className={(brand === b.name ? "on " : "") + (logos[b.name] ? "logo" : "")} onClick={() => onBrand(b.name)} aria-label={b.name}>
+              {logos[b.name] ? <img src={base + "brand/sup/" + logos[b.name]} alt="" /> : b.name} <small>{b.n}</small>
+            </button>
           ))}
         </div>
         <div className="sr-strip-wrap">

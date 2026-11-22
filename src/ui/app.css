@@ -299,3 +299,10 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .gtabs button { transition: color .2s, border-color .25s; }
 @media (max-width: 800px) { .side { animation-name: slideUp; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.brand-logo { height: 22px; max-width: 100%; object-fit: contain; object-position: left center; margin: 8px 0 2px; }
+.sr-brands button.logo { background: rgba(255,255,255,.88); border-color: transparent; color: #6b6e73; display: inline-flex; align-items: center; gap: 6px; }
+.sr-brands button.logo img { height: 15px; max-width: 96px; object-fit: contain; }
+.sr-brands button.logo small { color: #6b6e73; opacity: 1; }
+.sr-brands button.logo.on { background: #fff; box-shadow: 0 0 0 2px #e8621a; }
+.sr-klogo { display: inline-flex; align-items: center; vertical-align: middle; margin: -3px 8px 0; padding: 3px 8px; background: #fff; border-radius: 6px; }
+.sr-klogo img { height: 12px; max-width: 90px; object-fit: contain; display: block; }
