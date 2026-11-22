@@ -5,7 +5,7 @@ import { splitName } from "./names.js";
 const GLOSS = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
 
 // Режим «Шоурум»: кухня на весь экран, снизу крупно название декора и полоса образцов.
-export default function Showroom({ groups, active, setActive, list, brands = [], brand, onBrand, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
+export default function Showroom({ groups, active, setActive, list, brands = [], brand, onBrand, cats = [], cat, onCat, shines = [], shine, onShine, current, finishOf, base, onPick, views, onView, open, onOpen, light, onLight, compare, onCompare, onShare, onEdit }) {
   const strip = useRef(null);
   const scroll = (dir) => strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.8, behavior: "smooth" });
   const label = groups.find((g) => g.key === active)?.label ?? "";
@@ -39,6 +39,10 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
           </div>
         </div>
         <div className="sr-brands">
+          {cats.map(([k, l]) => <button key={k} className={cat === k ? "on f" : "f"} onClick={() => onCat(k)}>{l}</button>)}
+          <span className="sr-sep" />
+          {shines.map(([k, l]) => <button key={k} className={shine === k ? "on f" : "f"} onClick={() => onShine(k)}>{l}</button>)}
+          <span className="sr-sep" />
           <button className={!brand ? "on" : ""} onClick={() => onBrand(null)}>Все</button>
           {brands.map((b) => (
             <button key={b.name} className={brand === b.name ? "on" : ""} onClick={() => onBrand(b.name)}>{b.name} <small>{b.n}</small></button>
@@ -47,6 +51,7 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
         <div className="sr-strip-wrap">
           <button className="sr-nav" aria-label="Назад" onClick={() => scroll(-1)}><Ico name="chevL" size={22} /></button>
           <div className="sr-strip" ref={strip}>
+            {!list.length && <span className="sr-empty">Нет декоров с такими фильтрами</span>}
             {list.map((d) => (
               <button key={d.code} title={d.name} aria-label={d.name} className={(current?.code === d.code ? "sr-sw on" : "sr-sw") + (GLOSS.includes(d.finish) ? " gloss" : "")} onClick={() => onPick(d.code)}>
                 <img src={base + d.card} alt="" loading="lazy" />

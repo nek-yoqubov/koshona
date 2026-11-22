@@ -19,6 +19,9 @@ import { cleanName, splitName } from "./names.js";
 import { TOUR, TOUR_IDLE, TOUR_STEP, TOUR_RESET } from "../catalog/tour.js";
 
 const base = import.meta.env.BASE_URL;
+const GLOSSY = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
+const CATS = [["wood", "Дерево"], ["stone", "Камень"], ["plain", "Однотон"], ["other", "Другое"]];
+const SHINES = [["matt", "Мат"], ["gloss", "Глянец"]];
 const wallHex = (id) => (WALLS.find((w) => w.id === id) || WALLS[0]).hex;
 const toViewer = (f) => ({ ...f, wallHex: wallHex(f.wall) });
 const fromUrl = readHash();
@@ -49,6 +52,8 @@ export default function App() {
   const [active, setActive] = useState("lower");
   const [search, setSearch] = useState("");
   const [supplier, setSupplier] = useState(null);
+  const [cat, setCat] = useState(null);
+  const [shine, setShine] = useState(null);
   const [light, setLight] = useState(fromUrl.light === "night" ? "night" : "day");
   const [specOpen, setSpecOpen] = useState(false);
   const [sample, setSample] = useState(null);
@@ -76,9 +81,9 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetch(base + "catalog/decors.json")
-      .then((r) => r.json())
-      .then((list) => {
+    Promise.all([fetch(base + "catalog/decors.json").then((r) => r.json()), fetch(base + "catalog/cats.json").then((r) => r.json()).catch(() => ({}))])
+      .then(([list, cats]) => {
+        for (const d of list) d.cat = cats[d.code] || "plain";
         setDecors(list);
         const fill = (f) => {
           const g = { ...emptyFinish(), ...structuredClone(f) };
@@ -267,7 +272,9 @@ export default function App() {
     setTab("finish");
   };
 
-  const pool = useMemo(() => decors.filter((d) => (active === "top") === (d.kind === "top")), [decors, active]);
+  const pool = useMemo(() => decors.filter((d) => (active === "top") === (d.kind === "top")
+    && (!cat || d.cat === cat)
+    && (!shine || (shine === "gloss") === GLOSSY.includes(d.finish))), [decors, active, cat, shine]);
   const brands = useMemo(() => {
     const m = new Map();
     for (const d of pool) {
@@ -388,6 +395,12 @@ export default function App() {
             brands={brands}
             brand={sup && sup !== "Все" ? sup : null}
             onBrand={(b) => setSupplier(b)}
+            cats={CATS}
+            cat={cat}
+            onCat={(k) => setCat(cat === k ? null : k)}
+            shines={SHINES}
+            shine={shine}
+            onShine={(k) => setShine(shine === k ? null : k)}
             current={decorOf(cur[active]?.code)}
             finishOf={finishOf}
             base={base}
@@ -518,6 +531,11 @@ export default function App() {
                 ) : (
                   <>
                     <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
+                    <div className="fchips">
+                      {CATS.map(([k, l]) => <button key={k} className={cat === k ? "on" : ""} onClick={() => setCat(cat === k ? null : k)}>{l}</button>)}
+                      <span className="fsep" />
+                      {SHINES.map(([k, l]) => <button key={k} className={shine === k ? "on" : ""} onClick={() => setShine(shine === k ? null : k)}>{l}</button>)}
+                    </div>
                     {!sup && !search ? (
                       <div className="brands">
                         {brands.map((b) => (
