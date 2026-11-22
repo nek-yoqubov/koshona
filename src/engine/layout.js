@@ -1,4 +1,5 @@
 import { section, tallItem, TEMPLATES } from "../catalog/layouts.js";
+import { LIFTS, DRAWERS, byCode } from "../catalog/mechanisms.js";
 
 const D = 600, GAP = 600, ISLAND_AISLE = 1100;
 
@@ -32,8 +33,19 @@ const inv = (o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [v, k]))
 const Bi = inv(B), Ui = inv(U), Ti = inv(T);
 const SH = { straight: "S", left: "L", right: "R" }, SHi = inv(SH);
 
+const UH = { 720: "7", a: "a" }, UHi = { 7: 720, a: "a" };
+const opts = (it) => {
+  let o = "";
+  if (UH[it.uh]) o += "h" + UH[it.uh];
+  const m = LIFTS.find((x) => x.id === it.um), m2 = LIFTS.find((x) => x.id === it.um2), d = DRAWERS.find((x) => x.id === it.dr);
+  if (m) o += "m" + m.code;
+  if (m2) o += "n" + m2.code;
+  if (d) o += "r" + d.code;
+  return o;
+};
+
 const encItems = (items) =>
-  items.map((it) => (it.kind === "tall" ? `T${it.w / 10}${T[it.tall]}` : `${it.w / 10}${B[it.base]}${U[it.upper]}`)).join(".");
+  items.map((it) => (it.kind === "tall" ? `T${it.w / 10}${T[it.tall]}` : `${it.w / 10}${B[it.base]}${U[it.upper]}${opts(it)}`)).join(".");
 
 const decItems = (s) =>
   (s ? s.split(".") : []).map((t) => {
@@ -41,8 +53,15 @@ const decItems = (s) =>
       const m = t.match(/^T(\d+)([a-z])$/);
       return tallItem(+m[1] * 10, Ti[m[2]] || "pantry");
     }
-    const m = t.match(/^(\d+)([a-z])([a-z])$/);
-    return section(+m[1] * 10, Bi[m[2]] || "doors", Ui[m[3]] || "doors");
+    const m = t.match(/^(\d+)([a-z])([a-z])((?:[hmnr][a-z0-9])*)$/);
+    const it = section(+m[1] * 10, Bi[m[2]] || "doors", Ui[m[3]] || "doors");
+    for (const [, key, v] of (m[4] || "").matchAll(/([hmnr])([a-z0-9])/g)) {
+      if (key === "h" && UHi[v]) it.uh = UHi[v];
+      if (key === "m") it.um = byCode(LIFTS, v)?.id;
+      if (key === "n") it.um2 = byCode(LIFTS, v)?.id;
+      if (key === "r") it.dr = byCode(DRAWERS, v)?.id;
+    }
+    return it;
   });
 
 export function encodeModel(m) {

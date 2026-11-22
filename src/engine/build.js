@@ -68,7 +68,7 @@ export function buildKitchen(plan, mats, level) {
   const lamps = [];
   const movers = [];
   const pickables = [];
-  let regionIdx = 0;
+  let regionIdx = 0, needTop = 0;
   const frac = (x) => x - Math.floor(x);
   const region = () => ({ ox: frac(0.618034 * ++regionIdx), oy: frac(0.381966 * regionIdx + 0.25) });
 
@@ -123,7 +123,15 @@ export function buildKitchen(plan, mats, level) {
         const sx = side === "left" ? -1 : 1;
         pivot.position.set(cx + (sx * w) / 2, cy, z);
         inner.position.set((-sx * w) / 2, 0, 0);
-        movers.push({ obj: pivot, axis: "y", max: side === "left" ? -1.6 : 1.6 });
+        movers.push({ obj: pivot, axis: "y", max: side === "left" ? -1.9 : 1.9 });
+        // петля CLIP top: чашка в фасаде + плечо
+        const n = h > 1.6 ? 4 : h > 0.9 ? 3 : 2;
+        for (let i = 0; i < n; i++) {
+          const y = -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1);
+          const cup = k.cyl(0.0175, 0.0175, 0.012, "metal", sx * (w / 2 - 0.0285), y, -0.016);
+          cup.rotation.x = Math.PI / 2;
+          inner.add(cup, k.box(0.03, 0.016, 0.008, "metal", sx * (w / 2 - 0.006), y, -0.024));
+        }
       }
       pivot.add(inner);
       parent.add(pivot);
@@ -132,8 +140,35 @@ export function buildKitchen(plan, mats, level) {
     slider(parent, dist) {
       const s = new THREE.Group();
       parent.add(s);
-      movers.push({ obj: s, slide: dist });
+      const mv = { obj: s, slide: dist };
+      s.userData.mv = mv;
+      movers.push(mv);
       return s;
+    },
+    setSlide(s, dist) { s.userData.mv.slide = dist; },
+    need(y) { needTop = Math.max(needTop, y); },
+    mover(apply) { movers.push({ apply }); },
+    link(parent, a, b, r, key) {
+      const rod = new THREE.Mesh(new THREE.CylinderGeometry(r, r, 1, 8), mats[key]);
+      rod.castShadow = level.shadows;
+      parent.add(rod);
+      const v1 = new THREE.Vector3(), v2 = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0);
+      movers.push({
+        apply() {
+          b.updateWorldMatrix(true, false);
+          a.updateWorldMatrix(true, false);
+          a.getWorldPosition(v1);
+          b.getWorldPosition(v2);
+          parent.worldToLocal(v1);
+          parent.worldToLocal(v2);
+          rod.position.copy(v1).add(v2).multiplyScalar(0.5);
+          v2.sub(v1);
+          const L = v2.length();
+          rod.scale.set(1, Math.max(L, 0.001), 1);
+          if (L > 1e-5) rod.quaternion.setFromUnitVectors(up, v2.multiplyScalar(1 / L));
+        },
+      });
+      return rod;
     },
   };
 
@@ -158,12 +193,6 @@ export function buildKitchen(plan, mats, level) {
     track(m, key);
     root.add(m);
   };
-  const W = R.right - R.left, cx = (R.left + R.right) / 2;
-  plane(16, 16, "floor", [cx, 0, 4], [-Math.PI / 2, 0, 0]);
-  plane(W, R.height, "wall", [cx, R.height / 2, 0], [0, 0, 0]);
-  plane(8, R.height, "wall", [R.left, R.height / 2, 4], [0, Math.PI / 2, 0]);
-  plane(8, R.height, "wall", [R.right, R.height / 2, 4], [0, -Math.PI / 2, 0]);
-  plane(16, 16, "ceil", [cx, R.height, 4], [Math.PI / 2, 0, 0]);
 
   const lampAt = (wall, t) => {
     if (!level.ledLights) return;
@@ -185,8 +214,8 @@ export function buildKitchen(plan, mats, level) {
         place(MODULES.tall(k, w, it.tall), run.wall, c, it.id);
         seg = null;
       } else {
-        const g = MODULES.base(k, w, it.base);
-        if (it.upper && it.upper !== "none") g.add(MODULES.upper(k, w, it.upper));
+        const g = MODULES.base(k, w, it.base, { dr: it.dr });
+        if (it.upper && it.upper !== "none") g.add(MODULES.upper(k, w, it.upper, { uh: it.uh, um: it.um, um2: it.um2 }));
         place(g, run.wall, c, it.id);
         if (!seg) segments.push((seg = { from: s, to: s }));
         seg.to = s + w;
@@ -226,11 +255,20 @@ export function buildKitchen(plan, mats, level) {
     root.add(isl);
   }
 
+  // если открытому подъёмнику не хватает места — поднимаем потолок
+  if (needTop + 0.03 > R.height) R.height = Math.ceil((needTop + 0.03) * 20) / 20;
+  const W = R.right - R.left, cx = (R.left + R.right) / 2;
+  plane(16, 16, "floor", [cx, 0, 4], [-Math.PI / 2, 0, 0]);
+  plane(W, R.height, "wall", [cx, R.height / 2, 0], [0, 0, 0]);
+  plane(8, R.height, "wall", [R.left, R.height / 2, 4], [0, Math.PI / 2, 0]);
+  plane(8, R.height, "wall", [R.right, R.height / 2, 4], [0, -Math.PI / 2, 0]);
+  plane(16, 16, "ceil", [cx, R.height, 4], [Math.PI / 2, 0, 0]);
+
   const parts = switchable
     .filter((s) => s.front)
     .map((s) => ({ group: s.mesh.userData.group, w: Math.round(s.mesh.userData.w * 1000), h: Math.round(s.mesh.userData.h * 1000) }));
 
-  return { root, switchable, lamps, movers, pickables, parts };
+  return { root, switchable, lamps, movers, pickables, parts, height: R.height };
 }
 
 export function addLights(scene, level) {

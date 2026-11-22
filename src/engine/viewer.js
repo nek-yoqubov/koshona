@@ -40,6 +40,11 @@ export function createViewer(container, levelId, onStats, onPick) {
     floor: new THREE.MeshStandardMaterial({ color: "#cfcac2", roughness: 0.6 }),
     ceil: new THREE.MeshStandardMaterial({ color: "#efece6", roughness: 1 }),
     hob: new THREE.MeshStandardMaterial({ color: "#0a0a0a", roughness: 0.15, metalness: 0.4 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#b4b6b8", roughness: 0.32, metalness: 0.7 }),
+    metalDark: new THREE.MeshStandardMaterial({ color: "#5d5f62", roughness: 0.4, metalness: 0.55 }),
+    metalWhite: new THREE.MeshStandardMaterial({ color: "#e7e5e0", roughness: 0.45, metalness: 0.15 }),
+    mechCap: new THREE.MeshStandardMaterial({ color: "#dcdbd6", roughness: 0.5 }),
+    strut: new THREE.MeshStandardMaterial({ color: "#3a3b3d", roughness: 0.35, metalness: 0.6 }),
   };
   const sideMats = () => ({
     ...createGroupMaterials(),
@@ -83,7 +88,8 @@ export function createViewer(container, levelId, onStats, onPick) {
   const applyOpen = () => {
     const e = openT * openT * (3 - 2 * openT);
     for (const m of kitchen?.movers ?? []) {
-      if (m.slide) m.obj.position.z = m.slide * e;
+      if (m.apply) m.apply(e);
+      else if (m.slide !== undefined) m.obj.position.z = m.slide * e;
       else m.obj.rotation[m.axis] = m.max * e;
     }
     renderer.shadowMap.needsUpdate = true;
