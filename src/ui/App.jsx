@@ -457,7 +457,7 @@ export default function App() {
           </div>
 
           {tab === "layout" ? (
-            <>
+            <div className="fade" key="layout">
               <section>
                 <div className="label">Начать с шаблона</div>
                 <div className="row">
@@ -492,9 +492,9 @@ export default function App() {
               <section>
                 <button className="btn wide dark" onClick={() => setTab("finish")}>Далее · отделка →</button>
               </section>
-            </>
+            </div>
           ) : (
-            <>
+            <div className="fade" key="finish">
               <section>
                 {compare && (
                   <div className="editing">
@@ -533,11 +533,10 @@ export default function App() {
                     <input className="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Найти — дуб, серый, H305…" />
                     <div className="fchips">
                       {CATS.map(([k, l]) => <button key={k} className={cat === k ? "on" : ""} onClick={() => setCat(cat === k ? null : k)}>{l}</button>)}
-                      <span className="fsep" />
                       {SHINES.map(([k, l]) => <button key={k} className={shine === k ? "on" : ""} onClick={() => setShine(shine === k ? null : k)}>{l}</button>)}
                     </div>
                     {!sup && !search ? (
-                      <div className="brands">
+                      <div className="brands fade" key={"b" + active + cat + shine}>
                         {brands.map((b) => (
                           <button key={b.name} className={b.name === curBrand ? "brand-c on" : "brand-c"} onClick={() => setSupplier(b.name)}>
                             <span className="brand-sw">{b.prev.map((d) => <i key={d.code} style={{ backgroundImage: `url(${base + d.card})` }} />)}</span>
@@ -550,10 +549,10 @@ export default function App() {
                     ) : (
                       <>
                         <div className="filters">
-                          <button className="link back" onClick={() => { setSupplier(null); setSearch(""); }}>← Бренды</button>
+                          <button className="back" onClick={() => { setSupplier(null); setSearch(""); }}><Ico name="chevL" size={16} />Все бренды</button>
                           <span className="muted small">{sup && sup !== "Все" ? sup + " · " : ""}{filtered.length} декоров</span>
                         </div>
-                        <div className="grid">
+                        <div className="grid fade" key={"g" + active + sup + cat + shine}>
                           {filtered.map((d) => (
                             <button key={d.code} title={finishOf(d) ? `${d.name} · ${finishOf(d)}` : d.name} className={(cur[active].code === d.code ? "sw on" : "sw") + (["hg", "akrilux", "hgmetal", "hgpearl", "metal"].includes(d.finish) ? " gloss" : "")} style={{ backgroundImage: `url(${base + d.card})` }}
                               onClick={() => setCur((f) => ({ ...f, [active]: { ...f[active], code: d.code } }))} />
@@ -604,7 +603,7 @@ export default function App() {
                   </div>
                 )}
               </section>
-            </>
+            </div>
           )}
               <section className="muted small foot">Повернуть — тянуть · масштаб — щипок или колёсико · сдвиг — двумя пальцами</section>
             </div>

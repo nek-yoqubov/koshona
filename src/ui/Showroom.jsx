@@ -27,7 +27,7 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
 
       <div className="sr-bottom">
         <div className="sr-head">
-          <div className="sr-title">
+          <div className="sr-title fade" key={current?.code}>
             <div className="sr-kicker">{label}{current ? ` · ${current.supplier}` : ""}{fin ? ` · ${fin}` : ""}</div>
             <div className="sr-name">{name} {nm && <span>{code}</span>}</div>
           </div>
@@ -50,7 +50,7 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
         </div>
         <div className="sr-strip-wrap">
           <button className="sr-nav" aria-label="Назад" onClick={() => scroll(-1)}><Ico name="chevL" size={22} /></button>
-          <div className="sr-strip" ref={strip}>
+          <div className="sr-strip fade-x" ref={strip} key={active + (brand || "") + (cat || "") + (shine || "")}>
             {!list.length && <span className="sr-empty">Нет декоров с такими фильтрами</span>}
             {list.map((d) => (
               <button key={d.code} title={d.name} aria-label={d.name} className={(current?.code === d.code ? "sr-sw on" : "sr-sw") + (GLOSS.includes(d.finish) ? " gloss" : "")} onClick={() => onPick(d.code)}>

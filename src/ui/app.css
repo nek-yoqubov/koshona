@@ -104,7 +104,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
   background: linear-gradient(135deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 38%); }
 
 /* ---------- новый интерфейс ---------- */
-.glass { background: rgba(255,255,255,.94); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.12); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.glass { background: rgba(255,255,255,.94); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.12); }
 .brand { position: absolute; left: 16px; top: 16px; z-index: 4; padding: 7px 12px; }
 .brand img { height: 30px; display: block; }
 .topright { position: absolute; right: 16px; top: 16px; z-index: 5; display: flex; gap: 10px; align-items: center; }
@@ -280,3 +280,21 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .sr-brands button.f { border-style: dashed; }
 .sr-brands button.f.on { border-style: solid; }
 .sr-empty { color: rgba(255,255,255,.8); padding: 24px 8px; font-size: 14px; }
+
+.back { display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 12px 0 6px; border: 0; border-radius: 16px; background: #f1efeb; color: #17181a; font: inherit; font-size: 13px; font-weight: 600; transition: background .2s; }
+.back:hover { background: #e7e3dc; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes fadeX { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+@keyframes slideL { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+.fade { animation: fadeUp .28s cubic-bezier(.2,.8,.2,1) both; }
+.fade-x { animation: fadeX .3s cubic-bezier(.2,.8,.2,1) both; }
+.side, .gear-p { animation: slideL .3s cubic-bezier(.2,.8,.2,1) both; }
+.float .editor, .sh-box { animation: slideUp .3s cubic-bezier(.2,.8,.2,1) both; }
+.tabside, .tabtop, .viewbar { animation: fadeUp .25s ease both; }
+.sw, .sr-sw, .chip, .btn, .fchips button, .gtabs button, .sr-groups button, .sr-brands button, .q { transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s, transform .15s; }
+.sw:active, .sr-sw:active, .brand-c:active { transform: scale(.96); }
+.brand-c { transition: border-color .2s, box-shadow .2s, transform .15s; }
+.gtabs button { transition: color .2s, border-color .25s; }
+@media (max-width: 800px) { .side { animation-name: slideUp; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
