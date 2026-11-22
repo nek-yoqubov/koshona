@@ -257,3 +257,18 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .sr-brands button { flex: none; height: 32px; padding: 0 14px; border: 1px solid rgba(255,255,255,.35); border-radius: 16px; color: rgba(255,255,255,.85); font: inherit; font-size: 13px; font-weight: 600; }
 .sr-brands button small { opacity: .6; font-weight: 500; margin-left: 2px; }
 .sr-brands button.on { background: #fff; color: #17181a; border-color: #fff; }
+.touring .stage > *:not(.canvas):not(.brand):not(.tour-ov) { display: none !important; }
+.tour-ov { position: absolute; inset: 0; z-index: 20; cursor: pointer; }
+.tour-cap { position: absolute; left: 32px; bottom: 32px; right: 440px; display: flex; flex-wrap: wrap; gap: 8px 28px; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.45); padding: 60px 32px 0 0; animation: tfade 7s ease-in-out infinite; }
+.tour-cap small { display: block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .8; font-weight: 600; }
+.tour-cap b { font-size: 22px; font-weight: 400; white-space: nowrap; }
+.tour-cap b span { opacity: .65; }
+.tour-ov::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background: linear-gradient(to top, rgba(14,14,15,.6), rgba(14,14,15,0)); }
+.tour-hint { position: absolute; right: 32px; bottom: 36px; padding: 12px 20px; border-radius: 24px; background: #e8621a; color: #fff; font-weight: 600; font-size: 16px; animation: tpulse 2.4s ease-in-out infinite; }
+@keyframes tpulse { 50% { transform: scale(1.05); } }
+@keyframes tfade { 0%, 100% { opacity: 0; } 12%, 88% { opacity: 1; } }
+@media (max-width: 800px) {
+  .tour-cap { flex-direction: column; gap: 10px; left: 18px; right: 18px; bottom: 90px; }
+  .tour-cap b { font-size: 18px; }
+  .tour-hint { left: 18px; right: 18px; bottom: 24px; text-align: center; font-size: 14px; }
+}

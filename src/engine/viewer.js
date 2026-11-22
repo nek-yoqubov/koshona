@@ -276,11 +276,13 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
   };
 
+  let tourOn = false, tourT = 0;
   let raf, frames = 0, t0 = performance.now(), bench = null, lastFps = 0, prev = performance.now();
   const loop = (now) => {
     raf = requestAnimationFrame(loop);
     const dt = Math.min(0.05, (now - prev) / 1000);
     prev = now;
+    if (tourOn) { tourT += dt; orbit.tourStep(tourT); }
     if (openAnim) {
       openT += Math.sign(openTarget - openT) * dt * 1.6;
       if ((openTarget === 1 && openT >= 1) || (openTarget === 0 && openT <= 0)) { openT = openTarget; openAnim = false; }
@@ -328,6 +330,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     setOpen(on) { openTarget = on ? 1 : 0; openAnim = openT !== openTarget; },
     setSelected(id) { selected = id; showSelection(); },
     setView: (v) => orbit.setView(v),
+    setTour(on) { tourOn = on; tourT = 4.9; if (!on) orbit.setView("overall"); },
     onAnchors(cb) { anchorCb = cb; lastA = ""; invalidate(); },
     setInset(r, b = 0, t = 0) { if (r !== insetR || b !== insetB || t !== insetT) { insetR = r; insetB = b; insetT = t; resize(); } },
     benchmark(ms = 2500) {

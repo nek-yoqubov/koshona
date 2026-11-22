@@ -15,6 +15,8 @@ import CompareHandle from "./CompareHandle.jsx";
 import SampleView from "./SampleView.jsx";
 import ShareModal from "./ShareModal.jsx";
 import HotSpots from "./HotSpots.jsx";
+import { cleanName, splitName } from "./names.js";
+import { TOUR, TOUR_IDLE, TOUR_STEP, TOUR_RESET } from "../catalog/tour.js";
 
 const base = import.meta.env.BASE_URL;
 const wallHex = (id) => (WALLS.find((w) => w.id === id) || WALLS[0]).hex;
@@ -56,6 +58,11 @@ export default function App() {
   const [barOpen, setBarOpen] = useState(true);
   const [gearOpen, setGearOpen] = useState(false);
   const [shareData, setShareData] = useState(null);
+  const [touring, setTouring] = useState(false);
+  const [tourIdx, setTourIdx] = useState(0);
+  const lastAct = useRef(Date.now());
+  const tourRef = useRef(null);
+  const initRef = useRef(null);
   useEffect(() => { try { localStorage.setItem("koshona.mode", mode); } catch {} }, [mode]);
 
   const setModel = (next) => {
@@ -81,7 +88,11 @@ export default function App() {
           if (g.top.code && !list.some((d) => d.code === g.top.code && d.kind === "top")) g.top.code = null;
           return g;
         };
-        setFin((f) => ({ A: fill(f.A), B: fill(f.B) }));
+        setFin((f) => {
+          const next = { A: fill(f.A), B: fill(f.B) };
+          initRef.current ||= { fin: structuredClone(next), model: decodeModel(fromUrl.layout) || TEMPLATES[0].make() };
+          return next;
+        });
       });
   }, []);
 
@@ -112,6 +123,7 @@ export default function App() {
   useEffect(() => {
     if (!v) return;
     const calc = () => {
+      if (touring) { v.setInset(0, 140, 0); return; }
       const W = window.innerWidth, H = window.innerHeight;
       let r = 0, b = 0;
       const item = W <= 800 && document.querySelector(".float");
@@ -132,7 +144,7 @@ export default function App() {
     document.querySelectorAll(".side, .sr-bottom, .float").forEach((e) => ro.observe(e));
     window.addEventListener("resize", calc);
     return () => { ro.disconnect(); window.removeEventListener("resize", calc); };
-  }, [viewerId, mode, panelOpen, selected, sample]);
+  }, [viewerId, mode, panelOpen, selected, sample, touring]);
   useEffect(() => { v?.setSelected(selected); }, [viewerId, selected, model]);
 
   useEffect(() => {
@@ -148,6 +160,63 @@ export default function App() {
   useEffect(() => {
     if (fin.A.lower.code) writeHash({ layout: encodeModel(model), light, A: fin.A, B: fin.B, compare });
   }, [model, light, fin, compare]);
+
+  const tours = useMemo(() => {
+    const has = new Set(decors.map((d) => d.code));
+    return TOUR.filter((t) => ["upper", "lower", "body", "top"].every((k) => has.has(t[k]))).map((t) => {
+      const f = emptyFinish();
+      for (const k of ["upper", "lower", "body", "top"]) f[k] = { ...f[k], code: t[k] };
+      f.wall = t.wall;
+      return f;
+    });
+  }, [decors]);
+  const startTour = () => {
+    if (!v || !tours.length || tourRef.current) return;
+    tourRef.current = { fin, model, compare, open, start: Date.now() };
+    setCompare(false);
+    setOpen(false);
+    setSelected(null);
+    setGearOpen(false);
+    setTourIdx(0);
+    setFin({ A: tours[0], B: tours[0] });
+    setTouring(true);
+    v.setTour(true);
+  };
+  const stopTour = () => {
+    const t = tourRef.current;
+    if (!t) return;
+    tourRef.current = null;
+    lastAct.current = Date.now();
+    v?.setTour(false);
+    setTouring(false);
+    const back = Date.now() - t.start > TOUR_RESET && initRef.current ? { ...initRef.current, compare: false } : t;
+    setModelRaw(back.model);
+    setFin(structuredClone(back.fin));
+    setCompare(back.compare);
+  };
+  useEffect(() => {
+    const act = () => { lastAct.current = Date.now(); };
+    const evs = ["pointerdown", "keydown", "wheel"];
+    evs.forEach((e) => window.addEventListener(e, act, true));
+    return () => evs.forEach((e) => window.removeEventListener(e, act, true));
+  }, []);
+  const idleCheck = useRef(null);
+  idleCheck.current = () => {
+    if (!touring && mode === "showroom" && !shareData && !sample && Date.now() - lastAct.current > TOUR_IDLE) startTour();
+  };
+  useEffect(() => {
+    const id = setInterval(() => idleCheck.current(), 1000);
+    return () => clearInterval(id);
+  }, []);
+  useEffect(() => {
+    if (!touring) return;
+    const id = setInterval(() => setTourIdx((i) => {
+      const n = (i + 1) % tours.length;
+      setFin({ A: tours[n], B: tours[n] });
+      return n;
+    }), TOUR_STEP);
+    return () => clearInterval(id);
+  }, [touring, tours]);
 
   const pickLevel = (id) => {
     if (id === "auto") {
@@ -249,13 +318,13 @@ export default function App() {
     const rows = GROUPS.map((g) => {
       const d = decorOf(fin.A[g.key]?.code);
       if (!d) return g.key === "splash" ? { label: g.label, name: "В цвет стены", sub: (WALLS.find((w) => w.id === fin.A.wall) || WALLS[0]).name } : null;
-      return { label: g.label, name: d.name, sub: [d.supplier, finishOf(d)].filter(Boolean).join(" · ") };
+      return { label: g.label, name: cleanName(d.name), sub: [d.supplier, finishOf(d)].filter(Boolean).join(" · ") };
     }).filter(Boolean);
     setShareData({ shot: v.snapshot(), url: location.href, rows });
   };
 
   return (
-    <div className={"app mode-" + mode + (mode === "editor" && sel && !sample ? " has-item" : "")}>
+    <div className={"app mode-" + mode + (mode === "editor" && sel && !sample ? " has-item" : "") + (touring ? " touring" : "")}>
       <div className="stage">
         <div ref={mountRef} className="canvas" />
         {(mode === "showroom" || tab === "finish") && !open && (
@@ -297,6 +366,7 @@ export default function App() {
           {gearOpen && (
             <div className="gear-p glass">
               <span className="fps">{stats.active ? `${stats.fps} fps` : "пауза"}</span>
+              <button className="q" onClick={startTour}>Тур ▶</button>
               {["auto", "low", "mid", "high"].map((id) => {
                 const on = id === "auto" ? quality.auto : !quality.auto && quality.level === id;
                 return (
@@ -335,6 +405,18 @@ export default function App() {
           />
         )}
 
+        {touring && (
+          <div className="tour-ov" onPointerDown={(e) => { e.preventDefault(); stopTour(); }}>
+            <div className="tour-cap" key={tourIdx}>
+              {["upper", "lower", "top"].map((k) => {
+                const d = decorOf(tours[tourIdx]?.[k]?.code);
+                const n = d && splitName(d.name);
+                return d ? <div key={k}><small>{GROUPS.find((g) => g.key === k).label}</small><b>{n.name} <span>{n.code}</span></b></div> : null;
+              })}
+            </div>
+            <div className="tour-hint">Коснитесь экрана, чтобы подобрать свою кухню</div>
+          </div>
+        )}
         {shareData && <ShareModal {...shareData} base={base} onClose={() => setShareData(null)} />}
 
         {sample && (

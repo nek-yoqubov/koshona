@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Ico } from "./icons.jsx";
+import { splitName } from "./names.js";
 
 const GLOSS = ["hg", "akrilux", "hgmetal", "hgpearl", "metal"];
 
@@ -8,8 +9,8 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
   const strip = useRef(null);
   const scroll = (dir) => strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.8, behavior: "smooth" });
   const label = groups.find((g) => g.key === active)?.label ?? "";
-  const m = current?.name.match(/^(\S+)\s+(.*)$/);
-  const code = m ? m[1] : "", name = m ? m[2] : current?.name ?? "—";
+  const { name: nm, code } = splitName(current?.name);
+  const name = nm || code || "—";
   const fin = finishOf(current);
 
   return (
@@ -28,7 +29,7 @@ export default function Showroom({ groups, active, setActive, list, brands = [],
         <div className="sr-head">
           <div className="sr-title">
             <div className="sr-kicker">{label}{current ? ` · ${current.supplier}` : ""}{fin ? ` · ${fin}` : ""}</div>
-            <div className="sr-name">{name} <span>{code}</span></div>
+            <div className="sr-name">{name} {nm && <span>{code}</span>}</div>
           </div>
           <div className="sr-groups">
             {groups.map((g) => (

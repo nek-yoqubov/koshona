@@ -94,6 +94,15 @@ export function createOrbit(dom, camera, onChange, onTap, frame = { t: 0.384, a:
     setFit(cx, width) { fit.cx = cx; fit.w = width; if (auto) this.setView("overall"); },
     refit() { if (auto) this.setView("overall"); },
     get auto() { return auto; },
+    tourStep(t) {
+      fit.r = fitR();
+      o.theta = 0.42 * Math.sin(t * 0.13);
+      o.phi = 1.33 + 0.07 * Math.sin(t * 0.07);
+      o.r = fit.r * (1.1 + 0.06 * Math.sin(t * 0.05));
+      o.cx = fit.cx;
+      o.cy = VIEWS.overall.cy;
+      apply();
+    },
     dispose() {
       dom.removeEventListener("pointerdown", down);
       dom.removeEventListener("pointermove", move);
