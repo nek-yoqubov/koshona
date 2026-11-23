@@ -121,16 +121,26 @@ export function buildKitchen(plan, mats, level) {
         inner.position.set(0, -h / 2, 0);
         movers.push({ obj: pivot, axis: "x", max: -1.75 });
       } else {
-        // ось у внешнего переднего угла фасада: при 90° фасад остаётся в своей ширине и не заходит на соседей
-        const sx = side === "left" ? -1 : 1;
-        pivot.position.set(cx + (sx * w) / 2, cy, z + 0.01);
-        inner.position.set((-sx * w) / 2, 0, -0.01);
+        // ось петли CLIP top: ~10 мм от кромки внутри толщины фасада. При 90° внутренняя плоскость двери
+        // встаёт заподлицо с внутренней стороной боковины, как у настоящей накладной петли
+        const sx = side === "left" ? -1 : 1, zIn = z - 0.01;
+        pivot.position.set(cx + sx * (w / 2 - 0.01), cy, zIn + 0.007);
+        inner.position.set(-sx * (w / 2 - 0.01), 0, 0.003);
         movers.push({ obj: pivot, axis: "y", max: side === "left" ? -Math.PI / 2 : Math.PI / 2 });
         const n = h > 1.6 ? 4 : h > 0.9 ? 3 : 2;
         for (let i = 0; i < n; i++) {
           const y = -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1);
-          hingeCup(k, inner, sx * (w / 2 - 0.03), y);
-          hingePlate(k, parent, cx + sx * (w / 2 - 0.024), cy + y, z - 0.012, sx);
+          hingeCup(k, inner, sx * (w / 2 - 0.03), y, sx, w);
+          hingePlate(k, parent, cx + sx * (w / 2 - 0.024), cy + y, z - 0.012, sx, cx + (sx * w) / 2, zIn);
+          // звенья шарнира: от конца плеча к чашке
+          for (const dy of [-0.007, 0.007]) {
+            const a = new THREE.Object3D(), b = new THREE.Object3D();
+            a.position.set(cx + sx * (w / 2 - 0.03), cy + y + dy, zIn - 0.004);
+            b.position.set(sx * (w / 2 - 0.034), y + dy, -0.012);
+            parent.add(a);
+            inner.add(b);
+            k.link(parent, a, b, 0.0025, "metal");
+          }
         }
       }
       pivot.add(inner);
@@ -146,6 +156,7 @@ export function buildKitchen(plan, mats, level) {
       return s;
     },
     setSlide(s, dist) { s.userData.mv.slide = dist; },
+    mat(key) { return mats[key]; },
     flat() { return { ...region(), top: true }; },
     need(y) { needTop = Math.max(needTop, y); },
     mover(apply) { movers.push({ apply }); },

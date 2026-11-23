@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { ASSETS } from "../engine/assets.js";
 
 const T = 0.016;
 
@@ -11,14 +12,32 @@ export function carcass(k, g, w, y0, H, d, shelves = 1) {
   for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, y0 + (i * H) / (shelves + 1), (d - 0.04) / 2, "body", k.flat()));
 }
 
-// Петля-шаблон: чашка с фланцем в фасаде + планка с плечом на боковине (видно только при открытии)
-export function hingeCup(k, door, x, y) {
+// Петля CLIP top (настоящая модель Blum): чашка едет с дверью, плечо с планкой остаются на боковине.
+// Канон модели: X — внутрь от кромки двери, Y — вверх, Z — от внутренней плоскости двери (+ в дверь, − вглубь корпуса).
+let hwMat = null;
+const hw = (k) => {
+  if (!hwMat) { hwMat = k.mat("metal").clone(); hwMat.side = THREE.DoubleSide; }
+  return hwMat;
+};
+function part(geo, mat, x, y, z, sx) {
+  const m = new THREE.Mesh(geo, mat);
+  m.position.set(x, y, z);
+  m.scale.x = -sx;
+  return m;
+}
+export function hingeCup(k, door, x, y, sx, w) {
+  if (ASSETS.hingeCup) { door.add(part(ASSETS.hingeCup, hw(k), sx * (w / 2), y, -0.01, sx)); return; }
   const flange = k.cyl(0.023, 0.023, 0.002, "metal", x, y, -0.011);
   const cup = k.cyl(0.0175, 0.0175, 0.008, "metalDark", x, y, -0.006);
   flange.rotation.x = cup.rotation.x = Math.PI / 2;
   door.add(flange, cup);
 }
-export function hingePlate(k, g, x, y, z, sx) {
+export function hingePlate(k, g, x, y, z, sx, edgeX, zInner) {
+  if (ASSETS.hingeArm) {
+    g.add(part(ASSETS.hingeArm, hw(k), edgeX, y, zInner, sx));
+    if (ASSETS.hingePlate) g.add(part(ASSETS.hingePlate, hw(k), edgeX, y, zInner, sx));
+    return;
+  }
   g.add(k.box(0.006, 0.05, 0.034, "metal", x, y, z - 0.03));
   g.add(k.box(0.012, 0.022, 0.05, "metal", x + sx * 0.006, y, z - 0.012));
 }

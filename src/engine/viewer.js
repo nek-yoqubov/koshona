@@ -4,6 +4,7 @@ import { LEVELS, pixelRatioFor, refineRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
 import { createTextures, createGroupMaterials, applyDecor, frontUV, sheetLayout, tileUV, surfaceOn } from "./materials.js";
 import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
+import { loadAssets } from "./assets.js";
 import { toRuns } from "./layout.js";
 import { findGlass, findFrame } from "../catalog/glass.js";
 
@@ -209,11 +210,15 @@ export function createViewer(container, levelId, onStats, onPick) {
     if (sig !== lastA) { lastA = sig; anchorCb(list); }
   };
 
+  let lastModel = null;
+  loadAssets(import.meta.env.BASE_URL).then(() => { if (lastModel) setLayout(lastModel); });
+
   const setLayout = (model) => {
     if (kitchen) {
       scene.remove(kitchen.root);
-      kitchen.root.traverse((o) => o.geometry?.dispose());
+      kitchen.root.traverse((o) => { if (!o.geometry?.userData.shared) o.geometry?.dispose(); });
     }
+    lastModel = model;
     const plan = toRuns(model);
     kitchen = buildKitchen(plan, { ...fixed, ...side.A.mats }, level);
     roomC = (plan.room.left + plan.room.right) / 2000;
@@ -335,6 +340,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
   };
   raf = requestAnimationFrame(loop);
+  if (location.search.includes("debug")) window.__dbg = { setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); } };
 
   return {
     renderer,
