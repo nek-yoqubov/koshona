@@ -1,5 +1,5 @@
 import { section, tallItem, TEMPLATES } from "../catalog/layouts.js";
-import { LIFTS, DRAWERS, byCode } from "../catalog/mechanisms.js";
+import { LIFTS, DRAWERS, DRAWER_TYPES, byCode } from "../catalog/mechanisms.js";
 
 const D = 600, GAP = 600, ISLAND_AISLE = 1100;
 
@@ -41,6 +41,8 @@ const opts = (it) => {
   if (m) o += "m" + m.code;
   if (m2) o += "n" + m2.code;
   if (d) o += "r" + d.code;
+  const dt = DRAWER_TYPES.find((x) => x.id === it.dt);
+  if (dt && dt.id !== "box") o += "t" + dt.code;
   return o;
 };
 
@@ -53,13 +55,14 @@ const decItems = (s) =>
       const m = t.match(/^T(\d+)([a-z])$/);
       return tallItem(+m[1] * 10, Ti[m[2]] || "pantry");
     }
-    const m = t.match(/^(\d+)([a-z])([a-z])((?:[hmnr][a-z0-9])*)$/);
+    const m = t.match(/^(\d+)([a-z])([a-z])((?:[hmnrt][a-z0-9])*)$/);
     const it = section(+m[1] * 10, Bi[m[2]] || "doors", Ui[m[3]] || "doors");
-    for (const [, key, v] of (m[4] || "").matchAll(/([hmnr])([a-z0-9])/g)) {
+    for (const [, key, v] of (m[4] || "").matchAll(/([hmnrt])([a-z0-9])/g)) {
       if (key === "h" && UHi[v]) it.uh = UHi[v];
       if (key === "m") it.um = byCode(LIFTS, v)?.id;
       if (key === "n") it.um2 = byCode(LIFTS, v)?.id;
       if (key === "r") it.dr = byCode(DRAWERS, v)?.id;
+      if (key === "t") it.dt = byCode(DRAWER_TYPES, v)?.id;
     }
     return it;
   });

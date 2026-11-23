@@ -7,8 +7,20 @@ export function carcass(k, g, w, y0, H, d, shelves = 1) {
   const yc = y0 + H / 2;
   g.add(k.box(w - 0.004, H, T, "body", 0, yc, T / 2, "body"));
   for (const sx of [-1, 1]) g.add(k.box(T, H, d, "body", sx * (w / 2 - 0.002 - T / 2), yc, d / 2, "body"));
-  for (const y of [y0 + T / 2, y0 + H - T / 2]) g.add(k.box(w - 0.004 - 2 * T, T, d, "body", 0, y, d / 2, "body"));
-  for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, y0 + (i * H) / (shelves + 1), (d - 0.04) / 2, "body"));
+  for (const y of [y0 + T / 2, y0 + H - T / 2]) g.add(k.box(w - 0.004 - 2 * T, T, d, "body", 0, y, d / 2, "body", k.flat()));
+  for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, y0 + (i * H) / (shelves + 1), (d - 0.04) / 2, "body", k.flat()));
+}
+
+// Петля-шаблон: чашка с фланцем в фасаде + планка с плечом на боковине (видно только при открытии)
+export function hingeCup(k, door, x, y) {
+  const flange = k.cyl(0.023, 0.023, 0.002, "metal", x, y, -0.011);
+  const cup = k.cyl(0.0175, 0.0175, 0.008, "metalDark", x, y, -0.006);
+  flange.rotation.x = cup.rotation.x = Math.PI / 2;
+  door.add(flange, cup);
+}
+export function hingePlate(k, g, x, y, z, sx) {
+  g.add(k.box(0.006, 0.05, 0.034, "metal", x, y, z - 0.03));
+  g.add(k.box(0.012, 0.022, 0.05, "metal", x + sx * 0.006, y, z - 0.012));
 }
 
 const anchor = (parent, x, y, z) => {
@@ -38,11 +50,12 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
     k.mover((e) => { p.rotation.x = -ang * e; p.position.y = top + rise * e; });
     for (const sx of sides) {
       if (mech.motion === "stay") {
-        const mh = Math.min(0.15, H * 0.45);
-        if (caps) g.add(k.box(0.022, mh, 0.13, "mechCap", sx * xm, top - 0.012 - mh / 2, zf - 0.075));
-        const a = anchor(g, sx * xm, top - 0.03, zf - 0.03);
-        const b = anchor(inner, sx * xm, dh / 2 - Math.min(0.13, dh * 0.4), -0.012);
-        k.link(g, a, b, 0.006, mech.hidden ? "frame" : "metal");
+        const big = mech.size === "big";
+        const mh = big ? Math.min(0.17, H * 0.5) : Math.min(0.09, H * 0.3), md = big ? 0.2 : 0.07;
+        if (caps) g.add(k.box(big ? 0.026 : 0.018, mh, md, big ? "metalDark" : "metal", sx * xm, top - 0.012 - mh / 2, zf - 0.02 - md / 2));
+        const a = anchor(g, sx * xm, top - (big ? 0.05 : 0.03), zf - 0.03);
+        const b = anchor(inner, sx * xm, dh / 2 - Math.min(big ? 0.16 : 0.22, dh * 0.5), -0.012);
+        k.link(g, a, b, big ? 0.009 : 0.006, mech.hidden ? "frame" : big ? "metalDark" : "metal");
       } else {
         for (const hx of [-1, 1]) inner.add(k.cyl(0.0175, 0.0175, 0.012, "metal", hx * (dw / 2 - 0.09), dh / 2 - 0.03, -0.016).rotateX(Math.PI / 2));
         const a = anchor(g, sx * xm, y0 + H * 0.32, d * 0.45);
@@ -62,15 +75,15 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
     k.mover((e) => {
       if (par) { p.position.y = yc + (dh + 0.02) * e; p.position.z = z + 0.035 * e; }
       else {
-        // HS: фасад уходит вверх и наклоняется над корпусом; сверху нужно ≈0.88 высоты корпуса (каталог Blum)
-        const s = Math.sin(Math.PI * e), a = 0.45;
-        const yEnd = top + 0.88 * H - (dh / 2) * Math.cos(a), zEnd = z + 0.03 - (dh / 2) * Math.sin(a);
-        p.position.y = yc + (yEnd - yc) * e;
-        p.position.z = z + (zEnd - z) * e + 0.12 * s;
-        p.rotation.x = -a * e - 0.25 * s;
+        // HS: фасад уходит вверх и ложится почти горизонтально над корпусом, выступая вперёд
+        const s = Math.sin(Math.PI * e), a = 1.75;
+        const yEnd = top + 0.2, zEnd = 0.1 + (dh / 2) * Math.sin(a);
+        p.position.y = yc + (yEnd - yc) * e + 0.05 * s;
+        p.position.z = z + (zEnd - z) * e + 0.1 * s;
+        p.rotation.x = -a * e;
       }
     });
-    k.need(top + (par ? dh + 0.02 : 0.88 * H));
+    k.need(top + (par ? dh + 0.02 : 0.2 + (dh / 2) * Math.abs(Math.cos(1.75)) + 0.03));
     const mh = Math.min(0.2, H * 0.55);
     for (const sx of sides) {
       g.add(k.box(0.022, mh, 0.18, "mechCap", sx * xm, top - 0.012 - mh / 2, zf - 0.1));
@@ -102,32 +115,30 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
     for (const sx of sides) {
       g.add(k.box(0.022, mh, 0.2, "mechCap", sx * xm, top - 0.02 - mh / 2, zf - 0.11));
       const a = anchor(g, sx * xm, top - 0.05, zf - 0.05);
-      const b = anchor(p2, sx * xm, -0.12, -0.012);
+      const b = anchor(p1, sx * xm, -h1 * 0.7, -0.012);
       k.link(g, a, b, 0.007, "metal");
     }
   }
 }
 
-// Ящик выбранной системы. s — выдвигаемая группа
+// Ящик: металлические борта (сами борта — механизм), скрытые направляющие (борта ЛДСП, механизм под дном),
+// шариковые (борта ЛДСП, направляющая на боку). s — выдвигаемая группа
 export function drawerBox(k, s, sys, { w, y, fh, D }) {
   const bw = w - 0.06, bh = Math.max(0.06, fh - 0.06), bd = D - 0.08, zc = D - bd / 2, yb = y + 0.02;
-  const sideMat = sys.side === "legra" ? "metalDark" : sys.side === "tandem" ? "metal" : "metalWhite";
+  const ldsp = sys.type !== "box";
   for (const sx of [-1, 1]) {
     const x = sx * (bw / 2);
-    if (sys.side === "meta") {
-      const mh = Math.max(0.05, bh * 0.6);
-      s.add(k.box(0.008, mh, bd, sideMat, x, yb + mh / 2, zc));
-      s.add(k.box(0.024, 0.005, bd, sideMat, x - sx * 0.008, yb + mh, zc));
-    } else if (sys.side === "tandem") {
-      s.add(k.box(0.016, bh - 0.008, bd, sideMat, x, yb + (bh - 0.008) / 2, zc));
-      s.add(k.cyl(0.008, 0.008, bd, sideMat, x, yb + bh - 0.008, zc).rotateX(Math.PI / 2));
+    if (!ldsp) {
+      s.add(k.box(0.014, bh, bd, "metalDark", x, yb + bh / 2, zc));
+      s.add(k.box(0.016, 0.004, bd, "metal", x, yb + bh, zc));
     } else {
-      s.add(k.box(sys.side === "legra" ? 0.0128 : 0.013, bh, bd, sideMat, x, yb + bh / 2, zc));
-      if (sys.side === "merivo") s.add(k.box(0.015, 0.006, bd, "metalDark", x, yb + bh - 0.003, zc));
+      s.add(k.box(0.016, bh, bd, "body", x - sx * 0.008, yb + bh / 2, zc, "body"));
+      if (sys.type === "ball") s.add(k.box(0.012, 0.035, bd, "metal", x + sx * 0.006, yb + bh / 2, zc));
+      else s.add(k.box(0.02, 0.012, bd, "metalDark", x - sx * 0.02, yb - 0.012, zc));
     }
   }
-  s.add(k.box(bw, 0.012, bd, "body", 0, yb, zc, "body"));
-  const backH = sys.side === "meta" ? Math.max(0.05, bh * 0.6) : bh;
-  s.add(k.box(bw, backH, 0.012, sys.side === "meta" ? "body" : sideMat, 0, yb + backH / 2, D - bd + 0.006, sys.side === "meta" ? "body" : null));
+  const iw = ldsp ? bw - 0.032 : bw;
+  s.add(k.box(iw, 0.012, bd, "body", 0, yb, zc, "body", k.flat()));
+  s.add(k.box(iw, bh, 0.016, ldsp ? "body" : "metalDark", 0, yb + bh / 2, D - bd + 0.008, ldsp ? "body" : null));
   return (sys.full ? 0.92 : 0.68) * bd;
 }

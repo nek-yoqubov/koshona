@@ -3,10 +3,10 @@
 // h — допустимая высота корпуса, мм (по данным производителя); null — не ограничено (подбор по весу фасада).
 
 export const LIFTS = [
-  { id: "hk", code: "k", brand: "Blum", name: "AVENTOS HK top", motion: "stay", angle: 1.75, rise: 0.05, h: [180, 600] },
-  { id: "hks", code: "s", brand: "Blum", name: "AVENTOS HK-S", motion: "stay", angle: 1.75, rise: 0.04, h: [180, 600] },
-  { id: "hkxs", code: "x", brand: "Blum", name: "AVENTOS HK-XS", motion: "stay", angle: 1.5, rise: 0.03, h: [240, 600] },
-  { id: "hki", code: "i", brand: "Blum", name: "AVENTOS HKi", motion: "stay", angle: 1.75, rise: 0.05, h: [180, 600], hidden: true },
+  { id: "hk", code: "k", brand: "Blum", name: "AVENTOS HK top", motion: "stay", angle: 1.87, rise: 0.05, size: "big", h: [180, 600] },
+  { id: "hks", code: "s", brand: "Blum", name: "AVENTOS HK-S", motion: "stay", angle: 1.8, rise: 0.03, size: "small", h: [180, 600] },
+  { id: "hkxs", code: "x", brand: "Blum", name: "AVENTOS HK-XS", motion: "stay", angle: 1.6, rise: 0.02, size: "small", h: [240, 600] },
+  { id: "hki", code: "i", brand: "Blum", name: "AVENTOS HKi", motion: "stay", angle: 1.8, rise: 0.04, hidden: true, h: [180, 600] },
   { id: "hl", code: "p", brand: "Blum", name: "AVENTOS HL", motion: "parallel", h: [300, 580] },
   { id: "hs", code: "o", brand: "Blum", name: "AVENTOS HS", motion: "over", h: [350, 800] },
   { id: "hf", code: "f", brand: "Blum", name: "AVENTOS HF", motion: "fold", h: [480, 1040] },
@@ -15,11 +15,26 @@ export const LIFTS = [
   { id: "gtv-mini", code: "m", brand: "GTV", name: "GTV Minilift", motion: "gas", angle: 1.4, h: null },
 ];
 
+// Открывание — то, что видно глазами. Модель — конкретный механизм этого типа.
+export const LIFT_TYPES = [
+  { id: "stay", name: "Откидной" },
+  { id: "parallel", name: "Вверх параллельно" },
+  { id: "over", name: "Вверх над корпусом" },
+  { id: "fold", name: "Складной" },
+];
+export const typeOf = (m) => (m.motion === "gas" ? "stay" : m.motion);
+
+// Ящики визуально бывают трёх видов
+export const DRAWER_TYPES = [
+  { id: "box", code: "b", name: "Металлические борта" },
+  { id: "hidden", code: "h", name: "Скрытые направляющие" },
+  { id: "ball", code: "s", name: "Шариковые направляющие" },
+];
 export const DRAWERS = [
-  { id: "legrabox", code: "a", brand: "Blum", name: "LEGRABOX", side: "legra", full: true },
-  { id: "merivobox", code: "m", brand: "Blum", name: "MERIVOBOX", side: "merivo", full: true },
-  { id: "tandembox", code: "t", brand: "Blum", name: "TANDEMBOX", side: "tandem", full: true },
-  { id: "metabox", code: "b", brand: "Blum", name: "METABOX", side: "meta", full: false },
+  { id: "legrabox", code: "a", brand: "Blum", name: "LEGRABOX", full: true },
+  { id: "merivobox", code: "m", brand: "Blum", name: "MERIVOBOX", full: true },
+  { id: "tandembox", code: "t", brand: "Blum", name: "TANDEMBOX", full: true },
+  { id: "metabox", code: "b", brand: "Blum", name: "METABOX", full: false },
 ];
 
 export const HINGE = { id: "clip-top", name: "Петля CLIP top" };
@@ -37,6 +52,10 @@ export const liftOf = (id, hmm) => {
   const ok = liftsFor(hmm);
   return ok.find((m) => m.id === id) || ok[0];
 };
-export const drawerOf = (id) => DRAWERS.find((d) => d.id === id) || DRAWERS[0];
+export const drawerOf = (dt, id) => {
+  const type = DRAWER_TYPES.find((t) => t.id === dt) || DRAWER_TYPES[0];
+  const model = type.id === "box" ? DRAWERS.find((d) => d.id === id) || DRAWERS[0] : null;
+  return { type: type.id, model, full: model ? model.full : true };
+};
 
 export const byCode = (list, c) => list.find((m) => m.code === c);

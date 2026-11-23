@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { hingeCup, hingePlate } from "../modules/mech.js";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T, TOP_R } from "../modules/index.js";
 
 // Столешница-постформинг: передний край скруглён сверху и снизу, пластик обходит кромку — рисунок идёт через неё
@@ -120,17 +121,16 @@ export function buildKitchen(plan, mats, level) {
         inner.position.set(0, -h / 2, 0);
         movers.push({ obj: pivot, axis: "x", max: -1.75 });
       } else {
+        // ось у внешнего переднего угла фасада: при 90° фасад остаётся в своей ширине и не заходит на соседей
         const sx = side === "left" ? -1 : 1;
-        pivot.position.set(cx + (sx * w) / 2, cy, z);
-        inner.position.set((-sx * w) / 2, 0, 0);
-        movers.push({ obj: pivot, axis: "y", max: side === "left" ? -1.9 : 1.9 });
-        // петля CLIP top: чашка в фасаде + плечо
+        pivot.position.set(cx + (sx * w) / 2, cy, z + 0.01);
+        inner.position.set((-sx * w) / 2, 0, -0.01);
+        movers.push({ obj: pivot, axis: "y", max: side === "left" ? -Math.PI / 2 : Math.PI / 2 });
         const n = h > 1.6 ? 4 : h > 0.9 ? 3 : 2;
         for (let i = 0; i < n; i++) {
           const y = -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1);
-          const cup = k.cyl(0.0175, 0.0175, 0.012, "metal", sx * (w / 2 - 0.0285), y, -0.016);
-          cup.rotation.x = Math.PI / 2;
-          inner.add(cup, k.box(0.03, 0.016, 0.008, "metal", sx * (w / 2 - 0.006), y, -0.024));
+          hingeCup(k, inner, sx * (w / 2 - 0.03), y);
+          hingePlate(k, parent, cx + sx * (w / 2 - 0.024), cy + y, z - 0.012, sx);
         }
       }
       pivot.add(inner);
@@ -146,6 +146,7 @@ export function buildKitchen(plan, mats, level) {
       return s;
     },
     setSlide(s, dist) { s.userData.mv.slide = dist; },
+    flat() { return { ...region(), top: true }; },
     need(y) { needTop = Math.max(needTop, y); },
     mover(apply) { movers.push({ apply }); },
     link(parent, a, b, r, key) {
@@ -214,7 +215,7 @@ export function buildKitchen(plan, mats, level) {
         place(MODULES.tall(k, w, it.tall), run.wall, c, it.id);
         seg = null;
       } else {
-        const g = MODULES.base(k, w, it.base, { dr: it.dr });
+        const g = MODULES.base(k, w, it.base, { dr: it.dr, dt: it.dt });
         if (it.upper && it.upper !== "none") g.add(MODULES.upper(k, w, it.upper, { uh: it.uh, um: it.um, um2: it.um2 }));
         place(g, run.wall, c, it.id);
         if (!seg) segments.push((seg = { from: s, to: s }));
