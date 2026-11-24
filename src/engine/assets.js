@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 // Настоящие модели фурнитуры (Blum, 3D Warehouse), упрощённые и приведённые к своей системе координат.
 // Пока модели не загружены, движок рисует упрощённую замену.
 export const ASSETS = {};
-const LIST = { hingeCup: "hinge_cup", hingeArm: "hinge_arm", hingePlate: "hinge_plate" };
+const LIST = {};
 
 let promise = null;
 export function loadAssets(base) {

@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { ASSETS } from "../engine/assets.js";
 
 const T = 0.016;
 
@@ -12,34 +11,32 @@ export function carcass(k, g, w, y0, H, d, shelves = 1) {
   for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, y0 + (i * H) / (shelves + 1), (d - 0.04) / 2, "body", k.flat()));
 }
 
-// Петля CLIP top (настоящая модель Blum): чашка едет с дверью, плечо с планкой остаются на боковине.
-// Канон модели: X — внутрь от кромки двери, Y — вверх, Z — от внутренней плоскости двери (+ в дверь, − вглубь корпуса).
-let hwMat = null;
-const hw = (k) => {
-  if (!hwMat) { hwMat = k.mat("metal").clone(); hwMat.side = THREE.DoubleSide; }
-  return hwMat;
-};
-function part(geo, mat, x, y, z, sx) {
-  const m = new THREE.Mesh(geo, mat);
-  m.position.set(x, y, z);
-  m.scale.x = -sx;
-  return m;
+// Петля CLIP top по силуэту: чашка Ø35 с накладкой и двумя винтами в фасаде, плечо на планке вдоль боковины.
+// Центр чашки — 22,5 мм от кромки фасада, плечо 13 мм шириной.
+const zAxis = (m) => { m.rotation.x = Math.PI / 2; return m; };
+const xAxis = (m) => { m.rotation.z = Math.PI / 2; return m; };
+export function hingeCup(k, door, sx, w, y) {
+  const cx = sx * (w / 2 - 0.0225), inw = -sx;
+  door.add(zAxis(k.cyl(0.0175, 0.0175, 0.0012, "metal", cx, y, -0.0106)));
+  door.add(zAxis(k.cyl(0.0145, 0.0145, 0.0006, "strut", cx, y, -0.0113)));
+  door.add(k.box(0.016, 0.054, 0.0015, "metal", cx + inw * 0.004, y, -0.0109));
+  for (const dy of [-0.021, 0.021]) door.add(zAxis(k.cyl(0.0035, 0.0035, 0.0012, "strut", cx + inw * 0.004, y + dy, -0.0118)));
+  door.add(k.box(0.011, 0.013, 0.009, "metal", cx, y, -0.0145));
+  const tip = new THREE.Object3D();
+  tip.position.set(cx, y, -0.019);
+  door.add(tip);
+  return tip;
 }
-export function hingeCup(k, door, x, y, sx, w) {
-  if (ASSETS.hingeCup) { door.add(part(ASSETS.hingeCup, hw(k), sx * (w / 2), y, -0.01, sx)); return; }
-  const flange = k.cyl(0.023, 0.023, 0.002, "metal", x, y, -0.011);
-  const cup = k.cyl(0.0175, 0.0175, 0.008, "metalDark", x, y, -0.006);
-  flange.rotation.x = cup.rotation.x = Math.PI / 2;
-  door.add(flange, cup);
-}
-export function hingePlate(k, g, x, y, z, sx, edgeX, zInner) {
-  if (ASSETS.hingeArm) {
-    g.add(part(ASSETS.hingeArm, hw(k), edgeX, y, zInner, sx));
-    if (ASSETS.hingePlate) g.add(part(ASSETS.hingePlate, hw(k), edgeX, y, zInner, sx));
-    return;
-  }
-  g.add(k.box(0.006, 0.05, 0.034, "metal", x, y, z - 0.03));
-  g.add(k.box(0.012, 0.022, 0.05, "metal", x + sx * 0.006, y, z - 0.012));
+export function hingeArm(k, g, sx, edgeX, zIn, y) {
+  const inw = -sx, panel = edgeX - sx * 0.0155;
+  g.add(k.box(0.003, 0.02, 0.042, "metal", panel + inw * 0.0015, y, zIn - 0.04));
+  g.add(k.box(0.011, 0.013, 0.05, "metal", panel + inw * 0.0085, y, zIn - 0.037));
+  g.add(k.box(0.007, 0.013, 0.01, "metal", panel + inw * 0.0095, y, zIn - 0.008));
+  for (const dz of [-0.028, -0.05]) g.add(xAxis(k.cyl(0.0035, 0.0035, 0.0012, "strut", panel + inw * 0.0142, y, zIn + dz)));
+  const end = new THREE.Object3D();
+  end.position.set(panel + inw * 0.0085, y, zIn - 0.006);
+  g.add(end);
+  return end;
 }
 
 const anchor = (parent, x, y, z) => {

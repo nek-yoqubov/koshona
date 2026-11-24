@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { hingeCup, hingePlate } from "../modules/mech.js";
+import { hingeCup, hingeArm } from "../modules/mech.js";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T, TOP_R } from "../modules/index.js";
 
 // Столешница-постформинг: передний край скруглён сверху и снизу, пластик обходит кромку — рисунок идёт через неё
@@ -130,16 +130,15 @@ export function buildKitchen(plan, mats, level) {
         const n = h > 1.6 ? 4 : h > 0.9 ? 3 : 2;
         for (let i = 0; i < n; i++) {
           const y = -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1);
-          hingeCup(k, inner, sx * (w / 2 - 0.03), y, sx, w);
-          hingePlate(k, parent, cx + sx * (w / 2 - 0.024), cy + y, z - 0.012, sx, cx + (sx * w) / 2, zIn);
-          // звенья шарнира: от конца плеча к чашке
-          for (const dy of [-0.007, 0.007]) {
+          const tip = hingeCup(k, inner, sx, w, y);
+          const end = hingeArm(k, parent, sx, cx + (sx * w) / 2, zIn, cy + y);
+          for (const dy of [-0.0045, 0.0045]) {
             const a = new THREE.Object3D(), b = new THREE.Object3D();
-            a.position.set(cx + sx * (w / 2 - 0.03), cy + y + dy, zIn - 0.004);
-            b.position.set(sx * (w / 2 - 0.034), y + dy, -0.012);
+            a.position.copy(end.position).setY(end.position.y + dy);
+            b.position.copy(tip.position).setY(tip.position.y + dy);
             parent.add(a);
             inner.add(b);
-            k.link(parent, a, b, 0.0025, "metal");
+            k.link(parent, a, b, 0.0028, "metal");
           }
         }
       }
