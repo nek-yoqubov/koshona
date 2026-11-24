@@ -4,7 +4,7 @@ import { toCreasedNormals } from "three/examples/jsm/utils/BufferGeometryUtils.j
 // Официальные модели фурнитуры Blum (tools/build-hardware.py). ASSETS[файл][деталь] = геометрия.
 // Пока файл не загружен, движок рисует упрощённую замену и перестраивает сцену после загрузки.
 export const ASSETS = {};
-const FILES = { hkTop: "hk_top", frontFix: "front_fix", clipTop: "clip_top" };
+const FILES = { hkTop: "hk_top", frontFix: "front_fix", clipTop: "clip_top", hsTop: "hs_top" };
 
 let promise = null;
 export function loadAssets(base) {
@@ -17,7 +17,8 @@ export function loadAssets(base) {
         g.scene.updateMatrixWorld(true);
         g.scene.traverse((o) => {
           if (!o.isMesh) return;
-          const geo = toCreasedNormals(o.geometry.clone().applyMatrix4(o.matrixWorld), 0.6);
+          const src = o.geometry.clone().applyMatrix4(o.matrixWorld);
+          const geo = src.attributes.normal ? src : toCreasedNormals(src, 0.6);
           geo.userData.shared = true;
           parts[o.name] = geo;
         });

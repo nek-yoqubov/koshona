@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Фурнитура Blum из официальных моделей (3D Warehouse, Blum USA, Collada) -> public/models/*.glb.
 Детали остаются отдельными (для кинематики), вершины свариваются, нормали считает движок (с изломом по углу).
+Исходники лежат в raw/hardware (в репозиторий не выкладываются — чужие файлы):
+  *.dae — модели Blum USA с 3D Warehouse; antarion/*.fr3d — библиотека Blum для Базиса от Antarion.
 Запуск: python3 -I tools/build-hardware.py
 """
 import os, sys, numpy as np, trimesh
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import bazis
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC, OUT = os.path.join(ROOT, "raw/hardware"), os.path.join(ROOT, "public/models")
@@ -69,4 +73,40 @@ save("clip_top", {
     "cup": group(hg, ["ID128", "ID136", "ID144", "ID152", "ID162", "ID31", "ID170"], hinge, dec),
     "arm": group(hg, ["ID53", "ID20", "ID8", "ID61", "ID69", "ID77"], hinge, dec),
     "plate": group(pl, ["ID19", "ID27", "ID35", "ID5"], hinge),
+})
+
+
+# ---- Библиотека Blum для Базиса (Antarion, .fr3d): сетки с нормалями, координаты шкафа:
+# X — от внутренней стороны левой боковины, Y — вверх от внутренней стороны крышки, Z — к фасаду (0 = внутренняя плоскость фасада)
+def fr_left(name):
+    out = []
+    for m in bazis.meshes(os.path.join(SRC, "antarion", name + ".fr3d")):
+        v = m["tris"].reshape(-1, 3)
+        if v[:, 0].mean() < 150:
+            m["n"], m["cen"] = len(m["tris"]), v.mean(0)
+            out.append(m)
+    return out
+
+def fr_group(ms):
+    v = np.concatenate([m["tris"].reshape(-1, 3) for m in ms]) / 1000.0
+    n = np.concatenate([m["nor"].reshape(-1, 3) for m in ms])
+    key = np.round(np.c_[v * 1e5, n * 100]).astype(np.int64)
+    _, idx, inv = np.unique(key, axis=0, return_index=True, return_inverse=True)
+    mesh = trimesh.Trimesh(vertices=v[idx], faces=inv.reshape(-1, 3), vertex_normals=n[idx], process=False)
+    mesh.visual = trimesh.visual.ColorVisuals(mesh)
+    return mesh
+
+# AVENTOS HS top: корпус, заглушка, два рычага и каретка с креплением фасада
+mech, arms, caps = fr_left("hs_mech"), fr_left("hs_arms"), fr_left("hs_caps")
+pick = lambda ms, f: [m for m in ms if f(m)]
+save("hs_top", {
+    "body": fr_group(pick(mech, lambda m: m["mat"] == "grau_220")),
+    "bodyDark": fr_group(pick(mech, lambda m: m["mat"] != "grau_220")),
+    "cover": fr_group(pick(caps, lambda m: m["mat"] == "grau_220")),
+    "logo": fr_group(pick(caps, lambda m: m["mat"] != "grau_220")),
+    "lever1": fr_group(pick(arms, lambda m: m["n"] in (1020, 128))),
+    "lever2": fr_group(pick(arms, lambda m: m["n"] == 528)),
+    "carrier": fr_group(pick(arms, lambda m: m["mat"] in ("grau_220", "__3_dunkelgrau") and m["n"] not in (1020, 128, 528))),
+    "tab": fr_group(pick(arms, lambda m: "orange" in m["mat"])),
+    "bracket": fr_group(pick(arms, lambda m: m["mat"] == "Noname")),
 })

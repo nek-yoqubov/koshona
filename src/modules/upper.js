@@ -24,12 +24,12 @@ function vitrine(k, g, w, y0, H) {
 }
 
 // Один ярус верхнего шкафа: y0 — низ, H — высота (м)
-function tier(k, g, w, variant, y0, H, mechId) {
+function tier(k, g, w, variant, y0, H, mechId, under = false) {
   const z = UP_D + 0.01;
   if (variant === "glass") return vitrine(k, g, w, y0, H);
   if (variant === "lift") {
     carcass(k, g, w, y0, H, UP_D - 0.002, H > 0.7 ? 2 : 1);
-    liftFront(k, g, liftOf(mechId, Math.round(H * 1000)), { w, y0, H, d: UP_D - 0.002, z, key: "upper" });
+    liftFront(k, g, liftOf(mechId, Math.round(H * 1000), under), { w, y0, H, d: UP_D - 0.002, z, key: "upper" });
     return;
   }
   carcass(k, g, w, y0, H, UP_D - 0.002, H > 0.7 ? 2 : 1);
@@ -51,7 +51,7 @@ export function upper(k, w, variant, opt = {}) {
   const uh = opt.uh ?? 950;
   if (uh === "a") {
     const lo = TIER_LOW / 1000, hi = TIER_TOP / 1000;
-    tier(k, g, w, variant, UP_Y0, lo, opt.um);
+    tier(k, g, w, variant, UP_Y0, lo, opt.um, true);
     tier(k, g, w, "lift", UP_Y0 + lo, hi, opt.um2);
   } else {
     tier(k, g, w, variant, UP_Y0, uh === 720 ? 0.72 : full, opt.um);

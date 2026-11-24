@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { ASSETS } from "../engine/assets.js";
 import { HK, HK_REF, hkPose } from "./hkTop.js";
+import { fourBar } from "./linkage.js";
 
 const T = 0.016;
 
@@ -46,43 +47,71 @@ const anchor = (parent, x, y, z) => {
   return o;
 };
 
+// Пара зеркальных деталей механизма на левой и правой боковине (геометрия: X — от боковины внутрь)
+function twin(k, px, geo, mat, to, yy = 0, zz = 0) {
+  for (const sx of [-1, 1]) {
+    const m = new THREE.Mesh(geo, k.mat(mat));
+    m.position.set(sx * px, yy, zz);
+    m.scale.x = -sx;
+    to.add(k.hw(m));
+  }
+}
+// Ставит деталь в позу [угол, f, u]; ref — её опорная точка в закрытом положении (мм), (oy, oz) — начало механизма
+function placePart(o, [a, f, u], [f0, u0], oy, oz) {
+  const c = Math.cos(a), s = Math.sin(a);
+  o.rotation.x = -a;
+  o.position.y = oy + (u - (f0 * s + u0 * c)) / 1000;
+  o.position.z = oz + (f - (f0 * c - u0 * s)) / 1000;
+}
+
+// AVENTOS HS top — сетки из библиотеки Blum для Базиса (Antarion), оси рычагов сняты с них же.
+// Четырёхзвенник: фасад на каретке уходит вверх и ложится над корпусом под 15° к горизонту.
+// Начало: X — внутренняя сторона боковины, Y — внутренняя сторона крышки, Z — внутренняя плоскость фасада.
+const HS = fourBar({ A1: [-42.0, -53.2], A2: [-14.35, -46.61], B1: [-112.24, -206.18], B2: [-65.77, -205.92], open: 2.62 });
+function hsTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
+  const A = ASSETS.hsTop, oy = y0 + H - T, oz = z - 0.01, px = w / 2 - 0.002 - T;
+  const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
+  const body = grp(), parts = { lever1: grp(), lever2: grp(), carrier: grp() };
+  twin(k, px, A.body, "metal", body);
+  twin(k, px, A.bodyDark, "metalDark", body);
+  twin(k, px, A.cover, "mechCap", body);
+  twin(k, px, A.logo, "strut", body);
+  twin(k, px, A.lever1, "metal", parts.lever1);
+  twin(k, px, A.lever2, "metal", parts.lever2);
+  twin(k, px, A.carrier, "metal", parts.carrier);
+  twin(k, px, A.tab, "blumOrange", parts.carrier);
+  twin(k, px, A.bracket, "metalDark", parts.carrier);
+  parts.carrier.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
+  k.mover((e) => { for (const n in parts) placePart(parts[n], HS.pose(n, e), HS.ref[n], oy, oz); });
+  // наибольшая высота фасада за всё движение
+  const [f0, u0] = HS.ref.carrier, ut = (T - 0.003) * 1000;
+  let top = 0;
+  for (let i = 0; i <= 20; i++) {
+    const [a, , u] = HS.pose("carrier", i / 20);
+    for (const f of [0, 20]) for (const uu of [ut, ut - dh * 1000]) top = Math.max(top, u + (f - f0) * Math.sin(a) + (uu - u0) * Math.cos(a));
+  }
+  k.need(oy + top / 1000 + 0.02);
+}
+
 // AVENTOS HK top 22K2300 — официальная модель Blum, движение по её же осям (шестизвенник, hkTop.js).
 // Фасад жёстко сидит на рычаге: уходит вперёд и вверх, верхняя кромка не поднимается над корпусом.
 function hkTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
   const A = ASSETS.hkTop;
   const oy = y0 + H - T - 0.003 - HK.top / 1000, oz = z - 0.01 - HK.fin / 1000;
   const px = w / 2 - 0.002 - T;
-  const twin = (geo, mat, to, yy = 0, zz = 0) => {
-    for (const sx of [-1, 1]) {
-      const m = new THREE.Mesh(geo, k.mat(mat));
-      m.position.set(sx * px, yy, zz);
-      m.scale.x = -sx;
-      m.castShadow = false;
-      to.add(k.hw(m));
-    }
-  };
   const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
-  twin(A.body, "mechCap", grp());
+  twin(k, px, A.body, "mechCap", grp());
   const parts = { A: grp(), B: grp(), C: grp(), D: grp(), arm: grp() };
-  twin(A.leverA, "metal", parts.A);
-  twin(A.linkB, "metal", parts.B);
-  twin(A.linkC, "metal", parts.C);
-  twin(A.linkD, "metal", parts.D);
-  twin(A.arm, "metal", parts.arm);
-  twin(A.tab, "blumOrange", parts.arm);
-  twin(ASSETS.frontFix.bracket, "metalDark", parts.arm, -0.072, HK.fin / 1000);
+  twin(k, px, A.leverA, "metal", parts.A);
+  twin(k, px, A.linkB, "metal", parts.B);
+  twin(k, px, A.linkC, "metal", parts.C);
+  twin(k, px, A.linkD, "metal", parts.D);
+  twin(k, px, A.arm, "metal", parts.arm);
+  twin(k, px, A.tab, "blumOrange", parts.arm);
+  twin(k, px, ASSETS.frontFix.bracket, "metalDark", parts.arm, -0.072, HK.fin / 1000);
   parts.arm.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
 
-  const place = (e) => {
-    for (const name in parts) {
-      const [a, f, u] = hkPose(name, e), [f0, u0] = HK_REF[name], c = Math.cos(a), s = Math.sin(a);
-      const o = parts[name];
-      o.rotation.x = -a;
-      o.position.y = oy + (u - (f0 * s + u0 * c)) / 1000;
-      o.position.z = oz + (f - (f0 * c - u0 * s)) / 1000;
-    }
-  };
-  k.mover(place);
+  k.mover((e) => { for (const n in parts) placePart(parts[n], hkPose(n, e), HK_REF[n], oy, oz); });
   // насколько нижняя кромка открытого фасада поднимается над корпусом
   const [a1, , u1] = hkPose("arm", 1);
   const bf = HK.fin + 20 - HK.P1[0], bu = (y0 + 0.003 - oy) * 1000 - HK.P1[1];
@@ -98,6 +127,7 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
   const sides = [-1, 1];
 
   if (mech.id === "hk" && ASSETS.hkTop && ASSETS.frontFix) return hkTop(k, g, { w, y0, H, z, key, dw, dh, yc });
+  if (mech.id === "hs" && ASSETS.hsTop) return hsTop(k, g, { w, y0, H, z, key, dw, dh, yc });
 
   if (mech.motion === "stay" || mech.motion === "gas") {
     const p = new THREE.Group(), inner = new THREE.Group();

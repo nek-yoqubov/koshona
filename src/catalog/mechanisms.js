@@ -47,9 +47,9 @@ export const UPPER_HEIGHTS = [
 ];
 export const TIER_LOW = 590, TIER_TOP = 360;
 
-export const liftsFor = (hmm) => LIFTS.filter((m) => !m.h || (hmm >= m.h[0] && hmm <= m.h[1]));
-export const liftOf = (id, hmm) => {
-  const ok = liftsFor(hmm);
+export const liftsFor = (hmm, under = false) => LIFTS.filter((m) => (!m.h || (hmm >= m.h[0] && hmm <= m.h[1])) && !(under && m.motion === "over"));
+export const liftOf = (id, hmm, under = false) => {
+  const ok = liftsFor(hmm, under);
   return ok.find((m) => m.id === id) || ok[0];
 };
 export const drawerOf = (dt, id) => {

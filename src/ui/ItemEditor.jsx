@@ -37,8 +37,8 @@ function Models({ list, value, onPick }) {
   );
 }
 
-function LiftPick({ label, h, value, onPick }) {
-  const ok = liftsFor(h), cur = liftOf(value, h), type = typeOf(cur);
+function LiftPick({ label, h, value, onPick, under = false }) {
+  const ok = liftsFor(h, under), cur = liftOf(value, h, under), type = typeOf(cur);
   return (
     <>
       <div className="lbl">{label} · корпус {h} мм</div>
@@ -110,7 +110,7 @@ export default function ItemEditor({ it, onChange, onMove, onDuplicate, onRemove
             </>
           )}
           {it.upper === "lift" && (
-            <LiftPick label="Подъёмник" h={it.uh === "a" ? TIER_LOW : it.uh === 720 ? 720 : 950} value={it.um} onPick={(um) => onChange({ um })} />
+            <LiftPick label="Подъёмник" h={it.uh === "a" ? TIER_LOW : it.uh === 720 ? 720 : 950} value={it.um} under={it.uh === "a"} onPick={(um) => onChange({ um })} />
           )}
           {["doors", "glass", "lift"].includes(it.upper) && it.uh === "a" && (
             <LiftPick label="Антресоль" h={TIER_TOP} value={it.um2} onPick={(um2) => onChange({ um2 })} />

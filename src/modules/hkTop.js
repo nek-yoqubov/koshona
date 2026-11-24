@@ -1,3 +1,5 @@
+import { sub, len, ang, rot, circles, wrap, poser } from "./linkage.js";
+
 // Кинематика AVENTOS HK top (22K2300): шестизвенник, оси сняты с официальной модели Blum.
 // Плоскость механизма: f — к фасаду, u — вверх, мм; начало — начало координат модели.
 const G1 = [-16.0, 2.0], G2 = [25.0, 8.2];
@@ -10,22 +12,6 @@ export const HK = {
   angle: (107 * Math.PI) / 180,
   P1,
 };
-
-const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
-const len = (a) => Math.hypot(a[0], a[1]);
-const ang = (a) => Math.atan2(a[1], a[0]);
-const rot = (p, c, a) => {
-  const s = Math.sin(a), k = Math.cos(a), d = sub(p, c);
-  return [c[0] + d[0] * k - d[1] * s, c[1] + d[0] * s + d[1] * k];
-};
-function circles(c1, r1, c2, r2, prev) {
-  const d = sub(c2, c1), L = len(d), a = (r1 * r1 - r2 * r2 + L * L) / (2 * L);
-  const h = Math.sqrt(Math.max(0, r1 * r1 - a * a));
-  const m = [c1[0] + (a * d[0]) / L, c1[1] + (a * d[1]) / L], n = [-d[1] / L, d[0] / L];
-  const x = [m[0] + h * n[0], m[1] + h * n[1]], y = [m[0] - h * n[0], m[1] - h * n[1]];
-  return len(sub(x, prev)) < len(sub(y, prev)) ? x : y;
-}
-const wrap = (a, ref) => { while (a - ref > Math.PI) a -= 2 * Math.PI; while (a - ref < -Math.PI) a += 2 * Math.PI; return a; };
 
 // Таблица поз: каждая деталь = [угол, f, u] — поворот и положение своей опорной точки
 const N = 96;
@@ -48,9 +34,4 @@ const TABLE = [];
 }
 export const HK_REF = { A: G1, B: G2, C: Q1, D: Q2, arm: P1 };
 
-// e: 0..1 -> поза детали [угол, f, u]
-export function hkPose(part, e) {
-  const t = Math.min(1, Math.max(0, e)) * N, i = Math.min(N - 1, Math.floor(t)), k = t - i;
-  const a = TABLE[i][part], b = TABLE[i + 1][part];
-  return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k];
-}
+export const hkPose = poser(TABLE);
