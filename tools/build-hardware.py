@@ -39,6 +39,7 @@ def save(name, groups):
     sc = trimesh.Scene()
     n = 0
     for key, m in groups.items():
+
         sc.add_geometry(m, node_name=key, geom_name=key)
         n += len(m.faces)
     path = os.path.join(OUT, name + ".glb")
@@ -46,6 +47,49 @@ def save(name, groups):
     print(f"{name}: {n} треугольников, {os.path.getsize(path) // 1024} КБ")
 
 os.makedirs(OUT, exist_ok=True)
+
+def fr_left(name):
+    out = []
+    for m in bazis.meshes(os.path.join(SRC, "antarion", name + ".fr3d")):
+        v = m["tris"].reshape(-1, 3)
+        if v[:, 0].mean() < 150:
+            m["n"], m["cen"] = len(m["tris"]), v.mean(0)
+            out.append(m)
+    return out
+
+def fr_group(ms):
+    v = np.concatenate([m["tris"].reshape(-1, 3) for m in ms]) / 1000.0
+    n = np.concatenate([m["nor"].reshape(-1, 3) for m in ms])
+    key = np.round(np.c_[v * 1e5, n * 100]).astype(np.int64)
+    _, idx, inv = np.unique(key, axis=0, return_index=True, return_inverse=True)
+    mesh = trimesh.Trimesh(vertices=v[idx], faces=inv.reshape(-1, 3), vertex_normals=n[idx], process=False)
+    mesh.visual = trimesh.visual.ColorVisuals(mesh)
+    return mesh
+
+def fr_parts(name):
+    out = []
+    for m in bazis.meshes(os.path.join(SRC, "antarion", name + ".fr3d")):
+        lab = bazis.components(m["tris"])
+        for c in range(lab.max() + 1):
+            sel = lab == c
+            v = m["tris"][sel].reshape(-1, 3)
+            out.append(dict(tris=m["tris"][sel], nor=m["nor"][sel], mat=m["mat"], n=int(sel.sum()), lo=v.min(0), hi=v.max(0)))
+    return out
+
+def rebase(ms, px, py):
+    out = []
+    for m in ms:
+        t, n = m["tris"], m["nor"]
+        out.append(dict(tris=np.stack([t[..., 2], t[..., 1] - py, -(t[..., 0] - px)], -1), nor=np.stack([n[..., 2], n[..., 1], -n[..., 0]], -1)))
+    return out
+
+def hk_cover():
+    # заглушка HK top из комплекта Antarion -> в систему механизма (Y + 47,8; Z + 33,15)
+    ms = [m for m in fr_parts("hk_caps") if (m["lo"][0] + m["hi"][0]) / 2 < 150]
+    for m in ms:
+        m["tris"] = m["tris"] + np.array([0, 47.8, 33.15])
+    return fr_group(ms)
+
 
 # AVENTOS HK top 22K2300. Система механизма: X — от боковины внутрь, Y — вверх, Z — к фасаду (мм модели: x, z, -y)
 hk = load("22K2300")
@@ -58,6 +102,7 @@ save("hk_top", {
     "linkD": group(hk, ["ID46", "ID70", "ID38"], mech),
     "arm": group(hk, ["ID322", "ID338", "ID402", "ID386", "ID394", "ID346", "ID330", "ID354", "ID362", "ID378", "ID410"], mech),
     "tab": group(hk, ["ID306"], mech),
+    "cover": hk_cover(),
 })
 
 # Крепление фасада 20S4200: основание на внутренней стороне фасада (y = -38 мм модели), Z — к фасаду
@@ -78,24 +123,6 @@ save("clip_top", {
 
 # ---- Библиотека Blum для Базиса (Antarion, .fr3d): сетки с нормалями, координаты шкафа:
 # X — от внутренней стороны левой боковины, Y — вверх от внутренней стороны крышки, Z — к фасаду (0 = внутренняя плоскость фасада)
-def fr_left(name):
-    out = []
-    for m in bazis.meshes(os.path.join(SRC, "antarion", name + ".fr3d")):
-        v = m["tris"].reshape(-1, 3)
-        if v[:, 0].mean() < 150:
-            m["n"], m["cen"] = len(m["tris"]), v.mean(0)
-            out.append(m)
-    return out
-
-def fr_group(ms):
-    v = np.concatenate([m["tris"].reshape(-1, 3) for m in ms]) / 1000.0
-    n = np.concatenate([m["nor"].reshape(-1, 3) for m in ms])
-    key = np.round(np.c_[v * 1e5, n * 100]).astype(np.int64)
-    _, idx, inv = np.unique(key, axis=0, return_index=True, return_inverse=True)
-    mesh = trimesh.Trimesh(vertices=v[idx], faces=inv.reshape(-1, 3), vertex_normals=n[idx], process=False)
-    mesh.visual = trimesh.visual.ColorVisuals(mesh)
-    return mesh
-
 # AVENTOS HS top: корпус, заглушка, два рычага и каретка с креплением фасада
 mech, arms, caps = fr_left("hs_mech"), fr_left("hs_arms"), fr_left("hs_caps")
 pick = lambda ms, f: [m for m in ms if f(m)]
@@ -114,23 +141,6 @@ save("hs_top", {
 
 # AVENTOS HF top: одиночные детали (не комплект), у каждой свои координаты: X — вглубь корпуса, Y — вверх, Z — от боковины.
 # Корпус, заглушка и внутренняя штанга — относительно оси механизма; труба и головка — относительно оси на нижнем фасаде.
-def fr_parts(name):
-    out = []
-    for m in bazis.meshes(os.path.join(SRC, "antarion", name + ".fr3d")):
-        lab = bazis.components(m["tris"])
-        for c in range(lab.max() + 1):
-            sel = lab == c
-            v = m["tris"][sel].reshape(-1, 3)
-            out.append(dict(tris=m["tris"][sel], nor=m["nor"][sel], mat=m["mat"], n=int(sel.sum()), lo=v.min(0), hi=v.max(0)))
-    return out
-
-def rebase(ms, px, py):
-    out = []
-    for m in ms:
-        t, n = m["tris"], m["nor"]
-        out.append(dict(tris=np.stack([t[..., 2], t[..., 1] - py, -(t[..., 0] - px)], -1), nor=np.stack([n[..., 2], n[..., 1], -n[..., 0]], -1)))
-    return out
-
 M_AXIS, F_AXIS = (11.07, -159.17), (6.18, -166.41)
 mech, arm, cap = fr_parts("hf_mech"), fr_parts("hf_arm"), fr_parts("top_cap")
 is_tube = lambda m: m["mat"] != "Noname" and (m["n"] == 652 or m["hi"][1] > -100)
@@ -155,4 +165,12 @@ save("hl_top", {
     "lever2": fr_group(pick(arms, lambda m: m["mat"] == "grau_220" and m["n"] > 1400 and m["n"] < 1500)),
     "carrier": fr_group(pick(arms, lambda m: (m["mat"] == "grau_220" and m["n"] not in range(1200, 1500)) or (m["mat"] == "__3_dunkelgrau" and cy(m) <= -150))),
     "bracket": fr_group(pick(arms, lambda m: m["mat"] == "Noname")),
+})
+
+
+# AVENTOS HK-S: рычаг и заглушка в координатах шкафа (корпус под заглушкой не виден — не берём)
+kit, caps = left(fr_parts("hks_kit")), left(fr_parts("hks_caps"))
+save("hks_top", {
+    "arm": fr_group(pick(kit, lambda m: 4000 < m["n"] < 5000)),
+    "cover": fr_group(caps),
 })

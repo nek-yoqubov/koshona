@@ -3,13 +3,13 @@
 // h — допустимая высота корпуса, мм (по данным производителя); null — не ограничено (подбор по весу фасада).
 
 export const LIFTS = [
-  { id: "hk", code: "k", brand: "Blum", name: "AVENTOS HK top", motion: "stay", angle: 1.87, rise: 0.05, size: "big", h: [180, 600] },
-  { id: "hks", code: "s", brand: "Blum", name: "AVENTOS HK-S", motion: "stay", angle: 1.8, rise: 0.03, size: "small", h: [180, 600] },
+  { id: "hk", assets: ["hkTop", "frontFix"], code: "k", brand: "Blum", name: "AVENTOS HK top", motion: "stay", angle: 1.87, rise: 0.05, size: "big", h: [180, 600] },
+  { id: "hks", assets: ["hksTop"], code: "s", brand: "Blum", name: "AVENTOS HK-S", motion: "stay", angle: 1.8, rise: 0.03, size: "small", h: [180, 600] },
   { id: "hkxs", code: "x", brand: "Blum", name: "AVENTOS HK-XS", motion: "stay", angle: 1.75, rise: 0.02, size: "small", h: [240, 600] },
   { id: "hki", code: "i", brand: "Blum", name: "AVENTOS HKi", motion: "stay", angle: 1.8, rise: 0.04, hidden: true, h: [180, 600] },
-  { id: "hl", code: "p", brand: "Blum", name: "AVENTOS HL", motion: "parallel", h: [300, 580] },
-  { id: "hs", code: "o", brand: "Blum", name: "AVENTOS HS", motion: "over", h: [350, 800] },
-  { id: "hf", code: "f", brand: "Blum", name: "AVENTOS HF", motion: "fold", h: [480, 1040] },
+  { id: "hl", assets: ["hlTop", "hsTop"], code: "p", brand: "Blum", name: "AVENTOS HL", motion: "parallel", h: [300, 580] },
+  { id: "hs", assets: ["hsTop"], code: "o", brand: "Blum", name: "AVENTOS HS", motion: "over", h: [350, 800] },
+  { id: "hf", assets: ["hfTop"], code: "f", brand: "Blum", name: "AVENTOS HF", motion: "fold", h: [480, 1040] },
   { id: "gtv-gas", code: "g", brand: "GTV", name: "GTV газлифт", motion: "gas", angle: 1.57, h: null },
   { id: "gtv-neo", code: "n", brand: "GTV", name: "GTV NEO", motion: "gas", angle: 1.57, h: null },
   { id: "gtv-mini", code: "m", brand: "GTV", name: "GTV Minilift", motion: "gas", angle: 1.4, h: null },
@@ -59,3 +59,17 @@ export const drawerOf = (dt, id) => {
 };
 
 export const byCode = (list, c) => list.find((m) => m.code === c);
+
+// какие 3D-модели фурнитуры нужны этой кухне (грузим только их)
+export function assetsFor(model) {
+  const need = new Set(["clipTop"]);
+  const add = (m) => m?.assets?.forEach((a) => need.add(a));
+  for (const it of [...(model.main || []), ...(model.side || [])]) {
+    if (it.kind !== "section" || !["doors", "glass", "lift"].includes(it.upper)) continue;
+    if (it.uh === "a") {
+      add(liftOf(it.um2, TIER_TOP));
+      if (it.upper === "lift") add(liftOf(it.um, TIER_LOW, true));
+    } else if (it.upper === "lift") add(liftOf(it.um, it.uh === 720 ? 720 : 950));
+  }
+  return [...need];
+}

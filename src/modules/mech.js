@@ -20,7 +20,7 @@ export function carcass(k, g, w, y0, H, d, shelves = 1) {
 // dp, bp — одна и та же точка (опорная панель × плоскость двери) в координатах двери и корпуса;
 // rz поворачивает петлю (для фасада на верхней панели), mx зеркалит её для правой стороны.
 export const PANEL_IN = 0.015; // от кромки двери до внутренней стороны боковины
-export function hinge(k, door, parent, { dp, bp, rz = 0, mx = 1 }) {
+export function hinge(k, door, parent, { dp, bp, rz = 0, mx = 1, flatOn = false }) {
   const A = ASSETS.clipTop;
   if (!A) return;
   const holder = (to, p) => {
@@ -32,13 +32,15 @@ export function hinge(k, door, parent, { dp, bp, rz = 0, mx = 1 }) {
     return o;
   };
   const hd = holder(door, dp), hb = holder(parent, bp);
+  // средняя петля складного фасада: плечо лежит на внутренней стороне соседнего фасада, носиком к чашке
+  if (flatOn) hb.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(0, 0, -1), new THREE.Vector3(-1, 0, 0), new THREE.Vector3(0, 1, 0)));
   const put = (geo, mat, to) => to.add(k.hw(new THREE.Mesh(geo, k.mat(mat))));
   put(A.cup, "metal", hd);
   const bowl = k.cyl(0.0165, 0.0165, 0.0004, "strut", 0.00605, 0, -0.0003);
   bowl.rotation.x = Math.PI / 2;
   hd.add(k.hw(bowl));
   put(A.arm, "metal", hb);
-  put(A.plate, "mechCap", hb);
+  put(A.plate, "metal", hb);
   const axis = rz ? new THREE.Vector3(1, 0, 0) : new THREE.Vector3(0, 1, 0);
   k.hw(k.link(parent, anchor(hb, 0.0115, 0, 0.003), anchor(hd, 0.006, 0, -0.0008), 0, "metal", [0.0022, 0.0075, axis]));
 }
@@ -77,7 +79,7 @@ function barLift(k, g, A, bar, { w, y0, H, z, key, dw, dh, yc }) {
   const add = (name, mat, to) => A[name] && twin(k, px, A[name], mat, to);
   add("body", "metal", body);
   add("bodyDark", "metalDark", body);
-  add("cover", "mechCap", body);
+  add("cover", "cap", body);
   add("logo", "strut", body);
   add("lever1", "metal", parts.lever1);
   add("lever2", "metal", parts.lever2);
@@ -142,10 +144,12 @@ function flap(k, g, mech, { w, y0, H, z, key, dw, dh }) {
 // Фасад жёстко сидит на рычаге: уходит вперёд и вверх, верхняя кромка не поднимается над корпусом.
 function hkTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
   const A = ASSETS.hkTop;
-  const oy = y0 + H - T - 0.003 - HK.top / 1000, oz = z - 0.01 - HK.fin / 1000;
+  const oy = y0 + H - T - HK.top / 1000, oz = z - 0.01 - HK.fin / 1000;
   const px = w / 2 - 0.002 - T;
   const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
-  twin(k, px, A.body, "mechCap", grp());
+  const body = grp();
+  twin(k, px, A.body, "metal", body);
+  twin(k, px, A.cover, "cap", body);
   const parts = { A: grp(), B: grp(), C: grp(), D: grp(), arm: grp() };
   twin(k, px, A.leverA, "metal", parts.A);
   twin(k, px, A.linkB, "metal", parts.B);
@@ -153,7 +157,7 @@ function hkTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
   twin(k, px, A.linkD, "metal", parts.D);
   twin(k, px, A.arm, "metal", parts.arm);
   twin(k, px, A.tab, "blumOrange", parts.arm);
-  twin(k, px, ASSETS.frontFix.bracket, "metalDark", parts.arm, -0.072, HK.fin / 1000);
+  twin(k, px, ASSETS.frontFix.bracket, "metalDark", parts.arm, -0.0622, HK.fin / 1000);
   parts.arm.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
 
   k.mover((e) => { for (const n in parts) placePart(parts[n], hkPose(n, e), HK_REF[n], oy, oz); });
@@ -175,7 +179,7 @@ function hfTop(k, g, { w, y0, H, z, key, dw, dh }) {
   const at = (f, u) => { const o = new THREE.Group(); o.position.set(0, u, f); g.add(o); return o; };
   const body = at(...M), lever = at(...M), tube = at(0, 0);
   twin(k, px, A.body, "metalDark", body);
-  twin(k, px, A.cover, "mechCap", body);
+  twin(k, px, A.cover, "cap", body);
   twin(k, px, A.logo, "strut", body);
   twin(k, px, A.lever, "metal", lever);
   twin(k, px, A.tube, "metal", tube);
@@ -192,6 +196,8 @@ function hfTop(k, g, { w, y0, H, z, key, dw, dh }) {
   for (let i = 0; i < n; i++) {
     const hx = (w / 2 - 0.1) * (n === 1 ? 0 : (2 * i) / (n - 1) - 1);
     hinge(k, up, g, { dp: [hx, -0.009, -0.01], bp: [hx, oy, zIn], rz: -Math.PI / 2 });
+    // средняя петля между фасадами: чашка в верхнем, плечо с планкой на нижнем
+    hinge(k, up, low, { dp: [hx, -h1 + 0.019, -0.01], bp: [hx, -0.0092, 0.003], rz: Math.PI / 2, flatOn: true });
   }
 
   const r2 = ([f, u], a) => [f * Math.cos(a) - u * Math.sin(a), f * Math.sin(a) + u * Math.cos(a)];
@@ -208,6 +214,29 @@ function hfTop(k, g, { w, y0, H, z, key, dw, dh }) {
   k.need(Tp[1] + Math.hypot(h1, 0.012) * Math.sin(HF.open - Math.PI / 2) + 0.03);
 }
 
+// AVENTOS HK-S: рычаг и белая заглушка — из библиотеки Blum для Базиса. Внутренние звенья в модели не разделены,
+// поэтому фасад с рычагом идёт по траектории HK top (тот же тип подъёмника), а тяги между корпусом и рычагом условные.
+function hksTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
+  const A = ASSETS.hksTop, oy = y0 + H - T, oz = z - 0.01, px = w / 2 - 0.002 - T;
+  const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
+  const body = grp(), mv = grp();
+  twin(k, px, A.cover, "cap", body);
+  twin(k, px, A.arm, "metal", mv);
+  mv.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
+  const axis = new THREE.Vector3(1, 0, 0);
+  for (const sx of [-1, 1]) {
+    const x = sx * (px - 0.0125);
+    for (const [bz, by, az, ay] of [[-37, -74, -14, -58], [-53, -37, -12, -33]]) {
+      k.hw(k.link(g, anchor(body, x, by / 1000, bz / 1000), anchor(mv, x, ay / 1000, az / 1000), 0, "metal", [0.003, 0.012, axis]));
+    }
+  }
+  const ref = [HK.P1[0] - HK.fin, HK.P1[1] - HK.top];
+  const pose = (e) => { const [a, f, u] = hkPose("arm", e); return [a, f - HK.fin, u - HK.top]; };
+  k.mover((e) => placePart(mv, pose(e), ref, oy, oz));
+  const [a1, , u1] = pose(1);
+  k.need(oy + (u1 + (20 - ref[0]) * Math.sin(a1) + ((T - 0.003 - dh) * 1000 - ref[1]) * Math.cos(a1)) / 1000 + 0.02);
+}
+
 // Фасад(ы) подъёмника. y0 — низ корпуса, H — высота корпуса, d — глубина корпуса, z — плоскость фасада
 export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
   const dw = w - 0.006, dh = H - 0.006, top = y0 + H - 0.003, yc = y0 + H / 2;
@@ -217,6 +246,7 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
   const sides = [-1, 1];
 
   if (mech.id === "hk" && ASSETS.hkTop && ASSETS.frontFix) return hkTop(k, g, { w, y0, H, z, key, dw, dh, yc });
+  if (mech.id === "hks" && ASSETS.hksTop) return hksTop(k, g, { w, y0, H, z, key, dw, dh, yc });
   if (mech.id === "hs" && ASSETS.hsTop) return barLift(k, g, ASSETS.hsTop, HS, { w, y0, H, z, key, dw, dh, yc });
   if (mech.id === "hl" && ASSETS.hlTop) return hlTop(k, g, { w, y0, H, z, key, dw, dh, yc });
   if (mech.id === "hkxs" || mech.motion === "gas") return flap(k, g, mech, { w, y0, H, z, key, dw, dh });

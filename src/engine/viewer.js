@@ -4,7 +4,8 @@ import { LEVELS, pixelRatioFor, refineRatioFor } from "./quality.js";
 import { createOrbit } from "./controls.js";
 import { createTextures, createGroupMaterials, applyDecor, frontUV, sheetLayout, tileUV, surfaceOn } from "./materials.js";
 import { buildKitchen, addLights, LIGHT_MODES } from "./build.js";
-import { loadAssets } from "./assets.js";
+import { loadAssets, ASSETS } from "./assets.js";
+import { assetsFor } from "../catalog/mechanisms.js";
 import { toRuns } from "./layout.js";
 import { findGlass, findFrame } from "../catalog/glass.js";
 
@@ -47,6 +48,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     mechCap: new THREE.MeshStandardMaterial({ color: "#c9cbcc", roughness: 0.42, metalness: 0.55 }),
     strut: new THREE.MeshStandardMaterial({ color: "#3a3b3d", roughness: 0.35, metalness: 0.6 }),
     appliance: new THREE.MeshStandardMaterial({ color: "#eceff1", roughness: 0.35, metalness: 0.1 }),
+    cap: new THREE.MeshStandardMaterial({ color: "#f3f2ee", roughness: 0.55 }),
     blumOrange: new THREE.MeshStandardMaterial({ color: "#ee6b1f", roughness: 0.55 }),
   };
   const sideMats = () => ({
@@ -216,7 +218,6 @@ export function createViewer(container, levelId, onStats, onPick) {
   };
 
   let lastModel = null;
-  loadAssets(import.meta.env.BASE_URL).then(() => { if (lastModel) setLayout(lastModel); });
 
   const setLayout = (model) => {
     if (kitchen) {
@@ -224,6 +225,7 @@ export function createViewer(container, levelId, onStats, onPick) {
       kitchen.root.traverse((o) => { if (!o.geometry?.userData.shared) o.geometry?.dispose(); });
     }
     lastModel = model;
+    loadAssets(import.meta.env.BASE_URL, assetsFor(model)).then((fresh) => { if (fresh && lastModel === model) setLayout(model); });
     const plan = toRuns(model);
     kitchen = buildKitchen(plan, { ...fixed, ...side.A.mats }, level);
     roomC = (plan.room.left + plan.room.right) / 2000;
@@ -345,7 +347,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
   };
   raf = requestAnimationFrame(loop);
-  if (location.search.includes("debug")) window.__dbg = { assets: () => loadAssets(import.meta.env.BASE_URL).then(() => import("./assets.js")).then((m) => Object.fromEntries(Object.entries(m.ASSETS).map(([k, v]) => [k, Object.keys(v)]))), setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); } };
+  if (location.search.includes("debug")) window.__dbg = { assets: () => Object.keys(ASSETS), setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); } };
 
   return {
     renderer,
