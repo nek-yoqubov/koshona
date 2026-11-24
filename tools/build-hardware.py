@@ -84,10 +84,10 @@ def rebase(ms, px, py):
     return out
 
 def hk_cover():
-    # заглушка HK top из комплекта Antarion -> в систему механизма (Y + 47,8; Z + 33,15)
+    # заглушка HK top из комплекта Antarion (начало — торец боковины и низ крышки) -> в систему модели Blum
     ms = [m for m in fr_parts("hk_caps") if (m["lo"][0] + m["hi"][0]) / 2 < 150]
     for m in ms:
-        m["tris"] = m["tris"] + np.array([0, 47.8, 33.15])
+        m["tris"] = m["tris"] + np.array([0, 36.45, 37.05])
     return fr_group(ms)
 
 
@@ -168,9 +168,15 @@ save("hl_top", {
 })
 
 
-# AVENTOS HK-S: рычаг и заглушка в координатах шкафа (корпус под заглушкой не виден — не берём)
-kit, caps = left(fr_parts("hks_kit")), left(fr_parts("hks_caps"))
+# AVENTOS HK-S 20K2E00 — официальная модель Blum (детали отдельно) в координатах шкафа, заглушка — из комплекта Antarion
+hks = {k: v for k, v in load("20K2E00").items() if v.vertices[:, 0].mean() < -100}
+cab = lambda v: np.c_[v[:, 0] + 166.0, v[:, 2] - 205.0, -v[:, 1] - 41.0]
 save("hks_top", {
-    "arm": fr_group(pick(kit, lambda m: 4000 < m["n"] < 5000)),
-    "cover": fr_group(caps),
+    "body": group(hks, ["ID131"], cab),
+    "crank": group(hks, ["ID667"], cab),
+    "coupler": group(hks, ["ID699"], cab),
+    "rocker": group(hks, ["ID955"], cab),
+    "link": group(hks, ["ID931"], cab),
+    "arm": group(hks, ["ID811", "ID113"], cab),
+    "cover": fr_group(left(fr_parts("hks_caps"))),
 })

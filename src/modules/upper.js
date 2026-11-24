@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { UP_D, UP_Y0, TALL_H } from "./dims.js";
 import { doorsRow } from "./base.js";
-import { carcass, liftFront } from "./mech.js";
+import { carcass, liftFront, liftKeep } from "./mech.js";
 import { liftOf, TIER_LOW, TIER_TOP } from "../catalog/mechanisms.js";
 
 const T = 0.016;
@@ -28,8 +28,10 @@ function tier(k, g, w, variant, y0, H, mechId, under = false) {
   const z = UP_D + 0.01;
   if (variant === "glass") return vitrine(k, g, w, y0, H);
   if (variant === "lift") {
-    carcass(k, g, w, y0, H, UP_D - 0.002, H > 0.7 ? 2 : 1);
-    liftFront(k, g, liftOf(mechId, Math.round(H * 1000), under), { w, y0, H, d: UP_D - 0.002, z, key: "upper" });
+    // полки — только ниже механизма, иначе он проходит сквозь них
+    const mech = liftOf(mechId, Math.round(H * 1000), under), keep = liftKeep(mech, H), free = H - 2 * T - keep;
+    carcass(k, g, w, y0, H, UP_D - 0.002, free > 0.55 ? 2 : free > 0.26 ? 1 : 0, keep);
+    liftFront(k, g, mech, { w, y0, H, d: UP_D - 0.002, z, key: "upper" });
     return;
   }
   carcass(k, g, w, y0, H, UP_D - 0.002, H > 0.7 ? 2 : 1);

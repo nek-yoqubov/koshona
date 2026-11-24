@@ -1,17 +1,29 @@
 import * as THREE from "three";
 import { ASSETS } from "../engine/assets.js";
 import { HK, HK_REF, hkPose } from "./hkTop.js";
-import { fourBar } from "./linkage.js";
+import { fourBar, sub, len, ang, rot, circles, wrap, poser } from "./linkage.js";
 
 const T = 0.016;
 
-// Полый корпус верхнего шкафа (чтобы при открытии были видны полка и механизм)
-export function carcass(k, g, w, y0, H, d, shelves = 1) {
+// Полый корпус верхнего шкафа (чтобы при открытии были видны полка и механизм).
+// keep — высота под крышкой (м), занятая подъёмником: полки делят только место ниже неё.
+export function carcass(k, g, w, y0, H, d, shelves = 1, keep = 0) {
   const yc = y0 + H / 2;
   g.add(k.box(w - 0.004, H, T, "body", 0, yc, T / 2, "body"));
-  for (const sx of [-1, 1]) g.add(k.box(T, H, d, "body", sx * (w / 2 - 0.002 - T / 2), yc, d / 2, "body"));
+  for (const sx of [-1, 1]) g.add(k.box(T, H, d, "body", sx * (w / 2 - 0.002 - T / 2), yc, d / 2, "body", k.side()));
   for (const y of [y0 + T / 2, y0 + H - T / 2]) g.add(k.box(w - 0.004 - 2 * T, T, d, "body", 0, y, d / 2, "body", k.flat()));
-  for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, y0 + (i * H) / (shelves + 1), (d - 0.04) / 2, "body", k.flat()));
+  const lo = keep ? y0 + T : y0, free = (keep ? H - 2 * T - keep : H);
+  for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, lo + (i * free) / (shelves + 1), (d - 0.04) / 2, "body", k.flat()));
+}
+
+// Сколько места под крышкой занимает подъёмник (м) — туда полку ставить нельзя
+export function liftKeep(mech, H) {
+  const KH = H * 1000;
+  if (mech.id === "hf") return (0.3 * KH - (KH < 550 ? 28 : 57) + 36 + 45) / 1000;
+  if (mech.id === "hs" || mech.id === "hl") return 0.305;
+  if (mech.id === "hks") return 0.155;
+  if (mech.id === "hk") return 0.105;
+  return 0.175;
 }
 
 // Петля CLIP top BLUMOTION 73B3550 на планке 173L6100 — официальная модель Blum.
@@ -20,7 +32,7 @@ export function carcass(k, g, w, y0, H, d, shelves = 1) {
 // dp, bp — одна и та же точка (опорная панель × плоскость двери) в координатах двери и корпуса;
 // rz поворачивает петлю (для фасада на верхней панели), mx зеркалит её для правой стороны.
 export const PANEL_IN = 0.015; // от кромки двери до внутренней стороны боковины
-export function hinge(k, door, parent, { dp, bp, rz = 0, mx = 1, flatOn = false }) {
+export function hinge(k, door, parent, { dp, bp, rz = 0, mx = 1, flatOn = false, edge = PANEL_IN }) {
   const A = ASSETS.clipTop;
   if (!A) return;
   const holder = (to, p) => {
@@ -34,15 +46,18 @@ export function hinge(k, door, parent, { dp, bp, rz = 0, mx = 1, flatOn = false 
   const hd = holder(door, dp), hb = holder(parent, bp);
   // средняя петля складного фасада: плечо лежит на внутренней стороне соседнего фасада, носиком к чашке
   if (flatOn) hb.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(0, 0, -1), new THREE.Vector3(-1, 0, 0), new THREE.Vector3(0, 1, 0)));
-  const put = (geo, mat, to) => to.add(k.hw(new THREE.Mesh(geo, k.mat(mat))));
-  put(A.cup, "metal", hd);
-  const bowl = k.cyl(0.0165, 0.0165, 0.0004, "strut", 0.00605, 0, -0.0003);
+  const put = (geo, mat, to, name) => { const m = new THREE.Mesh(geo, k.mat(mat)); m.name = name; to.add(k.hw(m)); return m; };
+  // чашка: центр в 22,5 мм от кромки двери (присадка 5 мм), фланец выступает из двери меньше зазора до корпуса
+  const cx = 0.0015 + (PANEL_IN - edge), cz = 0.0014;
+  put(A.cup, "metal", hd, "hinge-cup").position.set(cx, 0, cz);
+  const bowl = k.cyl(0.0165, 0.0165, 0.0004, "strut", 0.00605 + cx, 0, -0.0003 + cz);
   bowl.rotation.x = Math.PI / 2;
   hd.add(k.hw(bowl));
-  put(A.arm, "metal", hb);
-  put(A.plate, "metal", hb);
+  put(A.arm, "metal", hb, "hinge-arm");
+  put(A.plate, "metal", hb, "hinge-plate");
+  if (flatOn) return; // у средней петли звено не рисуем: при складывании оно проходило бы сквозь торец фасада
   const axis = rz ? new THREE.Vector3(1, 0, 0) : new THREE.Vector3(0, 1, 0);
-  k.hw(k.link(parent, anchor(hb, 0.0115, 0, 0.003), anchor(hd, 0.006, 0, -0.0008), 0, "metal", [0.0022, 0.0075, axis]));
+  k.hw(k.link(parent, anchor(hb, 0.0115, 0, 0.003), anchor(hd, 0.006 + cx, 0, -0.0008 + cz), 0, "metal", [0.0022, 0.0075, axis]));
 }
 
 const anchor = (parent, x, y, z) => {
@@ -69,6 +84,18 @@ function placePart(o, [a, f, u], [f0, u0], oy, oz) {
   o.position.z = oz + (f - (f0 * c - u0 * s)) / 1000;
 }
 
+// Наибольшая высота фасада за всё движение детали part, мм в системе механизма.
+// fin — внутренняя плоскость закрытого фасада, ut — его верхняя кромка, dh — высота фасада (м)
+function frontTop(pose, part, [f0, u0], dh, ut, fin = 0) {
+  let top = ut;
+  for (let i = 0; i <= 24; i++) {
+    const [a, , u] = pose(part, i / 24);
+    for (const f of [fin, fin + 20]) for (const uu of [ut, ut - dh * 1000]) top = Math.max(top, u + (f - f0) * Math.sin(a) + (uu - u0) * Math.cos(a));
+  }
+  return top;
+}
+const F_TOP = (T - 0.003) * 1000; // верхняя кромка фасада над внутренней стороной крышки, мм
+
 // Подъёмник-четырёхзвенник: корпус на боковине, два рычага на его осях, каретка с креплением фасада.
 // Сетки и оси — из библиотеки Blum для Базиса (Antarion).
 // Начало: X — внутренняя сторона боковины, Y — внутренняя сторона крышки, Z — внутренняя плоскость фасада.
@@ -88,14 +115,7 @@ function barLift(k, g, A, bar, { w, y0, H, z, key, dw, dh, yc }) {
   add("bracket", "metalDark", parts.carrier);
   parts.carrier.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
   k.mover((e) => { for (const n in parts) placePart(parts[n], bar.pose(n, e), bar.ref[n], oy, oz); });
-  // наибольшая высота фасада за всё движение
-  const [f0, u0] = bar.ref.carrier, ut = (T - 0.003) * 1000;
-  let top = 0;
-  for (let i = 0; i <= 20; i++) {
-    const [a, , u] = bar.pose("carrier", i / 20);
-    for (const f of [0, 20]) for (const uu of [ut, ut - dh * 1000]) top = Math.max(top, u + (f - f0) * Math.sin(a) + (uu - u0) * Math.cos(a));
-  }
-  k.need(oy + top / 1000 + 0.02);
+  k.need(oy + frontTop(bar.pose, "carrier", bar.ref.carrier, dh, F_TOP) / 1000 + 0.02);
 }
 
 // AVENTOS HS top: фасад уходит вверх и ложится над корпусом под 15° к горизонту
@@ -125,7 +145,7 @@ function flap(k, g, mech, { w, y0, H, z, key, dw, dh }) {
   const n = w > 0.9 ? 3 : 2;
   for (let i = 0; i < n; i++) {
     const hx = (w / 2 - 0.1) * ((2 * i) / (n - 1) - 1);
-    hinge(k, up, g, { dp: [hx, -0.009, -0.01], bp: [hx, oy, zIn], rz: -Math.PI / 2 });
+    hinge(k, up, g, { dp: [hx, -0.009, -0.01], bp: [hx, oy, zIn], rz: -Math.PI / 2, edge: T - 0.003 });
   }
   const sy = Math.min(0.16, H * 0.5), pd = Math.min(0.07, dh * 0.3), dark = mech.brand === "GTV";
   for (const sx of [-1, 1]) {
@@ -144,7 +164,7 @@ function flap(k, g, mech, { w, y0, H, z, key, dw, dh }) {
 // Фасад жёстко сидит на рычаге: уходит вперёд и вверх, верхняя кромка не поднимается над корпусом.
 function hkTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
   const A = ASSETS.hkTop;
-  const oy = y0 + H - T - HK.top / 1000, oz = z - 0.01 - HK.fin / 1000;
+  const oy = y0 + H - T - HK.top / 1000, oz = z - 0.01 - HK.edge / 1000;
   const px = w / 2 - 0.002 - T;
   const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
   const body = grp();
@@ -157,14 +177,12 @@ function hkTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
   twin(k, px, A.linkD, "metal", parts.D);
   twin(k, px, A.arm, "metal", parts.arm);
   twin(k, px, A.tab, "blumOrange", parts.arm);
-  twin(k, px, ASSETS.frontFix.bracket, "metalDark", parts.arm, -0.0622, HK.fin / 1000);
+  // крепление фасада: верх планки на 56 мм ниже крышки (первый шуруп — 62 мм по каталогу), основание на фасаде
+  twin(k, px, ASSETS.frontFix.bracket, "metalDark", parts.arm, (HK.top - 56 - 53) / 1000, HK.edge / 1000);
   parts.arm.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
 
   k.mover((e) => { for (const n in parts) placePart(parts[n], hkPose(n, e), HK_REF[n], oy, oz); });
-  // насколько нижняя кромка открытого фасада поднимается над корпусом
-  const [a1, , u1] = hkPose("arm", 1);
-  const bf = HK.fin + 20 - HK.P1[0], bu = (y0 + 0.003 - oy) * 1000 - HK.P1[1];
-  k.need(oy + (u1 + bf * Math.sin(a1) + bu * Math.cos(a1)) / 1000 + 0.02);
+  k.need(oy + frontTop(hkPose, "arm", HK_REF.arm, dh, HK.top + F_TOP, HK.edge) / 1000 + 0.02);
 }
 
 // AVENTOS HF top — складной фасад. Детали из библиотеки Blum для Базиса (Antarion).
@@ -195,7 +213,7 @@ function hfTop(k, g, { w, y0, H, z, key, dw, dh }) {
   const n = w > 0.9 ? 3 : 2;
   for (let i = 0; i < n; i++) {
     const hx = (w / 2 - 0.1) * (n === 1 ? 0 : (2 * i) / (n - 1) - 1);
-    hinge(k, up, g, { dp: [hx, -0.009, -0.01], bp: [hx, oy, zIn], rz: -Math.PI / 2 });
+    hinge(k, up, g, { dp: [hx, -0.009, -0.01], bp: [hx, oy, zIn], rz: -Math.PI / 2, edge: T - 0.003 });
     // средняя петля между фасадами: чашка в верхнем, плечо с планкой на нижнем
     hinge(k, up, low, { dp: [hx, -h1 + 0.019, -0.01], bp: [hx, -0.0092, 0.003], rz: Math.PI / 2, flatOn: true });
   }
@@ -214,27 +232,35 @@ function hfTop(k, g, { w, y0, H, z, key, dw, dh }) {
   k.need(Tp[1] + Math.hypot(h1, 0.012) * Math.sin(HF.open - Math.PI / 2) + 0.03);
 }
 
-// AVENTOS HK-S: рычаг и белая заглушка — из библиотеки Blum для Базиса. Внутренние звенья в модели не разделены,
-// поэтому фасад с рычагом идёт по траектории HK top (тот же тип подъёмника), а тяги между корпусом и рычагом условные.
-function hksTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
-  const A = ASSETS.hksTop, oy = y0 + H - T, oz = z - 0.01, px = w / 2 - 0.002 - T;
-  const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
-  const body = grp(), mv = grp();
-  twin(k, px, A.cover, "cap", body);
-  twin(k, px, A.arm, "metal", mv);
-  mv.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
-  const axis = new THREE.Vector3(1, 0, 0);
-  for (const sx of [-1, 1]) {
-    const x = sx * (px - 0.0125);
-    for (const [bz, by, az, ay] of [[-37, -74, -14, -58], [-53, -37, -12, -33]]) {
-      k.hw(k.link(g, anchor(body, x, by / 1000, bz / 1000), anchor(mv, x, ay / 1000, az / 1000), 0, "metal", [0.003, 0.012, axis]));
-    }
+// AVENTOS HK-S 20K2E00 — официальная модель Blum, оси сняты с неё. Кривошип и коромысло на корпусе образуют
+// параллелограмм, шатун на нём несёт верхнюю ось рычага, нижнюю ось рычага тянет тяга от кривошипа.
+// Система механизма — как на чертеже Blum (крепление 37 и 106 мм сверху, 35,5 / 53 / 125 мм от торца):
+// f — к фасаду от переднего торца боковины, u — вверх от ВЕРХА шкафа (не от низа крышки), мм.
+// Проверка по каталогу: открытый фасад 16 / 19 мм проходит под карнизом с вылетом 71 / 60 мм (у Blum 70 / 59).
+const HKS = (() => {
+  const G = [-22.5, -34.1], K = [-75.2, -34.1], S0 = [-53.5, -57.5], Q0 = [-61.0, -81.1], P1 = [-10.5, -33.6], P2 = [-12.0, -58.7];
+  const open = 1.76, N = 96, table = [];
+  let p2 = P2, pa = 0, pl = 0;
+  for (let i = 0; i <= N; i++) {
+    const th = (open * i) / N, S = rot(S0, G, th), Q = rot(Q0, G, th);
+    const p1 = [P1[0] + S[0] - S0[0], P1[1] + S[1] - S0[1]];
+    p2 = circles(p1, len(sub(P2, P1)), Q, len(sub(P2, Q0)), p2);
+    pa = wrap(ang(sub(p2, p1)) - ang(sub(P2, P1)), pa);
+    pl = wrap(ang(sub(p2, Q)) - ang(sub(P2, Q0)), pl);
+    table.push({ crank: [th, ...G], rocker: [th, ...K], coupler: [0, ...S], link: [pl, ...Q], arm: [pa, ...p1] });
   }
-  const ref = [HK.P1[0] - HK.fin, HK.P1[1] - HK.top];
-  const pose = (e) => { const [a, f, u] = hkPose("arm", e); return [a, f - HK.fin, u - HK.top]; };
-  k.mover((e) => placePart(mv, pose(e), ref, oy, oz));
-  const [a1, , u1] = pose(1);
-  k.need(oy + (u1 + (20 - ref[0]) * Math.sin(a1) + ((T - 0.003 - dh) * 1000 - ref[1]) * Math.cos(a1)) / 1000 + 0.02);
+  return { pose: poser(table), ref: { crank: G, rocker: K, coupler: S0, link: Q0, arm: P1 } };
+})();
+function hksTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
+  const A = ASSETS.hksTop, oy = y0 + H, oz = z - 0.01, px = w / 2 - 0.002 - T;
+  const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
+  const body = grp(), parts = { crank: grp(), rocker: grp(), coupler: grp(), link: grp(), arm: grp() };
+  twin(k, px, A.body, "metal", body);
+  twin(k, px, A.cover, "cap", body);
+  for (const n in parts) twin(k, px, A[n], "metal", parts[n]);
+  parts.arm.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
+  k.mover((e) => { for (const n in parts) placePart(parts[n], HKS.pose(n, e), HKS.ref[n], oy, oz); });
+  k.need(oy + frontTop(HKS.pose, "arm", HKS.ref.arm, dh, -3) / 1000 + 0.02);
 }
 
 // Фасад(ы) подъёмника. y0 — низ корпуса, H — высота корпуса, d — глубина корпуса, z — плоскость фасада
@@ -346,7 +372,7 @@ export function drawerBox(k, s, sys, { w, y, fh, D }) {
       s.add(k.box(0.014, bh, bd, "metalDark", x, yb + bh / 2, zc));
       s.add(k.box(0.016, 0.004, bd, "metal", x, yb + bh, zc));
     } else {
-      s.add(k.box(0.016, bh, bd, "body", x - sx * 0.008, yb + bh / 2, zc, "body"));
+      s.add(k.box(0.016, bh, bd, "body", x - sx * 0.008, yb + bh / 2, zc, "body", k.side()));
       if (sys.type === "ball") s.add(k.box(0.012, 0.035, bd, "metal", x + sx * 0.006, yb + bh / 2, zc));
       else s.add(k.box(0.02, 0.012, bd, "metalDark", x - sx * 0.02, yb - 0.012, zc));
     }

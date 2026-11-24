@@ -91,7 +91,7 @@ export function buildKitchen(plan, mats, level) {
       m.position.set(x, y, z);
       m.castShadow = level.shadows;
       m.receiveShadow = level.shadows;
-      track(m, key, group, w, reg?.top ? d : h, reg);
+      track(m, key, group, reg?.side ? d : w, reg?.top ? d : h, reg);
       return m;
     },
     worktop(len, depth, x, z) {
@@ -149,6 +149,7 @@ export function buildKitchen(plan, mats, level) {
     setSlide(s, dist) { s.userData.mv.slide = dist; },
     mat(key) { return mats[key]; },
     flat() { return { ...region(), top: true }; },
+    side() { return { ...region(), side: true }; }, // боковина: рисунок по глубине × высоте
     need(y) { needTop = Math.max(needTop, y); },
     mover(apply) { movers.push({ apply }); },
     hw(o) { hardware.push(o); return o; },

@@ -321,3 +321,28 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .chip.xs { padding: 2px 8px; font-size: 11px; min-height: 22px; color: #6b665e; }
 .chip.xs.on { color: #fff; }
 .lbl.sub { margin-top: 2px; font-size: 11px; opacity: .7; }
+
+/* Редактор секции: шапка с действиями, вкладки «Верх / Низ», карточки механизмов */
+.ed-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.ed-head b { font-size: 15px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ed-acts { display: flex; align-items: center; gap: 2px; flex: none; }
+.ed-act { width: 34px; height: 34px; border: 0; border-radius: 8px; background: none; color: #4a4741; display: grid; place-items: center; cursor: pointer; transition: background-color .15s, color .15s; }
+.ed-act:hover:not(:disabled) { background: #ebe6de; }
+.ed-act:disabled { opacity: .3; cursor: default; }
+.ed-act.danger { color: #a5432d; }
+.ed-sep { width: 1px; height: 20px; background: #dcd6cc; margin: 0 4px; }
+.ed-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 12px; padding: 3px; background: #e9e4dc; border-radius: 9px; }
+.ed-tabs button { border: 0; border-radius: 7px; min-height: 34px; font-size: 14px; font-weight: 600; background: none; color: #6d6963; cursor: pointer; transition: background-color .15s, color .15s; }
+.ed-tabs button.on { background: #fff; color: #17181a; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.editor .lbl .dim { color: #9a958d; }
+.mcards { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.mcard { width: 80px; padding: 5px 4px 7px; border: 1px solid #d6d2cc; border-radius: 10px; background: #fff; color: #17181a; display: flex; flex-direction: column; align-items: center; gap: 1px; cursor: pointer; transition: background-color .2s, color .2s, border-color .2s; }
+.mcard b { font-size: 12.5px; font-weight: 600; line-height: 1.2; }
+.mcard i { font-style: normal; font-size: 10.5px; opacity: .55; }
+.mcard:hover { border-color: #17181a; }
+.mcard.on { background: #17181a; border-color: #17181a; color: #fff; }
+.mcard:focus-visible, .ed-act:focus-visible, .ed-tabs button:focus-visible { outline: 2px solid #f07a1a; outline-offset: 2px; }
+@media (max-width: 800px) {
+  .mcard { width: calc((100% - 18px) / 4); min-width: 76px; }
+  .ed-act { width: 38px; height: 38px; }
+}

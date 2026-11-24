@@ -43,6 +43,7 @@ export default function App() {
   const [model, setModelRaw] = useState(() => decodeModel(fromUrl.layout) || TEMPLATES[0].make());
   const [history, setHistory] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [zone, setZone] = useState("lower"); // какая часть секции открыта в редакторе: верх или низ
   const [open, setOpen] = useState(false);
 
   const [decors, setDecors] = useState([]);
@@ -105,9 +106,9 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const v = createViewer(mountRef.current, quality.level, setStats, (id) => {
+    const v = createViewer(mountRef.current, quality.level, setStats, (id, part) => {
       setSelected(id);
-      if (id) setTab("layout");
+      if (id) { setTab("layout"); setZone(part || "lower"); }
     });
     viewerRef.current = v;
     setViewerId((n) => n + 1);
@@ -270,6 +271,8 @@ export default function App() {
   const sel = selected === "island" ? "island" : selected ? locate(model, selected)?.item : null;
   const editorProps = {
     it: sel,
+    zone,
+    onZone: setZone,
     canUndo: history.length > 0,
     onUndo: undo,
     onClose: () => setSelected(null),

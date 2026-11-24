@@ -28,9 +28,9 @@ export function base(k, w, variant, opt = {}) {
   } else {
     // полый корпус: видно полку и петли при открытой двери
     g.add(k.box(w - 0.004, H, T, "body", 0, PLINTH + H / 2, T / 2, "body"));
-    for (const sx of [-1, 1]) g.add(k.box(T, H, d, "body", sx * (w / 2 - 0.002 - T / 2), PLINTH + H / 2, d / 2, "body"));
+    for (const sx of [-1, 1]) g.add(k.box(T, H, d, "body", sx * (w / 2 - 0.002 - T / 2), PLINTH + H / 2, d / 2, "body", k.side()));
     g.add(k.box(w - 0.004 - 2 * T, T, d, "body", 0, PLINTH + T / 2, d / 2, "body", k.flat()));
-    for (const zz of [d - 0.05, 0.05]) g.add(k.box(w - 0.004 - 2 * T, T, 0.1, "body", 0, BASE_H - T / 2, zz, "body"));
+    for (const zz of [d - 0.05, 0.05]) g.add(k.box(w - 0.004 - 2 * T, T, 0.1, "body", 0, BASE_H - T / 2, zz, "body", k.flat()));
     if (variant !== "sink") g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, PLINTH + H / 2, (d - 0.04) / 2, "body", k.flat()));
   }
   g.add(k.box(w, PLINTH, D - 0.08, "body", 0, PLINTH / 2, D / 2 - 0.04, "body"));

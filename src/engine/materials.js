@@ -143,7 +143,8 @@ export function sheetLayout(meshes, sheet, vertical) {
   const out = new Map();
   let x = 0, y = 0, row = 0, idx = 0;
   for (const p of pieces) {
-    let vert = vertical;
+    // полки, дно и крышка корпуса: волокна вдоль ширины, а не в глубину
+    let vert = p.parts[0].m.userData.top ? !vertical : vertical;
     let a = vert ? p.H : p.W, b = vert ? p.W : p.H;
     if ((a > L || b > S) && b <= L && a <= S) { vert = !vert; [a, b] = [b, a]; }
     const k = Math.max(1, a / L, b / S);

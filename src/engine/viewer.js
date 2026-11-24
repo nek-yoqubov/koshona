@@ -71,7 +71,8 @@ export function createViewer(container, levelId, onStats, onPick) {
     const hit = raycaster.intersectObjects(kitchen.pickables, true)[0];
     let o = hit?.object;
     while (o && !o.userData.itemId) o = o.parent;
-    onPick?.(o?.userData.itemId ?? null);
+    // по высоте попадания понятно, верх секции выбрали или низ
+    onPick?.(o?.userData.itemId ?? null, hit && hit.point.y > 1.2 ? "upper" : "lower");
   };
   const frame = { t: 0.384, a: 1.6 };
   const orbit = createOrbit(renderer.domElement, camera, invalidate, pick, frame);
@@ -347,7 +348,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
   };
   raf = requestAnimationFrame(loop);
-  if (location.search.includes("debug")) window.__dbg = { assets: () => Object.keys(ASSETS), setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); } };
+  if (location.search.includes("debug")) window.__dbg = { assets: () => Object.keys(ASSETS), setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); }, open(t) { openT = openTarget = t; openAnim = false; applyOpen(); }, hw() { kitchen.root.updateMatrixWorld(true); return kitchen.hardware.map((o) => { const b = new THREE.Box3().setFromObject(o); return [o.name || "", ...b.min.toArray(), ...b.max.toArray()].map((v) => (typeof v === "number" ? Math.round(v * 10000) / 10 : v)); }); } };
 
   return {
     renderer,

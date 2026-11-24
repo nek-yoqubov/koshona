@@ -6,13 +6,10 @@ export const LIFTS = [
   { id: "hk", assets: ["hkTop", "frontFix"], code: "k", brand: "Blum", name: "AVENTOS HK top", motion: "stay", angle: 1.87, rise: 0.05, size: "big", h: [180, 600] },
   { id: "hks", assets: ["hksTop"], code: "s", brand: "Blum", name: "AVENTOS HK-S", motion: "stay", angle: 1.8, rise: 0.03, size: "small", h: [180, 600] },
   { id: "hkxs", code: "x", brand: "Blum", name: "AVENTOS HK-XS", motion: "stay", angle: 1.75, rise: 0.02, size: "small", h: [240, 600] },
-  { id: "hki", code: "i", brand: "Blum", name: "AVENTOS HKi", motion: "stay", angle: 1.8, rise: 0.04, hidden: true, h: [180, 600] },
   { id: "hl", assets: ["hlTop", "hsTop"], code: "p", brand: "Blum", name: "AVENTOS HL", motion: "parallel", h: [300, 580] },
   { id: "hs", assets: ["hsTop"], code: "o", brand: "Blum", name: "AVENTOS HS", motion: "over", h: [350, 800] },
   { id: "hf", assets: ["hfTop"], code: "f", brand: "Blum", name: "AVENTOS HF", motion: "fold", h: [480, 1040] },
-  { id: "gtv-gas", code: "g", brand: "GTV", name: "GTV газлифт", motion: "gas", angle: 1.57, h: null },
-  { id: "gtv-neo", code: "n", brand: "GTV", name: "GTV NEO", motion: "gas", angle: 1.57, h: null },
-  { id: "gtv-mini", code: "m", brand: "GTV", name: "GTV Minilift", motion: "gas", angle: 1.4, h: null },
+  { id: "gtv-gas", code: "g", brand: "GTV", name: "Газлифт GTV", motion: "gas", angle: 1.57, h: null },
 ];
 
 // Открывание — то, что видно глазами. Модель — конкретный механизм этого типа.
