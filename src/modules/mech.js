@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { ASSETS } from "../engine/assets.js";
 
 const T = 0.016;
 
@@ -53,6 +54,31 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
   const zf = d - 0.002;
   const caps = !mech.hidden;
   const sides = [-1, 1];
+
+  // AVENTOS HK top по настоящей модели Blum: корпус механизма на боковине, рычаг жёстко с фасадом
+  // поворачивается вокруг оси в 17 мм за фасадом и 43 мм под крышей корпуса (как в анимации Blum)
+  if (mech.id === "hk" && ASSETS.hkBody && ASSETS.hkArm) {
+    const py = y0 + H - T - 0.043, pz = z - 0.027;
+    const p = new THREE.Group();
+    p.position.set(0, py, pz);
+    g.add(p);
+    p.add(k.box(dw, dh, 0.02, key, 0, yc - py, z - pz, key, k.region()));
+    const px = w / 2 - 0.002 - T;
+    for (const sx of sides) {
+      const body = new THREE.Mesh(ASSETS.hkBody, k.mat("metal"));
+      body.position.set(sx * px, py, pz);
+      body.scale.x = -sx;
+      g.add(body);
+      const arm = new THREE.Mesh(ASSETS.hkArm, k.mat("metal"));
+      arm.position.set(sx * px, 0, 0);
+      arm.scale.x = -sx;
+      p.add(arm);
+    }
+    const ang = 1.87;
+    k.need(py + 0.016 + 0.29 * (py - y0) + 0.02);
+    k.mover((e) => { p.rotation.x = -ang * e; });
+    return;
+  }
 
   if (mech.motion === "stay" || mech.motion === "gas") {
     const p = new THREE.Group(), inner = new THREE.Group();
