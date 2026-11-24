@@ -1,10 +1,17 @@
 import * as THREE from "three";
 import { D, TALL_H } from "./dims.js";
+import { carcass } from "./mech.js";
 
 export function tall(k, w, variant, h = TALL_H) {
   const g = new THREE.Group();
-  g.add(k.box(w, h, D, "body", 0, h / 2, D / 2, "body"));
-  const z = D + 0.01, dw = w - 0.006;
+  const z = D + 0.01, dw = w - 0.006, d = D - 0.002;
+  if (variant === "oven") {
+    g.add(k.box(w - 0.004, 1.6, d, "body", 0, 0.8, d / 2, "body"));
+    carcass(k, g, w, 1.6, h - 1.6, d, 1);
+  } else {
+    carcass(k, g, w, 0, h, d, variant === "fridge" ? 0 : 5);
+    if (variant === "fridge") g.add(k.box(w - 0.06, h - 0.12, d - 0.07, "appliance", 0, h / 2, (d - 0.07) / 2 + 0.03));
+  }
 
   if (variant === "oven") {
     const lowH = 0.86;

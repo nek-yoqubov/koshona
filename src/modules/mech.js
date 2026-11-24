@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { ASSETS } from "../engine/assets.js";
+import { HK, HK_REF, hkPose } from "./hkTop.js";
 
 const T = 0.016;
 
@@ -12,32 +13,30 @@ export function carcass(k, g, w, y0, H, d, shelves = 1) {
   for (let i = 1; i <= shelves; i++) g.add(k.box(w - 0.004 - 2 * T, T, d - 0.04, "body", 0, y0 + (i * H) / (shelves + 1), (d - 0.04) / 2, "body", k.flat()));
 }
 
-// Петля CLIP top по силуэту: чашка Ø35 с накладкой и двумя винтами в фасаде, плечо на планке вдоль боковины.
-// Центр чашки — 22,5 мм от кромки фасада, плечо 13 мм шириной.
-const zAxis = (m) => { m.rotation.x = Math.PI / 2; return m; };
-const xAxis = (m) => { m.rotation.z = Math.PI / 2; return m; };
-export function hingeCup(k, door, sx, w, y) {
-  const cx = sx * (w / 2 - 0.0225), inw = -sx;
-  door.add(zAxis(k.cyl(0.0175, 0.0175, 0.0012, "metal", cx, y, -0.0106)));
-  door.add(zAxis(k.cyl(0.0145, 0.0145, 0.0006, "strut", cx, y, -0.0113)));
-  door.add(k.box(0.016, 0.054, 0.0015, "metal", cx + inw * 0.004, y, -0.0109));
-  for (const dy of [-0.021, 0.021]) door.add(zAxis(k.cyl(0.0035, 0.0035, 0.0012, "strut", cx + inw * 0.004, y + dy, -0.0118)));
-  door.add(k.box(0.011, 0.013, 0.009, "metal", cx, y, -0.0145));
-  const tip = new THREE.Object3D();
-  tip.position.set(cx, y, -0.019);
-  door.add(tip);
-  return tip;
-}
-export function hingeArm(k, g, sx, edgeX, zIn, y) {
-  const inw = -sx, panel = edgeX - sx * 0.0155;
-  g.add(k.box(0.003, 0.02, 0.042, "metal", panel + inw * 0.0015, y, zIn - 0.04));
-  g.add(k.box(0.011, 0.013, 0.05, "metal", panel + inw * 0.0085, y, zIn - 0.037));
-  g.add(k.box(0.007, 0.013, 0.01, "metal", panel + inw * 0.0095, y, zIn - 0.008));
-  for (const dz of [-0.028, -0.05]) g.add(xAxis(k.cyl(0.0035, 0.0035, 0.0012, "strut", panel + inw * 0.0142, y, zIn + dz)));
-  const end = new THREE.Object3D();
-  end.position.set(panel + inw * 0.0085, y, zIn - 0.006);
-  g.add(end);
-  return end;
+// Петля CLIP top BLUMOTION 73B3550 на планке 173L6100 — официальная модель Blum.
+// Чашка едет с дверью, плечо с планкой остаются на боковине, между ними звено шарнира.
+// Геометрия: X — от внутренней стороны боковины внутрь, Y — вверх, Z — от внутренней плоскости двери.
+const PANEL_IN = 0.015; // от кромки двери до внутренней стороны боковины
+export function hinge(k, door, parent, { sx, w, y, cx, cy, zIn }) {
+  const A = ASSETS.clipTop;
+  if (!A) return;
+  const px = sx * (w / 2 - PANEL_IN);
+  const put = (geo, mat, to, x, yy, z) => {
+    const m = new THREE.Mesh(geo, k.mat(mat));
+    m.position.set(x, yy, z);
+    m.scale.x = -sx;
+    to.add(k.hw(m));
+    return m;
+  };
+  put(A.cup, "metal", door, px, y, -0.01);
+  const bowl = k.cyl(0.0165, 0.0165, 0.0004, "strut", px - sx * 0.00605, y, -0.0103);
+  bowl.rotation.x = Math.PI / 2;
+  door.add(k.hw(bowl));
+  put(A.arm, "metal", parent, cx + px, cy + y, zIn);
+  put(A.plate, "mechCap", parent, cx + px, cy + y, zIn);
+  const a = anchor(parent, cx + px - sx * 0.0115, cy + y, zIn + 0.003);
+  const b = anchor(door, px - sx * 0.006, y, -0.0108);
+  k.hw(k.link(parent, a, b, 0, "metal", [0.0022, 0.0075]));
 }
 
 const anchor = (parent, x, y, z) => {
@@ -47,6 +46,49 @@ const anchor = (parent, x, y, z) => {
   return o;
 };
 
+// AVENTOS HK top 22K2300 — официальная модель Blum, движение по её же осям (шестизвенник, hkTop.js).
+// Фасад жёстко сидит на рычаге: уходит вперёд и вверх, верхняя кромка не поднимается над корпусом.
+function hkTop(k, g, { w, y0, H, z, key, dw, dh, yc }) {
+  const A = ASSETS.hkTop;
+  const oy = y0 + H - T - 0.003 - HK.top / 1000, oz = z - 0.01 - HK.fin / 1000;
+  const px = w / 2 - 0.002 - T;
+  const twin = (geo, mat, to, yy = 0, zz = 0) => {
+    for (const sx of [-1, 1]) {
+      const m = new THREE.Mesh(geo, k.mat(mat));
+      m.position.set(sx * px, yy, zz);
+      m.scale.x = -sx;
+      m.castShadow = false;
+      to.add(k.hw(m));
+    }
+  };
+  const grp = () => { const o = new THREE.Group(); o.position.set(0, oy, oz); g.add(o); return o; };
+  twin(A.body, "mechCap", grp());
+  const parts = { A: grp(), B: grp(), C: grp(), D: grp(), arm: grp() };
+  twin(A.leverA, "metal", parts.A);
+  twin(A.linkB, "metal", parts.B);
+  twin(A.linkC, "metal", parts.C);
+  twin(A.linkD, "metal", parts.D);
+  twin(A.arm, "metal", parts.arm);
+  twin(A.tab, "blumOrange", parts.arm);
+  twin(ASSETS.frontFix.bracket, "metalDark", parts.arm, -0.072, HK.fin / 1000);
+  parts.arm.add(k.box(dw, dh, 0.02, key, 0, yc - oy, z - oz, key, k.region()));
+
+  const place = (e) => {
+    for (const name in parts) {
+      const [a, f, u] = hkPose(name, e), [f0, u0] = HK_REF[name], c = Math.cos(a), s = Math.sin(a);
+      const o = parts[name];
+      o.rotation.x = -a;
+      o.position.y = oy + (u - (f0 * s + u0 * c)) / 1000;
+      o.position.z = oz + (f - (f0 * c - u0 * s)) / 1000;
+    }
+  };
+  k.mover(place);
+  // насколько нижняя кромка открытого фасада поднимается над корпусом
+  const [a1, , u1] = hkPose("arm", 1);
+  const bf = HK.fin + 20 - HK.P1[0], bu = (y0 + 0.003 - oy) * 1000 - HK.P1[1];
+  k.need(oy + (u1 + bf * Math.sin(a1) + bu * Math.cos(a1)) / 1000 + 0.02);
+}
+
 // Фасад(ы) подъёмника. y0 — низ корпуса, H — высота корпуса, d — глубина корпуса, z — плоскость фасада
 export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
   const dw = w - 0.006, dh = H - 0.006, top = y0 + H - 0.003, yc = y0 + H / 2;
@@ -55,30 +97,7 @@ export function liftFront(k, g, mech, { w, y0, H, d, z, key }) {
   const caps = !mech.hidden;
   const sides = [-1, 1];
 
-  // AVENTOS HK top по настоящей модели Blum: корпус механизма на боковине, рычаг жёстко с фасадом
-  // поворачивается вокруг оси в 17 мм за фасадом и 43 мм под крышей корпуса (как в анимации Blum)
-  if (mech.id === "hk" && ASSETS.hkBody && ASSETS.hkArm) {
-    const py = y0 + H - T - 0.043, pz = z - 0.027;
-    const p = new THREE.Group();
-    p.position.set(0, py, pz);
-    g.add(p);
-    p.add(k.box(dw, dh, 0.02, key, 0, yc - py, z - pz, key, k.region()));
-    const px = w / 2 - 0.002 - T;
-    for (const sx of sides) {
-      const body = new THREE.Mesh(ASSETS.hkBody, k.mat("metal"));
-      body.position.set(sx * px, py, pz);
-      body.scale.x = -sx;
-      g.add(body);
-      const arm = new THREE.Mesh(ASSETS.hkArm, k.mat("metal"));
-      arm.position.set(sx * px, 0, 0);
-      arm.scale.x = -sx;
-      p.add(arm);
-    }
-    const ang = 1.87;
-    k.need(py + 0.016 + 0.29 * (py - y0) + 0.02);
-    k.mover((e) => { p.rotation.x = -ang * e; });
-    return;
-  }
+  if (mech.id === "hk" && ASSETS.hkTop && ASSETS.frontFix) return hkTop(k, g, { w, y0, H, z, key, dw, dh, yc });
 
   if (mech.motion === "stay" || mech.motion === "gas") {
     const p = new THREE.Group(), inner = new THREE.Group();

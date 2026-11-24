@@ -41,11 +41,13 @@ export function createViewer(container, levelId, onStats, onPick) {
     floor: new THREE.MeshStandardMaterial({ color: "#cfcac2", roughness: 0.6 }),
     ceil: new THREE.MeshStandardMaterial({ color: "#efece6", roughness: 1 }),
     hob: new THREE.MeshStandardMaterial({ color: "#0a0a0a", roughness: 0.15, metalness: 0.4 }),
-    metal: new THREE.MeshStandardMaterial({ color: "#b4b6b8", roughness: 0.32, metalness: 0.7 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#c2c4c6", roughness: 0.3, metalness: 0.8 }),
     metalDark: new THREE.MeshStandardMaterial({ color: "#5d5f62", roughness: 0.4, metalness: 0.55 }),
     metalWhite: new THREE.MeshStandardMaterial({ color: "#e7e5e0", roughness: 0.45, metalness: 0.15 }),
-    mechCap: new THREE.MeshStandardMaterial({ color: "#dcdbd6", roughness: 0.5 }),
+    mechCap: new THREE.MeshStandardMaterial({ color: "#c9cbcc", roughness: 0.42, metalness: 0.55 }),
     strut: new THREE.MeshStandardMaterial({ color: "#3a3b3d", roughness: 0.35, metalness: 0.6 }),
+    appliance: new THREE.MeshStandardMaterial({ color: "#eceff1", roughness: 0.35, metalness: 0.1 }),
+    blumOrange: new THREE.MeshStandardMaterial({ color: "#ee6b1f", roughness: 0.55 }),
   };
   const sideMats = () => ({
     ...createGroupMaterials(),
@@ -93,6 +95,9 @@ export function createViewer(container, levelId, onStats, onPick) {
       else if (m.slide !== undefined) m.obj.position.z = m.slide * e;
       else m.obj.rotation[m.axis] = m.max * e;
     }
+    // фурнитура внутри закрытых шкафов не видна — не тратим на неё отрисовку
+    const show = openT > 0.001;
+    for (const o of kitchen?.hardware ?? []) o.visible = show;
     renderer.shadowMap.needsUpdate = true;
     invalidate();
   };
@@ -340,7 +345,7 @@ export function createViewer(container, levelId, onStats, onPick) {
     }
   };
   raf = requestAnimationFrame(loop);
-  if (location.search.includes("debug")) window.__dbg = { setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); } };
+  if (location.search.includes("debug")) window.__dbg = { assets: () => loadAssets(import.meta.env.BASE_URL).then(() => import("./assets.js")).then((m) => Object.fromEntries(Object.entries(m.ASSETS).map(([k, v]) => [k, Object.keys(v)]))), setCam(p, t) { camera.position.set(...p); camera.lookAt(...t); camera.updateMatrixWorld(); invalidate(); } };
 
   return {
     renderer,

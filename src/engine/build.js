@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { hingeCup, hingeArm } from "../modules/mech.js";
+import { hinge } from "../modules/mech.js";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T, TOP_R } from "../modules/index.js";
 
 // Столешница-постформинг: передний край скруглён сверху и снизу, пластик обходит кромку — рисунок идёт через неё
@@ -69,6 +69,7 @@ export function buildKitchen(plan, mats, level) {
   const lamps = [];
   const movers = [];
   const pickables = [];
+  const hardware = [];
   let regionIdx = 0, needTop = 0;
   const frac = (x) => x - Math.floor(x);
   const region = () => ({ ox: frac(0.618034 * ++regionIdx), oy: frac(0.381966 * regionIdx + 0.25) });
@@ -114,33 +115,21 @@ export function buildKitchen(plan, mats, level) {
       parent.add(p);
       lamps.push(p);
     },
-    pivot(parent, cx, cy, z, w, h, side) {
+    pivot(parent, cx, cy, z, w, h, side, hinges = true) {
       const pivot = new THREE.Group(), inner = new THREE.Group();
       if (side === "top") {
         pivot.position.set(cx, cy + h / 2, z);
         inner.position.set(0, -h / 2, 0);
         movers.push({ obj: pivot, axis: "x", max: -1.75 });
       } else {
-        // ось петли CLIP top: ~10 мм от кромки внутри толщины фасада. При 90° внутренняя плоскость двери
-        // встаёт заподлицо с внутренней стороной боковины, как у настоящей накладной петли
+        // ось в 9 мм от кромки и 8 мм перед внутренней плоскостью двери: при 90° дверь не выходит
+        // за габарит своего шкафа и не задевает торец боковины
         const sx = side === "left" ? -1 : 1, zIn = z - 0.01;
-        pivot.position.set(cx + sx * (w / 2 - 0.01), cy, zIn + 0.007);
-        inner.position.set(-sx * (w / 2 - 0.01), 0, 0.003);
+        pivot.position.set(cx + sx * (w / 2 - 0.009), cy, zIn + 0.008);
+        inner.position.set(-sx * (w / 2 - 0.009), 0, 0.002);
         movers.push({ obj: pivot, axis: "y", max: side === "left" ? -Math.PI / 2 : Math.PI / 2 });
         const n = h > 1.6 ? 4 : h > 0.9 ? 3 : 2;
-        for (let i = 0; i < n; i++) {
-          const y = -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1);
-          const tip = hingeCup(k, inner, sx, w, y);
-          const end = hingeArm(k, parent, sx, cx + (sx * w) / 2, zIn, cy + y);
-          for (const dy of [-0.0045, 0.0045]) {
-            const a = new THREE.Object3D(), b = new THREE.Object3D();
-            a.position.copy(end.position).setY(end.position.y + dy);
-            b.position.copy(tip.position).setY(tip.position.y + dy);
-            parent.add(a);
-            inner.add(b);
-            k.link(parent, a, b, 0.0028, "metal");
-          }
-        }
+        for (let i = 0; hinges && i < n; i++) hinge(k, inner, parent, { sx, w, y: -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1), cx, cy, zIn });
       }
       pivot.add(inner);
       parent.add(pivot);
@@ -159,11 +148,14 @@ export function buildKitchen(plan, mats, level) {
     flat() { return { ...region(), top: true }; },
     need(y) { needTop = Math.max(needTop, y); },
     mover(apply) { movers.push({ apply }); },
-    link(parent, a, b, r, key) {
-      const rod = new THREE.Mesh(new THREE.CylinderGeometry(r, r, 1, 8), mats[key]);
-      rod.castShadow = level.shadows;
+    hw(o) { hardware.push(o); return o; },
+    link(parent, a, b, r, key, flat = null) {
+      const geo = flat ? new THREE.BoxGeometry(flat[0], 1, flat[1]) : new THREE.CylinderGeometry(r, r, 1, 8);
+      const rod = new THREE.Mesh(geo, mats[key]);
+      rod.castShadow = !flat && level.shadows;
       parent.add(rod);
       const v1 = new THREE.Vector3(), v2 = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0);
+      const ax = new THREE.Vector3(), az = new THREE.Vector3(), basis = new THREE.Matrix4();
       movers.push({
         apply() {
           b.updateWorldMatrix(true, false);
@@ -176,7 +168,14 @@ export function buildKitchen(plan, mats, level) {
           v2.sub(v1);
           const L = v2.length();
           rod.scale.set(1, Math.max(L, 0.001), 1);
-          if (L > 1e-5) rod.quaternion.setFromUnitVectors(up, v2.multiplyScalar(1 / L));
+          if (L < 1e-5) return;
+          v2.multiplyScalar(1 / L);
+          if (flat) {
+            // широкая сторона пластины — по вертикали
+            ax.crossVectors(up, v2).normalize();
+            az.crossVectors(ax, v2);
+            rod.quaternion.setFromRotationMatrix(basis.makeBasis(ax, v2, az));
+          } else rod.quaternion.setFromUnitVectors(up, v2);
         },
       });
       return rod;
@@ -279,7 +278,7 @@ export function buildKitchen(plan, mats, level) {
     .filter((s) => s.front)
     .map((s) => ({ group: s.mesh.userData.group, w: Math.round(s.mesh.userData.w * 1000), h: Math.round(s.mesh.userData.h * 1000) }));
 
-  return { root, switchable, lamps, movers, pickables, parts, height: R.height };
+  return { root, switchable, lamps, movers, pickables, hardware, parts, height: R.height };
 }
 
 export function addLights(scene, level) {

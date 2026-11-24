@@ -22,7 +22,7 @@ export function doorsRow(k, parent, w, h, cy, z, key, region) {
 export function base(k, w, variant, opt = {}) {
   const sys = drawerOf(opt.dt, opt.dr);
   const g = new THREE.Group();
-  const H = BASE_H - PLINTH, d = D - 0.02;
+  const H = BASE_H - PLINTH, d = D - 0.002;
   if (variant === "drawers" || variant === "hob") {
     g.add(k.box(w - 0.004, H, d, "body", 0, PLINTH + H / 2, d / 2, "body"));
   } else {

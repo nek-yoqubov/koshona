@@ -1,22 +1,27 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { toCreasedNormals } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
-// Настоящие модели фурнитуры (Blum, 3D Warehouse), упрощённые и приведённые к своей системе координат.
-// Пока модели не загружены, движок рисует упрощённую замену.
+// Официальные модели фурнитуры Blum (tools/build-hardware.py). ASSETS[файл][деталь] = геометрия.
+// Пока файл не загружен, движок рисует упрощённую замену и перестраивает сцену после загрузки.
 export const ASSETS = {};
-const LIST = { hkBody: "hk_body", hkArm: "hk_arm" };
+const FILES = { hkTop: "hk_top", frontFix: "front_fix", clipTop: "clip_top" };
 
 let promise = null;
 export function loadAssets(base) {
   if (promise) return promise;
   const loader = new GLTFLoader();
   promise = Promise.all(
-    Object.entries(LIST).map(([key, file]) =>
+    Object.entries(FILES).map(([key, file]) =>
       loader.loadAsync(`${base}models/${file}.glb`).then((g) => {
-        let geo = null;
-        g.scene.traverse((o) => { if (o.isMesh && !geo) geo = o.geometry; });
-        geo.userData.shared = true;
-        geo.computeVertexNormals();
-        ASSETS[key] = geo;
+        const parts = {};
+        g.scene.updateMatrixWorld(true);
+        g.scene.traverse((o) => {
+          if (!o.isMesh) return;
+          const geo = toCreasedNormals(o.geometry.clone().applyMatrix4(o.matrixWorld), 0.6);
+          geo.userData.shared = true;
+          parts[o.name] = geo;
+        });
+        ASSETS[key] = parts;
       }).catch(() => {}),
     ),
   );
