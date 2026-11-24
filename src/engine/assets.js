@@ -4,7 +4,7 @@ import { toCreasedNormals } from "three/examples/jsm/utils/BufferGeometryUtils.j
 // Официальные модели фурнитуры Blum (tools/build-hardware.py). ASSETS[файл][деталь] = геометрия.
 // Пока файл не загружен, движок рисует упрощённую замену и перестраивает сцену после загрузки.
 export const ASSETS = {};
-const FILES = { hkTop: "hk_top", frontFix: "front_fix", clipTop: "clip_top", hsTop: "hs_top" };
+const FILES = { hkTop: "hk_top", frontFix: "front_fix", clipTop: "clip_top", hsTop: "hs_top", hfTop: "hf_top", hlTop: "hl_top" };
 
 let promise = null;
 export function loadAssets(base) {

@@ -5,7 +5,7 @@
 export const LIFTS = [
   { id: "hk", code: "k", brand: "Blum", name: "AVENTOS HK top", motion: "stay", angle: 1.87, rise: 0.05, size: "big", h: [180, 600] },
   { id: "hks", code: "s", brand: "Blum", name: "AVENTOS HK-S", motion: "stay", angle: 1.8, rise: 0.03, size: "small", h: [180, 600] },
-  { id: "hkxs", code: "x", brand: "Blum", name: "AVENTOS HK-XS", motion: "stay", angle: 1.6, rise: 0.02, size: "small", h: [240, 600] },
+  { id: "hkxs", code: "x", brand: "Blum", name: "AVENTOS HK-XS", motion: "stay", angle: 1.75, rise: 0.02, size: "small", h: [240, 600] },
   { id: "hki", code: "i", brand: "Blum", name: "AVENTOS HKi", motion: "stay", angle: 1.8, rise: 0.04, hidden: true, h: [180, 600] },
   { id: "hl", code: "p", brand: "Blum", name: "AVENTOS HL", motion: "parallel", h: [300, 580] },
   { id: "hs", code: "o", brand: "Blum", name: "AVENTOS HS", motion: "over", h: [350, 800] },

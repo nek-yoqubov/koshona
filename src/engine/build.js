@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { hinge } from "../modules/mech.js";
+import { hinge, PANEL_IN } from "../modules/mech.js";
 import { MODULES, BASE_H, D, UP_D, UP_Y0, PLINTH, TOP_T, TOP_R } from "../modules/index.js";
 
 // Столешница-постформинг: передний край скруглён сверху и снизу, пластик обходит кромку — рисунок идёт через неё
@@ -129,7 +129,10 @@ export function buildKitchen(plan, mats, level) {
         inner.position.set(-sx * (w / 2 - 0.009), 0, 0.002);
         movers.push({ obj: pivot, axis: "y", max: side === "left" ? -Math.PI / 2 : Math.PI / 2 });
         const n = h > 1.6 ? 4 : h > 0.9 ? 3 : 2;
-        for (let i = 0; hinges && i < n; i++) hinge(k, inner, parent, { sx, w, y: -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1), cx, cy, zIn });
+        for (let i = 0; hinges && i < n; i++) {
+          const y = -h / 2 + 0.1 + ((h - 0.2) * i) / (n - 1), px = sx * (w / 2 - PANEL_IN);
+          hinge(k, inner, parent, { dp: [px, y, -0.01], bp: [cx + px, cy + y, zIn], mx: -sx });
+        }
       }
       pivot.add(inner);
       parent.add(pivot);
@@ -149,7 +152,7 @@ export function buildKitchen(plan, mats, level) {
     need(y) { needTop = Math.max(needTop, y); },
     mover(apply) { movers.push({ apply }); },
     hw(o) { hardware.push(o); return o; },
-    link(parent, a, b, r, key, flat = null) {
+    link(parent, a, b, r, key, flat = null, fixed = 0) {
       const geo = flat ? new THREE.BoxGeometry(flat[0], 1, flat[1]) : new THREE.CylinderGeometry(r, r, 1, 8);
       const rod = new THREE.Mesh(geo, mats[key]);
       rod.castShadow = !flat && level.shadows;
@@ -164,15 +167,17 @@ export function buildKitchen(plan, mats, level) {
           b.getWorldPosition(v2);
           parent.worldToLocal(v1);
           parent.worldToLocal(v2);
-          rod.position.copy(v1).add(v2).multiplyScalar(0.5);
           v2.sub(v1);
           const L = v2.length();
-          rod.scale.set(1, Math.max(L, 0.001), 1);
           if (L < 1e-5) return;
           v2.multiplyScalar(1 / L);
+          // fixed — деталь постоянной длины от первой точки (труба упора), иначе тянется между точками
+          const len = fixed || L;
+          rod.scale.set(1, len, 1);
+          rod.position.copy(v1).addScaledVector(v2, len / 2);
           if (flat) {
             // широкая сторона пластины — по вертикали
-            ax.crossVectors(up, v2).normalize();
+            ax.crossVectors(flat[2] || up, v2).normalize();
             az.crossVectors(ax, v2);
             rod.quaternion.setFromRotationMatrix(basis.makeBasis(ax, v2, az));
           } else rod.quaternion.setFromUnitVectors(up, v2);

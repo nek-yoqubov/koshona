@@ -110,3 +110,49 @@ save("hs_top", {
     "tab": fr_group(pick(arms, lambda m: "orange" in m["mat"])),
     "bracket": fr_group(pick(arms, lambda m: m["mat"] == "Noname")),
 })
+
+
+# AVENTOS HF top: одиночные детали (не комплект), у каждой свои координаты: X — вглубь корпуса, Y — вверх, Z — от боковины.
+# Корпус, заглушка и внутренняя штанга — относительно оси механизма; труба и головка — относительно оси на нижнем фасаде.
+def fr_parts(name):
+    out = []
+    for m in bazis.meshes(os.path.join(SRC, "antarion", name + ".fr3d")):
+        lab = bazis.components(m["tris"])
+        for c in range(lab.max() + 1):
+            sel = lab == c
+            v = m["tris"][sel].reshape(-1, 3)
+            out.append(dict(tris=m["tris"][sel], nor=m["nor"][sel], mat=m["mat"], n=int(sel.sum()), lo=v.min(0), hi=v.max(0)))
+    return out
+
+def rebase(ms, px, py):
+    out = []
+    for m in ms:
+        t, n = m["tris"], m["nor"]
+        out.append(dict(tris=np.stack([t[..., 2], t[..., 1] - py, -(t[..., 0] - px)], -1), nor=np.stack([n[..., 2], n[..., 1], -n[..., 0]], -1)))
+    return out
+
+M_AXIS, F_AXIS = (11.07, -159.17), (6.18, -166.41)
+mech, arm, cap = fr_parts("hf_mech"), fr_parts("hf_arm"), fr_parts("top_cap")
+is_tube = lambda m: m["mat"] != "Noname" and (m["n"] == 652 or m["hi"][1] > -100)
+save("hf_top", {
+    "body": fr_group(rebase(pick(mech, lambda m: m["mat"] != "grau_220" and m["lo"][1] > -300), *M_AXIS)),
+    "cover": fr_group(rebase(pick(cap, lambda m: m["mat"] == "grau_220"), *M_AXIS)),
+    "logo": fr_group(rebase(pick(cap, lambda m: m["mat"] != "grau_220"), *M_AXIS)),
+    "lever": fr_group(rebase(pick(mech, lambda m: m["mat"] == "grau_220" or m["lo"][1] <= -300), *M_AXIS)),
+    "tube": fr_group(rebase(pick(arm, is_tube), *F_AXIS)),
+    "head": fr_group(rebase(pick(arm, lambda m: m["mat"] != "Noname" and not is_tube(m)), *F_AXIS)),
+})
+
+
+# AVENTOS HL top (рычаги 35, ВК 340–390): комплекты в координатах шкафа, как у HS top
+left = lambda ms: [m for m in ms if (m["lo"][0] + m["hi"][0]) / 2 < 150]
+mech, arms = left(fr_parts("hl_mech")), left(fr_parts("hl_arms"))
+cy = lambda m: (m["lo"][1] + m["hi"][1]) / 2
+save("hl_top", {
+    "body": fr_group(pick(mech, lambda m: m["mat"] == "grau_220")),
+    "bodyDark": fr_group(pick(mech, lambda m: m["mat"] != "grau_220") + pick(arms, lambda m: m["mat"] == "far-ob_dg")),
+    "lever1": fr_group(pick(arms, lambda m: (m["mat"] == "grau_220" and m["n"] > 1200 and m["n"] < 1300) or (m["mat"] == "__3_dunkelgrau" and cy(m) > -150))),
+    "lever2": fr_group(pick(arms, lambda m: m["mat"] == "grau_220" and m["n"] > 1400 and m["n"] < 1500)),
+    "carrier": fr_group(pick(arms, lambda m: (m["mat"] == "grau_220" and m["n"] not in range(1200, 1500)) or (m["mat"] == "__3_dunkelgrau" and cy(m) <= -150))),
+    "bracket": fr_group(pick(arms, lambda m: m["mat"] == "Noname")),
+})
